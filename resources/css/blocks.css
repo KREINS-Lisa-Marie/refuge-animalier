@@ -6,3 +6,147 @@ Typografie
 interne Layoutstruktur einer Komponente
 Variationen durch Modifier (--)
 */
+
+
+
+
+
+
+/*      --     Colors       --      */
+
+
+:root {
+  /*  --button: #e6dbd1;
+    --input-border: #f2ede8;
+    --input-border: #e6dbd1;
+    --dark-brown: #3f3128;
+*/
+
+    /* admin */
+    --background-admin: #f5f5f5;
+    --validation: #d4dd87;
+
+    /* public */
+    --background-basic: #ebe9e4;
+    --content-light-green: #dfdabe;
+    --content-dark-green: #bdbd9b;
+
+    /* general */
+    --black: #000000;
+    --white: #ffffff;
+    --dark-green-accent-color: #51594c;
+    --delete: #c71515;
+    --placeholder: #a9a7a7;
+}
+
+
+
+/*      --      font-sizes      --      */
+
+:root{
+
+    /* admin */
+    --web-admin-text-size: 20;
+    --web-dashboard-big-number: 70;
+    --admin-site-title: 40;
+    --titre-inter-admin: 32;
+    --phone-big-numbers: 48;
+
+    /* public */
+    --web-title-public: 64;
+    --interligne-pour-texte: 28;
+    --footer-pages: 16;
+    --homepage-title-phone: 36;
+    --phone-interligne: 23.8;
+
+    /* general */
+
+    --text-size-phone: 14;
+    --phone-label-button-size: 16;
+
+    --small-border-: 8;
+    --medium-border-: 16;
+    --big-border-: 32;
+    --xl-border-: 200;
+
+    /*--interligne-texte: 38.91999816894531;*/
+}
+
+
+
+/*          --       Sizes       --     */
+
+:root{
+    --interligne-texte: 170%;
+}
+
+
+
+/*      -- shadows --       */
+
+:root{
+    --general-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.10);
+    --web-admin-navbar-shadow: 4px 0 17px 0 rgba(0, 0, 0, 0.15);
+    --public-navbar-shadow: 0 35px 40px 1px rgba(0, 0, 0, 0.05);
+
+}
+
+
+
+
+
+/*      fonts       */
+
+/* Defined weights:
+  * 100: -
+  * 200: -
+  * 300: light
+  * 400: regular
+  * 500: medium
+  * 600: semi-bold
+  * 700: bold
+  * 800: -
+  * 900: -
+ */
+
+
+
+:root {
+    font-family: 'Montserrat', Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Montserrat Regular */
+@font-face {
+    src: url('/resources/fonts/Montserrat-Regular.ttf') format('TrueType');
+    font-family: 'Montserrat';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Montserrat Medium */
+@font-face {
+    src: url('/resources/fonts/Montserrat-Medium.ttf') format('TrueType');
+    font-family: 'Montserrat';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* Montserrat Italic */
+@font-face {
+    src: url('/resources/fonts/Montserrat-Italic.ttf') format('TrueType');
+    font-family: 'Montserrat';
+    font-display: swap;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* SulphurPoint Bold */
+@font-face {
+    src: url('/resources/fonts/Montserrat-Bold.ttf') format('TrueType');
+    font-family: 'Montserrat';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 700;
+}
