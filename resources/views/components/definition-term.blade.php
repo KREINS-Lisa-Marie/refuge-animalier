@@ -1,0 +1,3 @@
+<dt class="">
+    {{ $slot }}
+</dt>
