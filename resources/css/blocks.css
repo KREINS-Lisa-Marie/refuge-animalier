@@ -10,3 +10,25 @@ Variationen durch Modifier (--)
 
 /*      Ce fichier contient les grand blocks comme le burger et les cards         */
 
+
+/*      card        */
+
+.card{
+    max-width: var(--phone-card-width);
+    background-color: var(--background-basic);
+    border-radius: var(--medium-border);
+    padding: var(--padding-24);
+    color: var(--dark-green-accent-color);
+    .infos{
+        font-weight: 500;
+    }
+    img{
+        box-shadow: var(--general-shadow);
+    }
+    box-shadow: var(--general-shadow);
+}
+
+.card-petname{
+    font-size: var(--phone-pet-name);
+}
+
