@@ -33,6 +33,14 @@ Variationen durch Modifier (--)
 }
 
 
+/*          textarea       */
+.textarea{
+    min-height: 200px;
+    background-color: var(--white);
+    min-width: 100%;
+}
+
+
 /*          arrows      */
 
 .arrow_discover{
