@@ -11,6 +11,81 @@ Variationen durch Modifier (--)
 /*      Ce fichier contient les grand blocks comme le burger et les cards         */
 
 
+/*      burger      */
+
+@media (max-width: 1199px) {
+    #burger_menu, .burger_menu{
+        grid-area: burger;
+    }
+    .nav__header h2, .logo_image, .skip{
+        grid-area: logo;
+    }
+    .nav__container__header{
+        grid-area: menu;
+        margin-top: var(--margin-24);  /*16px*/
+    }
+    .nav__header{
+        display: grid;
+        grid-template-areas: "logo burger"
+          "menu . ";
+        grid-gap: 1fr;
+        justify-content: space-between;
+        align-items: center;
+    }
+    /*    .nav__item__header a{
+            color: var(--white);
+        }*/
+    .nav__item__header{
+        margin-bottom: var(--margin-8);  /*8px*/
+        color: var(--white);
+    }
+    header{
+        width: calc(100% ); /* width complète */
+        padding: 0.541666666666667em 1em;  /*13px 24px*/
+    }
+    .nav__header input:not(:checked) ~ .nav__container__header, input[type="checkbox"] {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+    }
+
+    /*    BURGER Menu   */
+    input[type="checkbox"]:checked ~ .nav__header {
+        left: 0
+    }
+
+
+
+    /*Animation du X dans le Burger */
+    .burger_menu path {
+        transition: all .25s;
+        overflow: auto;
+    }
+    input[type="checkbox"]:checked ~ .burger_menu {
+        path:first-of-type {
+            transform-origin: center;
+            transform: rotate(45deg) translateY(calc(50% - 2px));
+        }
+        path:nth-of-type(2) {
+            transform-origin: center;
+            transform: scale(0);
+        }
+        path:last-of-type {
+            transform-origin: center;
+            transform: rotate(-45deg) translateY(calc(-50% + 2px));
+        }
+    }
+}
+
+
+
+
+
 /*      card        */
 
 .card{
@@ -59,6 +134,16 @@ Variationen durch Modifier (--)
     margin-top: var(--margin-56);
     margin-bottom: var(--margin-56);
 }
+
+
+/* header */
+
+.header-general{
+    background-color: var(--dark-green-accent-color);
+    color: var(--white);
+    padding: var(--padding-8) var(--padding-24);
+}
+
 
 /*          input       */
 .field__input{
