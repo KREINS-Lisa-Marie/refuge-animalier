@@ -275,6 +275,14 @@ input::placeholder{
 }
 
 
+/* header */
+
+@media (max-width: 999px) {
+    .big-logo{
+        display: none;
+    }
+}
+
 
 /*  text    */
 .page-title{
@@ -291,6 +299,13 @@ option:last-of-type{
 .first-section{
     display: flex;
     flex-direction: column-reverse;
+}
+
+.header {
+    z-index: 10;
+    position: fixed; /* fixer la navbar avec fixed position */
+    top: 0; /* Positionne la navbar au début de la page */
+    box-shadow: var(--public-navbar-shadow);
 }
 
 

@@ -1,5 +1,5 @@
-<header class="">
-    <h1 class="" role="heading" aria-level="1">
+<header class="header-general header">
+    <h1 class="sro" role="heading" aria-level="1">
         Les pattes heureuses
     </h1>
 {{--<nav class="nav__header">
@@ -132,13 +132,13 @@
     </ul>
  </nav>--}}
 
-    <nav class="" role="navigation" aria-label="Main">
-        <h2 class="" aria-level="2" role="heading">Navigation principale</h2>
+    <nav class="nav__header" role="navigation" aria-label="Main">
+        <h2 class="sro" aria-level="2" role="heading">Navigation principale</h2>
 
         <a href="/"
            lang=""
            hreflang=""
-           class=""
+           class="languages__link nav__link__header"
            title="Logo des PATTES HEUREUSES — Aller vers la page d'accueil"
            aria-label="Aller vers la page d’accueil">
             <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.71 34" height="34" width="110.44">
@@ -194,7 +194,7 @@
             </svg>
         </a>
 
-        <a href="#content" class="" title="Aller au contenu principal" aria-label="Aller au contenu principal">Aller au contenu principal</a>
+        <a href="#content" class="sro skip" title="Aller au contenu principal" aria-label="Aller au contenu principal">Aller au contenu principal</a>
 
         <input type="checkbox" id="burger_menu" name="burger_menu">
         <label for="burger_menu" class="burger_menu">
@@ -204,7 +204,7 @@
                 <path d="M2 20H22" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
             </svg>
         </label>
-        <ul class="">
+        <ul class="nav__container__header">
 {{--            <?php foreach(dw_get_navigation_links('header') as $link): ?>
             <li class="nav__item__header">
                 <a href="<?= $link->href; ?>" class="nav__link__header" title="<?= __hepl('Aller vers la page ') ?>'<?=$link->label;?>'" aria-label="<?= __hepl('Aller vers la page ') ?>'<?=$link->label;?>'"><?= $link->label; ?></a>
@@ -225,14 +225,14 @@
                         <?= $lang['slug'] ?><!-- Affiche le code de langue ('fr' ou 'de') -->
                 </a>
             </li>--}}
-            <li class="">
-                <a href="{{route('public.homepage')}}" class="" title="Aller vers la page Accueil" aria-label="Aller vers la page Accueil">ACCUEIL </a>
-        </li>
-        <li class="">
-            <a href="{{route('public.animals')}}" title="Aller vers la page Nos animaux" class="" aria-label="Aller vers la page Nos animaux">NOS ANIMAUX </a>
+            <li class="nav__item__header">
+                <a href="{{route('public.homepage')}}" class="nav__link__header" title="Aller vers la page Accueil" aria-label="Aller vers la page Accueil">ACCUEIL </a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('public.contact')}}" class="" title="Aller vers la page Contact" aria-label="Aller vers la page Contact">CONTACT</a>
+            <a href="{{route('public.animals')}}" title="Aller vers la page Nos animaux" class="nav__link__header" aria-label="Aller vers la page Nos animaux">NOS ANIMAUX </a>
+        </li>
+        <li class="nav__item__header">
+            <a href="{{route('public.contact')}}" class="nav__link__header" title="Aller vers la page Contact" aria-label="Aller vers la page Contact">CONTACT</a>
         </li>
         </ul>
     </nav>
