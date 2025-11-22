@@ -34,6 +34,35 @@ Variationen durch Modifier (--)
 
 
 
+/*      return button       */
+.return-button{
+    padding: var(--padding-8) var(--padding-16);
+    background-color: var(--dark-green-accent-color);
+    color: var(--white);
+    display: flex;
+    gap: var(--flex-gap-8);
+    max-width: 116px;
+    border-radius: var(--big-border);
+    margin-top: var(--margin-60);
+    margin-left: var(--margin-24);
+}
+
+/*          input       */
+.field__input{
+    border-radius: var(--big-border);
+    display: block;
+    background-color: var(--white);
+    padding: var(--padding-16);
+    margin-bottom: var(--margin-32);
+
+}
+@media (max-width: 750px) {
+    .field__input, .field__select{
+        min-width: 100%;
+    }
+}
+
+
 
 /*          label       */
 .field__label{
