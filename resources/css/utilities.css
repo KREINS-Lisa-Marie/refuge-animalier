@@ -273,3 +273,39 @@ input::placeholder{
 .italic{
     font-style: italic;
 }
+
+
+
+/*  text    */
+.page-title{
+    font-size: var(--phone-title);
+    color: var(--dark-green-accent-color);
+}
+
+
+
+
+option:last-of-type{
+    margin-bottom: 0;
+}
+.first-section{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+
+@media (max-width: 999px) {
+    /*      Espace de la nav        */
+    .body-content{
+        margin-top: 50px;
+    }
+    p{
+        font-size: var(--text-size-phone);
+    }
+    .fs-texte{
+        font-size: var(--text-size-phone);
+    }
+    .interl-text {
+        line-height: var(--phone-interligne);
+    }
+}
