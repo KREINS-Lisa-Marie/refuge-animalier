@@ -47,6 +47,19 @@ Variationen durch Modifier (--)
     margin-left: var(--margin-24);
 }
 
+.footer-button{
+    display: block;
+    font-size: var(--phone-footer-button);
+    background-color: var(--background-basic);
+    padding: var(--padding-16) var(--padding-32);
+    color: var(--black);
+    border: 1px var(--content-light-green) solid;
+    max-width:  var(--phone-contact-button-width);
+    border-radius: var(--big-border);
+    margin-top: var(--margin-56);
+    margin-bottom: var(--margin-56);
+}
+
 /*          input       */
 .field__input{
     border-radius: var(--big-border);
@@ -77,6 +90,25 @@ Variationen durch Modifier (--)
     background-color: var(--white);
     min-width: 100%;
 }
+
+
+
+/*      footer      */
+
+.general-footer{
+    color: var(--white);
+    background-color: var(--dark-green-accent-color);
+    padding: var(--padding-56) var(--padding-24);
+    font-size: var(--phone-legal);
+}
+
+.footer-title{
+    font-size: var(--phone-footer-content);
+    margin-bottom: var(--margin-24);
+    font-weight: 700;
+}
+
+
 
 
 /*          arrows      */

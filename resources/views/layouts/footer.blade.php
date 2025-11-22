@@ -1,45 +1,44 @@
-<footer>
+<footer class="general-footer">
     <h2 class="sro" aria-level="2">
         Footer
     </h2>
     <div>
-        <div class="informations-footer">
-            <h3>
+        <div class="informations-footer m-b-56">
+            <h3 class="footer-title">
                 LES PATTES HEUREUSES
             </h3>
-            <p>
+            <p class="m-b-16">
                 Responsable : Elise Lambot
             </p>
-            <p>
+            <p class="m-b-16">
                 Téléphone : 080 546 384
             </p>
-            <p>
+            <p class="m-b-16">
                 Adresse : Rue des bois 4, 4700 Malmédy
             </p>
-            <p>
+            <p >
                 Ouvert : Lu à Ve — 10 à 17h
             </p>
         </div>
         <nav>
-            <h3>
-                Navigation <div>de bas de page</div>
+            <h3 class="footer-title">
+                Navigation <div class="sro">de bas de page</div>
             </h3>
-           <a href="{{--{{route('jiris.index')}}--}}"> ACCUEIL </a>
-            <a href="{{--{{route('projects.index')}}--}}"> NOS ANIMAUX </a>
-            <a href="{{--{{route('contacts.index')}}--}}"> CONTACT</a>
-
+           <a href="{{--{{route('jiris.index')}}--}}" class="d-block m-b-16">Accueil</a>
+            <a href="{{--{{route('projects.index')}}--}}" class="d-block m-b-16">Nos animaux</a>
+            <a href="{{--{{route('contacts.index')}}--}}" class="d-block m-b-16" >Contact</a>
         </nav>
-        <div>
-            <a href="">
+        <div class="footer-button">
+            <a href="" class="">
                 Contactez-nous
             </a>
         </div>
     </div>
-    <div>
-        <a href="">
+    <div class="legal-information">
+        <a href="" class="d-block m-b-16">
             Mentions Légales
         </a>
-        <p>
+        <p >
             Crée par Kreins Lisa-Marie
         </p>
     </div>
