@@ -44,15 +44,15 @@
 @component('layouts.app')
 
 
-        <h2 class="">
+        <h2 class="page-title m-t-110 m-b-60 fw-700 t-a-center">
             Nos animaux
         </h2>
 
-        <section class="">
-            <h3 class="" aria-level="3" role="heading">
+        <section class="background-light p-t-b-60 p-l-r-24 ">
+            <h3 class="sro" aria-level="3" role="heading">
                 Liste des animaux
             </h3>
-            <div class="">
+            <div class="d-flex flex-c flex-gap-24 max-w-web">
                 <div><x-select select_name="select-animals" label="Age" :options="$age_options"/>
                 </div>
 
@@ -61,19 +61,19 @@
             </div>
 
 
-            <button class="">
+            <button class="p-16-32 d-i-block dark-button-background color-white border-r-big">
                 Filter
             </button>
             </div>
 
-            <label for="search-animals" class="">
+            <label for="search-animals" class="sro">
               Rechercher
             </label>
-            <input type="search" name="search-animals" placeholder="Rechercher" id="search-animals" class="">
+            <input type="search" name="search-animals" placeholder="Rechercher" id="search-animals" class="background-white min-w-full border-r-big p-16-32 m-t-32 m-b-56">
 
 
 
-            <ul class="">
+            <ul class="d-flex  flex-gap-24 flex-wrap max-w-web pet-group">
                 <li>
                     <x-cards  petname="Balou" petstatus="A adopter" petage="5" petrace="Frenchie" petsex="Masculin"   />
                 </li>
