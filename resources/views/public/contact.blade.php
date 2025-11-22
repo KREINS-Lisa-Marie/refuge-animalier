@@ -1,46 +1,50 @@
 @component('layouts.app')
-<form action="" method="POST" class="form">
-    <h2>
+
+    <h2 class="page-title fw-700 p-b-32 t-a-center p-t-60">
         Contactez-nous
     </h2>
-    <p>
-        Pour nous contacter, veuillez s.v.p. remplir le formulaire. Nous allons vous contacter dès que possible.
-    </p>
-    <p>
-        Si vous voulez adopter un animal, veuillez s.v.p. renseigner son nom.
+
+    <form action="" method="POST" class="form p-32-16  web-margin-l-r-auto background-light border-r-small m-lr-24 m-b-60">
+
+        <h2 class=" fw-700 p-b-32 t-a-center color-dark">
+            Formulaire de contact
+        </h2>
+    <p class="italic m-b-32">
+        Pour nous contacter, veuillez s.v.p. remplir le formulaire. Nous allons vous contacter dès que possible. Si vous voulez adopter un animal, veuillez s.v.p. renseigner son nom.
     </p>
 
     <fieldset>
 
-        <p class="obligations">* Champs obligatoires
+        <p class="obligations m-b-32">* Champs obligatoires
         </p>
 
+        <div class="d-flex flex-gap-24 flex-wrap">
 
-        @component('components.fields.text', ['name' => 'firstname', 'id'=>'firstname', 'value' =>'', 'placeholder' => 'John'])
-            Prénom*
-        @endcomponent
+                <x-fields.text name="firstname" id="firstname" value="" placeholder="John">
+                    Prénom*
+                </x-fields.text>
+
+            <x-fields.text name="lastname" id="lastname" value="" placeholder="Doe">
+                Nom*
+            </x-fields.text>
+
+                <x-fields.email value="">
+                    Adresse Email*
+                </x-fields.email>
 
 
-        @component('components.fields.text', ['name' => 'lastname', 'id'=>'lastname', 'value' =>'', 'placeholder' => 'Doe'])
-            Nom*
-        @endcomponent
-
-
-@component('components.fields.email', ['value'=> "" ])
-            Adresse Email*
-        @endcomponent
-
-
-        <div class="field">
-            <label for="subject" class="field__label">
-                Concernant*
-            </label>
-            <select name="subject-select" id="subject-select" class="field__select" aria-required="true">
-                <option value="">--Choisissez un sujet--</option>
-                <option value="information">Informations générales</option>
-                <option value="volunteer">Bénévolat</option>
-                <option value="volunteer">Demande d'adoption</option>
-            </select>
+            <div class="field p-b-32">
+                <label for="subject" class="field__label">
+                    Concernant*
+                </label>
+                <select name="subject-select" id="subject-select"
+                        class="field__select background-white p-16 border-r-big " aria-required="true">
+                    <option value="">--Choisissez un sujet--</option>
+                    <option value="information">Informations générales</option>
+                    <option value="volunteer">Bénévolat</option>
+                    <option value="volunteer">Demande d'adoption</option>
+                </select>
+            </div>
         </div>
 
 
@@ -53,6 +57,6 @@
 
 
     </fieldset>
-    <button type="submit" class="btn">Envoyer</button>
+    <button type="submit" class="btn background-dark color-white p-t-b-16 dark-button-background min-w-130 border-r-big margin-l-r-auto m-t-32 d-block">Envoyer</button>
 </form>
 @endcomponent
