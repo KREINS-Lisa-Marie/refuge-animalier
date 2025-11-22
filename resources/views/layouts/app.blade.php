@@ -7,13 +7,15 @@
     <meta name="author" content="Lisa-Marie Kreins">
     <meta name="description" content="La page du réfuge 'Les pattes heureuses'">
     <title>{{ $title ?? 'Page Title' }}</title>
+    @vite(['resources/css/app.css'])
 </head>
-<body>
+<body class="body-style">
 @component('layouts.navigation')
 @endcomponent
 
+<main  class="body-content" id="content">
 {{ $slot }}
-
+    </main>
 @component('layouts.footer')
 @endcomponent
 </body>

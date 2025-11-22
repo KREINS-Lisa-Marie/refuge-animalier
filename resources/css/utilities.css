@@ -309,6 +309,7 @@ option:last-of-type{
 }
 
 
+
 @media (max-width: 999px) {
     /*      Espace de la nav        */
     .body-content{
@@ -322,5 +323,11 @@ option:last-of-type{
     }
     .interl-text {
         line-height: var(--phone-interligne);
+    }
+}
+
+@media (max-width: 750px) {
+    .field__input, .field__select{
+        min-width: 100%;
     }
 }
