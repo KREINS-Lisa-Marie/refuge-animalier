@@ -32,3 +32,16 @@ Variationen durch Modifier (--)
     font-size: var(--phone-pet-name);
 }
 
+
+/*          arrows      */
+
+.arrow_discover{
+vertical-align: center;
+}
+
+.arrow_discover{
+    transition: transform 0.3s ease;
+}
+ .link_discover:hover .arrow_discover{
+     transform: translateX(5px); /* Pfeil bewegt sich beim Hover nach rechts */
+ }
