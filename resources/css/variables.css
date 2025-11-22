@@ -1,0 +1,181 @@
+/*      Le fichier contient toutes les variables disponibles        */
+
+
+/*      --     Colors       --      */
+:root {
+
+    /* admin */
+    --background-admin: #f5f5f5;
+    --validation: #d4dd87;
+
+    /* public */
+    --background-basic: #ebe9e4;
+    --content-light-green: #dfdabe;
+    --content-dark-green: #bdbd9b;
+
+    /* general */
+    --black: #000000;
+    --white: #ffffff;
+
+    --dark-green-accent-color: #51594c;
+
+    --delete: #c71515;
+
+    --placeholder: #a9a7a7;
+}
+
+
+/*      -- shadows --       */
+
+:root{
+    --general-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.10);
+    --general-shadow-hover: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+    --web-admin-navbar-shadow: 4px 0 17px 0 rgba(0, 0, 0, 0.15);
+    --public-navbar-shadow: 0 35px 40px 1px rgba(0, 0, 0, 0.05);
+
+}
+
+
+
+/*      --      font-sizes      --      */
+
+:root{
+
+    /* admin */
+    --web-admin-text-size: 20px;
+    --web-dashboard-big-number: 70px;
+    --admin-site-title: 40px;
+    --titre-inter-admin: 32px;
+    --phone-big-numbers: 48px;
+
+    /* public */
+    --web-title-public: 64px;
+    --interligne-pour-texte: 28px;
+    --phone-footer-content: 12px;
+    --web-footer-content: 16px;
+    --web-footer-button: 24px;
+    --phone-footer-button: 16px;
+    --homepage-title-phone: 36px;
+    --phone-interligne: 23.8px;
+    --phone-legal: 12px;
+    --phone-title: 24px;
+    --phone-pet-name: 20px;
+    --phone-form-title: 20px;
+
+    /* general */
+
+    --text-size-phone: 14px;
+    --phone-label-button-size: 16px;
+
+    --small-border: 8px;
+    --medium-border: 16px;
+    --big-border: 32px;
+    --xl-border: 200px;
+
+    --width-130: 130px;
+
+
+
+    /*--interligne-texte: 38.91999816894531;*/
+}
+
+
+
+/*      -- margins & paddings  --       */
+
+:root{
+    --padding-16: 16px;
+    --padding-32: 32px;
+    --padding-24: 24px;
+    --padding-56: 56px;
+    --padding-8: 8px;
+    --padding-60: 60px;
+    --padding-150: 150px;
+
+    --margin-16: 16px;
+    --margin-24: 24px;
+    --margin-32: 32px;
+    --margin-56: 56px;
+    --margin-8: 8px;
+    --margin-60: 60px;
+    --margin-110: 110px;
+}
+
+
+
+
+/*          --       Sizes       --     */
+
+:root{
+    --interligne-texte: 170%;
+
+    --phone-contact-button-width: 192px;
+    --phone-card-width: 327px;
+
+    --web-card-width: 382px;
+
+    --flex-gap-8: 8px;
+    --flex-gap-24: 24px;
+}
+
+
+
+
+
+
+
+/*      fonts       */
+
+/* Defined weights:
+  * 100: -
+  * 200: -
+  * 300: light
+  * 400: regular
+  * 500: medium
+  * 600: semi-bold
+  * 700: bold
+  * 800: -
+  * 900: -
+ */
+
+
+
+:root {
+    font-family: 'Montserrat', Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Montserrat Regular */
+@font-face {
+    src: url('/resources/fonts/Montserrat-Regular.ttf') format('TrueType');
+    font-family: 'Montserrat';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Montserrat Medium */
+@font-face {
+    src: url('/resources/fonts/Montserrat-Medium.ttf') format('TrueType');
+    font-family: 'Montserrat';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* Montserrat Italic */
+@font-face {
+    src: url('/resources/fonts/Montserrat-Italic.ttf') format('TrueType');
+    font-family: 'Montserrat';
+    font-display: swap;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* SulphurPoint Bold */
+@font-face {
+    src: url('/resources/fonts/Montserrat-Bold.ttf') format('TrueType');
+    font-family: 'Montserrat';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 700;
+}
