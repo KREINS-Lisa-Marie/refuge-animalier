@@ -4,3 +4,79 @@ gap
 globale margin-Strategien (z. B. „flow“-Klassen)
 max-width / centering
 */
+
+/*      display     */
+
+.d-block{
+    display: block;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.d-i-block{
+    display: inline-block;
+}
+
+
+/*      flex properties         */
+
+
+
+.flex-c{
+    flex-direction: column;
+}
+
+.flex-dir{
+    flex-direction: column;
+}
+
+.flex-cr{
+    flex-direction: column-reverse;
+}
+
+.flex-r{
+    flex-direction: row;
+}
+
+/*   --flex justify-content--   */
+.flex-j-c-space-between{
+    justify-content: space-between;
+}
+
+.flex-j-c-end{
+    justify-content: end;
+}
+
+
+/*   --flex align-items--   */
+.flex-a-i-center{
+    align-items: center;
+}
+
+/*   --flex gap--   */
+.flex-gap-32{
+    gap: var(--margin-32);
+}
+
+.flex-gap-24{
+    gap: var(--flex-gap-24) ;
+}
+
+
+/*  --flex-wrap--   */
+.flex-wrap{
+flex-wrap: wrap;
+}
+
+
+/*      min-width         */
+
+.min-w-130{
+    min-width: var(--width-130);
+}
+
+.min-w-full{
+    min-width: 100%;
+}
