@@ -33,6 +33,15 @@ Variationen durch Modifier (--)
 }
 
 
+
+
+/*          label       */
+.field__label{
+    font-weight: 700;
+    margin-bottom: var(--margin-16);
+    display: block;
+}
+
 /*          textarea       */
 .textarea{
     min-height: 200px;
