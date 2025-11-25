@@ -49,11 +49,14 @@
     --phone-big-numbers: 48px;
 
     /* public */
+    --web-font-size: 20px;
+    --web-button-font-size: 24px;
     --web-title-public: 64px;
     --interligne-pour-texte: 28px;
     --phone-footer-content: 12px;
     --web-footer-content: 16px;
     --web-footer-button: 24px;
+    --web-form-title: 32px;
     --phone-footer-button: 16px;
     --homepage-title-phone: 36px;
     --phone-interligne: 23.8px;
@@ -87,6 +90,7 @@
     --padding-16: 16px;
     --padding-32: 32px;
     --padding-24: 24px;
+    --padding-48: 48px;
     --padding-56: 56px;
     --padding-8: 8px;
     --padding-60: 60px;
@@ -99,6 +103,7 @@
     --margin-8: 8px;
     --margin-60: 60px;
     --margin-110: 110px;
+    --margin-150: 150px;
 }
 
 

@@ -83,6 +83,32 @@ Variationen durch Modifier (--)
 }
 
 
+/*    DESKTOP     */
+
+@media (min-width: 1200px) {
+    input, label {
+        display: none;
+    }
+
+    .header {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 0.916666666666667em; /*22px*/
+        padding-bottom: 0.916666666666667em; /*22px*/
+        width: calc(100% - 10%); /* width complète */
+    }
+
+    .nav__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1415px; /*1415px*/
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+    }
+}
+
 
 
 
@@ -225,3 +251,36 @@ vertical-align: center;
  .link_discover:hover .arrow_discover{
      transform: translateX(5px); /* Pfeil bewegt sich beim Hover nach rechts */
  }
+
+
+
+
+
+
+ /*          page-title          */
+
+.page-title{
+    padding-top: var(--padding-60);
+    padding-bottom: var(--padding-32);
+}
+
+
+
+
+
+@media (min-width: 1000px) {
+    .page-title{
+        padding-top: var(--padding-150);
+        padding-bottom: var(--padding-56);
+    }
+    .field__label{
+        font-size: var(--web-font-size);
+    }
+    .contact-form-btn{
+        margin-top: var(--margin-56);
+    }
+    .field__input{
+        font-size: var(--web-font-size);
+        margin-bottom: 0;
+    }
+}

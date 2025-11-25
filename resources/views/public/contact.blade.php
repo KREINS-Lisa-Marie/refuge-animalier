@@ -1,12 +1,12 @@
 @component('layouts.app')
 
-    <h2 class="page-title fw-700 p-b-32 t-a-center p-t-60">
+    <h2 class="page-title color-dark fw-700  t-a-center ">
         Contactez-nous
     </h2>
 
-    <form action="" method="POST" class="form p-32-16  web-margin-l-r-auto background-light border-r-small m-lr-24 m-b-60">
+    <form action="" method="POST" class="form  web-margin-l-r-auto background-light border-r-small m-lr-24 m-b-60-150 ">
 
-        <h2 class=" fw-700 p-b-32 t-a-center color-dark">
+        <h2 class=" fw-700 p-b-32 t-a-center color-dark form-title">
             Formulaire de contact
         </h2>
     <p class="italic m-b-32">
@@ -18,7 +18,7 @@
         <p class="obligations m-b-32">* Champs obligatoires
         </p>
 
-        <div class="d-flex flex-gap-24 flex-wrap">
+        <div class="web-flex flex-gap-24 flex-wrap">
 
                 <x-fields.text name="firstname" id="firstname" value="" placeholder="John">
                     Prénom*
@@ -57,6 +57,6 @@
 
 
     </fieldset>
-    <button type="submit" class="btn background-dark color-white p-t-b-16 dark-button-background min-w-130 border-r-big margin-l-r-auto m-t-32 d-block">Envoyer</button>
+    <button type="submit" class="btn contact-form-btn background-dark color-white dark-button-background min-w-130 border-r-big margin-l-r-auto m-t-32 d-block p-16-32">Envoyer</button>
 </form>
 @endcomponent
