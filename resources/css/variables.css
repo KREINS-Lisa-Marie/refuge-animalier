@@ -77,6 +77,11 @@
 
     --width-130: 130px;
 
+    --height-52: 52px;
+    --height-55: 55px;
+
+    --max-w-footer-button-web: 273px;
+    --max-w-footer-web: 1198px;
 
 
     /*--interligne-texte: 38.91999816894531;*/
@@ -114,7 +119,7 @@
 :root{
     --interligne-texte: 170%;
 
-    --phone-contact-button-width: 192px;
+    --phone-contact-button-width: 194px;
     --phone-card-width: 327px;
 
     --web-card-width: 382px;

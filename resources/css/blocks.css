@@ -168,6 +168,7 @@ Variationen durch Modifier (--)
     border-radius: var(--big-border);
     margin-top: var(--margin-56);
     margin-bottom: var(--margin-56);
+    max-height: var(--height-52);
 }
 
 
@@ -230,6 +231,11 @@ Variationen durch Modifier (--)
     font-size: var(--phone-legal);
 }
 
+
+.informations-footer p{
+    font-size: var(--phone-footer-content);
+}
+
 .footer-title{
     font-size: var(--phone-footer-content);
     margin-bottom: var(--margin-24);
@@ -283,4 +289,20 @@ vertical-align: center;
         font-size: var(--web-font-size);
         margin-bottom: 0;
     }
+    .general-footer, .footer-title, .legal-information, .informations-footer p{
+        font-size: var(--web-footer-content);
+    }
+    .footer-button{
+        font-size: var(--web-footer-button);
+        max-height: var(--height-55);
+        max-width: var(--max-w-footer-button-web);
+    }
+    .general-footer>*{
+        max-width: var(--max-w-footer-web);
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
+
+
+

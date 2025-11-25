@@ -225,6 +225,10 @@ dd:last-of-type{
 .fs-20{
     font-size: var(--phone-form-title);
 }
+.fs-16{
+    font-size: var(--phone-form-title);
+}
+
 .fs-button{
     font-size: var(--phone-label-button-size);
 }
@@ -409,7 +413,7 @@ option:last-of-type{
     .form-title{
         font-size: var(--web-form-title);
     }
-    p{
+    main p{
         font-size: var(--web-font-size);
     }
     .btn{
@@ -420,3 +424,19 @@ option:last-of-type{
 @media (max-width: 999px) {
 
 }
+
+
+
+
+
+
+
+.fw-medium{
+    font-weight: 500;
+}
+
+
+
+
+
+
