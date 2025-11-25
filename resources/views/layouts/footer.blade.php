@@ -2,7 +2,7 @@
     <h2 class="sro" aria-level="2">
         Footer
     </h2>
-    <div>
+    <div class="web-flex flex-wrap flex-j-c-space-between">
         <div class="informations-footer m-b-56">
             <h3 class="footer-title">
                 LES PATTES HEUREUSES
@@ -29,7 +29,7 @@
             <a href="{{--{{route('contacts.index')}}--}}" class="d-block m-b-16" >Contact</a>
         </nav>
         <div class="footer-button">
-            <a href="{{route('public.contact')}}" class="">
+            <a href="{{route('public.contact')}}" class="fw-medium color-dark">
                 Contactez-nous
             </a>
         </div>
