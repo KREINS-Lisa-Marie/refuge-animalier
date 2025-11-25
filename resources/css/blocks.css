@@ -164,6 +164,7 @@ Variationen durch Modifier (--)
     border-radius: var(--big-border);
     margin-top: var(--margin-60);
     margin-left: var(--margin-24);
+    align-items: center;
 }
 
 /*      buttons       */
@@ -377,11 +378,64 @@ vertical-align: center;
     .filters button{
         font-size: var(--web-button-font-size);
     }
+
+    .animal-description-img{
+        .animal-description{
+            max-width: var(--max-w-animal-description-web);
+        }
+        .page-title{
+            padding-bottom: 0;
+            margin-top: 0;
+            padding-top: 0;
+            margin-bottom: var(--margin-32);
+        }
+        flex-direction: row;
+        justify-content: space-between;
+
+        .animal-img{
+            height: 400px;
+            width: auto;
+        }
+
+    }
+    .animal-section{
+        margin-top: var(--margin-56);
+        margin-bottom: var(--margin-56);
+
+        .fs-texte{
+            font-size: var(--web-info);
+        }
+    }
+    .return-button{
+        max-width: var(--width-150);
+        margin-top: var(--margin-120);
+        font-size: var(--web-button-font-size);
+
+    }
+    .animal-state{
+        font-size: var(--web-info);
+
+    }
 }
 
+@media (min-width: 1000px) and (max-width: 1199px) {
+.animal-img{
+    margin-top: var(--margin-32);
+}
+.animal-description{
+    margin-right: var(--margin-56);
+}
+}
+
+.animal-section{
+    margin-top: var(--margin-32);
+    margin-bottom: var(--margin-32);
+}
 
 @media (min-width: 1059px) {
    .filters{
        margin-bottom: 56px;
    }
 }
+
+
