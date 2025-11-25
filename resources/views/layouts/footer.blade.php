@@ -29,7 +29,7 @@
             <a href="{{--{{route('contacts.index')}}--}}" class="d-block m-b-16" >Contact</a>
         </nav>
         <div class="footer-button">
-            <a href="" class="">
+            <a href="{{route('public.contact')}}" class="">
                 Contactez-nous
             </a>
         </div>
