@@ -440,3 +440,18 @@ option:last-of-type{
 
 
 
+
+@media (min-width: 1000px) {
+    header {
+        min-width: 100%;
+        nav{
+            max-width: 1198px;
+        }
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        }
+    }
+
+}
