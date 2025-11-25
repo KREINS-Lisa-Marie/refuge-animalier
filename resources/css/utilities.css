@@ -177,6 +177,14 @@ dd:last-of-type{
     padding-bottom: var(--padding-60);
 }
 
+.p-b-60-150{
+    padding-bottom: var(--padding-60);
+}
+
+
+.max-h-384{
+    max-height: var(--height-384);
+}
 
 
 /*   left & right    */
@@ -424,6 +432,9 @@ option:last-of-type{
     }
     .p-t-b-60-150{
         padding-top: var(--padding-150);
+        padding-bottom: var(--padding-150);
+    }
+    .p-b-60-150{
         padding-bottom: var(--padding-150);
     }
 }

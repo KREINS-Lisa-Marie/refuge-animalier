@@ -60,6 +60,7 @@
     --web-filter-options: 24px;
     --web-form-title: 32px;
     --web-pet-name: 24px;
+    --web-info: 24px;
     --phone-footer-button: 16px;
     --homepage-title-phone: 36px;
     --phone-interligne: 23.8px;
@@ -79,11 +80,14 @@
     --xl-border: 200px;
 
     --width-130: 130px;
+    --width-150: 150px;
 
     --height-52: 52px;
     --height-55: 55px;
 
     --height-80: 80px;
+
+    --height-384: 384px;
 
 
     --max-w-footer-button-web: 273px;
@@ -91,6 +95,9 @@
 
 
     --max-w-search-web: 366px;
+
+
+    --max-w-animal-description-web: 708px;
 
 
     /*--interligne-texte: 38.91999816894531;*/
@@ -118,6 +125,7 @@
     --margin-8: 8px;
     --margin-60: 60px;
     --margin-110: 110px;
+    --margin-120: 120px;
     --margin-150: 150px;
 
     /*      exception      */
