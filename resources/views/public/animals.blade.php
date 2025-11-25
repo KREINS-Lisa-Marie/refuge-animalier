@@ -44,36 +44,39 @@
 @component('layouts.app')
 
 
-        <h2 class="page-title m-t-110 m-b-60 fw-700 t-a-center">
+        <h2 class="page-title m-b-60-94 fw-700 t-a-center color-dark p-b-0">
             Nos animaux
         </h2>
 
-        <section class="background-light p-t-b-60 p-l-r-24 ">
+        <section class="background-dark p-t-b-60-150 p-l-r-24 ">
             <h3 class="sro" aria-level="3" role="heading">
                 Liste des animaux
             </h3>
-            <div class="d-flex flex-c flex-gap-24 max-w-web">
-                <div><x-select select_name="select-animals" label="Age" :options="$age_options"/>
+            <div class="d-flex flex-wrap flex-j-c-space-between max-w-web margin-l-r-auto">
+                <div class="d-flex flex-wrap flex-c flex-gap-24 filters">
+                    <div class="select">
+                        <x-select select_name="select-animals" label="Age" :options="$age_options"/>
+                    </div>
+                    <div class="select">
+                        <x-select select_name="sex-animals" label="Sexe" :options="$sex_options"/>
+                    </div>
+
+
+                    <button class="p-16-32 d-i-block dark-button-background color-white border-r-big">
+                        Filter
+                    </button>
                 </div>
 
-            <div>
-            <x-select select_name="sex-animals" label="Sexe" :options="$sex_options"/>
+                <label for="search-animals" class="sro">
+                    Rechercher
+                </label>
+                <input type="search" name="search-animals" placeholder="Rechercher" id="search-animals"
+                       class="search-input background-white border-r-big p-16-32 m-t-32 m-b-56">
             </div>
 
 
-            <button class="p-16-32 d-i-block dark-button-background color-white border-r-big">
-                Filter
-            </button>
-            </div>
 
-            <label for="search-animals" class="sro">
-              Rechercher
-            </label>
-            <input type="search" name="search-animals" placeholder="Rechercher" id="search-animals" class="background-white min-w-full border-r-big p-16-32 m-t-32 m-b-56">
-
-
-
-            <ul class="d-flex  flex-gap-24 flex-wrap max-w-web pet-group">
+            <ul class="d-flex flex-gap-24 flex-wrap max-w-web pet-group margin-l-r-auto">
                 <li>
                     <x-cards  petname="Balou" petstatus="A adopter" petage="5" petrace="Frenchie" petsex="Masculin"   />
                 </li>
