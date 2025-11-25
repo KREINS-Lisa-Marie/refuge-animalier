@@ -177,7 +177,6 @@ Variationen durch Modifier (--)
 .header-general{
     background-color: var(--dark-green-accent-color);
     color: var(--white);
-    padding: var(--padding-8) var(--padding-24);
 }
 
 /* homepage */
@@ -273,6 +272,15 @@ vertical-align: center;
 
 
 
+@media (max-width: 999px) {
+    .header-general{
+        padding: var(--padding-8) var(--padding-24);
+    }
+    .big-logo{
+        display: none;
+    }
+}
+
 
 @media (min-width: 1000px) {
     .page-title{
@@ -302,7 +310,21 @@ vertical-align: center;
         margin-right: auto;
         margin-left: auto;
     }
+
+    .header-general{
+        min-height: var(--height-80);
+        padding-top: var(--padding-10);
+        padding-bottom: var(--padding-10);
+    }
+
+    .small-logo{
+        display: none;
+    }
+    .nav__container__header{
+        font-size: var(--web-nav-links);
+    }
 }
+
 
 
 

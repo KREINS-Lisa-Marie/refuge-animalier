@@ -52,6 +52,7 @@
     --web-font-size: 20px;
     --web-button-font-size: 24px;
     --web-title-public: 64px;
+    --web-nav-links: 24px;
     --interligne-pour-texte: 28px;
     --phone-footer-content: 12px;
     --web-footer-content: 16px;
@@ -80,6 +81,9 @@
     --height-52: 52px;
     --height-55: 55px;
 
+    --height-80: 80px;
+
+
     --max-w-footer-button-web: 273px;
     --max-w-footer-web: 1198px;
 
@@ -92,6 +96,7 @@
 /*      -- margins & paddings  --       */
 
 :root{
+    --padding-10: 10px;
     --padding-16: 16px;
     --padding-32: 32px;
     --padding-24: 24px;
