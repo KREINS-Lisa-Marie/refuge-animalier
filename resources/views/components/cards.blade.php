@@ -1,5 +1,5 @@
 <div class="card">
-    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image du chien" class="border-r-small m-b-24">
+    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image du chien" class="border-r-small m-b-24 card-img">
     <div>
         <div class="d-flex flex-r flex-j-c-space-between flex-a-i-center pb-24">
             <p class="card-petname fw-700 d-block">

@@ -172,7 +172,7 @@ dd:last-of-type{
     padding-bottom: var(--padding-16);
 }
 
-.p-t-b-60{
+.p-t-b-60-150{
     padding-top: var(--padding-60);
     padding-bottom: var(--padding-60);
 }
@@ -419,6 +419,13 @@ option:last-of-type{
     .btn{
         font-size: var(--web-button-font-size);
     }
+    .m-b-60-94{
+        margin-bottom: var(--web-margin-bottom-94);
+    }
+    .p-t-b-60-150{
+        padding-top: var(--padding-150);
+        padding-bottom: var(--padding-150);
+    }
 }
 
 @media (max-width: 999px) {
@@ -435,7 +442,9 @@ option:last-of-type{
     font-weight: 500;
 }
 
-
+.p-b-0{
+    padding-bottom: 0;
+}
 
 
 
@@ -455,3 +464,21 @@ option:last-of-type{
     }
 
 }
+
+.max-w-web{
+    max-width: var(--max-w-footer-web);
+}
+
+
+.pet-group:has(li:hover) li:not(:hover) {
+    filter: blur(1px);
+
+}
+
+.pet-group .card:hover{
+    box-shadow: var(--general-shadow-hover);
+    transform: translate3d(0, -4px, 0);
+}
+
+
+

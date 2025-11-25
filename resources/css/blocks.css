@@ -86,7 +86,7 @@ Variationen durch Modifier (--)
 /*    DESKTOP     */
 
 @media (min-width: 1200px) {
-    input, label {
+#burger_menu, .burger_menu {
         display: none;
     }
 
@@ -115,7 +115,6 @@ Variationen durch Modifier (--)
 /*      card        */
 
 .card{
-    max-width: var(--phone-card-width);
     background-color: var(--background-basic);
     border-radius: var(--medium-border);
     padding: var(--padding-24);
@@ -133,6 +132,25 @@ Variationen durch Modifier (--)
     font-size: var(--phone-pet-name);
 }
 
+@media (max-width: 999px) {
+    .card {
+        max-width: var(--phone-card-width);
+    }
+}
+
+@media (min-width: 1000px) {
+    .card img{
+        width: 334px;
+        height: 334px;
+        object-fit: cover;
+    }
+    .card{
+        min-width: auto;
+    }
+    .card-petname{
+        font-size: var(--web-pet-name);
+    }
+}
 
 
 /*      return button       */
@@ -304,6 +322,7 @@ vertical-align: center;
         font-size: var(--web-footer-button);
         max-height: var(--height-55);
         max-width: var(--max-w-footer-button-web);
+        margin-top: 0;
     }
     .general-footer>*{
         max-width: var(--max-w-footer-web);
@@ -326,5 +345,43 @@ vertical-align: center;
 }
 
 
+.filters{
+    flex-direction: row;
+    align-items: end;
+
+}
 
 
+.select label{
+    color: var(--dark-green-accent-color);
+}
+
+@media (max-width: 750px) {
+    .search-input{
+        min-width: 100%;
+    }
+}
+@media (min-width: 750px){
+    .search-input{
+        max-width: var(--max-w-search-web);
+    }
+}
+
+@media (min-width: 1000px) {
+    .select label{
+        font-size: var(--web-filter-options);
+    }
+    .select, .search-input{
+        font-size: var(--web-button-font-size);
+    }
+    .filters button{
+        font-size: var(--web-button-font-size);
+    }
+}
+
+
+@media (min-width: 1059px) {
+   .filters{
+       margin-bottom: 56px;
+   }
+}
