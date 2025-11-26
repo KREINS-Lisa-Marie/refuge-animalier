@@ -277,7 +277,9 @@ vertical-align: center;
  }
 
 
-
+.link_discover, .arrow_discover{
+    z-index: 15;
+}
 
 
 
