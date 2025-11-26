@@ -32,9 +32,17 @@
             Adoptez-nous
         </h2>
 
-        <div class="d-flex max-w-web margin-l-r-auto">
-            <x-cards petname="Balou" petstatus="A adopter" petage="6 ans" petrace="Frenchie" petsex="Masculin"/>
-        </div>
+        <ul class="d-flex max-w-web margin-l-r-auto flex-gap-24 flex-wrap pet-group">
+            <li>
+                <x-cards petname="Balou" petstatus="A adopter" petage="6 ans" petrace="Frenchie" petsex="Masculin"/>
+            </li>
+            <li>
+                <x-cards petname="Balou" petstatus="A adopter" petage="6 ans" petrace="Frenchie" petsex="Masculin"/>
+            </li>
+            <li>
+                <x-cards petname="Balou" petstatus="A adopter" petage="6 ans" petrace="Frenchie" petsex="Masculin"/>
+            </li>
+        </ul>
 
     </section>
     <section class="p-t-b-60-150 p-l-r-24 fs-texte d-flex flex-gap-32 flex-cr more-info-section max-w-web margin-l-r-auto">
