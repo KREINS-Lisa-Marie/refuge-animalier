@@ -9,7 +9,7 @@
         <h2 class=" fw-700 p-b-32 t-a-center color-dark form-title">
             Formulaire de contact
         </h2>
-    <p class="italic m-b-32">
+    <p class="italic m-b-32 interl-text">
         Pour nous contacter, veuillez s.v.p. remplir le formulaire. Nous allons vous contacter dès que possible. Si vous voulez adopter un animal, veuillez s.v.p. renseigner son nom.
     </p>
 
@@ -48,10 +48,11 @@
         </div>
 
 
-        @component('components.fields.textarea', ['name' => 'message', 'id'=>'message', 'value' =>'', 'placeholder' => 'Bonjour,
-                Je voudrais bien m’informer à propros du bénévolat.
-                Bonne journée,
-                John Doe', 'old_values' =>  ""])
+        @component('components.fields.textarea', ['name' => 'message', 'id'=>'message', 'value' =>'',
+            'placeholder' => 'Bonjour,
+        Je voudrais bien m’informer à propros du bénévolat.
+        Bonne journée,
+        John Doe', 'old_values' =>  ""])
             Message*
         @endcomponent
 
