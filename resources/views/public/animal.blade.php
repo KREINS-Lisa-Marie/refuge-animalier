@@ -80,7 +80,7 @@
         </a>--}}
     </section>
     <section class="background-light p-l-r-24 p-b-60-150">
-        <h2 class="page-title fw-700 max-w-web margin-l-r-auto">
+        <h2 class="page-title fw-700 max-w-web margin-l-r-auto color-dark">
             Galerie de Balou
         </h2>
         <ul class="m-t-32 d-flex flex-r flex-gap-32 flex-wrap max-w-web margin-l-r-auto">
