@@ -493,3 +493,53 @@ option:last-of-type{
 
 
 
+.p-56-32{
+    padding: var(--padding-56) var(--padding-32);
+}
+
+
+
+.max-w-login{
+    max-width: var(--max-w-phone-login);
+}
+
+@media (min-width: 1000px) {
+    .max-w-login{
+        max-width: var(--max-w-login);
+    }
+}
+
+.z-index-neg2{
+    z-index: -2;
+}
+
+
+.admin-form-title{
+    font-size: var(--phone-admin-form-title);
+}
+
+
+@media (min-width: 1000px) {
+    .admin-form-title{
+        font-size: var(--web-admin-form-title);
+    }
+}
+/*.z-index-1{
+    z-index: 1;
+}*/
+
+
+.p-t-b-32{
+    padding-top: var(--padding-32);
+    padding-bottom: var(--padding-32);
+}
+
+
+.flex-gap-12{
+    gap: var(--checkbox-gap);
+}
+
+.remember_me{
+    margin-top: var(--checkbox-margin);
+    margin-bottom: var(--checkbox-margin);
+}
