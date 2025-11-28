@@ -22,6 +22,7 @@
 <main class="body-content" id="content">
     {{ $slot }}
 </main>
-
+@component('layouts.footer')
+@endcomponent
 </body>
 </html>
