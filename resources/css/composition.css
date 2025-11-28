@@ -94,3 +94,14 @@ flex-wrap: wrap;
         padding:48px 0;
     }
 }
+
+
+
+
+.absolut{
+    position: absolute;
+}
+.left-top-0{
+    top: 0;
+    left: 0;
+}

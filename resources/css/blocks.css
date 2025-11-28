@@ -43,7 +43,7 @@ Variationen durch Modifier (--)
         width: calc(100% ); /* width complète */
         padding: 0.541666666666667em 1em;  /*13px 24px*/
     }
-    .nav__header input:not(:checked) ~ .nav__container__header, input[type="checkbox"] {
+    .nav__header #burger_menu:not(:checked) ~ .nav__container__header, #burger_menu[type="checkbox"] {
         position: absolute;
         overflow: hidden;
         clip: rect(0 0 0 0);
@@ -559,4 +559,70 @@ vertical-align: center;
     top: 0;
     left: 0;
     z-index: 10;
+}
+
+.backgr-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: auto;
+}
+
+.login-section{
+margin-left: var(--margin-24);
+margin-right: var(--margin-24);
+
+    button{
+        background-color: var(--dark-green-accent-color);
+        width: 100%;
+        padding-top: var(--padding-16);
+        padding-bottom: var(--padding-16);
+        margin-top: var(--margin-32);
+    }
+    input{
+        background-color: var(--white);
+        margin-bottom: var(--margin-32);
+    }
+    .label{
+        margin-bottom: var(--margin-8);
+    }
+}
+
+.password-forgotten{
+    margin-bottom: var(--margin-24);
+}
+
+
+@media (max-width: 999px) {
+    .remember_me, .login-section input{
+        font-size: var(--text-size-phone);
+    }
+}
+
+@media (min-width: 550px) {
+    .login-section{
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 1000px) {
+    .login-section{
+        label, p, a{
+            font-size: var(--web-admin-text-size);
+        }
+        input{
+            font-size: var(--web-admin-input-size);
+        }
+        button{
+            font-size: var(--web-button-font-size);
+        }
+
+    }
+}
+
+#remember_me{
+ width: var(--w-h-checkbox);
+    height: var(--w-h-checkbox);
+    border-radius: var(--checkbox-border);
 }

@@ -43,6 +43,7 @@
 
     /* admin */
     --web-admin-text-size: 20px;
+    --web-admin-input-size: 18px;
     --web-dashboard-big-number: 70px;
     --admin-site-title: 40px;
     --titre-inter-admin: 32px;
@@ -69,11 +70,16 @@
     --phone-pet-name: 20px;
     --phone-form-title: 20px;
 
+
+    --phone-admin-form-title: 24px;
+    --web-admin-form-title: 32px;
+
     /* general */
 
     --text-size-phone: 14px;
     --phone-label-button-size: 16px;
 
+    --checkbox-border: 4px;
     --small-border: 8px;
     --medium-border: 16px;
     --big-border: 32px;
@@ -95,9 +101,15 @@
 
 
     --max-w-search-web: 366px;
+    --max-w-login: 512px;
+    --max-w-phone-login: 512px;
+
+    --w-h-checkbox: 20px;
 
 
     --max-w-animal-description-web: 708px;
+
+    --checkbox-gap: 12px;
 
 
     /*--interligne-texte: 38.91999816894531;*/
@@ -127,6 +139,8 @@
     --margin-110: 110px;
     --margin-120: 120px;
     --margin-150: 150px;
+
+    --checkbox-margin: 2px;
 
     /*      exception      */
     --web-margin-bottom-94: 94px;
