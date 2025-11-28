@@ -39,8 +39,8 @@ Variationen durch Modifier (--)
         margin-bottom: var(--margin-8);  /*8px*/
         color: var(--white);
     }
-    header{
-        width: calc(100% ); /* width complète */
+    .header{
+        width: 100% ; /* width complète */
         padding: 0.541666666666667em 1em;  /*13px 24px*/
     }
     .nav__header #burger_menu:not(:checked) ~ .nav__container__header, #burger_menu[type="checkbox"] {
@@ -629,4 +629,18 @@ margin-right: var(--margin-24);
  width: var(--w-h-checkbox);
     height: var(--w-h-checkbox);
     border-radius: var(--checkbox-border);
+}
+
+
+@media (min-width: 550px) {
+    .login-layout{
+        display: flex;height: calc(100vh - 80px);
+        align-items: center;
+    }
+}
+
+@media (max-width: 549px) {
+    .login-layout{
+            transform: translateY(15%);
+    }
 }
