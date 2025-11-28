@@ -20,3 +20,12 @@ Route::get('/animal', function () {
 Route::get('/animals', function () {
     return view('public.animals');
 })->name('public.animals');
+
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('auth.login');
+
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->name('auth.forgot-password');
