@@ -572,6 +572,10 @@ vertical-align: center;
 margin-left: var(--margin-24);
 margin-right: var(--margin-24);
 
+        p, a{
+            font-size: var(--text-size-phone);
+        }
+
     button{
         background-color: var(--dark-green-accent-color);
         width: 100%;
