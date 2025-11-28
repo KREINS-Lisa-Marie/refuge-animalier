@@ -34,6 +34,10 @@ Hintergrundfarb-Hilfen
     margin-bottom: var(--margin-32);
 }
 
+.m-b-40{
+    margin-bottom: var(--margin-40);
+}
+
 .m-b-56{
     margin-bottom: var(--margin-56);
 }
