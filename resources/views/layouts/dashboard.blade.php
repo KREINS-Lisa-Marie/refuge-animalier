@@ -11,7 +11,7 @@
     @vite(['resources/css/app.css'])
 </head>
 <body class="body-style">
-<x-navigation></x-navigation>
+<x-sidebar></x-sidebar>
 
 <main class="body-content" id="content">
     {{ $slot }}
