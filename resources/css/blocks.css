@@ -27,7 +27,8 @@ Variationen durch Modifier (--)
     .nav__header{
         display: grid;
         grid-template-areas: "logo burger"
-          "menu . ";
+          "menu . "
+            "profil .";
         grid-gap: 1fr;
         justify-content: space-between;
         align-items: center;
@@ -642,5 +643,56 @@ margin-right: var(--margin-24);
 @media (max-width: 549px) {
     .login-layout{
             transform: translateY(15%);
+    }
+}
+
+
+
+@media (min-width: 1200px) {
+    .sidebar{
+        min-height: 100vh;
+        min-width: var(--sidebar-width);
+        max-width: var(--sidebar-width);
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: var(--padding-32);
+        padding-left: var(--padding-28);
+        padding-bottom: var(--padding-150);
+
+        form{
+            margin-top: var(--margin-56);
+        }
+    }
+
+    .sidebar-nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .sidebar-nav-links{
+        gap: var(--padding-56);
+    }
+
+}
+
+@media (max-width: 1199px) {
+    .sidebar-nav{
+        min-width: 100%;
+        padding: var(--padding-8) var(--padding-24);
+        font-size: var(--web-footer-content);
+
+        form{
+            margin-top: var(--margin-8);
+        }
+        .nav__item__header:last-of-type{
+            margin-bottom: 0;
+        }
+    }
+    .profile-disconnect-link{
+        grid-area: profil;
+        margin-bottom: var(--margin-8);
     }
 }
