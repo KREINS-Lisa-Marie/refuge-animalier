@@ -659,6 +659,8 @@ margin-right: var(--margin-24);
         padding-top: var(--padding-32);
         padding-left: var(--padding-28);
         padding-bottom: var(--padding-150);
+box-shadow: var(--web-admin-navbar-shadow);
+
 
         form{
             margin-top: var(--margin-56);
@@ -674,6 +676,9 @@ margin-right: var(--margin-24);
 
     .sidebar-nav-links{
         gap: var(--padding-56);
+    }
+    .nav__header{
+        box-shadow: none;
     }
 
 }
