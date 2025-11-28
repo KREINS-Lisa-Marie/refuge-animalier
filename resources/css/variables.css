@@ -111,6 +111,10 @@
 
     --checkbox-gap: 12px;
 
+    --sidebar-width: 285px;
+
+    --line-height-32:32px;
+
 
     /*--interligne-texte: 38.91999816894531;*/
 }
@@ -124,6 +128,7 @@
     --padding-16: 16px;
     --padding-32: 32px;
     --padding-24: 24px;
+    --padding-28: 28px;
     --padding-48: 48px;
     --padding-56: 56px;
     --padding-8: 8px;
