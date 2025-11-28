@@ -466,7 +466,7 @@ option:last-of-type{
 
 
 @media (min-width: 1000px) {
-    header {
+    .header {
         min-width: 100%;
         nav{
             max-width: 1198px;
@@ -546,4 +546,12 @@ option:last-of-type{
 .remember_me{
     margin-top: var(--checkbox-margin);
     margin-bottom: var(--checkbox-margin);
+}
+
+.fs-24{
+    font-size: var(--web-info);
+}
+
+.l-height-32{
+    line-height: var(--line-height-32);
 }
