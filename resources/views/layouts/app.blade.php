@@ -1,3 +1,7 @@
+@php(
+    $currentRoute = $_SERVER['REQUEST_URI']
+)
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -11,7 +15,9 @@
     @vite(['resources/css/app.css'])
 </head>
 <body class="body-style">
+@if( $currentRoute !== '/login' && $currentRoute !== '/reset-password'  && $currentRoute !== '/forgot-password' )
 <x-navigation></x-navigation>
+@endif
 
 <main class="body-content" id="content">
     {{ $slot }}
