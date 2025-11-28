@@ -25,3 +25,17 @@ it('can display the forgotten password form', function () {
         ->assertSeeInOrder(['<form', 'email', '<button', 'Réinitialiser'], true);
 }
 );
+
+it('can display the reset password form', function () {
+
+    // action
+
+    $response = $this->get('/reset-password');
+
+    // assert
+    $response->assertSee('Mot de passe oublié')
+        ->assertSeeInOrder(['<form', 'email', 'Mot de passe', 'Retapez','<button', 'Réinitialiser'], true);
+}
+);
+
+
