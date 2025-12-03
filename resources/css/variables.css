@@ -48,6 +48,7 @@
     --admin-site-title: 40px;
     --titre-inter-admin: 32px;
     --phone-big-numbers: 48px;
+    --phone-16: 16px;
 
     /* public */
     --web-font-size: 20px;
@@ -125,6 +126,7 @@
 
 :root{
     --padding-10: 10px;
+    --padding-12: 12px;
     --padding-16: 16px;
     --padding-32: 32px;
     --padding-24: 24px;
@@ -167,6 +169,7 @@
 
     --flex-gap-8: 8px;
     --flex-gap-24: 24px;
+    --flex-gap-32: 32px;
 }
 
 

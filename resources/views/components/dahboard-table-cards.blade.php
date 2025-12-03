@@ -3,7 +3,7 @@
 'statistics_title',
 ])
 
-<tr>
-    <th scope="col">{{$statistics_title}}</th>
-    <td>{{$statistics_number}}</td>
+<tr class="dashboard-statictics-card border-r-big background-white">
+    <th scope="col" class="fw-medium">{{$statistics_title}}</th>
+    <td class="big-number fw-700 color-dark">{{$statistics_number}}</td>
 </tr>

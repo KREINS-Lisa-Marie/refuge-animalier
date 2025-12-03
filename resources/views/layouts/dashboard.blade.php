@@ -10,10 +10,10 @@
     <title>{{ $title ?? 'Page Title' }}</title>
     @vite(['resources/css/app.css'])
 </head>
-<body class="body-style">
+<body class="body-style background-admin">
 <x-sidebar></x-sidebar>
 
-<main class="body-content" id="content">
+<main class="" id="content">
     {{ $slot }}
 </main>
 
