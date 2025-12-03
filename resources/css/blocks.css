@@ -713,6 +713,7 @@ box-shadow: var(--web-admin-navbar-shadow);
     font-size: var(--phone-title);
     padding: var(--padding-12) var(--padding-24);
     box-shadow: var(--general-shadow);
+    font-weight: 500;
 }
 
 .welcome-dashobard-section{
@@ -745,7 +746,6 @@ box-shadow: var(--web-admin-navbar-shadow);
 
 
 .dashboard-card{
-    min-width: 100%;
     max-width: 600px;
     background-color: var(--white);
     min-height: 180px;
@@ -820,9 +820,6 @@ box-shadow: var(--web-admin-navbar-shadow);
     gap: var(--flex-gap-24);
 
     tr{
-        min-width: 100%;
-        max-width: 600px;
-        min-height: 135px;
         padding: var(--padding-24);
         display: flex;
         flex-direction: column;
@@ -846,7 +843,6 @@ box-shadow: var(--web-admin-navbar-shadow);
     margin-bottom: var(--margin-24);
     input{
         display: block;
-        min-width: 100%;
         padding: var(--padding-24) var(--padding-16);
         border-radius: var(--big-border);
         margin-top: var(--margin-24);
@@ -860,3 +856,143 @@ box-shadow: var(--web-admin-navbar-shadow);
 .export{
     margin-top: var(--margin-56);
 }
+
+
+@media (min-width: 550px) {
+
+}
+
+@media (min-width: 1200px) {
+    .main-container{
+        padding-left: var(--sidebar-width);
+    }
+    .dashboard-buttons{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--flex-gap-24);
+    }
+    .dashboard-buttons a{
+        max-width: var( --dashboard-column-width);
+        min-width: var( --dashboard-column-width);
+    }
+    .admin-dashboard-title{
+        font-size: var(--titre-inter-admin);
+    }
+    .admin-page-title{
+        font-size: var(--admin-site-title);
+        padding: var(--padding-16) var(--padding-48);
+    }
+    .dashboard-cards{
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        .dashboard-card{
+            min-width: var(--max-w-cards-web);
+            max-width: var(--max-w-cards-web);
+        }
+    }
+    .dashboard-animal-card, #statistics_start_date, #statistics_end_date, #statistics .dashboard-button, .dashboard-statictics-card, #statistics input{
+        min-width: var(--max-w-cards-web);
+        max-width: var(--max-w-cards-web);
+    }
+    .dashboard-animal-cards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--flex-gap-24);
+    }
+    #statistics form{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: var(--flex-gap-24);
+        align-items: flex-end;
+
+        button, input{
+            max-height: 72px;
+            min-height: 72px;
+        }
+        .statistics_start_date, .statistics_end_date{
+            margin-bottom: 0;
+        }
+    }
+    #statistics .export, .dashboard-buttons a{
+        max-height: 72px;
+        min-height: 72px;
+        text-align: center;
+        padding-bottom: var(--padding-24);
+        padding-top: var(--padding-24);
+    }
+    .dashboard-buttons a, #statistics button, #statistics a {
+        font-size: var(--web-admin-text-size);
+    }
+    .welcome-dashobard-section .admin-dashboard-title{
+        margin-top: var(--margin-80);
+    }
+    #statistics input, #statistics label, #statistics th, .dashboard-animal-card h3{
+        font-size: var(--web-admin-text-size);
+    }
+    .dashboard-animal-card{
+        margin-bottom: 0;
+    }
+    .dashboard-news, #statistics{
+        margin-bottom: var(--margin-80);
+
+    }
+    .export{
+        margin-top: var(--margin-80);
+    }
+    .dashboard-statictics-card{
+        min-height: 160px;
+    }
+}
+
+
+
+
+@media (min-width: 1200px) {
+    .max-w-admin-web{
+        max-width: var(--max-w-admin-web);
+        margin-left: var(--padding-48);
+        margin-right: auto;
+    }
+    .dashboard-news, #statistics, .recent-animals{
+        margin-bottom: var(--margin-80);
+    }
+}
+
+@media (max-width: 599px) {
+    .dashboard-card, .dashboard-animal-card {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 1199px) {
+    tr {
+        min-width: 100%;
+        max-width: 600px;
+        min-height: 135px;
+    }
+   #statistics input {
+        min-width: 100%;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1199px) {
+    .dashboard-card, .dashboard-animal-card , .dashboard-buttons li, .statistics_start_date, .statistics_end_date, #statistics form button, .export, .dashboard-statictics-card{
+        min-width: var(--max-w-cards-web);
+        max-width: var(--max-w-cards-web);
+    }
+    .dashboard-animal-cards, .dashboard-buttons{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--flex-gap-24);
+
+        .dashboard-animal-card{
+            margin-bottom: 0;
+        }
+    }
+}
+

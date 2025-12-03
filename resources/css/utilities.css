@@ -564,3 +564,6 @@ option:last-of-type{
     background-color: var(--background-admin);
 }
 
+.regular-shadow{
+    box-shadow: var(--general-shadow);
+}
