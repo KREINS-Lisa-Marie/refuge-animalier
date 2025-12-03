@@ -6,27 +6,35 @@
     Dashboard
 </h2>
 </div>
-    <section class="welcome-dashobard-section m-lr-24">
+    <section class="welcome-dashobard-section m-lr-24 max-w-admin-web">
         <h2 class="fw-700 admin-dashboard-title">
             Bonjour Elise
         </h2>
-        <div class="dashboard-buttons">
-            <a href="" class="d-block dark-button-background color-white">
-                Ajouter un animal
-            </a>
-            <a href="" class="d-block dark-button-background color-white">
-                Ajouter un bénévole
-            </a>
-            <a href="" class="d-block dark-button-background color-white">
-                Ajouter un adoptant
-            </a>
-            <a href="#statistics" class="d-block dark-button-background color-white">
-                Voir les statistiques
-            </a>
-        </div>
+        <ul class="dashboard-buttons">
+            <li>
+                <a href="" class="d-block dark-button-background color-white regular-shadow">
+                    Ajouter un animal
+                </a>
+            </li>
+            <li>
+                <a href="" class="d-block dark-button-background color-white regular-shadow">
+                    Ajouter un bénévole
+                </a>
+            </li>
+            <li>
+                <a href="" class="d-block dark-button-background color-white regular-shadow">
+                    Ajouter un adoptant
+                </a>
+            </li>
+            <li>
+                <a href="#statistics" class="d-block dark-button-background color-white regular-shadow">
+                    Voir les statistiques
+                </a>
+            </li>
+        </ul>
     </section>
 
-    <section class="m-lr-24 dashboard-news">
+    <section class="m-lr-24 dashboard-news max-w-admin-web">
         <h2 class="fw-700 admin-dashboard-title">
             Les actualités du réfuge
         </h2>
@@ -105,15 +113,15 @@
         </div>
     </section>
 
-<section class="m-lr-24 recent-animals">
+<section class="m-lr-24 recent-animals max-w-admin-web">
     <h2 class="fw-700 admin-dashboard-title">
         Les 5 animaux récents
     </h2>
-
-    @for( $i = 0; $i<= 10; $i++)
+<div class="dashboard-animal-cards">
+    @for( $i = 1; $i<= 5; $i++)
         <x-dashboard-animal-cards animal_name="Balou" animal_card_age="5" animal_card_date="20.11.25" animal_card_img_alt="Image de Balou" animal_card_img_h_w="44" animal_card_img_src="{!! asset('assets/img/border-collie.jpg') !!}"/>
-
     @endfor
+</div>
 </section>
 
 
@@ -128,7 +136,7 @@
                     Date de début
                 </label>
                 <input type="date" name="start_date" id="statistics_start_date" value="{{request('statistics_start_date')}}"
-                       class="background-white">
+                       class="background-white regular-shadow">
                 @error('date')
                 {{$message}}
                 @enderror
@@ -139,7 +147,7 @@
                     Date de fin
                 </label>
                 <input type="date" name="statistics_end_date" id="date" value="{{request('statistics_end_date')}}"
-                       class="background-white">
+                       class="background-white regular-shadow">
                 @error('date')
                 {{$message}}
                 @enderror
@@ -157,7 +165,7 @@
         </tbody>
         </table>
 
-        <a href="#" title="Exporter en PDF" class="dashboard-button dark-button-background color-white d-block export">
+        <a href="#" title="Exporter en PDF" class="dashboard-button dark-button-background color-white d-block export regular-shadow">
             Exporter en pdf
         </a>
 

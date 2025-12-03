@@ -104,6 +104,8 @@
     --max-w-search-web: 366px;
     --max-w-login: 512px;
     --max-w-phone-login: 512px;
+    --max-w-admin-web: 1524px;
+    --max-w-cards-web: 492px;
 
     --w-h-checkbox: 20px;
 
@@ -116,6 +118,7 @@
 
     --line-height-32:32px;
 
+    --dashboard-column-width: 363px;
 
     /*--interligne-texte: 38.91999816894531;*/
 }
@@ -144,6 +147,7 @@
     --margin-56: 56px;
     --margin-8: 8px;
     --margin-60: 60px;
+    --margin-80: 80px;
     --margin-110: 110px;
     --margin-120: 120px;
     --margin-150: 150px;

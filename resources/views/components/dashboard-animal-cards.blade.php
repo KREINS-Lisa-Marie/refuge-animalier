@@ -8,7 +8,7 @@
 'animal_card_date',
 ])
 
-<div class="dashboard-animal-card">
+<div class="dashboard-animal-card regular-shadow">
     <img src="{{$animal_card_img_src}}" alt="{{$animal_card_img_alt}}" height="{{$animal_card_img_h_w}}" width="{{$animal_card_img_h_w}}" class="dashboard_animal_card_img">
     <div class="animal-dashboard-information">
         <h3 class="fw-medium">
