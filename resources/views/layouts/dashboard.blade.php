@@ -13,9 +13,8 @@
 <body class="body-style background-admin">
 <x-sidebar></x-sidebar>
 
-<main class="main-container" id="content">
+
     {{ $slot }}
-</main>
 
 </body>
 </html>
