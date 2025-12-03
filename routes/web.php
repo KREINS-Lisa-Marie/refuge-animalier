@@ -33,3 +33,4 @@ Route::get('/reset-password', function () {
     return view('auth.reset-password');
 })->name('auth.reset-password');
 
+Route::livewire('/dashboard', 'pages::dashboard.index')->name('pages::dashboard.index');
