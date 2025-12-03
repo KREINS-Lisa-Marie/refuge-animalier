@@ -9,15 +9,15 @@
 ])
 
 <div class="dashboard-animal-card">
-    <img src="{{$animal_card_img_src}}" alt="{{$animal_card_img_alt}}" height="{{$animal_card_img_h_w}}" class="dashboard_animal_card">
+    <img src="{{$animal_card_img_src}}" alt="{{$animal_card_img_alt}}" height="{{$animal_card_img_h_w}}" width="{{$animal_card_img_h_w}}" class="dashboard_animal_card_img">
     <div class="animal-dashboard-information">
-        <h3>
+        <h3 class="fw-medium">
             {{$animal_name}}
         </h3>
         <p class="dashboard-card-title">
             Age : {{$animal_card_age}}
         </p>
-        <p class="big-number">
+        <p class="dashboard-card-date">
             Date d’accueil : {{ $animal_card_date }}
         </p>
     </div>

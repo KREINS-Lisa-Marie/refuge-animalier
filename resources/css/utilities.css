@@ -444,7 +444,10 @@ option:last-of-type{
 }
 
 @media (max-width: 999px) {
-
+    .m-l-r-24{
+        margin-left: var(--margin-24);
+        margin-left: var(--margin-24);
+    }
 }
 
 
@@ -555,3 +558,9 @@ option:last-of-type{
 .l-height-32{
     line-height: var(--line-height-32);
 }
+
+
+.background-admin{
+    background-color: var(--background-admin);
+}
+
