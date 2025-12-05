@@ -33,4 +33,4 @@ Route::get('/reset-password', function () {
 
 Route::livewire('/dashboard', 'pages::dashboard.index')->name('pages::dashboard.index');
 
-Route::livewire('/admin/animals', 'pages::animals.index')->name('pages::dashboard.index');
+Route::livewire('/admin/animals', 'pages::animals.index')->name('pages::animals.index');
