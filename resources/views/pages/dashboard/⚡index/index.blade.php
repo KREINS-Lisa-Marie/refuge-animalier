@@ -1,34 +1,32 @@
 <main class="main-container" id="content">
-    <div class="page-bar min-w-full">
-        <h2 class="background-public admin-page-title color-dark">
-            Dashboard
-        </h2>
-    </div>
+    <x-page-bar>
+        Dashboard
+    </x-page-bar>
     <section class="welcome-dashobard-section m-lr-24 max-w-admin-web">
         <h2 class="fw-700 admin-dashboard-title">
             Bonjour Elise
         </h2>
         <ul class="dashboard-buttons">
-            <li>
+            <x-list-items>
                 <a href="" class="d-block dark-button-background color-white regular-shadow">
                     Ajouter un animal
                 </a>
-            </li>
-            <li>
+            </x-list-items>
+            <x-list-items>
                 <a href="" class="d-block dark-button-background color-white regular-shadow">
                     Ajouter un bénévole
                 </a>
-            </li>
-            <li>
+            </x-list-items>
+            <x-list-items>
                 <a href="" class="d-block dark-button-background color-white regular-shadow">
                     Ajouter un adoptant
                 </a>
-            </li>
-            <li>
+            </x-list-items>
+            <x-list-items>
                 <a href="#statistics" class="d-block dark-button-background color-white regular-shadow">
                     Voir les statistiques
                 </a>
-            </li>
+            </x-list-items>
         </ul>
     </section>
 
