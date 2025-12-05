@@ -1,8 +1,8 @@
 @php(
-    $currentRoute = $_SERVER['REQUEST_URI']
+    $currentRoute = Route::currentRouteName()
 )
 
-<!doctype html>
+    <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
@@ -15,14 +15,17 @@
     @vite(['resources/css/app.css'])
 </head>
 <body class="body-style">
-@if( $currentRoute !== '/login' && $currentRoute !== '/reset-password'  && $currentRoute !== '/forgot-password' )
-<x-navigation></x-navigation>
+@if( !str_starts_with($currentRoute, 'auth.'))
+    <x-navigation></x-navigation>
 @endif
 
 <main class="body-content" id="content">
     {{ $slot }}
 </main>
-@component('layouts.footer')
-@endcomponent
+@if( !str_starts_with($currentRoute, 'auth.'))
+    @component('layouts.footer')
+    @endcomponent
+@endif
+
 </body>
 </html>
