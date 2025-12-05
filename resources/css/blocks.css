@@ -996,3 +996,91 @@ box-shadow: var(--web-admin-navbar-shadow);
     }
 }
 
+
+
+
+
+
+/*      table       */
+
+
+
+.admin-button{
+    display: block;
+    margin-top: var(--margin-60);
+    font-size: var(--phone-label-button-size);
+    padding-top: var(--padding-16);
+    padding-bottom: var(--padding-16);
+}
+
+.admin-search{
+    padding-top: var(--padding-16);
+    padding-bottom: var(--padding-16);
+    margin-top: var(--margin-32);
+    min-width: 100%;
+}
+
+.filter-form{
+    display: flex;
+    gap: var(--flex-gap-24);
+    flex-wrap: wrap;
+    margin-top: var(--padding-48);
+    margin-bottom: var(--margin-32);
+
+    #age, #sex-animals{
+        min-width: 100%;
+    }
+    flex-direction: column;
+}
+
+#filtering{
+    min-width: 100%;
+}
+
+.admin-filters-buttons{
+    margin-left: var(--margin-24);
+    margin-right: var(--margin-24);
+}
+
+.table{
+    margin-left: var(--margin-24);
+    margin-right: var(--margin-24);
+    margin-top: var(--margin-56);
+    min-width: calc(100% - 48px);
+}
+
+.table-row{
+    margin-bottom: var(--margin-24);
+    padding: var(--padding-24) var(--padding-16);
+    display: grid;
+    border-radius: var(--big-border);
+    grid-column-gap: var(--padding-32);
+    grid-template-columns: 44px 1fr;
+    align-items: center;
+}
+
+.table-img{
+    grid-row: 1/4;
+    display: flex;
+    align-items: center;
+}
+td img{
+    width: var(--max-w-admin-table-img-phone);
+    height: auto;
+}
+.table-name{
+    font-size: var(--phone-16);
+}
+
+@media (max-width: 1000px) {
+    thead{
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+    }
+}
