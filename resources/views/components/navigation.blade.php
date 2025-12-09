@@ -246,13 +246,13 @@
                 </a>
             </li>--}}
             <li class="nav__item__header">
-                <a href="{{route('public.homepage')}}" class="nav__link__header" title="Aller vers la page Accueil" aria-label="Aller vers la page Accueil">ACCUEIL </a>
+                <a href="{{route('public.homepage', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" title="Aller vers la page Accueil" aria-label="Aller vers la page Accueil">ACCUEIL </a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('public.animals')}}" title="Aller vers la page Nos animaux" class="nav__link__header" aria-label="Aller vers la page Nos animaux">NOS ANIMAUX </a>
+            <a href="{{route('public.animals', ['locale' => __('general.currentLocale')])}}" title="Aller vers la page Nos animaux" class="nav__link__header" aria-label="Aller vers la page Nos animaux">NOS ANIMAUX </a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('public.contact')}}" class="nav__link__header" title="Aller vers la page Contact" aria-label="Aller vers la page Contact">CONTACT</a>
+            <a href="{{route('public.contact', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" title="Aller vers la page Contact" aria-label="Aller vers la page Contact">CONTACT</a>
         </li>
         </ul>
     </nav>

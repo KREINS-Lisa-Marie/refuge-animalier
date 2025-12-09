@@ -2,35 +2,35 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/{locale}', function () {
     return view('public.homepage');
 })->name('public.homepage');
 
 
-Route::get('/contact', function () {
+Route::get('/{locale}/contact', function () {
     return view('public.contact');
 })->name('public.contact');
 
-Route::get('/animals', function () {
+Route::get('/{locale}/animals', function () {
     return view('public.animals');
 })->name('public.animals');
 
-Route::get('/animal', function () {
+Route::get('/{locale}/animal', function () {
     return view('public.animal');
 })->name('public.animal');
 
-Route::get('/login', function () {
+Route::get('/{locale}/login', function () {
     return view('auth.login');
 })->name('auth.login');
 
-Route::get('/forgot-password', function () {
+Route::get('/{locale}/forgot-password', function () {
     return view('auth.forgot-password');
 })->name('auth.forgot-password');
 
-Route::get('/reset-password', function () {
+Route::get('/{locale}/reset-password', function () {
     return view('auth.reset-password');
 })->name('auth.reset-password');
 
-Route::livewire('/dashboard', 'pages::dashboard.index')->name('pages::dashboard.index');
+Route::livewire('/{locale}/dashboard', 'pages::dashboard.index')->name('pages::dashboard.index');
 
-Route::livewire('/admin/animals', 'pages::animals.index')->name('pages::animals.index');
+Route::livewire('/{locale}/admin/animals', 'pages::animals.index')->name('pages::animals.index');

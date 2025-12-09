@@ -1,45 +1,45 @@
 <footer class="general-footer">
     <h2 class="sro" aria-level="2">
-        Footer
+        {{__('footer.footer')}}
     </h2>
     <div class="web-flex flex-wrap flex-j-c-space-between">
         <div class="informations-footer m-b-56">
             <h3 class="footer-title">
-                LES PATTES HEUREUSES
+                {{__('footer.shelter_name')}}
             </h3>
             <p class="m-b-16">
-                Responsable : Elise Lambot
+                {{__('footer.responsible')}}
             </p>
             <p class="m-b-16">
-                Téléphone : 080 546 384
+                {{__('footer.phone_number')}}
             </p>
             <p class="m-b-16">
-                Adresse : Rue des bois 4, 4700 Malmédy
+                {{__('footer.adress')}}
             </p>
             <p >
-                Ouvert : Lu à Ve — 10 à 17h
+                {{__('footer.opening_hours')}}
             </p>
         </div>
         <nav>
             <h3 class="footer-title">
-                Navigation <div class="sro">de bas de page</div>
+                {{__('footer.navigation')}} <div class="sro">{{__('footer.of_the_end_of_the_page')}}</div>
             </h3>
-           <a href="{{--{{route('jiris.index')}}--}}" class="d-block m-b-16">Accueil</a>
-            <a href="{{--{{route('projects.index')}}--}}" class="d-block m-b-16">Nos animaux</a>
-            <a href="{{--{{route('contacts.index')}}--}}" class="d-block m-b-16" >Contact</a>
+           <a href="{{route('public.homepage', ['locale' => __('general.currentLocale')])}}" class="d-block m-b-16">{{__('footer.home')}}</a>
+            <a href="{{route('public.animals', ['locale' => __('general.currentLocale')])}}" class="d-block m-b-16">{{__('footer.our_animals')}}</a>
+            <a href="{{route('public.contact', ['locale' => __('general.currentLocale')])}}" class="d-block m-b-16" >{{__('footer.contact')}}</a>
         </nav>
         <div class="footer-button">
-            <a href="{{route('public.contact')}}" class="fw-medium color-dark">
-                Contactez-nous
+            <a href="{{route('public.contact', ['locale' => __('general.currentLocale')])}}" class="fw-medium color-dark">
+                {{__('footer.contact_us')}}
             </a>
         </div>
     </div>
     <div class="legal-information">
         <a href="" class="d-block m-b-16">
-            Mentions Légales
+            {{__('footer.legal_information')}}
         </a>
         <p >
-            Crée par Kreins Lisa-Marie
+            {{__('footer.created_by')}}
         </p>
     </div>
 
