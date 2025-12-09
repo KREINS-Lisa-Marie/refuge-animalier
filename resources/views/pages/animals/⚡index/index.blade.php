@@ -60,25 +60,33 @@
     <x-page-bar>
         Les animaux
     </x-page-bar>
-    <div class="admin-filters-buttons">
-        <x-admin.admin-button href="{{route('pages::animals.index')}}" title="Aller sur la page 'Créer un animal'">
-            Créer un animal
-        </x-admin.admin-button>
-        <x-admin.search/>
-        <form method="GET" action="{{ route('pages::animals.index') }}" class="filter-form">
-            <div class="field-label">
-                <x-select select_name="age" label="Age" :options="$age_options"/>
+    <div class="admin-filters-buttons max-w-admin-web">
+        <div class="top-row">
+            <x-admin.admin-button href="{{route('pages::animals.index', ['locale' => __('general.currentLocale')])}}"
+                                  title="Aller sur la page 'Créer un animal'">
+                Créer un animal
+            </x-admin.admin-button>
+            <x-admin.search/>
+        </div>
+        <div class="bottom-row">
+            <form method="GET" action="{{ route('pages::animals.index', ['locale' => __('general.currentLocale')]) }}"
+                  class="filter-form">
+                <div class="field-label">
+                    <x-select select_name="age" label="Age" :options="$age_options"/>
+                </div>
+                <div class="field-label">
+                    <x-select select_name="sex-animals" label="Sexe" :options="$sex_options"/>
+                </div>
+                <x-button>
+                    Filtrer
+                </x-button>
+            </form>
+            <div>
+                <x-select select_name="filtering" label="Trier" :options="$filter_options"/>
             </div>
-            <div class="field-label">
-                <x-select select_name="sex-animals" label="Sexe" :options="$sex_options"/>
-            </div>
-            <x-button>
-                Filtrer
-            </x-button>
-        </form>
-        <x-select select_name="filtering" label="Trier" :options="$filter_options"/>
+        </div>
     </div>
-    <table class="table">
+    <table class="table max-w-admin-web">
         <thead>
         <tr>
             <x-admin.table.table-th scope="col">
@@ -97,7 +105,7 @@
         </thead>
         <tbody>
         @for( $i = 1; $i<= 10; $i++)
-            <tr class="table-row background-white">
+            <tr class="table-row ">
                 <x-admin.table.table-td class="table-img">
                     <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="image du chien" class="border-r-big">
                 </x-admin.table.table-td>
