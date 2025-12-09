@@ -31,6 +31,10 @@ Route::get('/{locale}/reset-password', function () {
     return view('auth.reset-password');
 })->name('auth.reset-password');
 
+
+
 Route::livewire('/{locale}/dashboard', 'pages::dashboard.index')->name('pages::dashboard.index');
 
 Route::livewire('/{locale}/admin/animals', 'pages::animals.index')->name('pages::animals.index');
+
+Route::livewire('/{locale}/admin/volunteers', 'pages::volunteers.index')->name('pages::volunteers.index');
