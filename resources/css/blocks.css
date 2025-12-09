@@ -1190,6 +1190,7 @@ td img{
     .admin-search, .admin-button, thead, tbody{
         font-size: var(--web-admin-text-size);
     }
+
 }
 
 
@@ -1260,4 +1261,9 @@ td img{
         max-width: 400px;
         min-width: 400px;
     }
+}
+
+
+.bottom-row-volunteer{
+    margin-top: var(--margin-32);
 }
