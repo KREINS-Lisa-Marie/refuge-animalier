@@ -128,7 +128,7 @@
             Statistiques
         </h2>
 
-        <form method="GET" action="{{ route('pages::dashboard.index') }}" class="statistics-filter">
+        <form method="GET" action="{{ route('pages::dashboard.index', ['locale' => __('general.currentLocale')]) }}" class="statistics-filter">
             <div class="statistics_start_date">
                 <label for="statistics_start_date" class="fw-medium">
                     Date de début

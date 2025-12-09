@@ -8,7 +8,7 @@
             Navigation principale
         </h2>
 
-        <a href="/"
+        <a href="{{ route('pages::dashboard.index', ['locale' => __('general.currentLocale')]) }}"
            lang=""
            hreflang=""
            class="languages__link nav__link__header small-logo"
@@ -67,7 +67,7 @@
             </svg>
         </a>
 
-        <a href="{{route('pages::dashboard.index')}}"
+        <a href="{{route('pages::dashboard.index', ['locale' => __('general.currentLocale')])}}"
            lang=""
            hreflang=""
            class="languages__link nav__link__header big-logo"
@@ -112,24 +112,24 @@
 
     <ul class="flex flex-col sidebar-nav-links nav__container__header l-height-32">
         <li class="nav__item__header">
-            <a href="{{route('pages::dashboard.index')}}" class="nav__link__header" aria-label="Aller vers la page Dashboard" title="Aller vers la page Accueil" >Dashboard</a>
+            <a href="{{route('pages::dashboard.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="Aller vers la page Dashboard" title="Aller vers la page Accueil" >Dashboard</a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('pages::dashboard.index')}}" class="nav__link__header" aria-label="Aller vers la page Les animaux" title="Aller vers la page Les animaux" >Les animaux</a>
+            <a href="{{route('pages::dashboard.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="Aller vers la page Les animaux" title="Aller vers la page Les animaux" >Les animaux</a>
         </li>
         <li class="nav__item__header">
             <a href="{{--{{route('contacts.index')}}--}}" class="nav__link__header" aria-label="Aller vers la page Demandes d'adoption" title="Aller vers la page Demandes d'adoption" >Demandes d'adoption</a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('pages::dashboard.index')}}" class="nav__link__header" aria-label="Aller vers la page Bénévoles" title="Aller vers la page Bénévoles" >Bénévoles</a>
+            <a href="{{route('pages::dashboard.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="Aller vers la page Bénévoles" title="Aller vers la page Bénévoles" >Bénévoles</a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('pages::dashboard.index')}}" class="nav__link__header" aria-label="Aller vers la page Messages" title="Aller vers la page Messages" >Messages</a>
+            <a href="{{route('pages::dashboard.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="Aller vers la page Messages" title="Aller vers la page Messages" >Messages</a>
         </li>
     </ul>
 
     <div class="fw-700 nav__container__header profile-disconnect-link">
-        <a href="{{route('pages::dashboard.index')}}" class="nav__item__header" title="Aller vers la page Profil" aria-label="Aller vers la page Profil">
+        <a href="{{route('pages::dashboard.index', ['locale' => __('general.currentLocale')])}}" class="nav__item__header" title="Aller vers la page Profil" aria-label="Aller vers la page Profil">
             Profil
         </a>
         <form action="{{route('logout')}}" method="POST" class="nav__item__header">

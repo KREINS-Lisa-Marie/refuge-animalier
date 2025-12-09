@@ -29,6 +29,6 @@
             </svg>
         </p>
     </div>
-    <a href="{{route('public.animal')}}" title="aller vers la page de l’animal" class="card-link">
+    <a href="{{route('public.animal', ['locale' => __('general.currentLocale')])}}" title="aller vers la page de l’animal" class="card-link">
     </a>
 </div>
