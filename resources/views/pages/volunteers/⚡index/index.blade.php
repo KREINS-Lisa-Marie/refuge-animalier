@@ -58,13 +58,13 @@
 
 <main class="main-container" id="content">
     <x-page-bar>
-        Bénévoles
+        {{__('admin/volunteers.volunteers')}}
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
             <x-admin.admin-button href="{{route('pages::animals.index', ['locale' => __('general.currentLocale')])}}"
                                   title="Aller sur la page 'Créer un bénévole'">
-                Créer un bénévole
+                {{__('admin/volunteers.create_a_volunteer')}}
             </x-admin.admin-button>
             <x-admin.search/>
         </div>
@@ -78,16 +78,16 @@
         <thead>
         <tr>
             <x-admin.table.table-th scope="col">
-                Image
+                {{__('admin/volunteers.image')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Nom complet
+                {{__('admin/volunteers.name')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Téléphone
+                {{__('admin/volunteers.phone_number')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Rôle
+                {{__('admin/volunteers.role')}}
             </x-admin.table.table-th>
         </tr>
         </thead>
@@ -98,13 +98,13 @@
                     <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="image du chien" class="border-r-big">
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-name fw-medium">
-                    <span class="show-web">Nom : </span>Thomas Fortin
+                    <span class="show-web">{{__('admin/volunteers.name_title')}}</span>Thomas Fortin
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-state">
-                    <span class="show-web">Téléphone : </span>039483820
+                    <span class="show-web">T{{__('admin/volunteers.phone_number_title')}}</span>039483820
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
-                    <span class="show-web">Rôle : </span>Bénévole
+                    <span class="show-web">{{__('admin/volunteers.role_title')}}</span>Bénévole
                 </x-admin.table.table-td>
             </tr>
         @endfor
