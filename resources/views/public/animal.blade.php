@@ -7,7 +7,7 @@
                     d="M21.6445 8.58464L0.999944 8.58463M0.999944 8.58463L11.3222 16.168M0.999944 8.58463L11.3222 1.0013"
                     stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Retour
+            {{__('public/animal.return')}}
         </a>
     </div>
     <section class="p-l-r-24 m-t-110 m-b-60-150">
@@ -29,42 +29,42 @@
         <div class="animal-section max-w-web margin-l-r-auto ">
             <dl class="fs-texte dl:last-child max-h-384 d-flex flex-c flex-wrap">
                 <x-definition-term>
-                    Race
+                    {{__('public/animal.race')}}
                 </x-definition-term>
                 <x-definition>
                     Border collie
                 </x-definition>
 
                 <x-definition-term>
-                    Sexe
+                    Sexe{{__('public/animal.sex')}}
                 </x-definition-term>
                 <x-definition>
                     Masculin
                 </x-definition>
 
                 <x-definition-term>
-                    Pelage
+                    {{__('public/animal.furr')}}
                 </x-definition-term>
                 <x-definition>
                     Brun-blanc
                 </x-definition>
 
                 <x-definition-term>
-                    Age
+                    {{__('public/animal.age')}}
                 </x-definition-term>
                 <x-definition>
                     4 ans
                 </x-definition>
 
                 <x-definition-term>
-                    Vaccins
+                    {{__('public/animal.vaccinations')}}
                 </x-definition-term>
                 <x-definition>
                     rage
                 </x-definition>
 
                 <x-definition-term>
-                    Caractère
+                    {{__('public/animal.return')}}
                 </x-definition-term>
                 <x-definition>
                     Doux, mais très actif
@@ -72,7 +72,7 @@
 
             </dl>
             <p class="animal-state fw-700 p-16-32 background-light d-i-block border-r-big m-b-32">
-                A adopter
+                {{__('public/animal.to_adopt')}}
             </p>
         </div>
 {{--        <a href="{{route('public.contact')}}" title="Aller vers la page Contact">
@@ -81,7 +81,7 @@
     </section>
     <section class="background-light p-l-r-24 p-b-60-150">
         <h2 class="page-title fw-700 max-w-web margin-l-r-auto color-dark">
-            Galerie de Balou
+            {{__('public/animal.galery_of')}}Balou
         </h2>
         <ul class="m-t-32 d-flex flex-r flex-gap-32 flex-wrap max-w-web margin-l-r-auto">
             <li class="flex-gap-32 ">

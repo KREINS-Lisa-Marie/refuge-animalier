@@ -1,63 +1,70 @@
 @component('layouts.app')
 
     <h2 class="page-title color-dark fw-700  t-a-center ">
-        Contactez-nous
+        {{__('public/contact.contact_us')}}
     </h2>
 
     <form action="" method="POST" class="form  web-margin-l-r-auto background-light border-r-small m-lr-24 m-b-60-150 ">
 
         <h2 class=" fw-700 p-b-32 t-a-center color-dark form-title">
-            Formulaire de contact
+            {{__('public/contact.contact_form')}}
         </h2>
     <p class="italic m-b-32 interl-text">
-        Pour nous contacter, veuillez s.v.p. remplir le formulaire. Nous allons vous contacter dès que possible. Si vous voulez adopter un animal, veuillez s.v.p. renseigner son nom.
+        {{__('public/contact.fill_out_form')}}
     </p>
 
     <fieldset>
 
-        <p class="obligations m-b-32">* Champs obligatoires
+        <p class="obligations m-b-32">
+            {{__('public/contact.mandatory_fields')}}
         </p>
 
         <div class="web-flex flex-gap-24 flex-wrap">
 
                 <x-fields.text name="firstname" id="firstname" value="" placeholder="John">
-                    Prénom*
+
+                    {{__('public/contact.first_name_mandatory')}}
                 </x-fields.text>
 
             <x-fields.text name="lastname" id="lastname" value="" placeholder="Doe">
-                Nom*
+
+                {{__('public/contact.lastname_mandatory')}}
             </x-fields.text>
 
                 <x-fields.email value="">
-                    Adresse Email*
+                    {{__('public/contact.email_mandatory')}}
                 </x-fields.email>
 
 
             <div class="field p-b-32">
                 <label for="subject" class="field__label">
-                    Concernant*
+                    {{__('public/contact.concerning')}}
                 </label>
                 <select name="subject-select" id="subject-select"
                         class="field__select background-white p-16 border-r-big " aria-required="true">
-                    <option value="">--Choisissez un sujet--</option>
-                    <option value="information">Informations générales</option>
-                    <option value="volunteer">Bénévolat</option>
-                    <option value="volunteer">Demande d'adoption</option>
+                    <option value="">{{__('public/contact.choose_subject')}}</option>
+                    <option value="information">
+                        {{__('public/contact.general_info')}}</option>
+                    <option value="volunteer">
+                        {{__('public/contact.volunteer')}}</option>
+                    <option value="volunteer">
+                        {{__('public/contact.adoption_request')}}</option>
                 </select>
             </div>
         </div>
 
 
         @component('components.fields.textarea', ['name' => 'message', 'id'=>'message', 'value' =>'',
-            'placeholder' => 'Bonjour,
-        Je voudrais bien m’informer à propros du bénévolat.
-        Bonne journée,
-        John Doe', 'old_values' =>  ""])
-            Message*
+        'placeholder' => 'Bonjour,
+Je voudrais bien m’informer à propros du bénévolat.
+Bonne journée,
+John Doe', 'old_values' =>  ""])
+            {{__('public/contact.message')}}
         @endcomponent
 
 
     </fieldset>
-    <button type="submit" class="btn contact-form-btn background-dark color-white dark-button-background min-w-130 border-r-big margin-l-r-auto m-t-32 d-block p-16-32">Envoyer</button>
+    <button type="submit" class="btn contact-form-btn background-dark color-white dark-button-background min-w-130 border-r-big margin-l-r-auto m-t-32 d-block p-16-32">{{__('public/contact.send')}}
+    </button>
 </form>
 @endcomponent
