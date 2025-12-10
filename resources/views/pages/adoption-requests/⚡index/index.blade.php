@@ -20,13 +20,13 @@
 
 <main class="main-container" id="content">
     <x-page-bar>
-        Demandes d’adoption
+        {{__('admin/adoption-requests.adoption_requests')}}
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
             <x-admin.admin-button href="{{route('pages::adoption-requests.index', ['locale' => __('general.currentLocale')])}}"
                                   title="Aller sur la page 'Créer une demande'">
-                Créer une demande
+                {{__('admin/adoption-requests.create_a_request')}}
             </x-admin.admin-button>
             <x-admin.search/>
         </div>
@@ -40,16 +40,16 @@
         <thead>
         <tr>
             <x-admin.table.table-th scope="col">
-                Nom complet
+                {{__('admin/adoption-requests.name')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Date
+                {{__('admin/adoption-requests.date')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Animal
+                {{__('admin/adoption-requests.animal')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Statut
+                {{__('admin/adoption-requests.state')}}
             </x-admin.table.table-th>
         </tr>
         </thead>
@@ -57,16 +57,16 @@
         @for( $i = 1; $i<= 10; $i++)
             <tr class="table-row table-row-flex">
                 <x-admin.table.table-td class="">
-                    <span class="show-web">Nom complet : </span>Thomas Fortin
+                    <span class="show-web">{{__('admin/adoption-requests.name_title')}}</span>Thomas Fortin
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class=" fw-medium">
-                    <span class="show-web">Date : </span>11.11.25
+                    <span class="show-web">{{__('admin/adoption-requests.date_title')}}</span>11.11.25
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="">
-                    <span class="show-web">Animal : </span>Bobby
+                    <span class="show-web">{{__('admin/adoption-requests.animal_title')}}</span>Bobby
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="">
-                    <span class="show-web">Statut : </span>En cours d’adoption
+                    <span class="show-web">{{__('admin/adoption-requests.state_title')}}</span>En cours d’adoption
                 </x-admin.table.table-td>
             </tr>
         @endfor

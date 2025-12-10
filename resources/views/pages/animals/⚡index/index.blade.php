@@ -58,13 +58,13 @@
 
 <main class="main-container" id="content">
     <x-page-bar>
-        Les animaux
+        {{__('admin/animals.animals')}}
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
             <x-admin.admin-button href="{{route('pages::animals.index', ['locale' => __('general.currentLocale')])}}"
                                   title="Aller sur la page 'Créer un animal'">
-                Créer un animal
+                {{__('admin/animals.create_an_animal')}}
             </x-admin.admin-button>
             <x-admin.search/>
         </div>
@@ -78,7 +78,7 @@
                     <x-select select_name="sex-animals" label="Sexe" :options="$sex_options"/>
                 </div>
                 <x-button>
-                    Filtrer
+                    {{__('admin/animals.filter')}}
                 </x-button>
             </form>
             <div>
@@ -90,16 +90,16 @@
         <thead>
         <tr>
             <x-admin.table.table-th scope="col">
-                Image
+                {{__('admin/animals.image')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Nom de l'animal
+                {{__('admin/animals.animal_name')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Statut
+                {{__('admin/animals.state')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Espèce
+                {{__('admin/animals.species')}}
             </x-admin.table.table-th>
         </tr>
         </thead>
@@ -110,13 +110,13 @@
                     <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="image du chien" class="border-r-big">
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-name fw-medium">
-                    <span class="show-web">Nom : </span>Balou
+                    <span class="show-web">{{__('admin/animals.animal_name_title')}}</span>Balou
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-state">
-                    <span class="show-web">Statut : </span>A adopter
+                    <span class="show-web">{{__('admin/animals.state_title')}}</span>A adopter
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
-                    <span class="show-web">Espèce : </span>Chien
+                    <span class="show-web">{{__('admin/animals.species_title')}}</span>Chien
                 </x-admin.table.table-td>
             </tr>
         @endfor

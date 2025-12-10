@@ -20,13 +20,13 @@
 
 <main class="main-container" id="content">
     <x-page-bar>
-        Messages
+        {{__('admin/messages.messages')}}
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
             <x-admin.admin-button href="{{route('pages::adoption-requests.index', ['locale' => __('general.currentLocale')])}}"
                                   title="Ouvrir les emails">
-                Ouvrir les emails
+                {{__('admin/messages.open_emails')}}
             </x-admin.admin-button>
             <x-admin.search/>
         </div>
@@ -40,16 +40,16 @@
         <thead>
         <tr>
             <x-admin.table.table-th scope="col">
-                Nom complet
+                {{__('admin/messages.name')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Email
+                {{__('admin/messages.email')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Date
+                {{__('admin/messages.date')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
-                Animal
+                {{__('admin/messages.animal')}}
             </x-admin.table.table-th>
         </tr>
         </thead>
@@ -57,16 +57,16 @@
         @for( $i = 1; $i<= 10; $i++)
             <tr class="table-row table-row-flex">
                 <x-admin.table.table-td class="">
-                    <span class="show-web">Nom complet : </span>Sarah Bato
+                    <span class="show-web">{{__('admin/messages.name_title')}}</span>Sarah Bato
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class=" fw-medium">
-                    <span class="show-web">Email : </span>sarah@bato.com
+                    <span class="show-web">{{__('admin/messages.email_title')}}</span>sarah@bato.com
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="">
-                    <span class="show-web">Date : </span>11.11.25
+                    <span class="show-web">{{__('admin/messages.date_title')}}</span>11.11.25
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="">
-                    <span class="show-web">Animal : </span>Bobby
+                    <span class="show-web">{{__('admin/messages.animal_title')}}</span>Bobby
                 </x-admin.table.table-td>
             </tr>
         @endfor
