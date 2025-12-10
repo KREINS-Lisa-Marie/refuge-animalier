@@ -45,12 +45,12 @@
 
 
         <h2 class="page-title m-b-60-94 fw-700 t-a-center color-dark p-b-0">
-            Nos animaux
+            {{__('public/animal.our_animals')}}
         </h2>
 
         <section class="background-dark p-t-b-60-150 p-l-r-24 ">
             <h3 class="sro" aria-level="3" role="heading">
-                Liste des animaux
+                {{__('public/animal.animal_list')}}
             </h3>
             <div class="d-flex flex-wrap flex-j-c-space-between max-w-web margin-l-r-auto">
                 <div class="d-flex flex-wrap flex-c flex-gap-24 filters">
@@ -63,12 +63,12 @@
 
 
                     <button class="p-16-32 d-i-block dark-button-background color-white border-r-big">
-                        Filter
+                        {{__('public/animal.filter')}}
                     </button>
                 </div>
 
                 <label for="search-animals" class="sro">
-                    Rechercher
+                    {{__('public/animal.animal_list')}}
                 </label>
                 <input type="search" name="search-animals" placeholder="Rechercher" id="search-animals"
                        class="search-input background-white border-r-big p-16-32 m-t-32 m-b-56">
