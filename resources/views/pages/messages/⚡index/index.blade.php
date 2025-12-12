@@ -25,7 +25,7 @@
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
             <x-admin.admin-button href="{{route('pages::adoption-requests.index', ['locale' => __('general.currentLocale')])}}"
-                                  title="Ouvrir les emails">
+                                  title="Ouvrir les emails" class="">
                 {{__('admin/messages.open_emails')}}
             </x-admin.admin-button>
             <x-admin.search/>
