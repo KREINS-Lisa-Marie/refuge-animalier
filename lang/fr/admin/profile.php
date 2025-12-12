@@ -4,6 +4,7 @@ return [
     'modify_info' => 'Modifier mes données',
     'delete_info' => 'Supprimer mes données',
     'profile_information' => 'Informations du profil',
+    'profile' => 'Profil',
     'complete_name' => 'Nom Complet',
     'email' => 'Email',
     'phone_number' => 'Téléphone',
@@ -11,4 +12,12 @@ return [
     'change_my_password' => 'Changer mon mot de passe',
     'image' => 'Image',
     'change_language' => 'Changer vers - English',
+
+
+    'save' => 'Enregistrer',
+    'firstname' =>'Prénom',
+    'lastname' =>'Nom',
+    'password_confirmation' => 'Confirmation du mot de passe',
+    'form' => 'Formulaire pour modifier l’utilisateur',
+
 ];
