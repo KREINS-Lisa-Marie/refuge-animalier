@@ -1426,4 +1426,61 @@ input:checked + .slider:before {
             height: auto;
         }
     }
+    button.form-button, .file-input{
+        padding-top: var(--margin-24);
+        padding-bottom: var(--margin-24);
+        font-size: var(--web-font-size);
+    }
+    .form-button{
+        margin-top: var(--margin-80);
+    }
+
 }
+
+.form-button, .file-input{
+    padding-left: var(--padding-32);
+    padding-right: var(--padding-32);
+    padding-top: var(--padding-16);
+    padding-bottom: var(--padding-16);
+}
+
+.file-input{
+    input[type="file"]{
+        margin-top: var(--margin-24);
+        font-size: var(--web-font-size);
+    }
+    label{
+        margin-bottom: var(--margin-16);
+    }
+}
+.form-button{
+    margin-top: var(--margin-56);
+}
+
+.profile-form .form-fields{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: var(--flex-gap-32);
+    align-content: space-between;
+}
+
+@media (max-width: 999px) {
+    .profile-form input{
+        min-width: 100%;
+    }
+}
+
+@media (min-width: 1700px) {
+    .profile-form .form-fields{
+        max-height: 436px;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1699px) {
+    .profile-form .form-fields{
+        max-height: 600px;
+    }
+}
+
+
