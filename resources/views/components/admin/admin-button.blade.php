@@ -1,3 +1,3 @@
-<a href="{{$href}}" title="{{$title}}" hreflang="{{ app()->getLocale()  }}" class="dark-button-background color-white border-r-big admin-button fw-medium t-a-center">
+<a href="{{$href}}" title="{{$title}}" hreflang="{{ app()->getLocale()  }}" class="dark-button-background color-white border-r-big admin-button fw-medium t-a-center {{$class}}">
     {!! $slot !!}
 </a>

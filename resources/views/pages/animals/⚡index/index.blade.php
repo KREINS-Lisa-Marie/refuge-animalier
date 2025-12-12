@@ -63,7 +63,7 @@
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
             <x-admin.admin-button href="{{route('pages::animals.index', ['locale' => __('general.currentLocale')])}}"
-                                  title="Aller sur la page 'Créer un animal'">
+                                  title="Aller sur la page 'Créer un animal'" class="">
                 {{__('admin/animals.create_an_animal')}}
             </x-admin.admin-button>
             <x-admin.search/>

@@ -40,3 +40,7 @@ Route::livewire('/{locale}/admin/animals', 'pages::animals.index')->name('pages:
 Route::livewire('/{locale}/admin/volunteers', 'pages::volunteers.index')->name('pages::volunteers.index');
 
 Route::livewire('/{locale}/admin/adoption-requests', 'pages::adoption-requests.index')->name('pages::adoption-requests.index');
+
+Route::livewire('/{locale}/admin/messages', 'pages::messages.index')->name('pages::messages.index');
+
+Route::livewire('/{locale}/admin/profile', 'pages::profile.index')->name('pages::profile.index');

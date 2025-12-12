@@ -25,7 +25,7 @@
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
             <x-admin.admin-button href="{{route('pages::adoption-requests.index', ['locale' => __('general.currentLocale')])}}"
-                                  title="Aller sur la page 'Créer une demande'">
+                                  title="Aller sur la page 'Créer une demande'" class="">
                 {{__('admin/adoption-requests.create_a_request')}}
             </x-admin.admin-button>
             <x-admin.search/>
