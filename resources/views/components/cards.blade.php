@@ -23,7 +23,7 @@
             </p>
         </div>
         <p class="d-flex flex-r flex-a-i-center flex-j-c-end fw-700 link_discover">
-            Voir plus d'infos
+           {{__('components/cards.see_more')}}
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" viewBox="0 0 36 26" fill="none" class="arrow_discover">
                 <path d="M7.375 13.0013H28.0196M28.0196 13.0013L17.6973 5.41797M28.0196 13.0013L17.6973 20.5846" stroke="#51594C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
