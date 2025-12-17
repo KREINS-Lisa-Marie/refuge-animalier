@@ -59,7 +59,7 @@
                            value="{{old('email')}}">
                 </div>
 
-                <a href="{{route('auth.login')}}" class="d-block fw-medium">
+                <a href="{{route('auth.login', ['locale' => __('general.currentLocale')])}}" class="d-block fw-medium">
                     Retour à la connexion
                 </a>
 
