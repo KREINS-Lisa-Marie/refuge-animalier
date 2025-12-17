@@ -10,4 +10,18 @@ return [
     'phone_number_title' => 'Phone number: ',
     'role' => 'Role',
     'role_title' => 'Role: ',
+
+    'firstname' => 'First name',
+    'lastname' => 'Last name',
+    'email' => 'Email',
+    'profile_image' => 'Profile image',
+    'modify_volunteer' => 'Edit my details',
+    'delete_volunteer' => 'Delete person',
+    'general_information' => 'General information',
+    'availability_of' => 'Availability of ',
+    'delete_info' => 'Delete person',
+    'modify_info' => 'Edit details',
+
+
+    'modify' => 'Modifier',
 ];
