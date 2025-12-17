@@ -1,6 +1,6 @@
 <main class="main-container" id="content">
     <x-page-bar>
-        {{__('admin/messages.messages')}}
+        {{__('admin/profile.profile')}}
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
@@ -8,10 +8,14 @@
                                   title="Ouvrir les emails" class="">
                 {{__('admin/profile.modify_info')}}
             </x-admin.admin-button>
-            <x-admin.admin-button href="{{route('pages::profile.index', ['locale' => __('general.currentLocale')])}}"
-                                  title="Ouvrir les emails" class="delete_background delete-button">
-                {{__('admin/profile.delete_info')}}
-            </x-admin.admin-button>
+
+            <form wire:submit="destroy" method="post">
+                @csrf
+                <x-admin.admin-button href="{{route('pages::profile.index', ['locale' => __('general.currentLocale')])}}"
+                                      title="Supprimer mon compte" class="delete_background delete-button">
+                    {{__('admin/profile.delete_info')}}
+                </x-admin.admin-button>
+            </form>
         </div>
     </div>
     <section class="profile-information max-w-admin-web">
