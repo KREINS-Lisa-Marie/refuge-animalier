@@ -21,4 +21,6 @@ return [
     'availability_of' => 'Disponibilités de ',
     'delete_info' => 'Supprimer la personne',
     'modify_info' => 'Modifier les données',
+
+    'modify' => 'Modifier',
 ];
