@@ -1554,6 +1554,11 @@ input:checked + .slider:before {
                 margin-top: var(--margin-56);
             }
         }
+        .animal-info{
+            max-height: 800px;
+        }
+
+
     }
 
 @media (min-width: 1000px) {
@@ -1575,4 +1580,43 @@ input:checked + .slider:before {
     background-color: var(--white);
     padding: var(--padding-16);
     margin-bottom: var(--margin-32);
+}
+
+.animals-gallery{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: var(--flex-gap-24);
+}
+
+.animal-description{
+    max-width: 500px;
+}
+
+.animal-information-list{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    gap: var(--flex-gap-32);
+    margin-bottom: var(--margin-56);
+}
+
+.animal-description{
+    line-height: 28px;
+}
+
+
+@media (max-width: 1299px) {
+    .animal-information-list{
+        flex-direction: column;
+    }
+    .animals-gallery, .m-l-r-24{
+        margin-left: var(--margin-24);
+        margin-right: var(--margin-24);
+    }
+}
+@media (min-width: 1300px) {
+    .animal-information-list{
+        max-height: 500px;
+    }
 }
