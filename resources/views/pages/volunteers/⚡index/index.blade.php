@@ -101,7 +101,7 @@
                     <span class="show-web">{{__('admin/volunteers.name_title')}}</span>Thomas Fortin
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-state">
-                    <span class="show-web">T{{__('admin/volunteers.phone_number_title')}}</span>039483820
+                    <span class="show-web">{{__('admin/volunteers.phone_number_title')}}</span>039483820
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
                     <span class="show-web">{{__('admin/volunteers.role_title')}}</span>Bénévole
