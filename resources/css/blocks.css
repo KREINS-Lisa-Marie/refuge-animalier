@@ -1532,6 +1532,28 @@ input:checked + .slider:before {
                 font-size: var(--web-admin-text-size);
             }
         }
+        .edit-inputs {
+            gap: var(--flex-gap-32);
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        .profile-information legend{
+            margin-bottom: var(--margin-56);
+        }
+        fieldset.profile-information{
+            max-height: 500px;
+        }
+        .days-times fieldset.profile-information{
+            flex-direction: row;
+            gap: var(--flex-gap-24);
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        form .volunteers-edit{
+            .volunteer-buttons{
+                margin-top: var(--margin-56);
+            }
+        }
     }
 
 @media (min-width: 1000px) {
