@@ -39,6 +39,8 @@ Route::livewire('/{locale}/admin/animals', 'pages::animals.index')->name('pages:
 
 Route::livewire('/{locale}/admin/volunteers', 'pages::volunteers.index')->name('pages::volunteers.index');
 
+Route::livewire('/{locale}/admin/volunteers/{volunteer}/show', 'pages::volunteers.show')->name('pages::volunteers.show');
+
 Route::livewire('/{locale}/admin/adoption-requests', 'pages::adoption-requests.index')->name('pages::adoption-requests.index');
 
 Route::livewire('/{locale}/admin/messages', 'pages::messages.index')->name('pages::messages.index');
