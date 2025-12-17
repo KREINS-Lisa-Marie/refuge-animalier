@@ -11,6 +11,6 @@ it('renders successfully', function () {
 it('verifies that the profile edit page is showing content elements in the right order', function () {
     Livewire::test('pages::profile.edit')
         ->assertStatus(200)
-        ->assertSee([ 'Email', 'Mot de passe', 'Enregistrer' ]);
+        ->assertSee([ 'Email', 'Mot de passe', 'Enregistrer']);
 });
 
