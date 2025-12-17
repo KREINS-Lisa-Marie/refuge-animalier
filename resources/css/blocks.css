@@ -1410,7 +1410,6 @@ input:checked + .slider:before {
 
 @media (min-width: 1200px) {
     .profile-information{
-        max-height: 400px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
@@ -1418,12 +1417,12 @@ input:checked + .slider:before {
         margin-top: var(--margin-80);
 
         .information-list{
-            max-height: 400px;
+            max-height: 250px;
             flex-wrap: wrap;
         }
         dd img{
             width: 300px;
-            height: auto;
+            /*.profile-information height: auto;*/
         }
     }
     button.form-button, .file-input{
@@ -1483,4 +1482,75 @@ input:checked + .slider:before {
     }
 }
 
+.file-input{
+    max-width: 464px;
+}
 
+.volunteer-buttons{
+    margin-bottom: var(--margin-60);
+}
+
+.volunteer-info{
+    margin-top: var(--margin-32);
+}
+
+.profile-img{
+    width: 200px;
+    height: auto;
+}
+
+
+    .availabilities{
+        margin-bottom: var(--margin-32);
+    }
+
+
+    @media (min-width: 1200px) {
+        .volunteer-buttons .top-row {
+        justify-content: flex-start;
+            gap: 96px;
+        }
+        .volunteer-info .profile-img{
+            width: 200px;
+            height: auto;
+        }
+
+        .days-times{
+            max-height: 300px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: var(--flex-gap-24);
+
+            .availability-input{
+                max-width: 150px;
+
+            }
+        }
+        .volunteer-info{
+            dt, dd{
+                font-size: var(--web-admin-text-size);
+            }
+        }
+    }
+
+@media (min-width: 1000px) {
+    .availability-input{
+        font-size: var(--web-font-size);
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 750px) {
+    .availability-input{
+        min-width: 100%;
+    }
+}
+
+.availability-input{
+    border-radius: var(--big-border);
+    display: block;
+    background-color: var(--white);
+    padding: var(--padding-16);
+    margin-bottom: var(--margin-32);
+}
