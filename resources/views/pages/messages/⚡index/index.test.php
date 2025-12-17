@@ -10,6 +10,6 @@ it('renders successfully', function () {
 it('verifies that the messages page is showing content elements in the right order', function () {
     Livewire::test('pages::messages.index')
         ->assertStatus(200)
-        ->assertSee(['Messages', 'Ouvrir email', 'Rechercher', 'Nom', 'Date' ]);
+        ->assertSee(['Messages', 'Ouvrir les email', 'Rechercher', 'Nom', 'Date' ]);
 });
 

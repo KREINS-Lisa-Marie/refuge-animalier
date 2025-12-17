@@ -11,7 +11,7 @@ test('the application returns a successful response', function () {
 it('verifies that the homepage is showing it’s main title and another title', function () {
 
 
-    $response = $this->get(route('public.homepage'));
+    $response = $this->get(route('public.homepage', ['locale' => __('general.currentLocale')]));
 
     $response->assertStatus(200)
         ->assertSeeInOrder(["LES PATTES HEUREUSES", "Adoptez-nous"]);
