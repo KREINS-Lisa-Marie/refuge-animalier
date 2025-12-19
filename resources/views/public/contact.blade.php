@@ -21,17 +21,17 @@
 
         <div class="web-flex flex-gap-24 flex-wrap">
 
-                <x-fields.text name="firstname" id="firstname" value="" placeholder="John">
+                <x-fields.text name="firstname" id="firstname" value="" placeholder="John" wire="">
 
                     {{__('public/contact.first_name_mandatory')}}
                 </x-fields.text>
 
-            <x-fields.text name="lastname" id="lastname" value="" placeholder="Doe">
+            <x-fields.text name="lastname" id="lastname" value="" placeholder="Doe" wire="">
 
                 {{__('public/contact.lastname_mandatory')}}
             </x-fields.text>
 
-                <x-fields.email value="">
+                <x-fields.email value="" wire="">
                     {{__('public/contact.email_mandatory')}}
                 </x-fields.email>
 
