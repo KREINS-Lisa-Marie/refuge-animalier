@@ -1541,7 +1541,7 @@ input:checked + .slider:before {
             margin-bottom: var(--margin-56);
         }
         fieldset.profile-information{
-            max-height: 500px;
+            max-height: 600px;
         }
         .days-times fieldset.profile-information{
             flex-direction: row;

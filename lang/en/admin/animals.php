@@ -23,4 +23,6 @@ return [
     'animal_image' => 'Animal image',
     'description' => 'Description',
 
+    'save' => 'Save',
+    'personality' => 'Personality',
 ];
