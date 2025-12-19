@@ -36,7 +36,7 @@
                 </x-definition>
 
                 <x-definition-term>
-                    Sexe{{__('public/animal.sex')}}
+                    {{__('public/animal.sex')}}
                 </x-definition-term>
                 <x-definition>
                     Masculin
@@ -64,7 +64,7 @@
                 </x-definition>
 
                 <x-definition-term>
-                    {{__('public/animal.return')}}
+                    {{__('public/animal.character')}}
                 </x-definition-term>
                 <x-definition>
                     Doux, mais très actif
