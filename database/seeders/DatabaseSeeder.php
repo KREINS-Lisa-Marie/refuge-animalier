@@ -2,9 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Animal;
+use App\Models\Availability;
+use App\Models\Message;
+use App\Models\Request;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,9 +22,15 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $user1 = User::factory()->create([
+            'first_name' => 'TestFirstName',
+            'last_name' => 'TestLastName',
+            'email' => 'test@test.com',
+            'phone' => '0123456789',
+            'role' => 'Admin',
+            'is_admin' => true,
+            'profile_image' => 'felfjzsofezns.jpg',
+            'password' => Hash::make('test'),
         ]);
     }
 }
