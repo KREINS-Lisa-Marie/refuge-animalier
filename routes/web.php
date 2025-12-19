@@ -39,6 +39,8 @@ Route::livewire('/{locale}/admin/animals', 'pages::animals.index')->name('pages:
 
 Route::livewire('/{locale}/admin/animals/{animal}/show', 'pages::animals.show')->name('pages::animals.show');
 
+Route::livewire('/{locale}/admin/animals/{animal}/edit', 'pages::animals.edit')->name('pages::animals.edit');
+
 Route::livewire('/{locale}/admin/volunteers', 'pages::volunteers.index')->name('pages::volunteers.index');
 
 Route::livewire('/{locale}/admin/volunteers/{volunteer}/show', 'pages::volunteers.show')->name('pages::volunteers.show');
