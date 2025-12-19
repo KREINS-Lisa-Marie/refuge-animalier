@@ -23,4 +23,6 @@ return [
     'animal_image' => 'Image de l’animal',
     'description' => 'Description',
 
+    'save' => 'Enregistrer',
+    'personality' => 'Personalité',
 ];
