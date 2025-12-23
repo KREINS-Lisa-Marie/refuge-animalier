@@ -221,6 +221,10 @@ Variationen durch Modifier (--)
     .field__input, .field__select{
         min-width: 100%;
     }
+    /*          textarea       */
+    .textarea{
+        min-width: 100%;
+    }
 }
 
 
@@ -236,7 +240,6 @@ Variationen durch Modifier (--)
 .textarea{
     min-height: 200px;
     background-color: var(--white);
-    min-width: 100%;
 }
 
 
@@ -1474,16 +1477,24 @@ input:checked + .slider:before {
     .profile-form .form-fields{
         max-height: 436px;
     }
-}
-
-@media (min-width: 1000px) and (max-width: 1699px) {
-    .profile-form .form-fields{
+    .profile-form .requests-fields, .profile-form .edit-inputs{
         max-height: 600px;
     }
 }
 
-.file-input{
+@media (min-width: 1300px) and (max-width: 1699px) {
+    .profile-form .form-fields{
+        max-height: 600px;
+    }
+    .profile-form .requests-fields, .profile-form .edit-inputs{
+        max-height: 800px;
+    }
+
+}
+
+.file-input, #adoption-message, select{
     max-width: 464px;
+    width: 100%;
 }
 
 .volunteer-buttons{
@@ -1540,9 +1551,6 @@ input:checked + .slider:before {
         .profile-information legend{
             margin-bottom: var(--margin-56);
         }
-        fieldset.profile-information{
-            max-height: 600px;
-        }
         .days-times fieldset.profile-information{
             flex-direction: row;
             gap: var(--flex-gap-24);
@@ -1560,6 +1568,10 @@ input:checked + .slider:before {
 
 
     }
+
+#adoption-comment{
+    width: 100%;
+}
 
 @media (min-width: 1000px) {
     .availability-input{
