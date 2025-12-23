@@ -21,4 +21,9 @@ class Availability extends Model
         'saturday',
         'sunday',
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
