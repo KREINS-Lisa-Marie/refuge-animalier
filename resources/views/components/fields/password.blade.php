@@ -7,5 +7,5 @@
         {{$message}}
     </p>
     @enderror
-    <input type="password" id="password" name="password" class="field__input" value="{{$value}}" aria-required="true" wire:model.blur="{{$wire}}">
+    <input type="password" id="password" name="password" class="field__input" aria-required="true" wire:model.blur="{{$wire}}">
 </div>
