@@ -8,7 +8,7 @@ it('renders successfully', function () {
 });
 
 
-it('verifies that the volunteers page is showing content elements in the right order', function () {
+it('verifies that the volunteers show page is showing content elements in the right order', function () {
     Livewire::test('pages::volunteers.show')
         ->assertStatus(200)
         ->assertSee(['Informations générales', 'Email', 'Rôle', 'Image', 'Disponibilités', 'Modifier', 'Supprimer' ]);
