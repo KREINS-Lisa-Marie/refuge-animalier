@@ -24,4 +24,7 @@ return [
 
 
     'modify' => 'Modifier',
+    'password' => 'Password',
+    'save' => 'Save',
+    'availabilities' => 'Availabilities',
 ];
