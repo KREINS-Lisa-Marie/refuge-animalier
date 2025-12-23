@@ -3,7 +3,7 @@
         Modifier
     </x-page-bar>
 
-    <form wire:submit="save" class="profile-form volunteers-edit">
+    <form wire:submit="update" class="profile-form volunteers-edit">
         @csrf
     <fieldset class="profile-information max-w-admin-web  edit-inputs ">
         <legend class="fw-700 admin-dashboard-title">
