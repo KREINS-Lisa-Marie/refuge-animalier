@@ -55,6 +55,8 @@ Route::livewire('/{locale}/admin/adoption-requests', 'pages::adoption-requests.i
 
 Route::livewire('/{locale}/admin/adoption-requests/create', 'pages::adoption-requests.create')->name('pages::adoption-requests.create');
 
+Route::livewire('/{locale}/admin/adoption-requests/{adoption_request}/edit', 'pages::adoption-requests.edit')->name('pages::adoption-requests.edit');
+
 Route::livewire('/{locale}/admin/messages', 'pages::messages.index')->name('pages::messages.index');
 
 Route::livewire('/{locale}/admin/profile', 'pages::profile.index')->name('pages::profile.index');
