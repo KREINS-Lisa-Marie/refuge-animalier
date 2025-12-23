@@ -25,4 +25,5 @@ return [
 
     'save' => 'Save',
     'personality' => 'Personality',
+    'general_information' => 'General information',
 ];

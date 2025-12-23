@@ -25,4 +25,5 @@ return [
 
     'save' => 'Enregistrer',
     'personality' => 'Personalité',
+    'general_information' => 'Informations générales',
 ];
