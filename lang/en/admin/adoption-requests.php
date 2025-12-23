@@ -11,4 +11,16 @@ return [
     'animal_title' => 'Animal: ',
     'state' => 'Status',
     'state_title' => 'Status: ',
+
+    'phone' => 'Phone',
+    'adress' => 'Address',
+    'adoptant_first_name' => 'First name',
+    'adoptant_last_name' => 'Last name',
+    'animal_name' => 'Animal name',
+    'request_date' => 'Request date',
+    'adoption_message' => 'Adoption request message',
+    'modify_a_request' => 'Edit a request',
+    'adoption_comment' => 'Comment',
+    'new_adoption_request' => 'New adoption request',
+
 ];
