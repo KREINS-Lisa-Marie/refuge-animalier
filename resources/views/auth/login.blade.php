@@ -1,6 +1,7 @@
-@component('layouts.app')
+<x-public.app>
 
-    <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="Image de fond" class="absolut left-top-0 z-index-neg2 backgr-img">
+    <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="Image de fond"
+         class="absolut left-top-0 z-index-neg2 backgr-img">
 
     <div class="login-layout">
         <section class="login-section p-56-32 max-w-login background-public border-r-small">
@@ -89,69 +90,6 @@
                     {{--{{__('login.button_login')}}--}}
                 </button>
             </form>
-
-
-            {{--
-          <h1 class="">
-              {{__('login.identify_yourself')}}
-          </h1>
-          <!-- Icône chapeau -->
-
-          @if (session('status'))
-              <div class="">
-                  {{ session('status') }}
-              </div>
-          @endif
-
-
-          <form action="{{ route('login.store') }}" method="post" class="">
-              @csrf
-              <div class="flex flex-col">
-                  <label for="email" class="">
-                      {{__('login.email')}}
-                  </label>
-                  @error('email')
-                  <p class="error">
-                      {{$message}}
-                  </p>
-                  @enderror
-                  <input type="email" id="email" name="email" class="" value="{{old('email')}}">
-
-              </div>
-              <div class="flex flex-col">
-                  <label for="password" class="">
-                      {{__('login.password')}}
-                  </label>
-                  @error('password')
-                  <p class="error ">
-                      {{$message}}
-                  </p>
-                  @enderror
-                  <input type="password" id="password" name="password" class="" value="{{old('password')}}">
-              </div>
-              <div class="py-4 flex flex-row justify-between">
-                  <div>
-                      <input type="checkbox" name="remember" id="remember_me" class=""></div>
-                  <label for="remember_me" class="">
-                      {{__('login.remember_me')}}
-                  </label>
-                  <a href="/forgot-password" class="">
-                      {{__('login.password_forgotten')}}
-                  </a>
-              </div>
-
-              <button type="submit" class="">
-                  {{__('login.button_login')}}
-              </button>
-          </form>
-
-          <p>
-              {{__('login.no_account')}}
-              <a href="/register" class="">
-                  {{__('login.create_account')}}
-              </a>
-          </p>
-      --}}
         </section>
     </div>
-@endcomponent
+    </x-public.app>
