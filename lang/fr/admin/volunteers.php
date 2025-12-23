@@ -23,4 +23,7 @@ return [
     'modify_info' => 'Modifier les données',
 
     'modify' => 'Modifier',
+    'password' => 'Mot de passe',
+    'save' => 'Enregistrer',
+    'availabilities' => 'Disponibilités',
 ];
