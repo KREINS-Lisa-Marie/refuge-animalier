@@ -13,7 +13,7 @@ class AnimalFactory extends Factory
     public function definition(): array
     {
         return [
-            'animal_name' => fake()->name(),
+            'animal_name' => fake()->firstName(),
             'species' => fake()->word(),
             'race' => fake()->word(),
             'sex' => fake()->word(),

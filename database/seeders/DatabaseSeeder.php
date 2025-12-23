@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        $user1 = User::factory()->create([
+
+        $user = User::factory()->create([
             'first_name' => 'TestFirstName',
             'last_name' => 'TestLastName',
             'email' => 'test@test.com',
@@ -32,5 +33,17 @@ class DatabaseSeeder extends Seeder
             'profile_image' => 'felfjzsofezns.jpg',
             'password' => Hash::make('test'),
         ]);
+
+        Availability::factory()->for($user)->create();
+
+        User::factory(5)
+            ->hasAvailability()
+            ->create();
+
+        $animals = Animal::factory()->count(10)->create();
+        $messages = Message::factory()->count(10)->create();
+        $requests = Request::factory()->count(10)->create();
+
+
     }
 }

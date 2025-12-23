@@ -28,7 +28,7 @@ class User extends Authenticatable
         'role',
         'profile_image',
         'password',
-        'is_admin'
+        'is_admin',
     ];
 
     /**
@@ -52,6 +52,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function availability(): HasOne
+    {
+        return $this->hasOne(Availability::class);
     }
 
     public function animals(): HasMany
