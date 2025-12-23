@@ -1,4 +1,3 @@
-{{--
 @php
     $role_options = [
         [
@@ -12,14 +11,13 @@
 ]
 
 @endphp
---}}
 
 <main class="main-container" id="content">
     <x-page-bar>
 {{__('admin/volunteers.modify')}} {{"Thomas"}}
 </x-page-bar>
 
-    <form wire:submit="save" class="profile-form volunteers-edit">
+    <form wire:submit="update" class="profile-form volunteers-edit">
         @csrf
 
     <fieldset class="profile-information edit-inputs max-w-admin-web">
@@ -35,9 +33,7 @@
         <x-fields.text id="userphone" name="userphone" value="" placeholder="Ex: 038438293" wire="userphone">
             {{__('admin/volunteers.phone_number')}}
         </x-fields.text>
-        <x-fields.text id="role" name="role" value="" placeholder="Ex: Bénévole" wire="role">
-            {{__('admin/volunteers.role')}}
-        </x-fields.text>
+        <x-select select_name="role" label="{{__('admin/volunteers.role')}}" :options="$role_options"/>
         <x-fields.file name_id="volunteer-img" wire="volunteer-img" name="volunteer-img">
             {{__('admin/volunteers.profile_image')}}
         </x-fields.file>
@@ -76,7 +72,7 @@
 
 <div class=" max-w-admin-web volunteer-buttons top-row">
     <x-admin.form-button>
-        {{__('admin/profile.save')}}
+        {{__('admin/volunteers.save')}}
     </x-admin.form-button>
 </div>
     </form>
