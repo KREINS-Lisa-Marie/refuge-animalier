@@ -11,4 +11,5 @@ return [
     'date_title' => 'Date: ',
     'animal' => 'Animal',
     'animal_title' => 'Animal: ',
+    'subject' => 'Subject: ',
 ];
