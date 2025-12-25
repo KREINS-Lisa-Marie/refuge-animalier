@@ -27,4 +27,15 @@ return [
     'password' => 'Password',
     'save' => 'Save',
     'availabilities' => 'Availabilities',
+
+    'volunteer' => 'Volunteer',
+    'admin' => 'Admin',
+    'monday' => 'Monday',
+    'tuesday' => 'Tuesday',
+    'wednesday' => 'Wednesday',
+    'thursday' => 'Thursday',
+    'friday' => 'Friday',
+    'saturday' => 'Saturday',
+    'sunday' => 'Sunday',
+
 ];
