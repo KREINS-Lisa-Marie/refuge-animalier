@@ -1,23 +1,20 @@
 <?php
 
+use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/{locale}', function () {
-    return view('public.homepage');
-})->name('public.homepage');
+Route::get('/{locale}', [HomepageController::class, 'index'])->name('public.homepage');
 
 
 Route::get('/{locale}/contact', function () {
     return view('public.contact');
 })->name('public.contact');
 
-Route::get('/{locale}/animals', function () {
-    return view('public.animals');
-})->name('public.animals');
+Route::get('/{locale}/animals',   [AnimalController::class, 'index']
+)->name('public.animals');
 
-Route::get('/{locale}/animal', function () {
-    return view('public.animal');
-})->name('public.animal');
+Route::get('/{locale}/animal/{animal}', [AnimalController::class, 'show'])->name('public.animal');
 
 Route::get('/{locale}/login', function () {
     return view('auth.login');
@@ -33,7 +30,9 @@ Route::get('/{locale}/reset-password', function () {
 
 
 
-Route::livewire('/{locale}/dashboard', 'pages::dashboard.index')->name('pages::dashboard.index');
+Route::livewire('/{locale}/dashboard', 'pages::dashboard.index')->name('pages::dashboard.index')->middleware([
+    'auth',
+]);
 
 Route::livewire('/{locale}/admin/animals', 'pages::animals.index')->name('pages::animals.index');
 

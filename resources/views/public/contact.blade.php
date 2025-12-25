@@ -57,7 +57,7 @@
             'placeholder' => 'Bonjour,
     Je voudrais bien m’informer à propros du bénévolat.
     Bonne journée,
-    John Doe', 'old_values' =>  ""])
+    John Doe', 'old_values' =>  "", 'wire'=>""])
                 {{__('public/contact.message')}}
             @endcomponent
 

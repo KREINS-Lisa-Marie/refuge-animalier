@@ -1,3 +1,8 @@
+@props(
+    [
+        'animal'
+]
+)
 <x-public.app>
 
     <div class="max-w-web margin-l-r-auto">
@@ -14,17 +19,18 @@
         <div class="animal-description-img d-flex flex-cr flex-wrap max-w-web margin-l-r-auto">
             <div>
                 <h2 class="page-title fw-700 color-dark">
-                    Bobby
+                    {!! $animal->animal_name !!}
                 </h2>
                 <p class="interl-text animal-description">
-                    Ce magnifique Border Collie est un chien à la fois doux, affectueux et plein d’énergie&nbsp;!
+                    {!! $animal->description !!}
+                    {{--Ce magnifique Border Collie est un chien à la fois doux, affectueux et plein d’énergie&nbsp;!
                     Toujours partant pour jouer ou partir en balade, il aura besoin d’une famille active qui saura lui
                     offrir de longues promenades et des moments de stimulation mentale. Très sociable et patient avec
                     les enfants,
                     il fera un excellent compagnon pour une famille dynamique. En revanche, il ne conviendra pas
                     vraiment à
                     des personnes âgées. Il se retrouve aujourd’hui au refuge suite à la séparation de ses anciens
-                    propriétaires, et cherche désormais un nouveau foyer aimant où il pourra s’épanouir.
+                    propriétaires, et cherche désormais un nouveau foyer aimant où il pourra s’épanouir.--}}
                 </p>
             </div>
             <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="Image du chien"
@@ -36,47 +42,47 @@
                     {{__('public/animal.race')}}
                 </x-definition-term>
                 <x-definition>
-                    Border collie
+                    {!! $animal->species !!}
                 </x-definition>
 
                 <x-definition-term>
                     {{__('public/animal.sex')}}
                 </x-definition-term>
                 <x-definition>
-                    Masculin
+                    {!! $animal->sex !!}
                 </x-definition>
 
                 <x-definition-term>
                     {{__('public/animal.furr')}}
                 </x-definition-term>
                 <x-definition>
-                    Brun-blanc
+                    {!! $animal->fur !!}
                 </x-definition>
 
                 <x-definition-term>
                     {{__('public/animal.age')}}
                 </x-definition-term>
-                <x-definition>
-                    4 ans
+                <x-definition>{!! $animal->age !!} An(s)
                 </x-definition>
 
                 <x-definition-term>
                     {{__('public/animal.vaccinations')}}
                 </x-definition-term>
                 <x-definition>
-                    rage
+                    {!! $animal->vaccinations !!}
                 </x-definition>
 
                 <x-definition-term>
                     {{__('public/animal.character')}}
                 </x-definition-term>
                 <x-definition>
-                    Doux, mais très actif
+                    {!! $animal->character !!}
                 </x-definition>
 
             </dl>
             <p class="animal-state fw-700 p-16-32 background-light d-i-block border-r-big m-b-32">
-                {{__('public/animal.to_adopt')}}
+                {{--{{__('public/animal.to_adopt')}}--}}
+                {!! $animal->state !!}
             </p>
         </div>
         {{--        <a href="{{route('public.contact')}}" title="Aller vers la page Contact">
@@ -85,7 +91,7 @@
     </section>
     <section class="background-light p-l-r-24 p-b-60-150">
         <h2 class="page-title fw-700 max-w-web margin-l-r-auto color-dark">
-            {{__('public/animal.galery_of')}}Balou
+            {{__('public/animal.galery_of')}}{!! $animal->animal_name !!}
         </h2>
         <ul class="m-t-32 d-flex flex-r flex-gap-32 flex-wrap max-w-web margin-l-r-auto">
             <li class="flex-gap-32 ">
