@@ -29,7 +29,7 @@
                     {{__('admin/volunteers.firstname')}}
                 </x-definition-term>
                 <x-definition>
-                    Elise
+                    {!! $volunteer->first_name !!}
                 </x-definition>
             </div>
 
@@ -38,7 +38,7 @@
                     {{__('admin/volunteers.lastname')}}
                 </x-definition-term>
                 <x-definition>
-                    Lambot
+                    {!! $volunteer->last_name !!}
                 </x-definition>
             </div>
 
@@ -47,7 +47,7 @@
                     {{__('admin/volunteers.email')}}
                 </x-definition-term>
                 <x-definition>
-                    elise@gmail.com
+                    {!! $volunteer->email !!}
                 </x-definition>
             </div>
 
@@ -56,7 +56,7 @@
                     {{__('admin/volunteers.phone_number')}}
                 </x-definition-term>
                 <x-definition>
-                    038847492
+                    {!! $volunteer->phone !!}
                 </x-definition>
             </div>
 
@@ -65,12 +65,8 @@
                     {{__('admin/volunteers.role')}}
                 </x-definition-term>
                 <x-definition>
-                    Bénévole
+                    {!! $volunteer->is_admin? __('admin/volunteers.admin'): __('admin/volunteers.volunteer') !!}
                 </x-definition>
-
-{{--                <x-definition>
-                        <x-select select_name="admin" label="Role" :options="$role_options"/>
-                </x-definition>--}}
             </div>
 
             <div>
@@ -87,30 +83,30 @@
 
         <section class="profile-information max-w-admin-web volunteer-times">
             <h2 aria-level="2" class="fw-700 admin-dashboard-title availabilities">
-                {{__('admin/volunteers.availability_of')}}
+                {{__('admin/volunteers.availability_of')}}{!! $volunteer->first_name !!}
             </h2>
 
             <div class="days-times">
                 <x-fields.availability-input name="monday" id="monday" value="" placeholder="10-17h" wire="monday">
-                    Lundi
+                    {{__('admin/volunteers.monday')}} {{ $availabilities->monday }}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="tuesday" id="tuesday" value="" placeholder="10-17h" wire="tuesday">
-                    Mardi
+                    {{__('admin/volunteers.tuesday')}} {{ $availabilities->tuesday }}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="wednesday" id="wednesday" value="" placeholder="10-17h" wire="wednesday">
-                    Mercredi
+                    {{__('admin/volunteers.wednesday')}} {{ $availabilities->wednesday }}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="thursday" id="thursday" value="" placeholder="10-17h" wire="thursday">
-                    Jeudi
+                    {{__('admin/volunteers.thursday')}} {{ $availabilities->thursday }}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="friday" id="friday" value="" placeholder="10-17h" wire="friday">
-                    Vendredi
+                    {{__('admin/volunteers.friday')}} {{ $availabilities->friday }}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="saturday" id="saturday" value="" placeholder="10-17h" wire="saturday">
-                    Samedi
+                    {{__('admin/volunteers.saturday')}} {{ $availabilities->saturday }}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="sunday" id="sunday" value="" placeholder="10-17h" wire="sunday">
-                    Dimanche
+                    {{__('admin/volunteers.sunday')}} {{ $availabilities->sunday }}
                 </x-fields.availability-input>
             </div>
         </section>

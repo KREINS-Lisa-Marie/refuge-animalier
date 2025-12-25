@@ -26,4 +26,14 @@ return [
     'password' => 'Mot de passe',
     'save' => 'Enregistrer',
     'availabilities' => 'Disponibilités',
+
+    'volunteer' => 'Bénévole',
+    'admin' => 'Admin',
+    'monday' => 'Lundi',
+    'tuesday' => 'Mardi',
+    'wednesday' => 'Mercredi',
+    'thursday' => 'Jeudi',
+    'friday' => 'Vendredi',
+    'saturday' => 'Samedi',
+    'sunday' => 'Dimanche',
 ];
