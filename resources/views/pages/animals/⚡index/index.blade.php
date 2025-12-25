@@ -56,7 +56,7 @@
 @endphp
 
 
-<main class="main-container" id="content">
+<main class="main-container mb-80" id="content">
     <x-page-bar>
         {{__('admin/animals.animals')}}
     </x-page-bar>
@@ -104,22 +104,23 @@
         </tr>
         </thead>
         <tbody>
-        @for( $i = 1; $i<= 10; $i++)
+
+        @foreach($animals as $animal)
             <tr class="table-row ">
                 <x-admin.table.table-td class="table-img">
                     <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="image du chien" class="border-r-big">
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-name fw-medium">
-                    <span class="show-web">{{__('admin/animals.animal_name_title')}}</span>Balou
+                    <span class="show-web">{{__('admin/animals.animal_name_title')}}</span>{!! $animal->animal_name !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-state">
-                    <span class="show-web">{{__('admin/animals.state_title')}}</span>A adopter
+                    <span class="show-web">{{__('admin/animals.state_title')}}</span>{!! $animal->state !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
-                    <span class="show-web">{{__('admin/animals.species_title')}}</span>Chien
+                    <span class="show-web">{{__('admin/animals.species_title')}}</span>{!! $animal->species !!}
                 </x-admin.table.table-td>
             </tr>
-        @endfor
+        @endforeach
         </tbody>
     </table>
 </main>
