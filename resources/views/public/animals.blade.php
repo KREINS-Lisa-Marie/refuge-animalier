@@ -75,33 +75,11 @@
 
 
         <ul class="d-flex flex-gap-24 flex-wrap max-w-web pet-group margin-l-r-auto">
-            <li>
-                <x-cards petname="Balou" petstatus="A adopter" petage="5" petrace="Frenchie" petsex="Masculin"/>
-            </li>
-
-            <li>
-                <x-cards petname="Balou" petstatus="A adopter" petage="5" petrace="Frenchie" petsex="Masculin"/>
-            </li>
-
-            <li>
-                <x-cards petname="Balou" petstatus="A adopter" petage="5" petrace="Frenchie" petsex="Masculin"/>
-            </li>
-
-            <li>
-                <x-cards petname="Balou" petstatus="A adopter" petage="5" petrace="Frenchie" petsex="Masculin"/>
-            </li>
-
-            <li>
-                <x-cards petname="Balou" petstatus="A adopter" petage="5" petrace="Frenchie" petsex="Masculin"/>
-            </li>
-
-            <li>
-                <x-cards petname="Balou" petstatus="A adopter" petage="5" petrace="Frenchie" petsex="Masculin"/>
-            </li>
-
-            <li>
-                <x-cards petname="Balou" petstatus="A adopter" petage="5" petrace="Frenchie" petsex="Masculin"/>
-            </li>
+            @foreach($animals as $animal)
+                <li>
+                    <x-cards :petname="$animal->animal_name" :petstatus="$animal->state" :petage="$animal->age" :petrace="$animal->race" :petsex="$animal->sex" :animal="$animal"/>
+                </li>
+            @endforeach
         </ul>
 
     </section>
