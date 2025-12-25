@@ -31,15 +31,11 @@
         </h2>
 
         <ul class="d-flex max-w-web margin-l-r-auto flex-gap-24 flex-wrap pet-group">
-            <li>
-                <x-cards petname="Balou" petstatus="A adopter" petage="6 ans" petrace="Frenchie" petsex="Masculin"/>
-            </li>
-            <li>
-                <x-cards petname="Balou" petstatus="A adopter" petage="6 ans" petrace="Frenchie" petsex="Masculin"/>
-            </li>
-            <li>
-                <x-cards petname="Balou" petstatus="A adopter" petage="6 ans" petrace="Frenchie" petsex="Masculin"/>
-            </li>
+            @foreach($animals as $animal)
+                <li>
+                    <x-cards :petname="$animal->animal_name" :petstatus="$animal->state" :petage="$animal->age" :petrace="$animal->race" :petsex="$animal->sex" :animal="$animal"/>
+                </li>
+            @endforeach
         </ul>
 
     </section>
