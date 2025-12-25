@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Sex;
 use App\Models\Animal;
 use App\Models\Availability;
 use App\Models\Message;
@@ -42,7 +43,11 @@ class DatabaseSeeder extends Seeder
 
         $animals = Animal::factory()->count(10)->create();
         $messages = Message::factory()->count(10)->create();
-        $requests = Request::factory()->count(10)->create();
+
+        $animal = Animal::factory()->create();
+        $requests = Request::factory()->count(10)->create([
+            'animal_id' => $animals->random()->id,
+        ]);
 
 
     }
