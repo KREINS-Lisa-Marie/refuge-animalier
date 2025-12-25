@@ -43,33 +43,36 @@
                 {{__('admin/messages.name')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
+                {{__('admin/messages.subject')}}
+            </x-admin.table.table-th>
+            <x-admin.table.table-th scope="col">
                 {{__('admin/messages.email')}}
             </x-admin.table.table-th>
             <x-admin.table.table-th scope="col">
                 {{__('admin/messages.date')}}
             </x-admin.table.table-th>
-            <x-admin.table.table-th scope="col">
-                {{__('admin/messages.animal')}}
-            </x-admin.table.table-th>
+
         </tr>
         </thead>
         <tbody>
-        @for( $i = 1; $i<= 10; $i++)
+
+        @foreach($messages as $message)
             <tr class="table-row table-row-flex">
                 <x-admin.table.table-td class="">
-                    <span class="show-web">{{__('admin/messages.name_title')}}</span>Sarah Bato
+                    <span class="show-web">{{__('admin/messages.name_title')}}</span>{!! $message->last_name !!} {!! $message->first_name !!}
+                </x-admin.table.table-td>
+                <x-admin.table.table-td class="">
+                    <span class="show-web">{{__('admin/messages.subject_title')}}</span>{!! $message->subject !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class=" fw-medium">
-                    <span class="show-web">{{__('admin/messages.email_title')}}</span>sarah@bato.com
+                    <span class="show-web">{{__('admin/messages.email_title')}}</span>{!! $message->email !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="">
-                    <span class="show-web">{{__('admin/messages.date_title')}}</span>11.11.25
+                    <span class="show-web">{{__('admin/messages.date_title')}}</span>{!! $message->created_at->format('d.m.Y') !!}
                 </x-admin.table.table-td>
-                <x-admin.table.table-td class="">
-                    <span class="show-web">{{__('admin/messages.animal_title')}}</span>Bobby
-                </x-admin.table.table-td>
+
             </tr>
-        @endfor
+        @endforeach
         </tbody>
     </table>
 </main>
