@@ -1,6 +1,6 @@
 <main class="main-container" id="content">
     <x-page-bar>
-        {{"Thomas"}}
+        {{ $animal->animal_name }}
     </x-page-bar>
 
     <section class="profile-information max-w-admin-web">
@@ -13,7 +13,7 @@
                     {{__('admin/animals.animal_name')}}
                 </x-definition-term>
                 <x-definition>
-                    Bobby
+                   {{ $animal->animal_name }}
                 </x-definition>
             </div>
 
@@ -22,13 +22,13 @@
                     {{__('admin/animals.species')}}
                 </x-definition-term>
                 <x-definition>
-                    Border collie
+                    {{ $animal->species }}
                 </x-definition>
             </div>
 
             <div>
                 <x-definition-term>
-                    {{__('admin/animals.sex')}}
+                    {{ $animal->sex }}
                 </x-definition-term>
                 <x-definition>
                     Masculin
@@ -40,7 +40,7 @@
                     {{__('admin/animals.fur')}}
                 </x-definition-term>
                 <x-definition>
-                    Brun-blanc
+                    {{ $animal->fur }}
                 </x-definition>
             </div>
 
@@ -49,7 +49,7 @@
                     {{__('admin/animals.age')}}
                 </x-definition-term>
                 <x-definition>
-                    3 ans
+                    {{ $animal->age }} an(s)
                 </x-definition>
             </div>
 
@@ -58,7 +58,7 @@
                     {{__('admin/animals.vaccination')}}
                 </x-definition-term>
                 <x-definition>
-                    rage
+                    {{ $animal->vaccinations }}
                 </x-definition>
             </div>
 
@@ -67,8 +67,7 @@
                     {{__('admin/animals.description')}}
                 </x-definition-term>
                 <x-definition>
-                    Ce magnifique Border Collie est un chien à la fois doux, affectueux et plein d’énergie !
-                    Toujours partant pour jouer ou partir en balade, il aura besoin d’une famille active qui saura lui offrir de longues promenades et des moments de stimulation mentale. Très sociable et patient avec les enfants, il fera un excellent compagnon pour une famille dynamique. En revanche, il ne conviendra pas vraiment à des personnes âgées. Il se retrouve aujourd’hui au refuge suite à la séparation de ses anciens propriétaires, et cherche désormais un nouveau foyer aimant où il pourra s’épanouir.
+                    {{ $animal->description }}
                 </x-definition>
             </div>
 
@@ -77,7 +76,7 @@
                     {{__('admin/animals.character')}}
                 </x-definition-term>
                 <x-definition>
-                    Doux, mais très actif
+                    {{ $animal->character }}
                 </x-definition>
             </div>
 
@@ -86,7 +85,7 @@
                     {{__('admin/animals.state')}}
                 </x-definition-term>
                 <x-definition>
-                    A adopter
+                   {{ $animal->state }}
                 </x-definition>
             </div>
             <div>
