@@ -17,10 +17,11 @@ class Message extends Model
         'subject',
         'message',
         'email',
+        'state',
     ];
 
-    public function users() : BelongsTo
+/*    public function user() : BelongsTo
     {
         return $this->belongsTo( User::class);
-    }
+    }*/
 }

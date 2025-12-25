@@ -58,16 +58,16 @@ class User extends Authenticatable
     {
         return $this->hasOne(Availability::class);
     }
-
+/*
     public function animals(): HasMany
     {
         return $this->hasMany(Animal::class);
-    }
+    }*/
 
-    public function messages(): HasMany
+/*    public function messages(): HasMany
     {
         return $this->hasMany(Message::class);
-    }
+    }*/
 
     public function requests(): HasMany
     {

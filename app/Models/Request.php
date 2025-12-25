@@ -21,12 +21,12 @@ class Request extends Model
         'date',
     ];
 
-    public function animal() : HasOne
+    public function animal() : BelongsTo
     {
-        return $this->hasOne( Animal::class);
+        return $this->belongsTo( Animal::class);
     }
 
-    public function users() : BelongsTo
+    public function user() : BelongsTo
     {
         return $this->belongsTo( User::class);
     }
