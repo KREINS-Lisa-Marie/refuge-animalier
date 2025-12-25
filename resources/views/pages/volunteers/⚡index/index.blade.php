@@ -1,44 +1,5 @@
 @php
-    /*$age_options = [
-        [
-            'name' => 'un',
-        'value' =>'1 an',
-        ],
-        [
-            'name' => 'deux',
-        'value' =>'2 ans',
-        ],
-        [
-            'name' => 'trois',
-        'value' =>'3 ans',
-        ],
-        [
-            'name' => 'quatre',
-        'value' =>'4 ans',
-        ],
-        [
-            'name' => 'cinq',
-        'value' =>'5 ans',
-        ],
-        [
-            'name' => 'six',
-        'value' =>'6 ans',
-        ],
-        ];
-
-
-        $sex_options = [
-        [
-            'name' => 'masculin',
-        'value' =>'Masculin',
-        ],
-        [
-            'name' => 'feminin',
-        'value' =>'Féminin',
-        ],
-        ];*/
-
-        $filter_options =[
+    $filter_options =[
            [
             'name' => 'ABC',
         'value' =>'ABC',
@@ -51,10 +12,8 @@
             'name' => 'latest',
         'value' =>'plus récents',
         ],
-]
-
+    ]
 @endphp
-
 
 <main class="main-container" id="content">
     <x-page-bar>
@@ -92,22 +51,26 @@
         </tr>
         </thead>
         <tbody>
-        @for( $i = 1; $i<= 10; $i++)
+
+        @foreach($volunteers as $volunteer)
             <tr class="table-row ">
                 <x-admin.table.table-td class="table-img">
                     <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="image du chien" class="border-r-big">
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-name fw-medium">
-                    <span class="show-web">{{__('admin/volunteers.name_title')}}</span>Thomas Fortin
+                    <span class="show-web">{{__('admin/volunteers.name_title')}}</span>{!! $volunteer->last_name !!} {!! $volunteer->first_name !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-state">
-                    <span class="show-web">{{__('admin/volunteers.phone_number_title')}}</span>039483820
+                    <span class="show-web">{{__('admin/volunteers.phone_number_title')}}</span>{!! $volunteer->phone !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
-                    <span class="show-web">{{__('admin/volunteers.role_title')}}</span>Bénévole
+                    <span class="show-web">{{__('admin/volunteers.role_title')}}</span>{!! $volunteer->is_admin?   __('admin/volunteers.admin'): __('admin/volunteers.volunteer') !!}
                 </x-admin.table.table-td>
             </tr>
-        @endfor
+        @endforeach
         </tbody>
     </table>
 </main>
+
+
+
