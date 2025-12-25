@@ -47,16 +47,16 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::loginView(function () {
-            return view('auth.login');
+            return view('auth.login', ['locale' => __('general.currentLocale')]);
         });
 
         RedirectIfAuthenticated::redirectUsing(function () {
-            return route('pages::dashboard.index');
+            return route('pages::dashboard.index', ['locale' => __('general.currentLocale')]);
         });
 
 
         Fortify::requestPasswordResetLinkView(function () {
-            return view('auth.forgot-password');
+            return view('auth.forgot-password', ['locale' => __('general.currentLocale')]);
         });
 
         Fortify::resetPasswordView(function (Request $request) {
