@@ -27,11 +27,11 @@ class Animal extends Model
         'gallery_images',
     ];
 
-
+/*
     public function users() : BelongsToMany
     {
         return $this->belongsToMany( User::class);
-    }
+    }*/
 
     public function requests() : HasMany
     {
