@@ -2,11 +2,11 @@
     $role_options = [
         [
             'name' => 'Admin',
-            'value' =>'admin',
+            'value' =>true,
         ],
         [
             'name' => 'Bénévole',
-            'value' =>'volunteer',
+            'value' =>false,
         ],
 ]
 
@@ -17,27 +17,33 @@
         {{__('admin/volunteers.create_a_volunteer')}}
     </x-page-bar>
 
-    <form wire:submit="save" class="profile-form volunteers-edit">
+    <form wire:submit.prevent="store" class="profile-form volunteers-edit">
         @csrf
 
         <fieldset class="profile-information edit-inputs max-w-admin-web">
             <legend class="fw-700 admin-dashboard-title">
                 {{__('admin/volunteers.general_information')}}
             </legend>
-            <x-fields.text id="firstname" name="firstname" value="" placeholder="Ex: John" wire="firstname">
+            <x-fields.text id="first_name" name="first_name" value="" placeholder="Ex: John" wire="first_name">
                 {{__('admin/volunteers.firstname')}}
             </x-fields.text>
-            <x-fields.text id="lastname" name="lastname" value="" placeholder="Ex: Doe" wire="lastname">
+            <x-fields.text id="last_name" name="last_name" value="" placeholder="Ex: Doe" wire="last_name">
                 {{__('admin/volunteers.lastname')}}
             </x-fields.text>
-            <x-fields.text id="userphone" name="userphone" value="" placeholder="Ex: 038438293" wire="userphone">
+            <x-fields.email id="email" name="email" value="" placeholder="Ex: doe@doe.com" wire="email">
+                {{__('admin/volunteers.email')}}
+            </x-fields.email>
+            <x-fields.text id="phone" name="phone" value="" placeholder="Ex: 038438293" wire="phone">
                 {{__('admin/volunteers.phone_number')}}
             </x-fields.text>
-            <x-select select_name="role" label="{{__('admin/volunteers.role')}}" :options="$role_options"/>
+            <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options" wire="is_admin"/>
             <x-fields.password wire="password">
                 {{__('admin/volunteers.password')}}
             </x-fields.password>
-            <x-fields.file name_id="volunteer-img" wire="volunteer-img" name="volunteer-img">
+            <x-fields.password-confirmation wire="password_confirmation">
+                {{__('admin/volunteers.password')}}
+            </x-fields.password-confirmation>
+            <x-fields.file name_id="volunteer-img" wire="profile_image" name="volunteer-img">
                 {{__('admin/volunteers.profile_image')}}
             </x-fields.file>
         </fieldset>
