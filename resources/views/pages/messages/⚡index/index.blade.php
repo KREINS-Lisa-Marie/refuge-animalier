@@ -32,7 +32,7 @@
         </div>
         <div class="bottom-row bottom-row-volunteer">
             <div>
-                <x-select select_name="filtering" label="Trier" :options="$filter_options"/>
+                <x-select select_name="filtering" label="Trier" :options="$filter_options" wire="filtering"/>
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
         </thead>
         <tbody>
 
-        @foreach($messages as $message)
+        @foreach($this->searchedMessages() as $message)
             <tr class="table-row table-row-flex">
                 <x-admin.table.table-td class="">
                     <span class="show-web">{{__('admin/messages.name_title')}}</span>{!! $message->last_name !!} {!! $message->first_name !!}
