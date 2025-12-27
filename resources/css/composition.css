@@ -48,6 +48,9 @@ max-width / centering
 .flex-j-c-end{
     justify-content: end;
 }
+.flex-j-c-start{
+    justify-content: start;
+}
 
 
 /*   --flex align-items--   */

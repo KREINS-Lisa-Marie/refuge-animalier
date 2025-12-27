@@ -368,6 +368,18 @@ vertical-align: center;
         min-width: 100%;
     }
 }
+
+@media (min-width: 750px) and (max-width: 1199px){
+    .phone-flex{
+        display: flex;
+        gap: var(--flex-gap-24);
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+
+
 @media (min-width: 750px){
     .search-input{
         max-width: var(--max-w-search-web);
@@ -1526,6 +1538,7 @@ input:checked + .slider:before {
             height: auto;
         }
 
+
         .days-times{
             max-height: 300px;
             display: flex;
@@ -1584,6 +1597,16 @@ input:checked + .slider:before {
     .availability-input{
         min-width: 100%;
     }
+    .phone-flex{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: var(--flex-gap-24);
+
+        dd{
+            max-width: 464px;
+        }
+    }
 }
 
 .availability-input{
@@ -1631,4 +1654,13 @@ input:checked + .slider:before {
     .animal-information-list{
         max-height: 500px;
     }
+}
+
+.show-web{
+    font-weight: 700;
+    margin-right: var(--margin-8);
+}
+
+.min-w-130{
+    min-width: 130px;
 }
