@@ -16,7 +16,7 @@
 
 <main class="main-container" id="content">
     <x-page-bar>
-        {{"Thomas"}}
+        {!! $volunteer->first_name !!}  {!! $volunteer->last_name !!}
     </x-page-bar>
 
     <section class="profile-information max-w-admin-web">
@@ -86,45 +86,82 @@
                 {{__('admin/volunteers.availability_of')}}{!! $volunteer->first_name !!}
             </h2>
 
-            <div class="days-times">
-                <x-fields.availability-input name="monday" id="monday" value="" placeholder="10-17h" wire="monday">
-                    {{__('admin/volunteers.monday')}} {{ $availabilities->monday }}
-                </x-fields.availability-input>
-                <x-fields.availability-input name="tuesday" id="tuesday" value="" placeholder="10-17h" wire="tuesday">
-                    {{__('admin/volunteers.tuesday')}} {{ $availabilities->tuesday }}
-                </x-fields.availability-input>
-                <x-fields.availability-input name="wednesday" id="wednesday" value="" placeholder="10-17h" wire="wednesday">
-                    {{__('admin/volunteers.wednesday')}} {{ $availabilities->wednesday }}
-                </x-fields.availability-input>
-                <x-fields.availability-input name="thursday" id="thursday" value="" placeholder="10-17h" wire="thursday">
-                    {{__('admin/volunteers.thursday')}} {{ $availabilities->thursday }}
-                </x-fields.availability-input>
-                <x-fields.availability-input name="friday" id="friday" value="" placeholder="10-17h" wire="friday">
-                    {{__('admin/volunteers.friday')}} {{ $availabilities->friday }}
-                </x-fields.availability-input>
-                <x-fields.availability-input name="saturday" id="saturday" value="" placeholder="10-17h" wire="saturday">
-                    {{__('admin/volunteers.saturday')}} {{ $availabilities->saturday }}
-                </x-fields.availability-input>
-                <x-fields.availability-input name="sunday" id="sunday" value="" placeholder="10-17h" wire="sunday">
-                    {{__('admin/volunteers.sunday')}} {{ $availabilities->sunday }}
-                </x-fields.availability-input>
-            </div>
+
+                <dl class= "days-times max-w-web flex-j-c-start phone-flex">
+                    <div>
+                        <dt class="field__label" wire="monday">
+                            {{__('admin/volunteers.monday')}}
+                        </dt>
+                        <dd class="availability-input t-a-center min-w-130" name="monday" id="monday" wire="monday">
+                            {{ $availabilities->monday??'/' }}
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="field__label" wire="tuesday">
+                            {{__('admin/volunteers.tuesday')}}
+                        </dt>
+                        <dd class="availability-input t-a-center min-w-130" name="tuesday" id="tuesday" wire="tuesday">
+                            {{ $availabilities->tuesday??'/' }}
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="field__label" wire="wednesday">
+                            {{__('admin/volunteers.wednesday')}}
+                        </dt>
+                        <dd class="availability-input t-a-center min-w-130" name="wednesday" id="wednesday" wire="wednesday">
+                            {{ $availabilities->wednesday??'/' }}
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="field__label" wire="thursday">
+                            {{__('admin/volunteers.thursday')}}
+                        </dt>
+                        <dd class="availability-input t-a-center min-w-130" name="thursday" id="thursday" wire="thursday">
+                            {{ $availabilities->thursday??'/' }}
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="field__label" wire="friday">
+                            {{__('admin/volunteers.friday')}}
+                        </dt>
+                        <dd class="availability-input t-a-center min-w-130" name="friday" id="friday" wire="friday">
+                            {{ $availabilities->friday??'/' }}
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="field__label">
+                            {{__('admin/volunteers.saturday')}}
+                        </dt>
+                        <dd class="availability-input t-a-center min-w-130" name="saturday" id="saturday" wire="saturday">
+                            {{ $availabilities->saturday??'/' }}
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="field__label">
+                            {{__('admin/volunteers.sunday')}}
+                        </dt>
+                        <dd class="availability-input t-a-center min-w-130" name="sunday" id="sunday" wire="sunday">
+                            {{ $availabilities->sunday??'/' }}
+                        </dd>
+                    </div>
+                </dl>
         </section>
 
 
         <div class=" max-w-admin-web volunteer-buttons">
             <div class="top-row">
-                <x-admin.admin-button href="{{route('pages::profile.index', ['locale' => __('general.currentLocale')])}}"
+                <x-admin.admin-button href="{{route('pages::volunteers.edit', ['locale' => __('general.currentLocale'), 'volunteer' => $volunteer])}}"
                                       title="modifier les données" class="">
                     {{__('admin/volunteers.modify_info')}}
                 </x-admin.admin-button>
 
                 <form wire:submit="destroy" method="post">
                     @csrf
-                    <x-admin.admin-button href="{{route('pages::profile.index', ['locale' => __('general.currentLocale')])}}"
-                                          title="Supprimer la personne" class="delete_background delete-button">
+                    <x-admin.form-button title="Supprimer la personne" class="delete_background delete-button">
                         {{__('admin/volunteers.delete_info')}}
-                    </x-admin.admin-button>
+                    </x-admin.form-button>
+
                 </form>
             </div>
         </div>
