@@ -13,6 +13,7 @@ class Availability extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'user_id',
         'monday',
         'tuesday',
         'wednesday',
