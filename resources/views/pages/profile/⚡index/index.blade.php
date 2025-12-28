@@ -4,17 +4,16 @@
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
-            <x-admin.admin-button href="{{route('pages::profile.index', ['locale' => __('general.currentLocale')])}}"
+            <x-admin.admin-button href="{{route('pages::profile.edit', ['locale' => __('general.currentLocale'),  $user->id,])}}"
                                   title="Ouvrir les emails" class="">
                 {{__('admin/profile.modify_info')}}
             </x-admin.admin-button>
 
             <form wire:submit="destroy" method="post">
                 @csrf
-                <x-admin.admin-button href="{{route('pages::profile.index', ['locale' => __('general.currentLocale')])}}"
-                                      title="Supprimer mon compte" class="delete_background delete-button">
+                <x-admin.form-button title="Supprimer mon compte" class="delete_background delete-button">
                     {{__('admin/profile.delete_info')}}
-                </x-admin.admin-button>
+                </x-admin.form-button>
             </form>
         </div>
     </div>
@@ -28,7 +27,7 @@
                     {{__('admin/profile.complete_name')}}
                 </x-definition-term>
                 <x-definition>
-                    Elise Lambot
+                    {!! $user->first_name !!} {!! $user->last_name !!}
                 </x-definition>
             </div>
 
@@ -37,7 +36,7 @@
                     {{__('admin/profile.email')}}
                 </x-definition-term>
                 <x-definition>
-                    elise@gmail.com
+                    {!! $user->email !!}
                 </x-definition>
             </div>
 
@@ -46,7 +45,7 @@
                     {{__('admin/profile.phone_number')}}
                 </x-definition-term>
                 <x-definition>
-                    038847492
+                    {!! $user->phone !!}
                 </x-definition>
             </div>
 
