@@ -4,21 +4,21 @@
     </x-page-bar>
     <section class="welcome-dashobard-section m-lr-24 max-w-admin-web">
         <h2 class="fw-700 admin-dashboard-title">
-            {{__('admin/dashboard.hello')}}Elise
+            {{__('admin/dashboard.hello')}} {!! $user->first_name !!}
         </h2>
         <ul class="dashboard-buttons">
             <x-list-items>
-                <a href="" class="d-block dark-button-background color-white regular-shadow">
+                <a href="{{route('pages::animals.create', ['locale' => __('general.currentLocale')])}}" class="d-block dark-button-background color-white regular-shadow">
                     {{__('admin/dashboard.add_animal')}}
                 </a>
             </x-list-items>
             <x-list-items>
-                <a href="" class="d-block dark-button-background color-white regular-shadow">
+                <a href="{{route('pages::volunteers.create', ['locale' => __('general.currentLocale')])}}" class="d-block dark-button-background color-white regular-shadow">
                     {{__('admin/dashboard.add_volunteer')}}
                 </a>
             </x-list-items>
             <x-list-items>
-                <a href="" class="d-block dark-button-background color-white regular-shadow">
+                <a href="{{route('pages::adoption-requests.create', ['locale' => __('general.currentLocale')])}}" class="d-block dark-button-background color-white regular-shadow">
                     {{__('admin/dashboard.add_adoption_request')}}
                 </a>
             </x-list-items>
@@ -117,7 +117,8 @@
             @foreach($five_latest_animals as $latest_animal)
                 <x-admin.dashboard.dashboard-animal-cards animal_name="{!! $latest_animal->animal_name !!}" animal_card_age="{!! $latest_animal->age !!}" animal_card_date="{!! $latest_animal->created_at->format('d.m.Y') !!}"
                                                           animal_card_img_alt="Image de Balou" animal_card_img_h_w="44"
-                                                          animal_card_img_src="{!! asset('assets/img/border-collie.jpg') !!}"/>
+                                                          animal_card_img_src="{!! asset('assets/img/border-collie.jpg') !!}" :animal_id="$latest_animal->id"/>
+
 
             @endforeach
         </div>
@@ -157,7 +158,7 @@
             @endcomponent
         </form>
 
-        <table class="">
+        <table class="statistics-table">
             <tbody class="statistics">
             <x-admin.dashboard.dahboard-table-cards statistics_title="{{__('admin/dashboard.number_animals_welcomed')}}" statistics_number="5"/>
             <x-admin.dashboard.dahboard-table-cards statistics_title="{{__('admin/dashboard.finished_adoptions')}}" statistics_number="3"/>

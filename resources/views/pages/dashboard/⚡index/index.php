@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-new #[Layout('layouts.dashboard')] class extends Component
+new #[Layout('layouts.app')] class extends Component
 {
 
     public $animals;
@@ -18,6 +18,7 @@ new #[Layout('layouts.dashboard')] class extends Component
     public $notifications;
     public $total_adopted_animals;
     public $five_latest_animals;
+    public $user;
     public function index()
     {
         $not_treated_adoptions = Request::where('state', 'not_treated_yet')->get();
@@ -36,5 +37,6 @@ new #[Layout('layouts.dashboard')] class extends Component
         $this->total_adopted_animals =Animal::where('state', 'adopted')->get();
 
         $this->five_latest_animals =Animal::latest()->limit(5)->get();
+        $this->user = \Auth::user();
     }
 };
