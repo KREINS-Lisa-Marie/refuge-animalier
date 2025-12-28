@@ -62,7 +62,7 @@
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
-            <x-admin.admin-button href="{{route('pages::animals.index', ['locale' => __('general.currentLocale')])}}"
+            <x-admin.admin-button href="{{route('pages::animals.create', ['locale' => __('general.currentLocale')])}}"
                                   title="Aller sur la page 'Créer un animal'" class="">
                 {{__('admin/animals.create_an_animal')}}
             </x-admin.admin-button>
@@ -72,17 +72,17 @@
             <form method="GET" action="{{ route('pages::animals.index', ['locale' => __('general.currentLocale')]) }}"
                   class="filter-form">
                 <div class="field-label">
-                    <x-select select_name="age" label="Age" :options="$age_options"/>
+                    <x-select select_name="age" label="Age" :options="$age_options" wire="age"/>
                 </div>
                 <div class="field-label">
-                    <x-select select_name="sex-animals" label="Sexe" :options="$sex_options"/>
+                    <x-select select_name="sex-animals" label="Sexe" :options="$sex_options" wire="sex"/>
                 </div>
                 <x-button>
                     {{__('admin/animals.filter')}}
                 </x-button>
             </form>
             <div>
-                <x-select select_name="filtering" label="Trier" :options="$filter_options"/>
+                <x-select select_name="filtering" label="Trier" :options="$filter_options" wire="filtering"/>
             </div>
         </div>
     </div>
@@ -105,8 +105,8 @@
         </thead>
         <tbody>
 
-        @foreach($animals as $animal)
-            <tr class="table-row ">
+        @foreach($this->searchedAnimals as $animal)
+            <tr class="table-row position-relative">
                 <x-admin.table.table-td class="table-img">
                     <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="image du chien" class="border-r-big">
                 </x-admin.table.table-td>
@@ -118,7 +118,10 @@
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
                     <span class="show-web">{{__('admin/animals.species_title')}}</span>{!! $animal->species !!}
+                    <a href="{{route('pages::animals.show',  ['locale' => __('general.currentLocale'),  'animal' => $animal->id])}}" title="aller vers la page de l’animal" class="card-link">
+                    </a>
                 </x-admin.table.table-td>
+
             </tr>
         @endforeach
         </tbody>
