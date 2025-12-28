@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use \App\Models\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -33,9 +33,9 @@ class Animal extends Model
         return $this->belongsToMany( User::class);
     }*/
 
-    public function requests() : HasMany
+    public function adoptionRequests() : HasMany
     {
-        return $this->hasMany( Request::class);
+        return $this->hasMany( \App\Models\Request::class);
     }
 
 }

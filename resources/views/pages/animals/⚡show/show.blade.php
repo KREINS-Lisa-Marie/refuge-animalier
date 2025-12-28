@@ -1,3 +1,7 @@
+@php
+    $animal = \App\Models\Animal::findOrFail($animal_id);
+@endphp
+
 <main class="main-container" id="content">
     <x-page-bar>
         {{ $animal->animal_name }}
@@ -28,10 +32,10 @@
 
             <div>
                 <x-definition-term>
-                    {{ $animal->sex }}
+                    {{__('admin/animals.sex')}}
                 </x-definition-term>
                 <x-definition>
-                    Masculin
+                    {{ $animal->sex }}
                 </x-definition>
             </div>
 
@@ -121,17 +125,16 @@
 
     <div class=" max-w-admin-web volunteer-buttons m-lr-24">
         <div class="top-row">
-            <x-admin.admin-button href="{{route('pages::profile.index', ['locale' => __('general.currentLocale')])}}"
+            <x-admin.admin-button href="{{route('pages::animals.edit', ['locale' => __('general.currentLocale'),  'animal'=> $animal])}}"
                                   title="modifier les données" class="">
                 {{__('admin/animals.modify_animal')}}
             </x-admin.admin-button>
 
             <form wire:submit="destroy" method="post">
                 @csrf
-                <x-admin.admin-button href="{{route('pages::profile.index', ['locale' => __('general.currentLocale')])}}"
-                                      title="Supprimer la personne" class="delete_background delete-button">
+                <x-admin.form-button title="Supprimer la personne" class="delete_background delete-button">
                     {{__('admin/animals.delete_animal')}}
-                </x-admin.admin-button>
+                </x-admin.form-button>
             </form>
         </div>
     </div>

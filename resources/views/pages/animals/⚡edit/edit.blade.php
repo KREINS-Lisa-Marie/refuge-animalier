@@ -1,53 +1,53 @@
 <main class="main-container" id="content">
     <x-page-bar>
-        Modifier {{ $animal->animal_name }}
+        Modifier {{ $animal_name }}
     </x-page-bar>
 
-    <form wire:submit="update" class="profile-form volunteers-edit">
+    <form wire:submit="save" class="profile-form volunteers-edit">
         @csrf
     <fieldset class="profile-information max-w-admin-web  edit-inputs ">
         <legend class="fw-700 admin-dashboard-title">
             {{__('admin/volunteers.general_information')}}
         </legend>
-        <x-fields.text id="animal-name" name="animal-name" value="{{ $animal->animal_name }}" placeholder="Ex: John" wire="animal-name">
+        <x-fields.text id="animal_name" name="animal_name" placeholder="Ex: John" wire="animal_name">
             {{__('admin/animals.animal_name')}}
         </x-fields.text>
-        <x-fields.text id="species" name="species" value="{{ $animal->species }}" placeholder="Ex: Doe" wire="species">
+        <x-fields.text id="species" name="species" placeholder="Ex: Doe" wire="species">
             {{__('admin/animals.species')}}
         </x-fields.text>
-        <x-fields.text id="sex-animals" name="sex-animals" value="{{ $animal->sex }}" placeholder="Ex: 038438293" wire="sex-animals">
+        <x-fields.text id="sex" name="sex" placeholder="Ex: 038438293" wire="sex">
             {{__('admin/animals.sex')}}
         </x-fields.text>
-        <x-fields.text id="fur" name="fur" value="{{ $animal->fur }}" placeholder="Ex: brun-blanc" wire="fur">
+        <x-fields.text id="fur" name="fur" placeholder="Ex: brun-blanc" wire="fur">
             {{__('admin/animals.fur')}}
         </x-fields.text>
-        <x-fields.text id="age" name="age" value="{{ $animal->age }}" placeholder="Ex: 12 ans" wire="age">
+        <x-fields.text id="age" name="age" placeholder="Ex: 12 ans" wire="age">
             {{__('admin/animals.age')}} an(s)
         </x-fields.text>
-        <x-fields.text id="vaccination" name="vaccination" value="{{ $animal->vaccinations }}" placeholder="Ex: Vaccin contre la rage" wire="vaccination">
+        <x-fields.text id="vaccinations" name="vaccinations" placeholder="Ex: Vaccin contre la rage" wire="vaccinations">
             {{__('admin/animals.vaccination')}}
         </x-fields.text>
-        <x-fields.text id="description" name="description" value="{{ $animal->description }}" placeholder="Ex: Chien calme et faimilial..." wire="description">
+        <x-fields.text id="description" name="description" placeholder="Ex: Chien calme et faimilial..." wire="description">
             {{__('admin/animals.description')}}
         </x-fields.text>
-        <x-fields.text id="personality" name="personality" value="{{ $animal->character }}" placeholder="Ex: joyeux, calme et bien éduqué" wire="personality">
+        <x-fields.text id="character" name="character" placeholder="Ex: joyeux, calme et bien éduqué" wire="character">
             {{__('admin/animals.personality')}}
         </x-fields.text>
-        <x-fields.text id="state" name="state" value="{{ $animal->state }}" placeholder="Ex: Bénévole" wire="state">
+        <x-fields.text id="state" name="state" placeholder="Ex: Bénévole" wire="state">
             {{__('admin/animals.state')}}
         </x-fields.text>
-        <x-fields.file name_id="volunteer-img" wire="volunteer-img" name="volunteer-img">
+{{--        <x-fields.file name_id="show_image" wire="show_image" name="volunteer_img">
             {{__('admin/animals.animal_image')}}
-        </x-fields.file>
+        </x-fields.file>--}}
     </fieldset>
 
     <fieldset class="profile-information max-w-admin-web  edit-inputs ">
         <legend class="fw-700 admin-dashboard-title">
             {{__('admin/animals.gallery')}}
         </legend>
-        <x-fields.file name_id="volunteer-img" wire="volunteer-img" name="volunteer-img">
+       {{-- <x-fields.file name_id="volunteer_img" wire="volunteer_img" name="volunteer_img">
             {{__('admin/animals.animal_image')}}
-        </x-fields.file>
+        </x-fields.file>--}}
     </fieldset>
 
 
