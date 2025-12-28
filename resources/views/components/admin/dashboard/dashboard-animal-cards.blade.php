@@ -6,9 +6,10 @@
 'animal_name',
 'animal_card_age',
 'animal_card_date',
+'animal_id',
 ])
 
-<div class="dashboard-animal-card regular-shadow">
+<div class="dashboard-animal-card regular-shadow position-relative">
     <img src="{{$animal_card_img_src}}" alt="{{$animal_card_img_alt}}" height="{{$animal_card_img_h_w}}" width="{{$animal_card_img_h_w}}" class="dashboard_animal_card_img">
     <div class="animal-dashboard-information">
         <h3 class="fw-medium">
@@ -20,5 +21,7 @@
         <p class="dashboard-card-date">
             Date d’accueil : {{ $animal_card_date }}
         </p>
+        <a href="{{route('pages::animals.show',  ['locale' => __('general.currentLocale'),  'animal' => $animal_id])}}" title="aller vers la page de l’animal" class="card-link">
+        </a>
     </div>
 </div>
