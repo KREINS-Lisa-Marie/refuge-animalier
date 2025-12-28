@@ -1664,3 +1664,8 @@ input:checked + .slider:before {
 .min-w-130{
     min-width: 130px;
 }
+
+.statistics-table{
+    background: none;
+    box-shadow: none;
+}
