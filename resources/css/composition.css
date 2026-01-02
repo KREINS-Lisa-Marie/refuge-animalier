@@ -18,6 +18,9 @@ max-width / centering
 .d-i-block{
     display: inline-block;
 }
+.d-inline{
+    display: inline;
+}
 
 
 /*      flex properties         */
