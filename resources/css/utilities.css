@@ -572,3 +572,17 @@ option:last-of-type{
 .delete_background{
     background-color: var(--delete);
 }
+
+.mb-80{
+    margin-bottom: var(--margin-80);
+}
+
+
+.position-relative{
+    position: relative;
+}
+
+
+.z-index-10{
+    z-index: 10;
+}
