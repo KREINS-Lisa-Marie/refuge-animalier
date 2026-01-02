@@ -3,19 +3,17 @@
 use App\Models\Message;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
-new #[Layout('layouts.app')] class extends Component
+new class extends Component
 {
-    public $messages;
     public string $term = '';
-
-    public function mount(): void
-    {
-        $this->messages = Message::get();
-    }
+    public bool $isopenModal = false;
+    public ?Message $openMessage = null;
 
 
+    // champs de recherche
     #[Computed]
     public function searchedMessages()
     {
@@ -31,9 +29,37 @@ new #[Layout('layouts.app')] class extends Component
     }
 
 
+    // ouvrir modale
+    public function openModal( int $messageId):void
+    {
+        $this->openMessage = Message::findOrFail($messageId );
+        $this->isopenModal = true;
+    }
 
+    //fermer modale
+    public function closeModal():void
+    {
+        $this->isopenModal = false;
+        $this->openMessage = null;
+    }
 
+    //changement de state pour messages
+    public function messageIsRead():void
+    {
+        if ( $this->openMessage ){
 
+            $this->openMessage->update([
+                'state'=>'read'
+            ]);
+            $this->closeModal();
+        }
+    }
 
-
+    public function destroy():void
+    {
+        if ($this->openMessage) {
+            $this->openMessage->delete();
+            $this->closeModal();
+        }
+    }
 };
