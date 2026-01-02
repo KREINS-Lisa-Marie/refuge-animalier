@@ -13,7 +13,7 @@
             'name' => 'latest',
         'value' =>'plus récents',
         ],
-]
+];
 
 @endphp
 
@@ -24,7 +24,7 @@
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
-            <x-admin.admin-button href="{{route('pages::adoption-requests.index', ['locale' => __('general.currentLocale')])}}"
+            <x-admin.admin-button href="{{route('pages::adoption-requests.create', ['locale' => __('general.currentLocale')])}}"
                                   title="Aller sur la page 'Créer une demande'" class="">
                 {{__('admin/adoption-requests.create_a_request')}}
             </x-admin.admin-button>
@@ -32,11 +32,11 @@
         </div>
         <div class="bottom-row bottom-row-volunteer">
             <div>
-                <x-select select_name="filtering" label="Trier" :options="$filter_options"/>
+                <x-select select_name="filtering" label="Trier" :options="$filter_options" wire="filtering"/>
             </div>
         </div>
     </div>
-    <table class="table max-w-admin-web">
+    <table class="table max-w-admin-web mb-80">
         <thead>
         <tr>
             <x-admin.table.table-th scope="col">
@@ -54,22 +54,27 @@
         </tr>
         </thead>
         <tbody>
-        @for( $i = 1; $i<= 10; $i++)
+        @foreach($this->searchedRequests as $request)
             <tr class="table-row table-row-flex">
                 <x-admin.table.table-td class="">
-                    <span class="show-web">{{__('admin/adoption-requests.name_title')}}</span>Thomas Fortin
+                    <span class="show-web">{{__('admin/adoption-requests.name_title')}}</span>{!! $request->last_name !!} {!! $request->first_name !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class=" fw-medium">
-                    <span class="show-web">{{__('admin/adoption-requests.date_title')}}</span>11.11.25
+                    <span class="show-web">{{__('admin/adoption-requests.date_title')}}</span>{!! $request->created_at->format('d.m.Y') !!}
                 </x-admin.table.table-td>
+                @php($animal = \App\Models\Animal::where('id', $request->animal_id)->first())
                 <x-admin.table.table-td class="">
-                    <span class="show-web">{{__('admin/adoption-requests.animal_title')}}</span>Bobby
+                    <span class="show-web">{{__('admin/adoption-requests.animal_title')}}</span>{!! $animal->animal_name !!}
                 </x-admin.table.table-td>
+
                 <x-admin.table.table-td class="">
-                    <span class="show-web">{{__('admin/adoption-requests.state_title')}}</span>En cours d’adoption
+                    <span class="show-web">{{__('admin/adoption-requests.state_title')}}</span>{!! $request->state !!}
+                   {{--TO DO MODAL--}}
+                    {{--<a href="{{route('pages::adoption-requests.show',  ['locale' => __('general.currentLocale'),  'request' => $request->id])}}" title="aller vers la page de l’animal" class="card-link">
+                    </a>--}}
                 </x-admin.table.table-td>
             </tr>
-        @endfor
+        @endforeach
         </tbody>
     </table>
 </main>
