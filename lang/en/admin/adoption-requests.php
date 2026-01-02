@@ -22,5 +22,6 @@ return [
     'modify_a_request' => 'Edit a request',
     'adoption_comment' => 'Comment',
     'new_adoption_request' => 'New adoption request',
+    'email' => 'Email address',
 
 ];
