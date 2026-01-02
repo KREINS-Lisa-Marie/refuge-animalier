@@ -1,3 +1,10 @@
+@props([
+    'id',
+    'name',
+    'placeholder' => '',
+    'wire',
+    'value' => '',
+])
 <div class="text-field">
     <label for="{!! $name !!}" class="field__label">
         {!! $slot!!}

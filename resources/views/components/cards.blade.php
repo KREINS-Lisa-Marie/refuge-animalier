@@ -1,3 +1,14 @@
+@props(
+    [
+        'petname',
+        'petstatus',
+        'petage',
+        'petrace',
+        'petsex',
+        'animal',
+]
+)
+
 <div class="card">
     <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image du chien" class="border-r-small m-b-24 card-img">
     <div>
@@ -11,7 +22,7 @@
         </div>
         <div class="infos p-b-32">
             <p  class="p-b-16">
-                {{$petage}}
+                {{$petage}} An(s)
 
             </p>
             <p  class="p-b-16">
@@ -29,6 +40,6 @@
             </svg>
         </p>
     </div>
-    <a href="{{route('public.animal', ['locale' => __('general.currentLocale')])}}" title="aller vers la page de l’animal" class="card-link">
+    <a href="{{route('public.animal',  ['locale' => __('general.currentLocale'),  'animal' => $animal->id])}}" title="aller vers la page de l’animal" class="card-link">
     </a>
 </div>
