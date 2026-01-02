@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
@@ -25,7 +24,6 @@ class User extends Authenticatable
         'last_name',
         'email',
         'phone',
-        'role',
         'profile_image',
         'password',
         'is_admin',
@@ -69,9 +67,5 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }*/
 
-    public function requests(): HasMany
-    {
-        return $this->hasMany(Request::class);
-    }
 
 }
