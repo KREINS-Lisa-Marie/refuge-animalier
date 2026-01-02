@@ -2,7 +2,8 @@
 
 return [
     'messages' => 'Messages',
-    'open_emails' => 'Open emails',
+    'message' => 'Message',
+    'send_email' => 'Write an email',
     'name' => 'Full name',
     'name_title' => 'Full name: ',
     'email' => 'Email',
@@ -12,4 +13,13 @@ return [
     'animal' => 'Animal',
     'animal_title' => 'Animal: ',
     'subject' => 'Subject: ',
+    'subject_title' => 'Subject : ',
+    'state' => 'State',
+    'see_message' => 'See message',
+    'open_message'=>'Open message',
+    'contact_message'=>'Contact message',
+    'close'=>'Close',
+    'message_seen'=>'Message seen',
+    'answer'=>'Answer',
+    'delete_message'=>'Delete the message',
 ];

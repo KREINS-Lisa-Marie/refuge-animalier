@@ -2,7 +2,8 @@
 
 return [
     'messages' => 'Messages',
-    'open_emails' => 'Ouvrir les emails',
+    'message' => 'Message',
+    'send_email' => 'Ecrire un email',
     'name' => 'Nom complet',
     'name_title' => 'Nom complet : ',
     'email' => 'Email',
@@ -13,4 +14,12 @@ return [
     'animal_title' => 'Animal : ',
     'subject' => 'Sujet ',
     'subject_title' => 'Sujet : ',
+    'state' => 'Statut',
+    'see_message' => 'Voir le message',
+    'open_message'=>'Ouvrir le message',
+    'contact_message'=>'Message de contact',
+    'close'=>'Fermer',
+    'message_seen'=>'Message vu',
+    'answer'=>'Répondre',
+    'delete_message'=>'Supprimer le message',
 ];
