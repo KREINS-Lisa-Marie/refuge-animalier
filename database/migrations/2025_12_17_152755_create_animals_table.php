@@ -19,8 +19,8 @@ return new class extends Migration {
             $table->string('character');
             $table->string('state');
             $table->text('description');
-            $table->string('show_image');
-            $table->string('gallery_images');
+            $table->string('show_image')->nullable();
+            $table->string('gallery_images')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
