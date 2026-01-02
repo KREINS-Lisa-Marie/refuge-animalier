@@ -19,6 +19,8 @@ new #[Layout('layouts.app')] class extends Component
     public $total_adopted_animals;
     public $five_latest_animals;
     public $user;
+    public $message_number;
+
     public function index()
     {
         $not_treated_adoptions = Request::where('state', 'not_treated_yet')->get();
@@ -31,7 +33,7 @@ new #[Layout('layouts.app')] class extends Component
         $this->animals =Animal::get();
         $this->not_treated_adoptions = Request::where('state', 'not_treated_yet')->get();
         $this->animals_in_shelter =Animal::whereNot('state', 'adopted')->get();
-        $this->messages =Message::whereNot('state', '==','read')->get();
+        $this->messages =Message::where('state', '!=','read')->get();
         $this->animals_this_year =Animal::whereYear('created_at', now()->year)->get();
                 $this->notifications =Message::whereNot('state', 'read')->get();
         $this->total_adopted_animals =Animal::where('state', 'adopted')->get();
@@ -39,4 +41,5 @@ new #[Layout('layouts.app')] class extends Component
         $this->five_latest_animals =Animal::latest()->limit(5)->get();
         $this->user = \Auth::user();
     }
+
 };
