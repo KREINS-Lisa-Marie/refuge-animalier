@@ -1,3 +1,10 @@
+@php
+    $new_message = \App\Models\Message::where('state', '!=', 'read')->get();
+    $message_number = $new_message->count();
+
+    $new_adoption_requests = \App\Models\Request::where('state', '=', 'not_treated_yet')->get();
+    $adoption_requests_number = $new_adoption_requests->count();
+@endphp
 <header class="dark-button-background sidebar d-flex">
     <h1 class="sro" role="heading" aria-level="1">
         {{__('admin/sidebar.les_pattes_heureuses')}}
@@ -126,7 +133,7 @@
         <li class="nav__item__header">
             <a href="{{route('pages::adoption-requests.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="{{__('admin/sidebar.go_to_the_page_adoption_requests')}}" title="{{__('admin/sidebar.go_to_the_page_adoption_requests')}}">
                 {{__('admin/sidebar.adoption_requests')}}
-                </a>
+                </a> <span class="numbers">{!! $adoption_requests_number !!}</span>
         </li>
         <li class="nav__item__header">
             <a href="{{route('pages::volunteers.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="{{__('admin/sidebar.go_to_the_page_volunteers')}}" title="{{__('admin/sidebar.go_to_the_page_volunteers')}}">
@@ -136,7 +143,7 @@
         <li class="nav__item__header">
             <a href="{{route('pages::messages.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="{{__('admin/sidebar.go_to_the_page_messages')}}" title="{{__('admin/sidebar.go_to_the_page_messages')}}">
                 {{__('admin/sidebar.messages')}}
-                </a>
+                </a> <span class="numbers">{!! $message_number !!}</span>
         </li>
     </ul>
 
