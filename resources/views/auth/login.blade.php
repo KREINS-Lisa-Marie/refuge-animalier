@@ -40,7 +40,14 @@
             </span>
             </div>
 
-            <form action="{{ route('login.store') }}" method="post" class="">
+            @if (session('status'))
+                <div class="fw-medium">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+
+            <form action="{{ route('login.store', ['locale' => __('general.currentLocale')]) }}" method="post" class="">
                 @csrf
                 <div class="flex flex-col">
                     <label for="email" class="label">
