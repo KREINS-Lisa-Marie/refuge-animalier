@@ -54,10 +54,10 @@
         <div class="d-flex flex-wrap flex-j-c-space-between max-w-web margin-l-r-auto">
             <div class="d-flex flex-wrap flex-c flex-gap-24 filters">
                 <div class="select">
-                    <x-select select_name="select-animals" label="Age" :options="$age_options"/>
+                    <x-select select_name="select-animals" label="Age" :options="$age_options" wire="select_animals"/>
                 </div>
                 <div class="select">
-                    <x-select select_name="sex-animals" label="Sexe" :options="$sex_options"/>
+                    <x-select select_name="sex-animals" label="Sexe" :options="$sex_options" wire="sex"/>
                 </div>
 
 
