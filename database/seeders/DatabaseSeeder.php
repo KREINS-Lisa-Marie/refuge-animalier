@@ -34,13 +34,33 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('test'),
         ]);
 
+        $elise = User::factory()->create([
+            'first_name' => 'Elise',
+            'last_name' => 'Lambot',
+            'email' => 'elise@lambot.com',
+            'phone' => '0123456789',
+            'is_admin' => true,
+            'profile_image' => 'imageelise.jpg',
+            'password' => Hash::make('test'),
+        ]);
+        $thomas = User::factory()->create([
+            'first_name' => 'Thomas',
+            'last_name' => 'Fortin',
+            'email' => 'thomas@fortin.com',
+            'phone' => '0123456789',
+            'is_admin' => false,
+            'profile_image' => 'imagethomas.jpg',
+            'password' => Hash::make('test'),
+        ]);
+
+
         Availability::factory()->for($user)->create();
 
         User::factory(5)
             ->hasAvailability()
             ->create();
 
-        $animals = Animal::factory()->count(10)->create();
+        $animals = Animal::factory()->count(30)->create();
         $messages = Message::factory()->count(10)->create();
 
         $animal = Animal::factory()->create();
