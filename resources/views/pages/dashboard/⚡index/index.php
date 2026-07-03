@@ -7,8 +7,7 @@ use Carbon\Carbon;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-new #[Layout('layouts.app')] class extends Component
-{
+new #[Layout('layouts.app')] class extends Component {
 
     public $animals;
     public $not_treated_adoptions;
@@ -28,17 +27,17 @@ new #[Layout('layouts.app')] class extends Component
     }
 
 
-        public function mount()
+    public function mount()         //mets initial data pour le component.
     {
-        $this->animals =Animal::get();
+        $this->animals = Animal::get();
         $this->not_treated_adoptions = Request::where('state', 'not_treated_yet')->get();
-        $this->animals_in_shelter =Animal::whereNot('state', 'adopted')->get();
-        $this->messages =Message::where('state', '!=','read')->get();
-        $this->animals_this_year =Animal::whereYear('created_at', now()->year)->get();
-                $this->notifications =Message::whereNot('state', 'read')->get();
-        $this->total_adopted_animals =Animal::where('state', 'adopted')->get();
+        $this->animals_in_shelter = Animal::whereNot('state', 'adopted')->get();
+        $this->messages = Message::where('state', '!=', 'read')->get();
+        $this->animals_this_year = Animal::whereYear('created_at', now()->year)->count();
+        $this->notifications = Message::whereNot('state', 'read')->get();
+        $this->total_adopted_animals = Animal::where('state', 'adopted')->get();
 
-        $this->five_latest_animals =Animal::latest()->limit(5)->get();
+        $this->five_latest_animals = Animal::latest()->limit(5)->get();
         $this->user = \Auth::user();
     }
 
