@@ -71,7 +71,7 @@ new class extends Component
             'email' => $validated_data['email'],
             'phone' => $validated_data['phone'],
             'profile_image' => $validated_data['profile_image'],
-             'is_admin' => $validated_data['is_admin'] === '1'
+             'is_admin' => $validated_data['is_admin'] === '1'      //si = 1 alors = true sinon false
         ]);
 
         //dd($validated_data['is_admin']);

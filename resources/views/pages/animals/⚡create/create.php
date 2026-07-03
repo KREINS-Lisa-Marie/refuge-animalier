@@ -21,9 +21,36 @@ new #[Layout('layouts.app')] class extends Component
     public string $gallery_images = '';
 
 
+    public function render()        //à chaque fois que qqch sur la page change
+    {
+        $gender = [
+            [
+                'name' => __('admin/animals.male'),
+                'value' =>'male',
+            ],
+            [
+                'name' => __('admin/animals.female'),
+                'value' =>'female',
+            ],
+        ];
+        $user = auth()->user();
+        return view('pages.animals.⚡create.create',['gender' => $gender, 'user' => $user] );
+    }
+
 
     public function store(): void
     {
+        $gender = [
+            [
+                'name' => __('admin/animals.male'),
+                'value' =>'male',
+            ],
+            [
+                'name' => __('admin/animals.female'),
+                'value' =>'female',
+            ],
+        ];
+
         $this->validate([
             'animal_name'=>'required|string|max:255',
             'species'=>'string|required',
@@ -54,6 +81,6 @@ new #[Layout('layouts.app')] class extends Component
             'gallery_images' => $this->gallery_images,
         ]);
 
-        $this->redirect(route('pages::animals.index', ['locale' => __('general.currentLocale')]));
+        $this->redirect(route('pages::animals.index', ['locale' => __('general.currentLocale'), 'gender' => $gender]));
     }
 };
