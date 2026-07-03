@@ -24,4 +24,9 @@ return [
     'new_adoption_request' => 'New adoption request',
     'email' => 'Email address',
 
+    'adopted' => 'Adopted',
+    'in_treatment' => 'In Treatment',
+    'refused' => 'Refused',
+    'not_treated_yet' => 'Not treated yet',
+    'no_request_found' => 'No request found',
 ];

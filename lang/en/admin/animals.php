@@ -26,4 +26,12 @@ return [
     'save' => 'Save',
     'personality' => 'Personality',
     'general_information' => 'General information',
+
+    'adopted' => 'Adopted',
+    'in_treatment' => 'In Treatment',
+    'processing_adoption' => 'Pending Adoption',
+    'adoptable' => 'Adoptable',
+    'male' => 'Male',
+    'female' => 'Female',
+    'no_animal_found' => 'No animal found',
 ];

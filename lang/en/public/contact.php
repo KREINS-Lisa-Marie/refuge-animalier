@@ -15,4 +15,5 @@ return [
     'choose_subject' => '--Choose a subject--',
     'adoption_request' => 'Adoption request',
     'send' => 'Send',
+    'maps' => 'See the location',
 ];
