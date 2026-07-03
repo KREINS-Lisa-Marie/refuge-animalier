@@ -11,6 +11,10 @@ Route::get('/{locale}/contact', function () {
     return view('public.contact');
 })->name('public.contact');
 
+Route::get('/{locale}/legals', function () {
+    return view('public.legals');
+})->name('public.legals');
+
 Route::get('/{locale}/animals',   [AnimalController::class, 'index']
 )->name('public.animals');
 
