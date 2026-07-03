@@ -24,19 +24,28 @@
         <legend class="fw-700 admin-dashboard-title">
             {{__('admin/volunteers.general_information')}}
         </legend>
-        <x-fields.text id="first_name" name="first_name" value="{!! $volunteer->first_name !!}" placeholder="Ex: John" wire="first_name">
-            {{__('admin/volunteers.firstname')}}
-        </x-fields.text>
-        <x-fields.text id="last_name" name="last_name" value="{!! $volunteer->last_name !!}" placeholder="Ex: Doe" wire="last_name">
-            {{__('admin/volunteers.lastname')}}
-        </x-fields.text>
-        <x-fields.text id="phone" name="phone" value="{!! $volunteer->phone !!}" placeholder="Ex: 038438293" wire="phone">
-            {{__('admin/volunteers.phone_number')}}
-        </x-fields.text>
-        <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options" wire="is_admin"/>
-        <x-fields.file name_id="volunteer-img" wire="volunteer-img" name="volunteer-img">
-            {{__('admin/volunteers.profile_image')}}
-        </x-fields.file>
+        <p class="obligations m-b-32 ">
+            {{__('admin/general.mandatory_field')}}
+        </p>
+        <div>
+            <x-fields.text id="first_name" name="first_name" value="{!! $volunteer->first_name !!}"
+                           placeholder="Ex: John" wire="first_name">
+                {{__('admin/volunteers.firstname')}}
+            </x-fields.text>
+            <x-fields.text id="last_name" name="last_name" value="{!! $volunteer->last_name !!}" placeholder="Ex: Doe"
+                           wire="last_name">
+                {{__('admin/volunteers.lastname')}}
+            </x-fields.text>
+            <x-fields.text id="phone" name="phone" value="{!! $volunteer->phone !!}" placeholder="Ex: 038438293"
+                           wire="phone">
+                {{__('admin/volunteers.phone_number')}}
+            </x-fields.text>
+            <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options"
+                      wire="is_admin"/>
+            <x-fields.file name_id="volunteer-img" wire="volunteer-img" name="volunteer-img">
+                {{__('admin/volunteers.profile_image')}}
+            </x-fields.file>
+        </div>
     </fieldset>
 
 

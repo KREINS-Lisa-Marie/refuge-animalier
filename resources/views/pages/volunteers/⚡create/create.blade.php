@@ -12,7 +12,7 @@
 
 @endphp
 
-<main class="main-container" id="content">
+<main class="main-container admin" id="content">
     <x-page-bar>
         {{__('admin/volunteers.create_a_volunteer')}}
     </x-page-bar>
@@ -24,28 +24,38 @@
             <legend class="fw-700 admin-dashboard-title">
                 {{__('admin/volunteers.general_information')}}
             </legend>
-            <x-fields.text id="first_name" name="first_name" value="" placeholder="Ex: John" wire="first_name">
-                {{__('admin/volunteers.firstname')}}
-            </x-fields.text>
-            <x-fields.text id="last_name" name="last_name" value="" placeholder="Ex: Doe" wire="last_name">
-                {{__('admin/volunteers.lastname')}}
-            </x-fields.text>
-            <x-fields.email id="email" name="email" value="" placeholder="Ex: doe@doe.com" wire="email">
-                {{__('admin/volunteers.email')}}
-            </x-fields.email>
-            <x-fields.text id="phone" name="phone" value="" placeholder="Ex: 038438293" wire="phone">
-                {{__('admin/volunteers.phone_number')}}
-            </x-fields.text>
-            <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options" wire="is_admin"/>
-            <x-fields.password wire="password">
-                {{__('admin/volunteers.password')}}
-            </x-fields.password>
-            <x-fields.password-confirmation wire="password_confirmation">
-                {{__('admin/volunteers.password')}}
-            </x-fields.password-confirmation>
-            <x-fields.file name_id="volunteer-img" wire="profile_image" name="volunteer-img">
-                {{__('admin/volunteers.profile_image')}}
-            </x-fields.file>
+            <p class="obligations m-b-32 ">
+                {{__('admin/general.mandatory_field')}}
+            </p>
+            <div class="volunteers-fields">
+                <div class="col">
+                    <x-fields.text id="first_name" name="first_name" value="" placeholder="Ex: John" wire="first_name">
+                        {{__('admin/volunteers.firstname')}}
+                    </x-fields.text>
+                    <x-fields.text id="last_name" name="last_name" value="" placeholder="Ex: Doe" wire="last_name">
+                        {{__('admin/volunteers.lastname')}}
+                    </x-fields.text>
+                    <x-fields.email id="email" name="email" value="" placeholder="Ex: doe@doe.com" wire="email">
+                        {{__('admin/volunteers.email')}}
+                    </x-fields.email>
+                    <x-fields.text id="phone" name="phone" value="" placeholder="Ex: 038438293" wire="phone">
+                        {{__('admin/volunteers.phone_number')}}
+                    </x-fields.text>
+                </div>
+                <div class="col">
+                    <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options"
+                              wire="is_admin"/>
+                    <x-fields.password wire="password">
+                        {{__('admin/volunteers.password')}}
+                    </x-fields.password>
+                    <x-fields.password-confirmation wire="password_confirmation">
+                        {{__('admin/volunteers.password')}}
+                    </x-fields.password-confirmation>
+                    <x-fields.file name_id="volunteer-img" wire="profile_image" name="volunteer-img">
+                        {{__('admin/volunteers.profile_image')}}
+                    </x-fields.file>
+                </div>
+            </div>
         </fieldset>
 
 
