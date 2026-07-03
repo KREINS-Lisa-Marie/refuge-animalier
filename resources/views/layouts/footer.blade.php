@@ -11,10 +11,11 @@
                 {{__('footer.responsible')}}
             </p>
             <p class="m-b-16">
-                {{__('footer.phone_number')}}
+                {{__('footer.phone_number')}} <a href="tel:080546384" class="public-phone" title="{{__('admin/contacts.call')}}">080 546 384</a>
             </p>
             <p class="m-b-16">
                 {{__('footer.adress')}}
+                <a href="https://maps.app.goo.gl/vqLbDAcdjfxH2FDy7" title="{{__('public/contact.maps')}}" class="public-phone">{{__('footer.adress-name')}}</a>
             </p>
             <p >
                 {{__('footer.opening_hours')}}
@@ -35,11 +36,11 @@
         </div>
     </div>
     <div class="legal-information">
-        <a href="" class="d-block m-b-16">
+        <a href="{{route('public.legals', ['locale' => app()->getLocale()])}}" class="d-block m-b-16">
             {{__('footer.legal_information')}}
         </a>
         <p >
-            {{__('footer.created_by')}}
+            {{__('footer.created_by')}} <a href="https://lisa-marie-kreins.com/" title="{{__('footer.go_to_website')}}">Lisa-Marie Kreins</a>
         </p>
     </div>
 
