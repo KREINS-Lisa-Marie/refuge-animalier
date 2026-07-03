@@ -7,8 +7,34 @@ use Livewire\Component;
 
 new  #[Layout('layouts.app')] class extends Component
 {
+    use \Livewire\WithPagination;
+
     public $volunteers;
     public string $term = '';
+
+
+
+
+    //tri
+    public $sortField = 'last_name';
+    public $sortDirection = 'asc';
+    protected $queryString =['sortField', 'sortDirection'];
+
+
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field){
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        }else{
+            $this->sortDirection = 'asc';
+        }
+
+        $this->sortField = $field;
+    }
+
+
+
+
 
     public function mount(): void
     {
@@ -28,8 +54,8 @@ new  #[Layout('layouts.app')] class extends Component
                 ->orWhere('last_name', 'like', '%' . $this->term . '%')
                 ->orWhere('phone', 'like', '%' . $this->term . '%')
                 ->orWhere('is_admin', 'like', '%' . $this->term . '%')
-                ->orderBy('created_at', 'asc')
-                ->get();
+                ->orderBy($this->sortField, $this->sortDirection)
+                ->paginate(10);
     }
 
 

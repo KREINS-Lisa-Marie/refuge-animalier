@@ -81,31 +81,31 @@
                     {{__('admin/animals.filter')}}
                 </x-button>
             </form>
-            <div>
+{{--            <div>
                 <x-select select_name="filtering" label="Trier" :options="$filter_options" wire="filtering"/>
-            </div>
+            </div>--}}
         </div>
     </div>
-    <table class="table max-w-admin-web">
+    <table class="table max-w-admin-web m-b-32">
         <thead>
         <tr>
             <x-admin.table.table-th scope="col">
                 {{__('admin/animals.image')}}
             </x-admin.table.table-th>
-            <x-admin.table.table-th scope="col">
+            <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('animal_name')" :direction="$sortField === 'animal_name'? $sortDirection : null" class="{{$sortField === 'animal_name'? 'active-sort': ''}}">
                 {{__('admin/animals.animal_name')}}
-            </x-admin.table.table-th>
-            <x-admin.table.table-th scope="col">
+            </x-admin.table.table-th-sort>
+            <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('state')" :direction="$sortField === 'state'? $sortDirection : null" class="{{$sortField === 'state'? 'active-sort': ''}}">
                 {{__('admin/animals.state')}}
-            </x-admin.table.table-th>
-            <x-admin.table.table-th scope="col">
+            </x-admin.table.table-th-sort>
+            <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('species')" :direction="$sortField === 'species'? $sortDirection : null" class="{{$sortField === 'species'? 'active-sort': ''}}">
                 {{__('admin/animals.species')}}
-            </x-admin.table.table-th>
+            </x-admin.table.table-th-sort>
         </tr>
         </thead>
         <tbody>
 
-        @foreach($this->searchedAnimals as $animal)
+        @forelse($this->searchedAnimals as $animal)
             <tr class="table-row position-relative">
                 <x-admin.table.table-td class="table-img">
                     <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="image du chien" class="border-r-big">
@@ -114,7 +114,7 @@
                     <span class="show-web">{{__('admin/animals.animal_name_title')}}</span>{!! $animal->animal_name !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-state">
-                    <span class="show-web">{{__('admin/animals.state_title')}}</span>{!! $animal->state !!}
+                    <span class="show-web">{{__('admin/animals.state_title')}}</span>{!! $animal->state == 'adopted'? __('admin/animals.adopted') : ($animal->state == 'in_treatment' ? __('admin/animals.in_treatment') : __('admin/animals.processing_adoption') )!!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
                     <span class="show-web">{{__('admin/animals.species_title')}}</span>{!! $animal->species !!}
@@ -123,7 +123,24 @@
                 </x-admin.table.table-td>
 
             </tr>
-        @endforeach
+            @empty
+            <tr class="table-row position-relative">
+                <x-admin.table.table-td class="table-img">
+                </x-admin.table.table-td>
+                <x-admin.table.table-td class="table-name fw-medium">
+                    {{__('admin/animals.no_animal_found')}}
+                </x-admin.table.table-td>
+                <x-admin.table.table-td class="table-state">
+                </x-admin.table.table-td>
+                <x-admin.table.table-td class="table-species">
+                </x-admin.table.table-td>
+
+            </tr>
+        @endforelse
+
         </tbody>
     </table>
+    <div class="pagination-admin max-w-admin-web">
+        {{ $this->searchedAnimals->links() }}
+    </div>
 </main>
