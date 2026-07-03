@@ -47,7 +47,9 @@
                     {{__('admin/volunteers.email')}}
                 </x-definition-term>
                 <x-definition>
-                    {!! $volunteer->email !!}
+                    <a href="mailto:{!! $volunteer->email !!}" title="{{__('admin/contacts.send_mail_to')}}">
+                        {!! $volunteer->email !!}
+                    </a>
                 </x-definition>
             </div>
 
@@ -56,7 +58,9 @@
                     {{__('admin/volunteers.phone_number')}}
                 </x-definition-term>
                 <x-definition>
-                    {!! $volunteer->phone !!}
+                    <a href="tel:{!! $volunteer->phone !!}" title="{{__('admin/contacts.call')}}">
+                        {!! $volunteer->phone !!}
+                    </a>
                 </x-definition>
             </div>
 
@@ -85,67 +89,7 @@
             <h2 aria-level="2" class="fw-700 admin-dashboard-title availabilities">
                 {{__('admin/volunteers.availability_of')}}{!! $volunteer->first_name !!}
             </h2>
-
-
-                <dl class= "days-times max-w-web flex-j-c-start phone-flex">
-                    <div>
-                        <dt class="field__label" wire="monday">
-                            {{__('admin/volunteers.monday')}}
-                        </dt>
-                        <dd class="availability-input t-a-center min-w-130" name="monday" id="monday" wire="monday">
-                            {{ $availabilities->monday??'/' }}
-                        </dd>
-                    </div>
-
-                    <div>
-                        <dt class="field__label" wire="tuesday">
-                            {{__('admin/volunteers.tuesday')}}
-                        </dt>
-                        <dd class="availability-input t-a-center min-w-130" name="tuesday" id="tuesday" wire="tuesday">
-                            {{ $availabilities->tuesday??'/' }}
-                        </dd>
-                    </div>
-                    <div>
-                        <dt class="field__label" wire="wednesday">
-                            {{__('admin/volunteers.wednesday')}}
-                        </dt>
-                        <dd class="availability-input t-a-center min-w-130" name="wednesday" id="wednesday" wire="wednesday">
-                            {{ $availabilities->wednesday??'/' }}
-                        </dd>
-                    </div>
-                    <div>
-                        <dt class="field__label" wire="thursday">
-                            {{__('admin/volunteers.thursday')}}
-                        </dt>
-                        <dd class="availability-input t-a-center min-w-130" name="thursday" id="thursday" wire="thursday">
-                            {{ $availabilities->thursday??'/' }}
-                        </dd>
-                    </div>
-                    <div>
-                        <dt class="field__label" wire="friday">
-                            {{__('admin/volunteers.friday')}}
-                        </dt>
-                        <dd class="availability-input t-a-center min-w-130" name="friday" id="friday" wire="friday">
-                            {{ $availabilities->friday??'/' }}
-                        </dd>
-                    </div>
-                    <div>
-                        <dt class="field__label">
-                            {{__('admin/volunteers.saturday')}}
-                        </dt>
-                        <dd class="availability-input t-a-center min-w-130" name="saturday" id="saturday" wire="saturday">
-                            {{ $availabilities->saturday??'/' }}
-                        </dd>
-                    </div>
-                    <div>
-                        <dt class="field__label">
-                            {{__('admin/volunteers.sunday')}}
-                        </dt>
-                        <dd class="availability-input t-a-center min-w-130" name="sunday" id="sunday" wire="sunday">
-                            {{ $availabilities->sunday??'/' }}
-                        </dd>
-                    </div>
-                </dl>
+                <x-fields.availability-timetable></x-fields.availability-timetable>
         </section>
 
 
