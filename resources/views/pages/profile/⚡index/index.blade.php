@@ -4,8 +4,7 @@
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
-            <x-admin.admin-button href="{{route('pages::profile.edit', ['locale' => __('general.currentLocale'),  $user->id,])}}"
-                                  title="Ouvrir les emails" class="">
+            <x-admin.admin-button href="{{route('pages::profile.edit', ['locale' => __('general.currentLocale'),  $user->id,])}}" title="Ouvrir les emails" class="">
                 {{__('admin/profile.modify_info')}}
             </x-admin.admin-button>
 
@@ -36,7 +35,9 @@
                     {{__('admin/profile.email')}}
                 </x-definition-term>
                 <x-definition>
-                    {!! $user->email !!}
+                    <a href="mailto:{!! $user->email !!}" title="{{__('admin/contacts.send_mail_to')}}">
+                        {!! $user->email !!}
+                    </a>
                 </x-definition>
             </div>
 
@@ -45,7 +46,9 @@
                     {{__('admin/profile.phone_number')}}
                 </x-definition-term>
                 <x-definition>
-                    {!! $user->phone !!}
+                    <a href="tel:{!! $user->phone !!}" title="{{__('admin/contacts.call')}}">
+                        {!! $user->phone !!}
+                    </a>
                 </x-definition>
             </div>
 
@@ -73,10 +76,7 @@
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
-
-            <a href="{{route("pages::profile.index", ['locale' => __('general.currentLocale')])}}" class="change_language_link">
-                {{__('admin/profile.change_language')}}
-            </a>
+           <x-admin.language-switch/>
         </div>
 
     </section>
