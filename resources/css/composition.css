@@ -111,3 +111,13 @@ flex-wrap: wrap;
     top: 0;
     left: 0;
 }
+
+
+
+.m-t-80{
+    margin-top: var(--margin-80);
+}
+
+.m-b-80{
+    margin-bottom: var(--margin-80);
+}

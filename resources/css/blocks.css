@@ -1084,10 +1084,7 @@ box-shadow: var(--web-admin-navbar-shadow);
 
 .table-row{
     display: grid;
-
-
     align-items: center;
-
 }
 .table-row{
 
@@ -1108,14 +1105,38 @@ td img{
 
 @media (max-width: 1199px) {
     thead{
-        position: absolute;
-        overflow: hidden;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        width: 1px;
-        margin: -1px;
-        padding: 0;
-        border: 0;
+        th:not([sortable]){
+            position: absolute;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            margin: -1px;
+            padding: 0;
+            border: 0;
+        }
+        tr th{
+            display: inline-block;
+            width: fit-content;
+            padding: var(--margin-16);
+            background-color: var(--content-dark-green);
+            border-radius: var(--big-border);
+            height: fit-content;
+        }
+        tr{
+            background-color: transparent;
+            display: flex;
+            flex-direction: row;
+            gap: var(--margin-16);
+            flex-wrap: wrap;
+            min-height: fit-content;
+
+        }
+        .active-sort {
+        background-color: var(--sort-active);
+        }
+        display: block;
+        margin-bottom: var(--margin-40);
     }
     tbody{
         display: flex;
@@ -1202,7 +1223,7 @@ td img{
             font-size: var(--web-admin-text-size);
         }
     }
-    .admin-search, .admin-button, thead, tbody{
+    .admin-search, .admin-button, thead, tbody, tbody .table-name{
         font-size: var(--web-admin-text-size);
     }
 
@@ -1425,10 +1446,10 @@ input:checked + .slider:before {
 
 @media (min-width: 1200px) {
     .profile-information{
-        display: flex;
+        /*display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        flex-direction: column;
+        flex-direction: column;*/
         margin-top: var(--margin-80);
 
         .information-list{
@@ -1562,13 +1583,14 @@ input:checked + .slider:before {
             justify-content: flex-start;
         }
         .profile-information legend{
-            margin-bottom: var(--margin-56);
+            margin-bottom: var(--margin-16);
         }
         .days-times fieldset.profile-information{
             flex-direction: row;
             gap: var(--flex-gap-24);
             flex-wrap: wrap;
             justify-content: flex-start;
+            margin-top: var(--margin-56);
         }
         form .volunteers-edit{
             .volunteer-buttons{
@@ -1755,3 +1777,222 @@ form .modal-button{
 .close-modal:hover{
     text-decoration: underline;
 }
+
+
+
+
+
+/*      Hover animations        */
+
+.welcome-dashobard-section a, .dashboard-animal-card, .dashboard-button, .top-row a, .table-row{
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+.welcome-dashobard-section a:hover, .dashboard-button:hover, .top-row a:hover{
+    transform: scale(1.05);
+    z-index: 2;
+    background-color: var(--content-dark-green);
+    color: var(--black);
+    border: var(--dark-green-accent-color) 1px solid;
+}
+
+.dashboard-animal-card:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.sidebar-nav-links a:hover{
+    border-bottom: 3px solid var(--content-light-green);
+}
+
+.table-row:hover{
+    background-color: var(--background-basic);
+}
+
+.messages-page .table-row:hover{
+    background-color: var(--white);
+}
+.messages-page .table-row .openbutton button{
+    background-color: var(--dark-green-accent-color);
+    color: var(--white);
+    padding: var(--padding-12);
+    border-radius: var(--small-border);
+}
+.messages-page .table-row .openbutton button:hover{
+    color: var(--black);
+    background-color: var(--content-light-green);
+}
+
+
+/*  Les * devant les obligatoires   */
+.obligations{
+    font-size: var(--phone-16);
+    margin-top: var(--margin-24);
+}
+
+.request-form-fields{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--flex-gap-24);
+    flex-direction: row;
+
+}
+
+.admin{
+    .volunteers-fields{
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--flex-gap-32);
+        flex-direction: row;
+        .col{
+            display: flex;
+            flex-direction: column;
+            gap: var(--flex-gap-32);
+            input{
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+/*      tel and mail       */
+a[href^="tel:"]:not(.modal-button), a[href^="mailto:"]:not(.modal-button){
+    z-index: 2;
+    transition: transform 0.3s ease;
+    display: block;
+}
+a[href^="tel:"]:not(.modal-button),.public-phone, .a[href="https://maps.app.goo.gl/vqLbDAcdjfxH2FDy7"]{
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+a[href^="tel:"]:not(.modal-button):hover, a[href^="mailto:"]:not(.modal-button):hover, a[href="https://maps.app.goo.gl/vqLbDAcdjfxH2FDy7"]:hover {
+    transform: translateX(20px);
+    z-index: 2;
+}
+
+
+/*      public hover        */
+footer nav a:hover, .legal-information a:hover{
+    font-weight: var(--semi-bold);
+}
+
+.footer-button:hover{
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+.footer-button:hover{
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+
+.nav__header ul a:hover{
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+.nav__header ul a:hover{
+    border-bottom: 3px solid var(--content-light-green);
+    z-index: 2;
+}
+ul .active{
+    border-bottom: 3px solid var(--content-light-green);
+}
+
+.nav__header .small-logo, .nav__header .big-logo{
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+.nav__header .small-logo:hover, .nav__header .big-logo:hover{
+    transform: scale(.96);
+    z-index: 2;
+}
+
+
+/*      legals      */
+
+@media (min-width: 1200px) {
+    .identity__title, .hosting__title, .intellectual_property__title, .privacy_extern_links__title, .personal_data__title, .legals-text a {
+        font-size: 2.2857142857em;
+    }
+}
+
+
+.identity__title, .hosting__title, .intellectual_property__title, .privacy_extern_links__title, .personal_data__title {
+    font-weight: var(--bold);
+    color: var(--dark-green-accent-color);
+    margin-bottom: var(--margin-16);
+}
+.legals-text{
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-56);
+    p, a{
+        line-height: var(--titre-inter-admin);
+        font-size: var(--web-font-size);
+    }
+    a{
+        font-weight: var(--bold);
+        }
+    }
+.legals-text a:hover{
+    border-bottom: 2px solid var(--dark-green-accent-color);
+    z-index: 2;
+}
+
+
+
+/*  pagination admin   */
+
+.pagination-admin nav a,
+.pagination-admin nav button,
+.pagination-admin nav span span{
+    width: var(--margin-32);
+    height: var(--margin-32);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+}
+
+.pagination-admin{
+    margin-top: var(--margin-32);
+
+    nav span[aria-current="page"] span{
+        font-weight: 500;
+        color: var(--black);
+    }
+}
+
+@media (min-width: 1200px) {
+    .pagination-admin.max-w-admin-web{
+            margin-left: var(--margin-24);
+            margin-right: var(--margin-24);
+    }
+}
+@media (max-width: 1199px) {
+    .pagination-admin.max-w-admin-web{
+        margin-left: var(--margin-24);
+        margin-right: var(--margin-24);
+    }
+}
+@media (max-width: 639px) {
+    .pagination-admin.max-w-admin-web{
+        span .inline-flex{
+            width: fit-content;
+            padding: 0 var(--margin-8);
+        }
+        div.justify-between{
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--margin-16);
+            button{
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+

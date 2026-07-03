@@ -135,7 +135,7 @@
     <nav class="nav__header" role="navigation" aria-label="Main">
         <h2 class="sro" aria-level="2" role="heading">Navigation principale</h2>
 
-        <a href="/"
+        <a href="/{{app()->getLocale()}}"
            lang=""
            hreflang=""
            class="languages__link nav__link__header small-logo"
@@ -246,13 +246,13 @@
                 </a>
             </li>--}}
             <li class="nav__item__header">
-                <a href="{{route('public.homepage', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" title="Aller vers la page Accueil" aria-label="Aller vers la page Accueil">ACCUEIL </a>
+                <a href="{{route('public.homepage', ['locale' => __('general.currentLocale')])}}" class="nav__link__header {{ request()->routeIs('public.homepage') ? 'active' : '' }}" title="Aller vers la page Accueil" aria-label="Aller vers la page Accueil">ACCUEIL </a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('public.animals', ['locale' => __('general.currentLocale')])}}" title="Aller vers la page Nos animaux" class="nav__link__header" aria-label="Aller vers la page Nos animaux">NOS ANIMAUX </a>
+            <a href="{{route('public.animals', ['locale' => __('general.currentLocale')])}}" title="Aller vers la page Nos animaux" class="nav__link__header {{ request()->routeIs('public.animals') ? 'active' : '' }}" aria-label="Aller vers la page Nos animaux">NOS ANIMAUX </a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('public.contact', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" title="Aller vers la page Contact" aria-label="Aller vers la page Contact">CONTACT</a>
+            <a href="{{route('public.contact', ['locale' => __('general.currentLocale')])}}" class="nav__link__header {{ request()->routeIs('public.contact') ? 'active' : '' }}" title="Aller vers la page Contact" aria-label="Aller vers la page Contact">CONTACT</a>
         </li>
         </ul>
     </nav>

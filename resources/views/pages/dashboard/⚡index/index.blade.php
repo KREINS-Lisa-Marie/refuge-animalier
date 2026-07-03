@@ -93,7 +93,7 @@
                             fill="#51594C"/>
                 </svg>
                 <x-admin.dashboard.dashboard-card-information card_title="{{__('admin/dashboard.animals_welcomed_this_year')}}">
-                    {!! $animals_this_year->count() !!}
+                    {!! $animals_this_year !!}
                 </x-admin.dashboard.dashboard-card-information>
             </div>
             <div class="dashboard-card border-r-big">
