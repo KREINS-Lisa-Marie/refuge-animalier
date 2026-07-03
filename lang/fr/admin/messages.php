@@ -22,4 +22,8 @@ return [
     'message_seen'=>'Message vu',
     'answer'=>'Répondre',
     'delete_message'=>'Supprimer le message',
+
+    'read'=> 'Lu',
+    'not_read_yet'=> 'Pas encore lu',
+    'no_message_found'=> 'Pas de message trouvé',
 ];

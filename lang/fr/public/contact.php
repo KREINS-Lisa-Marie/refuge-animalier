@@ -15,4 +15,5 @@ return [
     'choose_subject' => '--Choisissez un sujet--',
     'adoption_request' => 'Demande d’adoption',
     'send' => 'Envoyer',
+    'maps' => 'Voir la localisation',
 ];

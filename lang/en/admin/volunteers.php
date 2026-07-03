@@ -38,4 +38,5 @@ return [
     'saturday' => 'Saturday',
     'sunday' => 'Sunday',
 
+    'no_volunteer_found'=>'No volunteer found'
 ];

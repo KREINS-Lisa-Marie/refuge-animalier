@@ -23,4 +23,10 @@ return [
     'adoption_comment' => 'Commentaire',
     'new_adoption_request' => 'Nouvelle demande d’adoption',
     'email' => 'Addresse email',
+
+    'adopted' => 'Adopté',
+    'in_treatment' => 'En traitement',
+    'refused' => 'Refusé',
+    'not_treated_yet' => 'Pas encore traité',
+    'no_request_found' => 'Pas de demande trouvée',
 ];

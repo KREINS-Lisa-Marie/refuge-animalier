@@ -36,4 +36,6 @@ return [
     'friday' => 'Vendredi',
     'saturday' => 'Samedi',
     'sunday' => 'Dimanche',
+
+    'no_volunteer_found' => 'Pas de bénévole trouvé',
 ];

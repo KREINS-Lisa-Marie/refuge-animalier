@@ -26,4 +26,12 @@ return [
     'save' => 'Enregistrer',
     'personality' => 'Personalité',
     'general_information' => 'Informations générales',
+
+    'adopted' => 'Adopté',
+    'in_treatment' => 'En traitement',
+    'processing_adoption' => 'En attente d’adoption',
+    'adoptable' => 'Adoptable',
+    'male' => 'Male',
+    'female' => 'Femelle',
+    'no_animal_found' => 'Pas d’animal trouvé',
 ];
