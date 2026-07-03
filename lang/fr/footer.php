@@ -2,8 +2,9 @@
 
 return [
         'opening_hours'=>'Ouvert : Lu à Ve — 10 à 17h',
-        'adress'=>'Adresse : Rue des bois 4, 4700 Malmédy',
-        'phone-number'=>'Téléphone : 080 546 384',
+        'adress'=>'Adresse :',
+        'adress-name' => 'Rue des Bois 4, 4700 Malmedy',
+        'phone-number'=>'Téléphone :',
         'responsible'=>'Responsable : Elise Lambot',
         'shelter_name'=>'LES PATTES HEUREUSES',
         'footer'=>'Footer',
@@ -12,7 +13,8 @@ return [
         'our_animals'=>'Nos animaux',
         'contact'=>'Contact',
         'legal_information'=>'Mentions Légales',
-        'created_by'=>'Crée par Kreins Lisa-Marie',
+        'created_by'=>'Crée par',
         'navigation'=>'Navigation ',
         'of_the_end_of_the_page'=>'de bas de page ',
+        'go_to_website'=>'Aller vers la page de Lisa-Marie Kreins',
     ];
