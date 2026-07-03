@@ -1,4 +1,4 @@
-@php
+{{--@php
 
     $filter_options =[
        [
@@ -15,12 +15,12 @@
     ],
 ]
 
-@endphp
+@endphp--}}
 @props([
     'message'
 ])
 
-<main class="main-container" id="content">
+<main class="main-container messages-page" id="content">
     <x-page-bar>
         {{__('admin/messages.messages')}}
     </x-page-bar>
@@ -32,33 +32,32 @@
             </x-admin.admin-button>
             <x-admin.search/>
         </div>
-        <div class="bottom-row bottom-row-volunteer">
+{{--        <div class="bottom-row bottom-row-volunteer">
             <div>
                 <x-select select_name="filtering" label="Trier" :options="$filter_options" wire="filtering"/>
             </div>
-        </div>
+        </div>--}}
     </div>
-    <table class="table max-w-admin-web">
+    <table class="table max-w-admin-web m-b-32">
         <thead>
         <tr>
-            <x-admin.table.table-th scope="col">
+            <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('last_name')" :direction="$sortField === 'last_name'? $sortDirection : null" class="{{$sortField === 'last_name'? 'active-sort': ''}}">
                 {{__('admin/messages.name')}}
-            </x-admin.table.table-th>
-            <x-admin.table.table-th scope="col">
+            </x-admin.table.table-th-sort>
+            <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('subject')" :direction="$sortField === 'subject'? $sortDirection : null" class="{{$sortField === 'subject'? 'active-sort': ''}}">
                 {{__('admin/messages.subject')}}
-            </x-admin.table.table-th>
-            <x-admin.table.table-th scope="col">
+            </x-admin.table.table-th-sort>
+            <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('created_at')" :direction="$sortField === 'created_at'? $sortDirection : null" class="{{$sortField === 'created_at'? 'active-sort': ''}}">
                 {{__('admin/messages.date')}}
-            </x-admin.table.table-th>
+            </x-admin.table.table-th-sort>
             <x-admin.table.table-th scope="col">
                 {{__('admin/messages.see_message')}}
             </x-admin.table.table-th>
-
         </tr>
         </thead>
         <tbody>
 
-        @foreach($this->searchedMessages() as $message)
+        @forelse($this->searchedMessages() as $message)
             <tr class="table-row table-row-flex position-relative" >
                 <x-admin.table.table-td class="{{ $message->state === 'not_read_yet' ? 'fw-700' : '' }}">
                     <span class="show-web">{{__('admin/messages.name_title')}}</span>{!! $message->last_name !!} {!! $message->first_name !!}
@@ -69,13 +68,26 @@
                 <x-admin.table.table-td class="">
                     <span class="show-web">{{__('admin/messages.date_title')}}</span>{!! $message->created_at->format('d.m.Y') !!}
                 </x-admin.table.table-td>
-                <x-admin.table.table-td class=" fw-medium">
+                <x-admin.table.table-td class=" fw-medium openbutton">
                     <button wire:click="openModal({{ $message->id }})">
                         {{__('admin/messages.open_message')}}
                     </button>
                 </x-admin.table.table-td>
             </tr>
-        @endforeach
+            @empty
+                <tr class="table-row position-relative">
+                    <x-admin.table.table-td class="table-img">
+                    </x-admin.table.table-td>
+                    <x-admin.table.table-td class="table-name fw-medium">
+                        {{__('admin/messages.no_message_found')}}
+                    </x-admin.table.table-td>
+                    <x-admin.table.table-td class="table-state">
+                    </x-admin.table.table-td>
+                    <x-admin.table.table-td class="table-species">
+                    </x-admin.table.table-td>
+
+                </tr>
+            @endforelse
         </tbody>
     </table>
 
@@ -119,7 +131,9 @@
                         {{__('admin/messages.email')}}
                     </x-definition-term>
                     <x-definition>
-                        {!! $openMessage->email !!}
+                        <a href="mailto:{!! $openMessage->email !!}" title="{{__('admin/contacts.send_mail_to')}}">
+                            {!! $openMessage->email !!}
+                        </a>
                     </x-definition>
                 </div>
                 <div class="grid-date">
@@ -136,7 +150,7 @@
                         {{__('admin/messages.state')}}
                     </x-definition-term>
                     <x-definition>
-                        {!! $openMessage->state !!}
+                        {!! $openMessage->state == 'read' ? __('admin/messages.read'):__('admin/messages.not_read_yet')  !!}
                     </x-definition>
                 </div>
                 <div>
@@ -166,4 +180,7 @@
         </section>
     @endif
 
+    <div class="pagination-admin max-w-admin-web m-b-80">
+        {{ $this->searchedMessages->links() }}
+    </div>
 </main>

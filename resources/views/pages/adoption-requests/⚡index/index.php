@@ -8,6 +8,8 @@ use Livewire\Component;
 
 new #[Layout('layouts.app')] class extends Component
 {
+    use \Livewire\WithPagination;
+
     public $requests;
 
     public string $term = '';
@@ -18,17 +20,36 @@ new #[Layout('layouts.app')] class extends Component
     }*/
 
 
+    //tri
+    public $sortField = 'last_name';
+    public $sortDirection = 'asc';
+    protected $queryString =['sortField', 'sortDirection'];
+
+
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field){
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        }else{
+            $this->sortDirection = 'asc';
+        }
+
+        $this->sortField = $field;
+    }
+
+
     #[Computed]
     public function searchedRequests()
     {
         return
              Request::query()
-                ->where('first_name', 'like', '%' . $this->term . '%')
-                ->orWhere('last_name', 'like', '%' . $this->term . '%')
-                ->orWhere('animal_id', 'like', '%' . $this->term . '%')
-                ->orWhere('state', 'like', '%' . $this->term . '%')
-                ->orderBy('created_at', 'asc')
-                ->with(['animal'])
-                ->get();
+                 ->join('animals','requests.animal_id', '=', 'animals.id' )
+                 ->select('requests.*', 'animals.animal_name')
+                ->where('requests.first_name', 'like', '%' . $this->term . '%')
+                ->orWhere('requests.last_name', 'like', '%' . $this->term . '%')
+                ->orWhere('animals.animal_name', 'like', '%' . $this->term . '%')
+                ->orWhere('requests.state', 'like', '%' . $this->term . '%')
+                 ->orderBy($this->sortField, $this->sortDirection)
+                 ->paginate(10);
     }
 };

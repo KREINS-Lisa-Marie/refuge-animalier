@@ -27,32 +27,32 @@
             </x-admin.admin-button>
             <x-admin.search/>
         </div>
-        <div class="bottom-row bottom-row-volunteer">
+{{--        <div class="bottom-row bottom-row-volunteer">
             <div>
                 <x-select select_name="filtering" label="Trier" :options="$filter_options" wire="filtering"/>
             </div>
-        </div>
+        </div>--}}
     </div>
-    <table class="table max-w-admin-web">
+    <table class="table max-w-admin-web m-b-32">
         <thead>
         <tr>
             <x-admin.table.table-th scope="col">
                 {{__('admin/volunteers.image')}}
             </x-admin.table.table-th>
-            <x-admin.table.table-th scope="col">
+            <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('last_name')" :direction="$sortField === 'last_name'? $sortDirection : null" class="{{$sortField === 'last_name'? 'active-sort': ''}}">
                 {{__('admin/volunteers.name')}}
-            </x-admin.table.table-th>
-            <x-admin.table.table-th scope="col">
+            </x-admin.table.table-th-sort>
+            <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('phone')" :direction="$sortField === 'phone'? $sortDirection : null" class="{{$sortField === 'phone'? 'active-sort': ''}}">
                 {{__('admin/volunteers.phone_number')}}
-            </x-admin.table.table-th>
-            <x-admin.table.table-th scope="col">
+            </x-admin.table.table-th-sort>
+            <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('is_admin')" :direction="$sortField === 'is_admin'? $sortDirection : null" class="{{$sortField === 'is_admin'? 'active-sort': ''}}">
                 {{__('admin/volunteers.role')}}
-            </x-admin.table.table-th>
+            </x-admin.table.table-th-sort>
         </tr>
         </thead>
         <tbody>
 
-        @foreach($this->searchedUsers() as $volunteer)
+        @forelse($this->searchedUsers() as $volunteer)
             <tr class="table-row position-relative">
                 <x-admin.table.table-td class="table-img">
                     <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="image du chien" class="border-r-big">
@@ -69,9 +69,25 @@
                     </a>
                 </x-admin.table.table-td>
             </tr>
-        @endforeach
+            @empty
+                <tr class="table-row position-relative">
+                    <x-admin.table.table-td class="table-img">
+                    </x-admin.table.table-td>
+                    <x-admin.table.table-td class="table-name fw-medium">
+                        {{__('admin/volunteers.no_volunteer_found')}}
+                    </x-admin.table.table-td>
+                    <x-admin.table.table-td class="table-state">
+                    </x-admin.table.table-td>
+                    <x-admin.table.table-td class="table-species">
+                    </x-admin.table.table-td>
+
+                </tr>
+            @endforelse
         </tbody>
     </table>
+    <div class="pagination-admin max-w-admin-web m-b-80">
+        {{ $this->searchedUsers->links() }}
+    </div>
 </main>
 
 
