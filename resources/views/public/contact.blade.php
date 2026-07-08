@@ -3,7 +3,7 @@
         {{__('public/contact.contact_us')}}
     </h2>
 
-    <form action="" method="POST" class="form  web-margin-l-r-auto background-light border-r-small m-lr-24 m-b-60-150 ">
+    <form action="" method="POST" class="form  web-margin-l-r-auto background-light border-r-small m-lr-24 m-b-60-150 public-form">
 
         <h2 class=" fw-700 p-b-32 t-a-center color-dark form-title">
             {{__('public/contact.contact_form')}}
@@ -54,10 +54,7 @@
 
 
             @component('components.fields.textarea', ['name' => 'message', 'id'=>'message', 'value' =>'',
-            'placeholder' => 'Bonjour,
-    Je voudrais bien m’informer à propros du bénévolat.
-    Bonne journée,
-    John Doe', 'old_values' =>  "", 'wire'=>""])
+            'placeholder' => __('public/contact.message_placeholder'), 'old_values' =>  "", 'wire'=>""])
                 {{__('public/contact.message')}}
             @endcomponent
 
