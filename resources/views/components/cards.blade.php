@@ -10,7 +10,7 @@
 )
 
 <div class="card">
-    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image du chien" class="border-r-small m-b-24 card-img">
+    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('public/home.image_of_dog')}}" class="border-r-small m-b-24 card-img">
     <div>
         <div class="d-flex flex-r flex-j-c-space-between flex-a-i-center pb-24">
             <p class="card-petname fw-700 d-block">
@@ -22,7 +22,7 @@
         </div>
         <div class="infos p-b-32">
             <p  class="p-b-16">
-                {{$petage}} An(s)
+                {{$petage}} {{__('public/home.years')}}
 
             </p>
             <p  class="p-b-16">
@@ -40,6 +40,6 @@
             </svg>
         </p>
     </div>
-    <a href="{{route('public.animal',  ['locale' => __('general.currentLocale'),  'animal' => $animal->id])}}" title="aller vers la page de l’animal" class="card-link">
+    <a href="{{route('public.animal',  ['locale' => __('general.currentLocale'),  'animal' => $animal->id])}}" title="{{__('components/cards.go_to_animal_page')}}" class="card-link">
     </a>
 </div>

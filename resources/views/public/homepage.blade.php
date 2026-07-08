@@ -8,7 +8,7 @@
                 {{__('public/home.page_description')}}
             </p>
         </div>
-        <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="Image avec deux chiens" width="948" height="911"
+        <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="{{__('public/home.image_of_dogs')}}" width="948" height="911"
              class="front-image">
     </section>
     <section
@@ -21,7 +21,7 @@
                 {{__('public/home.where_every_paw_counts_text')}}
             </p>
         </div>
-        <img src="{!! asset('assets/img/patte.jpg') !!}" alt="image du chien" width="328" height="328"
+        <img src="{!! asset('assets/img/patte.jpg') !!}" alt="{{('public/home.image_of_dogpaw')}}" width="328" height="328"
              class="border-r-small">
     </section>
 
@@ -37,8 +37,8 @@
                 </li>
             @endforeach
         </ul>
-
     </section>
+
     <section
         class="p-t-b-60-150 p-l-r-24 fs-texte d-flex flex-gap-32 flex-cr more-info-section max-w-web margin-l-r-auto">
         <div class="">
@@ -49,11 +49,11 @@
                 {{__('public/home.need_more_info_description')}}
             </p>
             <a href="{{route("public.contact", ['locale' => __('general.currentLocale')])}}"
-               title="aller vers la page de Contact" class="public-button fs-button border-r-big ">
+               title="{{('public/home.go_to_contact_page')}}" class="public-button fs-button border-r-big ">
                 {{__('public/home.contact_us')}}
             </a>
         </div>
-        <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="Image avec deux chiens" width="948" height="911"
+        <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="{{__('public/home.image_of_dogs')}}" width="948" height="911"
              class="m-l-auto d-block border-r-small">
     </section>
 </x-public.app>
