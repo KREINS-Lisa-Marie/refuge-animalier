@@ -25,18 +25,18 @@
             <h3 class="footer-title">
                 {{__('footer.navigation')}} <div class="sro">{{__('footer.of_the_end_of_the_page')}}</div>
             </h3>
-           <a href="{{route('public.homepage', ['locale' => __('general.currentLocale')])}}" class="d-block m-b-16">{{__('footer.home')}}</a>
-            <a href="{{route('public.animals', ['locale' => __('general.currentLocale')])}}" class="d-block m-b-16">{{__('footer.our_animals')}}</a>
-            <a href="{{route('public.contact', ['locale' => __('general.currentLocale')])}}" class="d-block m-b-16" >{{__('footer.contact')}}</a>
+           <a href="{{route('public.homepage', ['locale' => app()->getLocale()])}}" class="d-block m-b-16" title="{{__('footer.go_to_homepage')}}">{{__('footer.home')}}</a>
+            <a href="{{route('public.animals', ['locale' => app()->getLocale()])}}" class="d-block m-b-16" title="{{__('footer.go_to_page_our_animals')}}">{{__('footer.our_animals')}}</a>
+            <a href="{{route('public.contact', ['locale' => app()->getLocale()])}}" class="d-block m-b-16"  title="{{__('footer.go_to_page_contact')}}">{{__('footer.contact')}}</a>
         </nav>
         <div class="footer-button">
-            <a href="{{route('public.contact', ['locale' => __('general.currentLocale')])}}" class="fw-medium color-dark">
+            <a href="{{route('public.contact', ['locale' => app()->getLocale()])}}" class="fw-medium color-dark" title="{{__('footer.go_to_page_contact')}}">
                 {{__('footer.contact_us')}}
             </a>
         </div>
     </div>
     <div class="legal-information">
-        <a href="{{route('public.legals', ['locale' => app()->getLocale()])}}" class="d-block m-b-16">
+        <a href="{{route('public.legals', ['locale' => app()->getLocale()])}}" class="d-block m-b-16" title="{{__('footer.go_to_page_legals')}}">
             {{__('footer.legal_information')}}
         </a>
         <p >

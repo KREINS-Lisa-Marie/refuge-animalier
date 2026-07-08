@@ -17,4 +17,9 @@ return [
         'navigation'=>'Navigation ',
         'of_the_end_of_the_page'=>'de bas de page ',
         'go_to_website'=>'Aller vers la page de Lisa-Marie Kreins',
+
+    'go_to_homepage'=>'Aller vers la page d’accueil',
+    'go_to_page_our_animals'=>'Aller vers la page de nos animaux',
+    'go_to_page_legals'=>'Aller vers la page Mentions légales',
+    'go_to_page_contact'=>'Aller vers la page de Contact',
     ];

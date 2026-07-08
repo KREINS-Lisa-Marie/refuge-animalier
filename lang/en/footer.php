@@ -17,4 +17,9 @@ return [
     'navigation' => 'Navigation',
     'of_the_end_of_the_page' => 'of the footer',
     'go_to_website' => 'Go to the website of Lisa-Marie Kreins',
+
+    'go_to_homepage'=>'Go to the homepage',
+    'go_to_page_our_animals'=>'Go to our animals page',
+    'go_to_page_legals'=>'Go to the Legal Notices page',
+    'go_to_page_contact'=>'Go to the Contact page',
 ];
