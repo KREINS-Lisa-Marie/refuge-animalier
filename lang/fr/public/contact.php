@@ -16,4 +16,12 @@ return [
     'adoption_request' => 'Demande d’adoption',
     'send' => 'Envoyer',
     'maps' => 'Voir la localisation',
+
+    'message_placeholder'=>'Bonjour,
+
+Je voudrais bien m’informer à propros du bénévolat.
+
+Bonne journée,
+John Doe',
+
 ];

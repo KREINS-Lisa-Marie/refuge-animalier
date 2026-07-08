@@ -10,4 +10,15 @@ return [
     'contact_us'=>'Contactez-nous',
     'where_every_paw_counts'=>'Là où chaque patte compte',
     'where_every_paw_counts_text'=>'Depuis 15 ans, le refuge "Les Pattes Heureuses" accueille et soigne les animaux abandonnés ou maltraités de Malmedy et ses environs. Fondé par Élise Lambot, le refuge offre un havre de paix où compassion et engagement se rencontrent. Chiens, chats et petits rongeurs y trouvent soins, chaleur et amour, en attendant une nouvelle famille, grâce à une équipe passionnée et au soutien des adoptants et donateurs.',
+
+    'image_of_dogs'=>'Image avec deux chiens',
+    'image_of_dogpaw'=>'Image patte du chien',
+    'go_to_contact_page'=>'Aller vers la page de Contact',
+
+    'image_of_dog'=>'Image du chien',
+    'years'=>'An(s)',
+    'go_to_animal_page'=>'Aller vers la page de l’animal',
+
+    'go_to_infomaniak'=>'Aller voir la page d’Infomaniak',
+
     ];

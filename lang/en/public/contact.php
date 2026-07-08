@@ -16,4 +16,11 @@ return [
     'adoption_request' => 'Adoption request',
     'send' => 'Send',
     'maps' => 'See the location',
+
+    'message_placeholder'=>'Hello,
+
+I would like to get information about volunteering.
+
+Have a nice day,
+John Doe',
 ];

@@ -34,7 +34,7 @@
                         <br>
                         {{__('public/legals.more_info_please')}}
                     </p>
-                    <a href="https://www.infomaniak.com/" title="Aller voir la page d’Infomaniak">Infomaniak</a>
+                    <a href="https://www.infomaniak.com/" title="                 {{__('public/legals.go_to_infomaniak')}}">Infomaniak</a>
                 </div>
 
             </div>
@@ -69,13 +69,4 @@
 
         </div>
     </section>
-
-
-
-
-
-
-
-
-
 </x-public.app>
