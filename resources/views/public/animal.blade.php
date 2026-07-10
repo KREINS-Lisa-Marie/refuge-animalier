@@ -3,7 +3,7 @@
         'animal'
 ]
 )
-<x-public.app>
+<x-public.app :title="$title">
 
     <div class="max-w-web margin-l-r-auto">
         <a href="{{route('public.animals', ['locale' => __('general.currentLocale')])}}" class="return-button">
@@ -95,18 +95,82 @@
         </h2>
         <ul class="m-t-32 d-flex flex-r flex-gap-32 flex-wrap max-w-web margin-l-r-auto">
             <li class="flex-gap-32 ">
-                <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="Image du chien"
+                <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('public/animal.animal_image')}}"
                      class="border-r-small border-xl" width="300" height="300">
             </li>
             <li class="flex-gap-32">
-                <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="Image du chien"
+                <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('public/animal.animal_image')}}"
                      class="border-r-small border-xl" width="300" height="300">
             </li>
             <li class="flex-gap-32">
-                <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="Image du chien"
+                <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('public/animal.animal_image')}}"
                      class="border-r-small border-xl" width="300" height="300">
             </li>
         </ul>
     </section>
+    @if($animal->state == 'adoptable')
+    <section>
+        <h2 class="page-title fw-700 max-w-web margin-l-r-auto color-dark">
+            {{__('public/animal.want_to_adopt')}}{{$animal->animal_name}}?
+        </h2>
+        <form action="" method="POST" class="form  web-margin-l-r-auto background-light border-r-small m-lr-24 m-b-60-150 public-form">
 
+            <h2 class=" fw-700 p-b-32 t-a-center color-dark form-title">
+                {{__('public/animal.adoption_form')}}
+            </h2>
+            <p class="italic m-b-32 interl-text">
+                {{__('public/animal.fill_out_form')}}
+            </p>
+
+            <fieldset>
+
+                <p class="obligations m-b-32">
+                    {{__('public/contact.mandatory_fields')}}
+                </p>
+
+                <div class="d-flex flex-gap-24  flex-wrap">
+                    <div class="web-flex flex-gap-24 flex-wrap">
+
+                        <x-fields.text name="firstname" id="firstname" value="" placeholder="John" wire="">
+
+                            {{__('public/contact.first_name_mandatory')}}
+                        </x-fields.text>
+
+                        <x-fields.text name="lastname" id="lastname" value="" placeholder="Doe" wire="">
+
+                            {{__('public/contact.lastname_mandatory')}}
+                        </x-fields.text>
+
+                        <x-fields.email value="" wire="">
+                            {{__('public/contact.email_mandatory')}}
+                        </x-fields.email>
+
+
+                        <div class="field  sro">
+                            <label for="subject" class="field__label" aria-required="true" aria-hidden="true">
+                                {{__('public/contact.concerning')}}
+                            </label>
+                            <input wire:model.blur="{{$animal->id}}" type="text" name="animal_name" id="animal_name"
+                                   value="{{$animal->animal_name}}" class="field__input sro"
+                                   placeholder="{{$animal->animal_name}}" aria-required="true" aria-hidden="true"
+                                   disabled>
+                            @error("animal_name")
+                            {{$message}}
+                            @enderror
+                        </div>
+                    </div>
+
+                @component('components.fields.textarea', ['name' => 'message', 'id'=>'message', 'value' =>'',
+                'placeholder' => __('public/animal.contact_message'), 'old_values' =>  "", 'wire'=>""])
+                    {{__('public/contact.message')}}
+                @endcomponent
+
+                </div>
+            </fieldset>
+            <button type="submit"
+                    class="btn contact-form-btn background-dark color-white dark-button-background min-w-130 border-r-big margin-l-r-auto m-t-32 d-block p-16-32">{{__('public/contact.send')}}
+            </button>
+        </form>
+    </section>
+    @endif
 </x-public.app>
