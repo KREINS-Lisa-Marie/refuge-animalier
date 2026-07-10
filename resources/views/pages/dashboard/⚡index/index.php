@@ -20,6 +20,27 @@ new #[Layout('layouts.app')] class extends Component {
     public $user;
     public $message_number;
 
+
+
+//tri
+    public $sortField = 'created_at';
+    public $sortDirection = 'asc';
+
+    protected $queryString =['sortField', 'sortDirection'];
+
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field){
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        }else{
+            $this->sortDirection = 'asc';
+        }
+
+        $this->sortField = $field;
+    }
+
+
+
     public function index()
     {
         $not_treated_adoptions = Request::where('state', 'not_treated_yet')->get();
@@ -39,6 +60,18 @@ new #[Layout('layouts.app')] class extends Component {
 
         $this->five_latest_animals = Animal::latest()->limit(5)->get();
         $this->user = \Auth::user();
+    }
+
+    public function render()
+    {
+        $latest_animals = Animal::latest()->limit(5)->get(); //ici parce que ça doit rerender à chaque fois que je change de direction
+        $this->five_latest_animals =
+            $this->sortDirection === 'asc'
+                ?$latest_animals->sortBy($this->sortField)
+                : $latest_animals->sortByDesc($this->sortField);
+
+        return view('pages.dashboard.⚡index.index', ['five_latest_animals'=> $this->five_latest_animals])->title(__('general.dashboard'));
+
     }
 
 };
