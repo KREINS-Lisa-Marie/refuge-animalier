@@ -4,13 +4,13 @@
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
-            <x-admin.admin-button href="{{route('pages::profile.edit', ['locale' => __('general.currentLocale'),  $user->id,])}}" title="Ouvrir les emails" class="">
+            <x-admin.admin-button href="{{route('pages::profile.edit', ['locale' => __('general.currentLocale'),  $user->id,])}}" title=" {{__('admin/profile.open_mails')}}" class="">
                 {{__('admin/profile.modify_info')}}
             </x-admin.admin-button>
 
             <form wire:submit="destroy" method="post">
                 @csrf
-                <x-admin.form-button title="Supprimer mon compte" class="delete_background delete-button">
+                <x-admin.form-button title="{{__('admin/profile.delete_account')}}" class="delete_background delete-button">
                     {{__('admin/profile.delete_info')}}
                 </x-admin.form-button>
             </form>
@@ -66,7 +66,7 @@
                     {{__('admin/profile.image')}}
                 </x-definition-term>
                 <x-definition>
-                    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small">
+                    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('admin/profile.image')}}" class="border-r-small">
                 </x-definition>
             </div>
         </dl>

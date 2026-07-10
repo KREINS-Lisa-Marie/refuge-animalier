@@ -19,4 +19,8 @@ return [
     'password_confirmation' => 'Password Confirmation',
     'form' => 'Form to edit the user',
 
+    'profile_img' => 'Profile Image',
+    'delete_account' => 'Delete My Account',
+    'open_mails' => 'Open Emails',
+
 ];
