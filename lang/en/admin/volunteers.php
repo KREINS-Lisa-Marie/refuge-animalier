@@ -38,5 +38,9 @@ return [
     'saturday' => 'Saturday',
     'sunday' => 'Sunday',
 
-    'no_volunteer_found'=>'No volunteer found'
+    'no_volunteer_found'=>'No volunteer found',
+
+    'go_to_create_volunteer' => "Go to the 'Create a Volunteer' page",
+    'volunteer_img' => 'Volunteer Image',
+    'go_to_person_page' => 'Go to the Volunteer page',
 ];

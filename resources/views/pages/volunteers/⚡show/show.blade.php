@@ -78,7 +78,7 @@
                     {{__('admin/volunteers.profile_image')}}
                 </x-definition-term>
                 <x-definition>
-                    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
+                    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('admin/volunteers.profile_image')}}" class="border-r-small profile-img">
                 </x-definition>
             </div>
         </dl>
@@ -95,14 +95,14 @@
 
         <div class=" max-w-admin-web volunteer-buttons">
             <div class="top-row">
-                <x-admin.admin-button href="{{route('pages::volunteers.edit', ['locale' => __('general.currentLocale'), 'volunteer' => $volunteer])}}"
-                                      title="modifier les données" class="">
+                <x-admin.admin-button href="{{route('pages::volunteers.edit', ['locale' => app()->getLocale(), 'volunteer' => $volunteer])}}"
+                                      title="{{__('admin/volunteers.modify_info')}}" class="">
                     {{__('admin/volunteers.modify_info')}}
                 </x-admin.admin-button>
 
                 <form wire:submit="destroy" method="post">
                     @csrf
-                    <x-admin.form-button title="Supprimer la personne" class="delete_background delete-button">
+                    <x-admin.form-button title="{{__('admin/volunteers.delete_info')}}" class="delete_background delete-button">
                         {{__('admin/volunteers.delete_info')}}
                     </x-admin.form-button>
 

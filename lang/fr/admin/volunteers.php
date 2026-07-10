@@ -38,4 +38,8 @@ return [
     'sunday' => 'Dimanche',
 
     'no_volunteer_found' => 'Pas de bénévole trouvé',
+
+    'go_to_create_volunteer' => "Aller sur la page 'Créer un bénévole'",
+    'volunteer_img' => "Image du bénévole",
+    'go_to_person_page' => "Aller vers la page du bénévole",
 ];
