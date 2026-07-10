@@ -29,4 +29,18 @@ return [
     'refused' => 'Refused',
     'not_treated_yet' => 'Not treated yet',
     'no_request_found' => 'No request found',
+
+    'adoption_request' => 'Adoption request',
+    'adoption_request_for' => 'Adoption request for',
+    'comment' => 'Our observations',
+    'deny_request' => 'Accept the adoption',
+    'accept_request' => 'Reject the adoption',
+    'delete_adoption_request' => 'Delete the request',
+    'modify_request' => 'Modify the request',
+    'go_to_modify_request_page' => 'Go to the Modify Request page',
+
+    'placeholder_message' => 'Hello, I would like to meet Jimmy.',
+    'placeholder_comment' => 'Camille seems serious. The meeting went well.',
+    'go_to_create_request' => "Go to the 'Create a Request' page",
+    'delete_request' => 'Delete the Request',
 ];

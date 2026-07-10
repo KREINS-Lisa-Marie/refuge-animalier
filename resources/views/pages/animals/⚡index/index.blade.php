@@ -63,7 +63,7 @@
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
             <x-admin.admin-button href="{{route('pages::animals.create', ['locale' => __('general.currentLocale')])}}"
-                                  title="Aller sur la page 'Créer un animal'" class="">
+                                  title="{{__('admin/animals.got_to_create_animal')}}" class="">
                 {{__('admin/animals.create_an_animal')}}
             </x-admin.admin-button>
             <x-admin.search/>
@@ -118,7 +118,7 @@
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
                     <span class="show-web">{{__('admin/animals.species_title')}}</span>{!! $animal->species !!}
-                    <a href="{{route('pages::animals.show',  ['locale' => __('general.currentLocale'),  'animal' => $animal->id])}}" title="aller vers la page de l’animal" class="card-link">
+                    <a href="{{route('pages::animals.show',  ['locale' => __('general.currentLocale'),  'animal' => $animal->id])}}" title="{{__('admin/animals.got_to_animal_page')}}" class="card-link">
                     </a>
                 </x-admin.table.table-td>
 

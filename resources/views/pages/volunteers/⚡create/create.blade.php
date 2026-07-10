@@ -65,25 +65,25 @@
             </legend>
             <div class="days-times">
                 <x-fields.availability-input name="monday" id="monday" value="" placeholder="10-17h" wire="monday">
-                    Lundi
+                    {{__('admin/general.monday')}}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="tuesday" id="tuesday" value="" placeholder="10-17h" wire="tuesday">
-                    Mardi
+                    {{__('admin/general.tuesday')}}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="wednesday" id="wednesday" value="" placeholder="10-17h" wire="wednesday">
-                    Mercredi
+                    {{__('admin/general.wednesday')}}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="thursday" id="thursday" value="" placeholder="10-17h" wire="thursday">
-                    Jeudi
+                    {{__('admin/general.thursday')}}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="friday" id="friday" value="" placeholder="10-17h" wire="friday">
-                    Vendredi
+                    {{__('admin/general.friday')}}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="saturday" id="saturday" value="" placeholder="10-17h" wire="saturday">
-                    Samedi
+                    {{__('admin/general.saturday')}}
                 </x-fields.availability-input>
                 <x-fields.availability-input name="sunday" id="sunday" value="" placeholder="10-17h" wire="sunday">
-                    Dimanche
+                    {{__('admin/general.sunday')}}
                 </x-fields.availability-input>
             </div>
         </fieldset>

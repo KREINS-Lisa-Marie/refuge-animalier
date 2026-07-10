@@ -34,4 +34,13 @@ return [
     'male' => 'Male',
     'female' => 'Female',
     'no_animal_found' => 'No animal found',
+
+    'fur_placeholder' => 'Ex: Brown',
+    'character_placeholder' => 'Ex: Calm',
+    'vaccination_placeholder' => 'Ex: Rabies vaccine',
+    'second_character_placeholder' => 'Ex: Calm, family-friendly dog...',
+    'personality_placeholder' => 'Ex: Cheerful, calm, and well-behaved',
+    'state_placeholder' => 'Ex: Adopted',
+    'got_to_create_animal' => "Go to the 'Create an Animal' page",
+    'got_to_animal_page' => 'Go to the Animal page',
 ];

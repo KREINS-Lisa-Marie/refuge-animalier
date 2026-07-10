@@ -21,8 +21,8 @@
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
-            <x-admin.admin-button href="{{route('pages::volunteers.create', ['locale' => __('general.currentLocale')])}}"
-                                  title="Aller sur la page 'Créer un bénévole'" class="">
+            <x-admin.admin-button href="{{route('pages::volunteers.create', ['locale' => app()->getLocale()])}}"
+                                  title="{{__('admin/volunteers.go_to_create_volunteer')}}" class="">
                 {{__('admin/volunteers.create_a_volunteer')}}
             </x-admin.admin-button>
             <x-admin.search/>
@@ -55,7 +55,7 @@
         @forelse($this->searchedUsers() as $volunteer)
             <tr class="table-row position-relative">
                 <x-admin.table.table-td class="table-img">
-                    <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="image du chien" class="border-r-big">
+                    <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('admin/volunteers.volunteer_img')}}" class="border-r-big">
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-name fw-medium">
                     <span class="show-web">{{__('admin/volunteers.name_title')}}</span>{!! $volunteer->last_name !!} {!! $volunteer->first_name !!}
@@ -65,7 +65,7 @@
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
                     <span class="show-web">{{__('admin/volunteers.role_title')}}</span>{!! $volunteer->is_admin?   __('admin/volunteers.admin'): __('admin/volunteers.volunteer') !!}
-                    <a href="{{route('pages::volunteers.show',  ['locale' => __('general.currentLocale'),  'volunteer' => $volunteer->id])}}" title="aller vers la page de l’animal" class="card-link">
+                    <a href="{{route('pages::volunteers.show',  ['locale' => __('general.currentLocale'),  'volunteer' => $volunteer->id])}}" title="{{__('admin/volunteers.go_to_person_page')}}" class="card-link">
                     </a>
                 </x-admin.table.table-td>
             </tr>

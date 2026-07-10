@@ -62,7 +62,7 @@
                           :options="$animal_options" wire="animal_id"/>
 
                 <x-fields.textarea wire="message" id="adoption-message" name="message"
-                                   placeholder="Bonjour, Je voudrais bien rencontrer Jimmy." old_values="">
+                                   placeholder="{{__('admin/adoption-requests.placeholder_message')}}" old_values="">
                     {{__('admin/adoption-requests.adoption_message')}}
                 </x-fields.textarea>
                 <x-select select_name="state" label="{{__('admin/adoption-requests.state')}}" :options="$state_options"
@@ -70,7 +70,7 @@
             </div>
         </fieldset>
         <fieldset class="profile-information max-w-admin-web  edit-inputs ">
-            <x-fields.textarea wire="comment" id="adoption-comment" name="adoption-comment" placeholder="Camille semble sérieux. La rencontre s'est bien passée." >
+            <x-fields.textarea wire="comment" id="adoption-comment" name="adoption-comment" placeholder="{{__('admin/adoption-requests.placeholder_comment')}}" >
                 {{__('admin/adoption-requests.adoption_comment')}}
             </x-fields.textarea>
         </fieldset>

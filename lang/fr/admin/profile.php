@@ -13,11 +13,14 @@ return [
     'image' => 'Image',
     'change_language' => 'Changer vers - English',
 
-
     'save' => 'Enregistrer',
     'firstname' =>'Prénom',
     'lastname' =>'Nom',
     'password_confirmation' => 'Confirmation du mot de passe',
     'form' => 'Formulaire pour modifier l’utilisateur',
+
+    'profile_img' => 'Image de profile',
+    'delete_account' => 'Supprimer mon compte',
+    'open_mails' => 'Ouvrir les emails',
 
 ];

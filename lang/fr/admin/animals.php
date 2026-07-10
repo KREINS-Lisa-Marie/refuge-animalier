@@ -34,4 +34,14 @@ return [
     'male' => 'Male',
     'female' => 'Femelle',
     'no_animal_found' => 'Pas d’animal trouvé',
+
+    'fur_placeholder' => 'Ex: Brun',
+    'character_placeholder' => 'Ex: Calme',
+    'vaccination_placeholder' => 'Ex: Vaccin contre la rage',
+    'second_character_placeholder' => 'Ex: Chien calme et faimilial...',
+    'personality_placeholder' => 'Ex: joyeux, calme et bien éduqué',
+    'state_placeholder' => 'Ex: Adopté',
+    'got_to_create_animal' => "Aller sur la page 'Créer un animal'",
+    'got_to_animal_page' => "Aller vers la page de l’animal",
+
 ];

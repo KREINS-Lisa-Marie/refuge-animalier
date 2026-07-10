@@ -45,13 +45,21 @@
                 </x-fields.text>
                 <x-select select_name="sex" :options="$gender" wire="sex" label="{{__('admin/animals.sex')}}">
                 </x-select>
-                <x-fields.text id="fur" name="fur" value="" placeholder="Ex: Bénévole" wire="fur">
+                <x-fields.text id="fur" name="fur" value="" placeholder="{{__('admin/animals.fur_placeholder')}}" wire="fur">
                     {{__('admin/animals.fur')}}
                 </x-fields.text>
-                <x-fields.text id="age" name="age" value="" placeholder="Ex: Bénévole" wire="age">
-                    {{__('admin/animals.age')}}
-                </x-fields.text>
-                <x-fields.text id="vaccinations" name="vaccinations" value="" placeholder="Ex: Bénévole"
+
+                <div class="text-field">
+                    <label for="age" class="field__label">
+                        {{__('admin/animals.birthday')}}
+                    </label>
+                    <input type="date" name="age" id="age" {{--value="{!! $old_date !!}"--}} class="field__input">
+                    @error('date')
+                    {{$message}}
+                    @enderror
+                </div>
+
+                <x-fields.text id="vaccinations" name="vaccinations" value="" placeholder="Ex: Guardtec"
                                wire="vaccinations">
                     {{__('admin/animals.vaccination')}}
                 </x-fields.text>
@@ -59,7 +67,7 @@
                                wire="description">
                     {{__('admin/animals.description')}}
                 </x-fields.text>
-                <x-fields.text id="character" name="character" value="" placeholder="Ex: Bénévole" wire="character">
+                <x-fields.text id="character" name="character" value="" placeholder="{{__('admin/animals.character_placeholder')}}" wire="character">
                     {{__('admin/animals.personality')}}
                 </x-fields.text>
                 {{--            <x-fields.text id="state" name="state" value="" placeholder="Ex: Bénévole" wire="state">
