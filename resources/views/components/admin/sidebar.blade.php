@@ -15,9 +15,9 @@
             {{__('admin/sidebar.main_navigation')}}
         </h2>
 
-        <a href="{{ route('pages::dashboard.index', ['locale' => __('general.currentLocale')]) }}"
-           lang=""
-           hreflang=""
+        <a href="{{ route('pages::dashboard.index', ['locale' => app()->getLocale()]) }}"
+           lang="{{app()->getLocale()}}"
+           hreflang="{{app()->getLocale()}}"
            class="languages__link nav__link__header small-logo"
            title="{{__('admin/sidebar.logo')}}"
            aria-label="{{__('admin/sidebar.go_to_homepage')}}">
@@ -74,9 +74,9 @@
             </svg>
         </a>
 
-        <a href="{{route('pages::dashboard.index', ['locale' => __('general.currentLocale')])}}"
-           lang=""
-           hreflang=""
+        <a href="{{route('pages::dashboard.index', ['locale' => app()->getLocale()])}}"
+           lang="{{app()->getLocale()}}"
+           hreflang="{{app()->getLocale()}}"
            class="languages__link nav__link__header big-logo"
            title="{{__('admin/sidebar.logo')}}"
            aria-label="{{__('admin/sidebar.go_to_homepage')}}">
@@ -121,34 +121,34 @@
 
     <ul class="flex flex-col sidebar-nav-links nav__container__header l-height-32">
         <li class="nav__item__header">
-            <a href="{{route('pages::dashboard.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label=" {{__('admin/sidebar.go_to_the_page_dashboard')}}" title="{{__('admin/sidebar.go_to_the_page_dashboard')}}" >
+            <a href="{{route('pages::dashboard.index', ['locale' => app()->getLocale()])}}" class="nav__link__header {{ request()->routeIs('pages::dashboard.index') ? 'active' : '' }}" aria-label=" {{__('admin/sidebar.go_to_the_page_dashboard')}}" title="{{__('admin/sidebar.go_to_the_page_dashboard')}}" >
                 {{__('admin/sidebar.dashboard')}}
                 </a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('pages::animals.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="{{__('admin/sidebar.go_to_the_page_animals')}}" title="{{__('admin/sidebar.go_to_the_page_animals')}}">
+            <a href="{{route('pages::animals.index', ['locale' => app()->getLocale()])}}" class="nav__link__header {{ request()->routeIs('pages::animals.index') ? 'active' : '' }}" aria-label="{{__('admin/sidebar.go_to_the_page_animals')}}" title="{{__('admin/sidebar.go_to_the_page_animals')}}">
                 {{__('admin/sidebar.the_animals')}}
                 </a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('pages::adoption-requests.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="{{__('admin/sidebar.go_to_the_page_adoption_requests')}}" title="{{__('admin/sidebar.go_to_the_page_adoption_requests')}}">
+            <a href="{{route('pages::adoption-requests.index', ['locale' => app()->getLocale()])}}" class="nav__link__header {{ request()->routeIs('pages::adoption-requests.index') ? 'active' : '' }}" aria-label="{{__('admin/sidebar.go_to_the_page_adoption_requests')}}" title="{{__('admin/sidebar.go_to_the_page_adoption_requests')}}">
                 {{__('admin/sidebar.adoption_requests')}}
                 </a> <span class="numbers">{!! $adoption_requests_number !!}</span>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('pages::volunteers.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="{{__('admin/sidebar.go_to_the_page_volunteers')}}" title="{{__('admin/sidebar.go_to_the_page_volunteers')}}">
+            <a href="{{route('pages::volunteers.index', ['locale' =>app()->getLocale()])}}" class="nav__link__header {{ request()->routeIs('pages::volunteers.index') ? 'active' : '' }}" aria-label="{{__('admin/sidebar.go_to_the_page_volunteers')}}" title="{{__('admin/sidebar.go_to_the_page_volunteers')}}">
                 {{__('admin/sidebar.volunteers')}}
                 </a>
         </li>
         <li class="nav__item__header">
-            <a href="{{route('pages::messages.index', ['locale' => __('general.currentLocale')])}}" class="nav__link__header" aria-label="{{__('admin/sidebar.go_to_the_page_messages')}}" title="{{__('admin/sidebar.go_to_the_page_messages')}}">
+            <a href="{{route('pages::messages.index', ['locale' => app()->getLocale()])}}" class="nav__link__header {{ request()->routeIs('pages::messages.index') ? 'active' : '' }}" aria-label="{{__('admin/sidebar.go_to_the_page_messages')}}" title="{{__('admin/sidebar.go_to_the_page_messages')}}">
                 {{__('admin/sidebar.messages')}}
                 </a> <span class="numbers">{!! $message_number !!}</span>
         </li>
     </ul>
 
     <div class="fw-700 nav__container__header profile-disconnect-link">
-        <a href="{{route('pages::profile.index', ['locale' => __('general.currentLocale')])}}" class="nav__item__header" title="{{__('admin/sidebar.go_to_the_page_profile')}}" aria-label="{{__('admin/sidebar.go_to_the_page_profile')}}">
+        <a href="{{route('pages::profile.index', ['locale' => app()->getLocale()])}}" class="nav__item__header {{ request()->routeIs('pages::profile.index') ? 'active' : '' }}" title="{{__('admin/sidebar.go_to_the_page_profile')}}" aria-label="{{__('admin/sidebar.go_to_the_page_profile')}}">
             {{__('admin/sidebar.profile')}}
 
         </a>
