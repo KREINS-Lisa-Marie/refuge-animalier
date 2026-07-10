@@ -16,8 +16,8 @@
             <p class="card-petname fw-700 d-block">
                 {{$petname}}
             </p>
-            <p class="d-block border-1-dark p-lr-24-tb-8 border-r-big">
-                {{$petstatus}}
+            <p class="d-block border-1-dark p-lr-24-tb-8 border-r-big background-light">
+                {{$petstatus == 'adoptable'? __('public/animal.adoptable') : ($petstatus == 'in_treatment'?__('public/animal.in_treatment') : __('public/animal.processing_adoption') )}}
             </p>
         </div>
         <div class="infos p-b-32">
