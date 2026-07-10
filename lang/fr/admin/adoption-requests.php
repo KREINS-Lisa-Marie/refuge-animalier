@@ -29,4 +29,18 @@ return [
     'refused' => 'Refusé',
     'not_treated_yet' => 'Pas encore traité',
     'no_request_found' => 'Pas de demande trouvée',
+
+    'adoption_request' => 'Demande d’adoption',
+    'adoption_request_for' => 'Demande d’adoption pour',
+    'comment' => 'Nos observations',
+    'deny_request' => 'Accepter l’adoption',
+    'accept_request' => 'Refuser l’adoption',
+    'delete_adoption_request' => 'Supprimer la demande',
+    'modify_request' => 'Modifier la demande',
+    'go_to_modify_request_page' => 'Aller vers la page Modifier la demande',
+
+    'placeholder_message' => 'Bonjour, Je voudrais bien rencontrer Jimmy.',
+    'placeholder_comment' => 'Camille semble sérieux. La rencontre s’est bien passée.',
+    'go_to_create_request' => "Aller sur la page 'Créer une demande'",
+    'delete_request' => "Supprimer la demande",
 ];
