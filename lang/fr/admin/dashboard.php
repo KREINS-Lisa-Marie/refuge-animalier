@@ -23,4 +23,10 @@ return [
     'number_animals_welcomed' => 'Nombre d’animaux accueillis',
     'finished_adoptions' => 'Nombre d’adoptions réussies',
     'animals_still_in_shelter' => 'Nombre d’animaux encore au refuge ',
+
+    'animal_img' => 'Image de l’animal',
+    'animal_name' => 'Nom',
+    'animal_age' => 'Age',
+    'animal_date' => 'Date d’accueil',
+
 ];

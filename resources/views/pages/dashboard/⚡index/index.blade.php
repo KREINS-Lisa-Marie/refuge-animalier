@@ -109,7 +109,7 @@
         </div>
     </section>
 
-    <section class="m-lr-24 recent-animals max-w-admin-web">
+{{--    <section class="m-lr-24 recent-animals max-w-admin-web">
         <h2 class="fw-700 admin-dashboard-title">
             {{__('admin/dashboard.recent_animals')}}
         </h2>
@@ -122,7 +122,60 @@
 
             @endforeach
         </div>
+    </section>--}}
+
+    <section class="recent-animals max-w-admin-web m-lr-24">
+        <h2 class="fw-700 admin-dashboard-title">
+            {{__('admin/dashboard.recent_animals')}}
+        </h2>
+        <table class="table max-w-admin-web">
+            <thead>
+            <tr class="">
+                <x-admin.table.table-th scope="col">
+                    {{__('admin/dashboard.animal_img')}}
+                </x-admin.table.table-th>
+                <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('animal_name')" :direction="$sortField === 'animal_name'? $sortDirection : null" class="{{$sortField === 'animal_name'? 'active-sort': ''}}">        {{--order_items_count se fait automatiquement quand je fais un withcount    -> nom model_count --}}
+                    {{__('admin/dashboard.animal_name')}}
+                </x-admin.table.table-th-sort>
+                <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('age')" :direction="$sortField === 'age'? $sortDirection : null" class="{{$sortField === 'age'? 'active-sort': ''}}">
+                    {{__('admin/dashboard.animal_age')}}
+                </x-admin.table.table-th-sort>
+                <x-admin.table.table-th-sort scope="col" sortable wire:click="sortBy('created_at')" :direction="$sortField === 'created_at'? $sortDirection : null" class="{{$sortField === 'created_at'? 'active-sort': ''}}">
+                    {{__('admin/dashboard.animal_date')}}
+                </x-admin.table.table-th-sort>
+            </tr>
+            </thead>
+            <tbody>
+
+            @foreach($five_latest_animals as $animal)
+                <tr class="table-row position-relative">
+                    <x-admin.table.table-td class="table-img">
+                        {{--<img src="{{$animal->img}}" alt="{{__('admin/dashboard.animal_image')}}" height="44" width="44" class="dashboard_animal_card_img">--}}
+                        <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" class="border-r-big">
+
+                    </x-admin.table.table-td>
+                    <x-admin.table.table-td class="table-name fw-medium">
+                        <span
+                            class="show-web">{{__('admin/dashboard.animal_name')}}</span>
+                        {{$animal->animal_name}}
+
+                    </x-admin.table.table-td>
+                    <x-admin.table.table-td class="table-state">
+                        <span class="show-web">{{__('admin/dashboard.animal_age')}}</span>
+                        {{$animal->age}}
+                    </x-admin.table.table-td>
+                    <x-admin.table.table-td class="table-species">
+                        <span class="show-web">{{__('admin/dashboard.animal_date')}}</span>
+                        {!! $animal->created_at->format('d/m/Y')!!}
+                        <a href="{{route('pages::animals.show',  ['locale' => app()->getLocale(),  'animal' => $animal->id])}}" title="{{__('admin/dashboard.go_to_animal')}}" class="card-link">
+                        </a>
+                    </x-admin.table.table-td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </section>
+
 
 
     <section id="statistics" class="m-lr-24">
