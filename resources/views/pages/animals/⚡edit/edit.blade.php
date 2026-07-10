@@ -22,25 +22,25 @@
             <x-fields.text id="sex" name="sex" placeholder="Ex: 038438293" wire="sex">
                 {{__('admin/animals.sex')}}
             </x-fields.text>
-            <x-fields.text id="fur" name="fur" placeholder="Ex: brun-blanc" wire="fur">
+            <x-fields.text id="fur" name="fur" placeholder="{{__('admin/animals.fur_placeholder')}}" wire="fur">
                 {{__('admin/animals.fur')}}
             </x-fields.text>
             <x-fields.text id="age" name="age" placeholder="Ex: 12 ans" wire="age">
-                {{__('admin/animals.age')}} an(s)
+                {{__('admin/animals.age')}} {{__('admin/animals.age')}}an(s)
             </x-fields.text>
-            <x-fields.text id="vaccinations" name="vaccinations" placeholder="Ex: Vaccin contre la rage"
+            <x-fields.text id="vaccinations" name="vaccinations" placeholder="{{__('admin/animals.vaccination_placeholder')}}"
                            wire="vaccinations">
                 {{__('admin/animals.vaccination')}}
             </x-fields.text>
-            <x-fields.text id="description" name="description" placeholder="Ex: Chien calme et faimilial..."
+            <x-fields.text id="description" name="description" placeholder="{{__('admin/animals.second_character_placeholder')}}"
                            wire="description">
                 {{__('admin/animals.description')}}
             </x-fields.text>
-            <x-fields.text id="character" name="character" placeholder="Ex: joyeux, calme et bien éduqué"
+            <x-fields.text id="character" name="character" placeholder="{{__('admin/animals.second_character_placeholder')}}"
                            wire="character">
                 {{__('admin/animals.personality')}}
             </x-fields.text>
-            <x-fields.text id="state" name="state" placeholder="Ex: Bénévole" wire="state">
+            <x-fields.text id="state" name="state" placeholder="{{__('admin/animals.second_character_placeholder')}}" wire="state">
                 {{__('admin/animals.state')}}
             </x-fields.text>
         </div>

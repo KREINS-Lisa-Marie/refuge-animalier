@@ -53,7 +53,7 @@
                     {{__('admin/animals.age')}}
                 </x-definition-term>
                 <x-definition>
-                    {{ $animal->age }} an(s)
+                    {{ $age }} an(s)
                 </x-definition>
             </div>
 
@@ -97,7 +97,7 @@
                     {{__('admin/animals.animal_image')}}
                 </x-definition-term>
                 <x-definition>
-                    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
+                    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('admin/animals.animal_image')}}" class="border-r-small profile-img">
                 </x-definition>
             </div>
         </dl>
@@ -110,7 +110,7 @@
         </h2>
 
         <div class="animals-gallery ">
-            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
+            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('admin/animals.animal_image')}}" class="border-r-small profile-img">
             <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
             <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
             <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
@@ -126,13 +126,13 @@
     <div class=" max-w-admin-web volunteer-buttons m-lr-24">
         <div class="top-row">
             <x-admin.admin-button href="{{route('pages::animals.edit', ['locale' => __('general.currentLocale'),  'animal'=> $animal])}}"
-                                  title="modifier les données" class="">
+                                  title="{{__('admin/animals.modify_animal')}}" class="">
                 {{__('admin/animals.modify_animal')}}
             </x-admin.admin-button>
 
             <form wire:submit="destroy" method="post">
                 @csrf
-                <x-admin.form-button title="Supprimer la personne" class="delete_background delete-button">
+                <x-admin.form-button title="{{__('admin/animals.delete_animal')}}" class="delete_background delete-button">
                     {{__('admin/animals.delete_animal')}}
                 </x-admin.form-button>
             </form>
