@@ -31,4 +31,9 @@ new #[Layout('layouts.app')] class extends Component
 
         return redirect(route('pages::volunteers.index', ['locale' =>  __('general.currentLocale')]));
     }
+
+    public function render()
+    {
+        return view('pages.volunteers.⚡show.show')->title(__('general.volunteers_detail'));
+    }
 };

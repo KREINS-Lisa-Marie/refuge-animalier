@@ -58,7 +58,10 @@ new  #[Layout('layouts.app')] class extends Component
                 ->paginate(10);
     }
 
-
+    public function render()
+    {
+        return view('pages.volunteers.⚡index.index')->title(__('general.volunteers'));
+    }
 
 
 };

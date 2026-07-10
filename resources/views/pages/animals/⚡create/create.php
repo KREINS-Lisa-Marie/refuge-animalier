@@ -34,7 +34,7 @@ new #[Layout('layouts.app')] class extends Component
             ],
         ];
         $user = auth()->user();
-        return view('pages.animals.⚡create.create',['gender' => $gender, 'user' => $user] );
+        return view('pages.animals.⚡create.create',['gender' => $gender, 'user' => $user] )->title(__('general.animals_create'));
     }
 
 
