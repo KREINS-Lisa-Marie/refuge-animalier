@@ -52,6 +52,11 @@ new class extends Component
         $this->redirect(route('pages::adoption-requests.index', ['locale' => __('general.currentLocale')]));
     }
 
+    public function render()
+    {
+        return view('pages.adoption-requests.⚡create.create')->title(__('general.adoption-requests_create'));
+    }
+
 
 
 

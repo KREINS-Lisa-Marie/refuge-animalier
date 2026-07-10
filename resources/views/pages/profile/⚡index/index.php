@@ -23,4 +23,9 @@ new #[Layout('layouts.app')] class extends Component
 
         return redirect(route("/$locale/login"));
     }
+
+    public function render()
+    {
+        return view('pages.profile.⚡index.index')->title(__('general.profile'));
+    }
 };

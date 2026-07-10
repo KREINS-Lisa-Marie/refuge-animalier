@@ -73,5 +73,9 @@ new class extends Component
         $this->redirect(route('pages::volunteers.index', ['locale' => __('general.currentLocale')]));
     }
 
+    public function render()
+    {
+        return view('pages.volunteers.⚡create.create')->title(__('general.volunteers_create'));
+    }
 
 };

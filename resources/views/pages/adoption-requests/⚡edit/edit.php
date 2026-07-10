@@ -64,4 +64,9 @@ new class extends Component
 
         $this->redirect(route('pages::adoption-requests.index', ['locale' => app()->getLocale(), 'request'=>$this->request]));
     }
+
+    public function render()
+    {
+        return view('pages.adoption-requests.⚡edit.edit')->title(__('general.adoption-requests_edit'));
+    }
 };

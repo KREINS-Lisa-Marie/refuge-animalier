@@ -1,4 +1,4 @@
-<x-public.app>
+<x-public.app :title="$title">
     <section class="p-b-60 first-section">
         <div class="p-l-r-24">
             <h2 class="homepage-title m-t-60 m-b-16">

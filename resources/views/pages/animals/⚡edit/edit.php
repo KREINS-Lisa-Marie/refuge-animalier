@@ -63,4 +63,9 @@ new class extends Component
         $this->redirect(route('pages::animals.show', ['locale' => app()->getLocale(), 'animal' => $this->animal])
     );
     }
+
+    public function render()
+    {
+        return view('pages.animals.⚡edit.edit')->title(__('general.animals_edit'));
+    }
 };

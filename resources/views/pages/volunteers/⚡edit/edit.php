@@ -91,4 +91,9 @@ new class extends Component
 
         $this->redirect(route('pages::volunteers.show', ['locale' => app()->getLocale(), 'volunteer'=>$this->volunteer]));
 }
+
+    public function render()
+    {
+        return view('pages.volunteers.⚡edit.edit')->title(__('general.volunteers_edit'));
+    }
 };

@@ -82,4 +82,9 @@ new class extends Component
             $this->closeModal();
         }
     }
+
+    public function render()
+    {
+        return view('pages.messages.⚡index.index')->title(__('general.messages'));
+    }
 };

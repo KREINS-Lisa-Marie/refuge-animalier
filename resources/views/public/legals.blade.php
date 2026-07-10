@@ -1,4 +1,4 @@
-<x-public.app>
+<x-public.app title="{{__('general.legals')}}">
             <h2 class="page-title m-b-60-94 fw-700 t-a-center color-dark p-b-0">
                 {{__('public/legals.legal-title')}}
             </h2>

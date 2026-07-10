@@ -1,4 +1,4 @@
-<x-public.app>
+<x-public.app title="{{__('general.contact')}}">
     <h2 class="page-title color-dark fw-700  t-a-center ">
         {{__('public/contact.contact_us')}}
     </h2>
