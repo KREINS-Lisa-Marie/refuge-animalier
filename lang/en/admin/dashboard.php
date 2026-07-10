@@ -23,4 +23,9 @@ return [
     'number_animals_welcomed' => 'Number of animals welcomed',
     'finished_adoptions' => 'Number of successful adoptions',
     'animals_still_in_shelter' => 'Number of animals still in the shelter',
+
+    'animal_img' => 'Animal Image',
+    'animal_name' => 'Name',
+    'animal_age' => 'Age',
+    'animal_date' => 'Date of Arrival',
 ];
