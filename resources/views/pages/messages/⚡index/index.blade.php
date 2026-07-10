@@ -27,7 +27,7 @@
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
             <x-admin.admin-button href="mailto: "
-                                  title="Ecrire un email" class="">
+                                  title="{{__('admin/messages.send_email')}}" class="">
                 {{__('admin/messages.send_email')}}
             </x-admin.admin-button>
             <x-admin.search/>
@@ -171,7 +171,7 @@
                 </a>
                 <form wire:submit="destroy" method="post">
                     @csrf
-                    <x-admin.modals.message.submit-button title="Supprimer le message" class="modal-button">
+                    <x-admin.modals.message.submit-button title="{{__('admin/messages.delete_message')}}" class="modal-button">
                         {{__('admin/messages.delete_message')}}
                     </x-admin.modals.message.submit-button>
 
