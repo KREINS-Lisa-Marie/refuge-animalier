@@ -114,11 +114,11 @@
                     <span class="show-web">{{__('admin/animals.animal_name_title')}}</span>{!! $animal->animal_name !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-state">
-                    <span class="show-web">{{__('admin/animals.state_title')}}</span>{!! $animal->state == 'adopted'? __('admin/animals.adopted') : ($animal->state == 'in_treatment' ? __('admin/animals.in_treatment') : __('admin/animals.processing_adoption') )!!}
+                    <span class="show-web">{{__('admin/animals.state_title')}}</span>{!! $animal->state == 'adopted'? __('admin/animals.adopted') : (($animal->state == 'adoptable' ? __('admin/animals.adoptable') : ($animal->state == 'in_treatment' ? __('admin/animals.in_treatment') : __('admin/animals.processing_adoption') ))) !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
                     <span class="show-web">{{__('admin/animals.species_title')}}</span>{!! $animal->species !!}
-                    <a href="{{route('pages::animals.show',  ['locale' => __('general.currentLocale'),  'animal' => $animal->id])}}" title="{{__('admin/animals.got_to_animal_page')}}" class="card-link">
+                    <a href="{{route('pages::animals.show',  ['locale' => app()->getLocale(),  'animal' => $animal->id])}}" title="{{__('admin/animals.got_to_animal_page')}}" class="card-link">
                     </a>
                 </x-admin.table.table-td>
 
