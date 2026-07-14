@@ -13,4 +13,7 @@
         <x-select-option :option_value="$option['value']" :option_name="$option['name']"  />
     @endforeach
 </select>
+    @error($select_name)
+    <p class="mb-32 error">{{$message}}</p>
+    @enderror
 </div>

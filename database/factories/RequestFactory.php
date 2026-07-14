@@ -22,11 +22,10 @@ class RequestFactory extends Factory
             'last_name' => fake()->lastName(),
             'state' => fake()->randomElement($state),
             'email' => fake()->unique()->safeEmail(),
-            'phone' => fake()->phoneNumber(),
+            'phone' => fake()->e164PhoneNumber(),
             'address' => fake()->address(),
             'message' => fake()->text(),
             'comment' => fake()->text(),
-            'date' => Carbon::now(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

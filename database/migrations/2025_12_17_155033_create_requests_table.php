@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->string('state');
             $table->string('email');
             $table->string('phone');
-            $table->timestamp('date');
             $table->string('address')->nullable();
             $table->string('message')->nullable();
             $table->string('comment')->nullable();

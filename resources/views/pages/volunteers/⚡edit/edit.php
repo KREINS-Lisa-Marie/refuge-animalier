@@ -53,7 +53,7 @@ new class extends Component
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($this->volunteer->id)],
             'phone' => 'required|string',
             'profile_image' => 'nullable|string',
-            'is_admin' => 'required|string',
+            'is_admin' => 'required|boolean:',
             'monday' => 'string|nullable',
             'tuesday' => 'string|nullable',
             'wednesday' => 'string|nullable',

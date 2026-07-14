@@ -17,7 +17,7 @@
         {{__('admin/volunteers.create_a_volunteer')}}
     </x-page-bar>
 
-    <form wire:submit.prevent="store" class="profile-form volunteers-edit">
+    <form wire:submit.prevent="store" class="profile-form volunteers-edit" enctype="multipart/form-data">
         @csrf
 
         <fieldset class="profile-information edit-inputs max-w-admin-web">
@@ -43,8 +43,7 @@
                     </x-fields.text>
                 </div>
                 <div class="col">
-                    <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options"
-                              wire="is_admin"/>
+                    <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options" wire="is_admin"/>
                     <x-fields.password wire="password">
                         {{__('admin/volunteers.password')}}
                     </x-fields.password>

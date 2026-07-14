@@ -13,7 +13,7 @@ new class extends Component
     public string $race = '';
     public string $sex = '';
     public string $fur = '';
-    public string $age = '';
+    public $age = '';
     public string $vaccinations = '';
     public string $character = '';
     public string $state = '';
@@ -29,7 +29,7 @@ new class extends Component
         $this->race = $animal->race ?? '';
         $this->sex = $animal->sex;
         $this->fur = $animal->fur ?? '';
-        $this->age = $animal->age;
+        $this->age = $animal->age ?? '';
         $this->vaccinations = $animal->vaccinations;
         $this->character = $animal->character ?? '';
         $this->state = $animal->state;
@@ -48,7 +48,7 @@ new class extends Component
             'race'=>'string|nullable',
             'sex'=>'required|string',
             'fur'=>'string|nullable',
-            'age'=>'required|integer',
+            'age'=>'required|date',
             'vaccinations'=>'string|nullable',
             'character'=>'string|nullable',
             'state'=>'required|string',
@@ -66,6 +66,55 @@ new class extends Component
 
     public function render()
     {
-        return view('pages.animals.⚡edit.edit')->title(__('general.animals_edit'));
+        $animal_state_options =[
+            [
+                'name' => __('admin/animals.adopted'),
+                'value' =>'adopted',
+            ],
+            [
+                'name' => __('admin/animals.processing_adoption'),
+                'value' =>'processing_adoption',
+            ],
+            [
+                'name' => __('admin/animals.in_treatment'),
+                'value' =>'in_treatment',
+            ],
+            [
+                'name' => __('admin/animals.adoptable'),
+                'value' =>'adoptable',
+            ],
+        ];
+        $gender = [
+            [
+                'name' => __('admin/animals.male'),
+                'value' =>'male',
+            ],
+            [
+                'name' => __('admin/animals.female'),
+                'value' =>'female',
+            ],
+        ];
+
+        $species_options = [
+            [
+                'name' => __('admin/animals.dog'),
+                'value' =>'dog',
+            ],
+            [
+                'name' => __('admin/animals.cat'),
+                'value' =>'cat',
+            ],
+            [
+                'name' => __('admin/animals.hamster'),
+                'value' =>'hamster',
+            ],
+            [
+                'name' => __('admin/animals.bunny'),
+                'value' =>'bunny',
+            ],
+        ];
+
+        return view('pages.animals.⚡edit.edit', compact('animal_state_options', 'gender', 'species_options'))
+            ->title(__('general.animals_edit'));
     }
 };
