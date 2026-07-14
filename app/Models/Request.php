@@ -19,7 +19,6 @@ class Request extends Model
         'state',
         'email',
         'phone',
-        'date',
         'address',
         'message',
         'comment',
