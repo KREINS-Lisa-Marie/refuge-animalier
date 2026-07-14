@@ -70,7 +70,7 @@ new class extends Component
             'sunday'=>$validated_data['sunday']??'',
         ]);
 
-        $this->redirect(route('pages::volunteers.index', ['locale' => __('general.currentLocale')]));
+        $this->redirect(route('pages::volunteers.index', ['locale' => app()->getLocale()]));
     }
 
     public function render()
