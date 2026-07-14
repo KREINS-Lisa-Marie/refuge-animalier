@@ -1,13 +1,13 @@
 <x-public.app>
 
-    <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="Image de fond"
+    <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="{{__('auth.bg_img')}}"
          class="absolut left-top-0 z-index-neg2 backgr-img">
 
     <div class="login-layout">
         <section class="login-section p-56-32 max-w-login background-public border-r-small">
             <div class="d-flex flex-cr">
                 <h2 class="fw-700 admin-form-title color-dark p-t-b-32">
-                    Se connecter
+                    {{__('auth.connect')}}
                 </h2>
                 <span class="d-flex flex-gap-24 flex-a-i-center">
                 <svg width="189" height="34" viewBox="0 0 189 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,11 +47,11 @@
             @endif
 
 
-            <form action="{{ route('login.store', ['locale' => __('general.currentLocale')]) }}" method="post" class="">
+            <form action="{{ route('login.store', ['locale' => app()->getLocale()]) }}" method="post" class="">
                 @csrf
                 <div class="flex flex-col">
                     <label for="email" class="label">
-                        Adresse email{{--{{__('login.email')}}--}}
+                        {{__('auth.email')}}
                     </label>
                     @error('email')
                     <p class="error">
@@ -64,8 +64,7 @@
                 </div>
                 <div class="flex flex-col">
                     <label for="password" class="label">
-                        Mot de passe
-                        {{--{{__('login.password')}}--}}
+                        {{__('auth.the_password')}}
                     </label>
                     @error('password')
                     <p class="error ">
@@ -77,24 +76,20 @@
                 </div>
                 <div class="">
                     <a href="/forgot-password" class="d-block password-forgotten fw-medium">
-                        Mot de passe oublié?
-                        {{--{{__('login.password_forgotten')}}--}}
+                        {{__('auth.forgot_pw')}}
                     </a>
                     <div class="d-flex  flex-gap-24 flex-gap-12">
                         <input type="checkbox" name="remember" id="remember_me"
                                class="p-16 border-r-small background-white ">
-
                         <label for="remember_me" class="">
-                            Se souvenir de moi
-                            {{--{{__('login.remember_me')}}--}}
+                            {{__('auth.remember_me')}}
                         </label>
                     </div>
 
                 </div>
 
                 <button type="submit" class="border-r-small color-white fw-medium">
-                    Se connecter
-                    {{--{{__('login.button_login')}}--}}
+                    {{__('auth.connect')}}
                 </button>
             </form>
         </section>

@@ -26,4 +26,9 @@ return [
 
     'legals'=>'Legal pages',
     'contact'=>'Contact us',
+
+    'search' => 'Search',
+    'searching' => 'Search',
+    'age' => 'Age: ',
+
 ];

@@ -1,6 +1,6 @@
 <x-public.app>
 
-    <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="Image de fond"
+    <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="{{__('auth.bg_img')}}"
          class="absolut left-top-0 z-index-neg2 backgr-img">
 
     <div class="login-layout">
@@ -8,7 +8,7 @@
             <div class="d-flex flex-cr">
                 <div>
                     <h2 class="fw-700 admin-form-title color-dark p-t-b-32 m-b-40">
-                        Mot de passe oublié
+                        {{__('auth.reset_password')}}
                     </h2>
                 </div>
                 <span class="d-flex flex-gap-24 flex-a-i-center">
@@ -47,7 +47,7 @@
                 <input type="hidden" name="token" value="{{ request()->route('token') }}">
                 <div class="flex flex-col">
                     <label for="email" class="label">
-                        Adresse email{{--{{__('login.email')}}--}}
+                            {{__('auth.email')}}
                     </label>
                     @error('email')
                     <p class="error">
@@ -60,23 +60,19 @@
 
                 <div class="flex flex-col">
                     <label for="password" class="label">
-                        {{--{{__('login.password')}}--}}
-                        Mot de passe
+                        {{__('auth.the_password')}}
                     </label>
                     @error('password')
                     <p class="error">
                         {{$message}}
                     </p>
                     @enderror
-                    <input type="password" id="password" name="password" class="p-16 border-r-big background-white"
-                           value="{{old('password')}}">
+                    <input type="password" id="password" name="password" class="p-16 border-r-big background-white" value="{{old('password')}}">
                 </div>
-
 
                 <div class="flex flex-col">
                     <label for="password_confirmation" class="label">
-                        Retapez votre mot de passe
-                        {{--{{__('register.confirmation_password')}}--}}
+                        {{__('auth.rewrite_password')}}
                     </label>
                     @error('verification_password')
                     <p class="error ">
@@ -89,8 +85,7 @@
 
 
                 <button type="submit" class="border-r-small color-white fw-medium">
-                    Réinitialiser
-                    {{--{{__('auth.forgotten_password')}}--}}
+                    {{__('auth.reset')}}
                 </button>
             </form>
 

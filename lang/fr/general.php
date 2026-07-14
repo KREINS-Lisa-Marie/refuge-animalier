@@ -27,4 +27,7 @@ return [
     'legals'=>'Mentions légales',
     'contact'=>'Contactez-nous',
 
+    'search'=>'Recherche',
+    'searching'=>'Rechercher',
+    'age'=>'Age : ',
 ];

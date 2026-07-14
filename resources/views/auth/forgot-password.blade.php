@@ -1,6 +1,6 @@
  <x-public.app>
 
-    <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="Image de fond"
+    <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="{{__('auth.bg_img')}}"
          class="absolut left-top-0 z-index-neg2 backgr-img">
 
     <div class="login-layout">
@@ -8,10 +8,10 @@
             <div class="d-flex flex-cr">
                 <div>
                     <h2 class="fw-700 admin-form-title color-dark p-t-b-32">
-                        Mot de passe oublié
+                        {{__('auth.forgotten_password')}}
                     </h2>
                     <p class="m-b-40">
-                        Pour réinitialiser votre mot de passe, veuillez entrer votre adresse email.
+                        {{__('auth.reset_instructions')}}
                     </p>
                 </div>
                 <span class="d-flex flex-gap-24 flex-a-i-center">
@@ -49,7 +49,7 @@
                 @csrf
                 <div class="flex flex-col">
                     <label for="email" class="label">
-                        Adresse email{{--{{__('login.email')}}--}}
+                        {{__('auth.email')}}
                     </label>
                     @error('email')
                     <p class="error">
@@ -60,13 +60,12 @@
                            value="{{old('email')}}">
                 </div>
 
-                <a href="{{route('auth.login', ['locale' => __('general.currentLocale')])}}" class="d-block fw-medium">
-                    Retour à la connexion
+                <a href="{{route('auth.login', ['locale' => app()->getLocale()])}}" class="d-block fw-medium">
+                    {{__('auth.return_connect')}}
                 </a>
 
                 <button type="submit" class="border-r-small color-white fw-medium">
-                    Réinitialiser
-                    {{--{{__('auth.forgotten_password')}}--}}
+                    {{__('auth.reset')}}
                 </button>
             </form>
 
