@@ -8,6 +8,6 @@
             {{$animal_name}}
         </h3>
         <p class="big-number">
-            Age : {{$animal_card_age}}
+            {{__('general.age')}}{{$animal_card_age}}
         </p>
 </div>

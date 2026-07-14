@@ -19,9 +19,9 @@
             Age : {{$animal_card_age}}
         </p>
         <p class="dashboard-card-date">
-            Date d’accueil : {{ $animal_card_date }}
+            {{__('admin/dashboard.animal_date_arrival')}}{{ $animal_card_date }}
         </p>
-        <a href="{{route('pages::animals.show',  ['locale' => __('general.currentLocale'),  'animal' => $animal_id])}}" title="aller vers la page de l’animal" class="card-link">
+        <a href="{{route('pages::animals.show',  ['locale' => app()->getLocale(),  'animal' => $animal_id])}}" title="{{__('admin/dashboard.go_to_animal_page')}}" class="card-link">
         </a>
     </div>
 </div>

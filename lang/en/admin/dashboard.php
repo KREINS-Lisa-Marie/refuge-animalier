@@ -28,4 +28,7 @@ return [
     'animal_name' => 'Name',
     'animal_age' => 'Age',
     'animal_date' => 'Date of Arrival',
+
+    'animal_date_arrival' => 'Date of Arrival: ',
+    'go_to_animal_page' => 'Go to the Animal page',
 ];

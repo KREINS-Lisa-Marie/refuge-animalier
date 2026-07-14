@@ -29,4 +29,7 @@ return [
     'animal_age' => 'Age',
     'animal_date' => 'Date d’accueil',
 
+    'animal_date_arrival' => 'Date d’accueil : ',
+    'go_to_animal_page' => 'Aller vers la page de l’animal',
+
 ];
