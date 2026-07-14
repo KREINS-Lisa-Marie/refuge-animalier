@@ -18,8 +18,11 @@
     <x-page-bar>
         {!! $volunteer->first_name !!}  {!! $volunteer->last_name !!}
     </x-page-bar>
+    <div class="max-w-admin-web return-admin">
+        <x-public.return-button></x-public.return-button>
+    </div>
 
-    <section class="profile-information max-w-admin-web">
+    <section class="section-w-return max-w-admin-web">
         <h2 aria-level="2" class="fw-700 admin-dashboard-title">
             {{__('admin/volunteers.general_information')}}
         </h2>
@@ -89,7 +92,8 @@
             <h2 aria-level="2" class="fw-700 admin-dashboard-title availabilities">
                 {{__('admin/volunteers.availability_of')}}{!! $volunteer->first_name !!}
             </h2>
-                <x-fields.availability-timetable></x-fields.availability-timetable>
+                <x-fields.availability-timetable availabilities="{{$availabilities}}">
+                </x-fields.availability-timetable>
         </section>
 
 
