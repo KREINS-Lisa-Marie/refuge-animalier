@@ -2,6 +2,9 @@
 
 use App\Models\Animal;
 use App\Models\Request;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class);
 
 it('can create animals', function () {
 
@@ -19,5 +22,6 @@ it('has many requests who belong to an animal', function () {
         'animal_id' => $animal->id
     ]);
 
-    expect($animal->requests)->toHaveCount(2);
+    expect($animal->adoptionRequests)->toHaveCount(2);
+    expect($animal->adoptionRequests->first())->toBeInstanceOf(Request::class);
 });

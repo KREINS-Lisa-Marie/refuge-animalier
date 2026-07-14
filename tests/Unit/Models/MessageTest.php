@@ -2,6 +2,9 @@
 
 use App\Models\Message;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class);
 
 it('can create multiple messages', function () {
 

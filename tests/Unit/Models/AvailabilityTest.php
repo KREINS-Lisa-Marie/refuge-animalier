@@ -2,6 +2,9 @@
 
 use App\Models\Availability;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class);
 
 it('can create availabilities', function () {
 

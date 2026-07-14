@@ -7,6 +7,6 @@ it('verifies that a form is displayed on the reset password page and that the el
 
     // assert
     $response->assertStatus(200)
-        ->assertSeeInOrder(["Mot de passe oublié", "form", "Adresse email", "Mot de passe", "Retapez votre mot de passe", "button", "Réinitialiser"]);
+        ->assertSeeInOrder(["Réinitialiser mot de passe", "form", "Adresse email", "Mot de passe", "Retapez votre mot de passe", "button", "Réinitialiser"]);
     }
 );
