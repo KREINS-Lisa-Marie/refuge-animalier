@@ -8,7 +8,7 @@
             {{__('admin/profile.form')}}
         </h2>
 
-    <form wire:submit="save" class="profile-form">
+    <form wire:submit.prevent="save" class="profile-form" enctype="multipart/form-data">
         @csrf
         <div class="form-fields">
             <x-fields.text id="firstname" name="firstname" value=" {!! $user->first_name !!}" placeholder="Ex: John" wire="first_name">

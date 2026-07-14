@@ -2,11 +2,11 @@
     $role_options = [
         [
             'name' => 'Admin',
-        'value' => '1',
+        'value' => 'true',
         ],
         [
             'name' => 'Bénévole',
-            'value' =>'0',
+            'value' =>'false',
         ],
 ]
 
@@ -17,34 +17,38 @@
 {{__('admin/volunteers.modify')}} {!! $volunteer->first_name !!} {!! $volunteer->last_name !!}
 </x-page-bar>
 
-    <form wire:submit="save" class="profile-form volunteers-edit">
+    <form wire:submit.prevent="save" class="profile-form volunteers-edit" enctype="multipart/form-data">
         @csrf
 
-    <fieldset class="profile-information edit-inputs max-w-admin-web">
+    <fieldset class="profile-information max-w-admin-web">
         <legend class="fw-700 admin-dashboard-title">
             {{__('admin/volunteers.general_information')}}
         </legend>
         <p class="obligations m-b-32 ">
             {{__('admin/general.mandatory_field')}}
         </p>
-        <div>
+        <div class="d-flex flex-r flex-wrap edit-inputs flex-gap-24">
+            <div class="d-flex flex-dir flex-gap-24 col-inputs">
             <x-fields.text id="first_name" name="first_name" value="{!! $volunteer->first_name !!}"
                            placeholder="Ex: John" wire="first_name">
-                {{__('admin/volunteers.firstname')}}
+                {{__('admin/volunteers.firstname')}}*
             </x-fields.text>
             <x-fields.text id="last_name" name="last_name" value="{!! $volunteer->last_name !!}" placeholder="Ex: Doe"
                            wire="last_name">
-                {{__('admin/volunteers.lastname')}}
+                {{__('admin/volunteers.lastname')}}*
             </x-fields.text>
             <x-fields.text id="phone" name="phone" value="{!! $volunteer->phone !!}" placeholder="Ex: 038438293"
                            wire="phone">
-                {{__('admin/volunteers.phone_number')}}
+                {{__('admin/volunteers.phone_number')}}*
             </x-fields.text>
+        </div>
+            <div class="d-flex flex-dir flex-gap-24 col-inputs">
             <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options"
                       wire="is_admin"/>
             <x-fields.file name_id="volunteer-img" wire="volunteer-img" name="volunteer-img">
                 {{__('admin/volunteers.profile_image')}}
             </x-fields.file>
+        </div>
         </div>
     </fieldset>
 
