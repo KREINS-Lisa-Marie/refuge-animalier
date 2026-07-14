@@ -2,6 +2,9 @@
 
 use App\Models\Availability;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class);
 
 it('can create many users', function () {
 
@@ -24,3 +27,5 @@ it('has one availability', function () {
     }
     expect($user->availability->id)->toBe($availability->id);
 });
+
+
