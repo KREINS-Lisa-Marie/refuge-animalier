@@ -43,21 +43,21 @@
             <div class="profile-information request-form-fields">
                 <x-fields.text id="adoptant-last-name" name="adoptant-last-name" value="" placeholder="Ex: John"
                                wire="last_name">
-                    {{__('admin/adoption-requests.adoptant_last_name')}}
+                    {{__('admin/adoption-requests.adoptant_last_name')}}*
                 </x-fields.text>
                 <x-fields.text id="adoptant-first-name" name="adoptant-first-name" value="" placeholder="Ex: John"
                                wire="first_name">
-                    {{__('admin/adoption-requests.adoptant_first_name')}}
+                    {{__('admin/adoption-requests.adoptant_first_name')}}*
                 </x-fields.text>
                 <x-fields.text id="adress" name="adress" value="" placeholder="Ex: Rue de l’école 3, 4000 Liège"
                                wire="address">
                     {{__('admin/adoption-requests.adress')}}
                 </x-fields.text>
                 <x-fields.email value="" wire="email">
-                    {{__('admin/adoption-requests.email')}}
+                    {{__('admin/adoption-requests.email')}}*
                 </x-fields.email>
                 <x-fields.phone wire="phone" name="adoptant-phone" id="adoptant-phone" value="" placeholder="038948927">
-                    {{__('admin/adoption-requests.phone')}}
+                    {{__('admin/adoption-requests.phone')}}*
                 </x-fields.phone>
                 <x-select select_name="animal_name" label="{{__('admin/adoption-requests.animal_name')}}"
                           :options="$animal_options" wire="animal_id"/>
