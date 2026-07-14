@@ -1,21 +1,20 @@
 <?php
 
-use App\Http\Requests\StoreAnimalRequest;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 new #[Layout('layouts.app')] class extends Component
 {
 
-    public string $animal_name;
-    public string $species;
+    public string $animal_name ='';
+    public string $species ='';
     public string $race = '';
-    public string $sex;
+    public string $sex ='';
     public string $fur = '';
-    public string $age;
+    public string $age ='';
     public string $vaccinations = '';
     public string $character = '';
-    public string $state;
+    public string $state='';
     public string $description = '';
     public string $show_image = '';
     public string $gallery_images = '';
@@ -57,7 +56,7 @@ new #[Layout('layouts.app')] class extends Component
             'race'=>'string|nullable',
             'sex'=>'string|required',
             'fur'=>'string|nullable',
-            'age'=>'string|required',
+            'age'=>'date|required',
             'vaccinations'=>'string|nullable',
             'character'=>'string|nullable',
             'state'=>'string|required',
@@ -81,6 +80,6 @@ new #[Layout('layouts.app')] class extends Component
             'gallery_images' => $this->gallery_images,
         ]);
 
-        $this->redirect(route('pages::animals.index', ['locale' => __('general.currentLocale'), 'gender' => $gender]));
+        $this->redirect(route('pages::animals.index', ['locale' => app()->getLocale(), 'gender' => $gender]));
     }
 };
