@@ -6,8 +6,12 @@
     <x-page-bar>
         {{ $animal->animal_name }}
     </x-page-bar>
+    <div class="max-w-admin-web return-admin">
+        <x-public.return-button></x-public.return-button>
+    </div>
 
-    <section class="profile-information max-w-admin-web">
+
+    <section class="section-w-return max-w-admin-web">
         <h2 aria-level="2" class="fw-700 admin-dashboard-title">
             {{__('admin/volunteers.general_information')}}
         </h2>
@@ -26,7 +30,7 @@
                     {{__('admin/animals.species')}}
                 </x-definition-term>
                 <x-definition>
-                    {{ $animal->species }}
+                    {{ $animal->species  == 'dog'? __('admin/animals.dog') : ($animal->species  == 'cat'? __('admin/animals.cat') : ($animal->species  == 'bunny'? __('admin/animals.bunny') : __('admin/animals.hamster'))) }}
                 </x-definition>
             </div>
 
@@ -35,7 +39,7 @@
                     {{__('admin/animals.sex')}}
                 </x-definition-term>
                 <x-definition>
-                    {{ $animal->sex }}
+                    {{ $animal->sex  =='male' ? __('admin/animals.male') : __('admin/animals.female') }}
                 </x-definition>
             </div>
 
@@ -89,7 +93,7 @@
                     {{__('admin/animals.state')}}
                 </x-definition-term>
                 <x-definition>
-                   {{ $animal->state }}
+                   {{ $animal->state == 'processing_adoption'? __('admin/animals.processing_adoption') : ($animal->state == 'adopted'? __('admin/animals.adopted'): ($animal->state == 'in_treatment'? __('admin/animals.in_treatment') : __('admin/animals.adoptable') ))}}
                 </x-definition>
             </div>
             <div>
