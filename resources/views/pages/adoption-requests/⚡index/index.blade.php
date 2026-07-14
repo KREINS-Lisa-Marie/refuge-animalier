@@ -55,7 +55,7 @@
         <tbody>
         @forelse($this->searchedRequests as $request)
             <tr class="table-row table-row-flex modal-tr" >
-                <x-admin.table.table-td class="">
+                <x-admin.table.table-td class="{{ $request->state === 'not_treated_yet' ? 'fw-700' : '' }}">
                     <span class="show-web">{{__('admin/adoption-requests.name_title')}}</span>{!! $request->last_name !!} {!! $request->first_name !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class=" fw-medium">
