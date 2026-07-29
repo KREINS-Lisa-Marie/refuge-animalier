@@ -1,16 +1,20 @@
 @php
     $state_options = [
         [
-            'name' => 'Refusée',
-            'value' =>'refusée',
+            'name' => __('admin/adoption-requests.refused'),
+            'value' =>'refused',
         ],
         [
-            'name' => 'Adopté',
-            'value' =>'adopté',
+            'name' => __('admin/adoption-requests.adopted'),
+            'value' =>'adopted',
         ],
                 [
-            'name' => 'En cours d’adoption',
-            'value' =>'en cours d’adoption',
+            'name' => __('admin/adoption-requests.in_treatment'),
+            'value' =>'in_treatment',
+        ],
+                [
+            'name' => __('admin/adoption-requests.not_treated_yet'),
+            'value' =>'not_treated_yet',
         ],
 ];
 
@@ -41,36 +45,31 @@
                 {{__('admin/general.mandatory_field')}}
             </p>
             <div class="profile-information request-form-fields">
-                <x-fields.text id="adoptant-last-name" name="adoptant-last-name" value="" placeholder="Ex: John"
-                               wire="last_name">
+                <x-fields.text id="last_name" name="last_name" value="" placeholder="Ex: John" wire="last_name">
                     {{__('admin/adoption-requests.adoptant_last_name')}}*
                 </x-fields.text>
-                <x-fields.text id="adoptant-first-name" name="adoptant-first-name" value="" placeholder="Ex: John"
-                               wire="first_name">
+                <x-fields.text id="first_name" name="first_name" value="" placeholder="Ex: John" wire="first_name">
                     {{__('admin/adoption-requests.adoptant_first_name')}}*
                 </x-fields.text>
-                <x-fields.text id="adress" name="adress" value="" placeholder="Ex: Rue de l’école 3, 4000 Liège"
-                               wire="address">
+                <x-fields.text id="address" name="address" value="" placeholder="Ex: Rue de l’école 3, 4000 Liège" wire="address">
                     {{__('admin/adoption-requests.adress')}}
                 </x-fields.text>
                 <x-fields.email value="" wire="email">
                     {{__('admin/adoption-requests.email')}}*
                 </x-fields.email>
-                <x-fields.phone wire="phone" name="adoptant-phone" id="adoptant-phone" value="" placeholder="038948927">
+                <x-fields.phone wire="phone" name="phone" id="phone" value="" placeholder="038948927">
                     {{__('admin/adoption-requests.phone')}}*
                 </x-fields.phone>
-                <x-select select_name="animal_name" label="{{__('admin/adoption-requests.animal_name')}}"
+                <x-select select_name="animal_id" label="{{__('admin/adoption-requests.animal_name')}}"
                           :options="$animal_options" wire="animal_id"/>
-                <x-fields.textarea wire="message" id="adoption-message" name="adoption-message"
-                                   placeholder="{{__('admin/adoption-requests.placeholder_message')}}" old_values="">
+                <x-fields.textarea wire="message" id="message" name="message" placeholder="{{__('admin/adoption-requests.placeholder_message')}}" old_values="">
                     {{__('admin/adoption-requests.adoption_message')}}
                 </x-fields.textarea>
-                <x-select select_name="state" label="{{__('admin/adoption-requests.state')}}" :options="$state_options"
-                          wire="state"/>
+                <x-select select_name="state" label="{{__('admin/adoption-requests.state')}}" :options="$state_options" wire="state"/>
             </div>
         </fieldset>
         <fieldset class="profile-information max-w-admin-web  edit-inputs ">
-            <x-fields.textarea wire="comment" id="adoption-comment" name="adoption-comment" placeholder="{{__('admin/adoption-requests.placeholder_comment')}}" old_values="">
+            <x-fields.textarea wire="comment" id="comment" name="comment" placeholder="{{__('admin/adoption-requests.placeholder_comment')}}" old_values="">
                 {{__('admin/adoption-requests.adoption_comment')}}
             </x-fields.textarea>
         </fieldset>

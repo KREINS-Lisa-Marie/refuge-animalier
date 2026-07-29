@@ -1,4 +1,7 @@
-<div class="max-w-web <!--margin-l-r-auto-->">
+@props([
+    'class'
+])
+<div class="max-w-web <!--margin-l-r-auto--> {{$class}}">
     <a href="{{ url()->previous()}}" class="return-button">
         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
             <path
