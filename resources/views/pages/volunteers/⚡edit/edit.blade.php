@@ -2,16 +2,15 @@
     $role_options = [
         [
             'name' => 'Admin',
-        'value' => 'true',
+        'value' => "1",
         ],
         [
             'name' => 'Bénévole',
-            'value' =>'false',
+            'value' =>"0",
         ],
 ]
 
 @endphp
-
 <main class="main-container" id="content">
     <x-page-bar>
 {{__('admin/volunteers.modify')}} {!! $volunteer->first_name !!} {!! $volunteer->last_name !!}
@@ -37,15 +36,15 @@
                            wire="last_name">
                 {{__('admin/volunteers.lastname')}}*
             </x-fields.text>
-            <x-fields.text id="phone" name="phone" value="{!! $volunteer->phone !!}" placeholder="Ex: 038438293"
+            <x-fields.phone id="phone" name="phone" value="{!! $volunteer->phone !!}" placeholder="Ex: 038438293"
                            wire="phone">
                 {{__('admin/volunteers.phone_number')}}*
-            </x-fields.text>
+            </x-fields.phone>
         </div>
             <div class="d-flex flex-dir flex-gap-24 col-inputs">
             <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options"
                       wire="is_admin"/>
-            <x-fields.file name_id="volunteer-img" wire="volunteer-img" name="volunteer-img">
+            <x-fields.file name_id="profile_image" wire="profile_image" name="profile_image">
                 {{__('admin/volunteers.profile_image')}}
             </x-fields.file>
         </div>
