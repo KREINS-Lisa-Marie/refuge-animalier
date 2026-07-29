@@ -2,16 +2,14 @@
     $role_options = [
         [
             'name' => 'Admin',
-            'value' =>true,
+            'value' => "1",
         ],
         [
             'name' => 'Bénévole',
-            'value' =>false,
+            'value' => "0",
         ],
 ]
-
 @endphp
-
 <main class="main-container admin" id="content">
     <x-page-bar>
         {{__('admin/volunteers.create_a_volunteer')}}
@@ -50,7 +48,7 @@
                     <x-fields.password-confirmation wire="password_confirmation">
                         {{__('admin/volunteers.password')}}
                     </x-fields.password-confirmation>
-                    <x-fields.file name_id="volunteer-img" wire="profile_image" name="volunteer-img">
+                    <x-fields.file name_id="profile_image" wire="profile_image" name="profile_image">
                         {{__('admin/volunteers.profile_image')}}
                     </x-fields.file>
                 </div>
