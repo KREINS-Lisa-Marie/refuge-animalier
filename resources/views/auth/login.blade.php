@@ -75,7 +75,7 @@
                            value="{{old('password')}}">
                 </div>
                 <div class="">
-                    <a href="/forgot-password" class="d-block password-forgotten fw-medium">
+                    <a href="{{route('auth.forgot-password', ['locale' =>app()->getLocale()])}}" class="d-block password-forgotten fw-medium">
                         {{__('auth.forgot_pw')}}
                     </a>
                     <div class="d-flex  flex-gap-24 flex-gap-12">
