@@ -25,7 +25,7 @@ class AnimalFactory extends Factory
             'race' => fake()->word(),
             'sex' => fake()->randomElement($sex),
             'fur' => fake()->word(),
-            'age' => fake()->numberBetween(1, 18),
+            'age' => fake()->dateTimeBetween('-15 years', 'now'),
             'vaccinations' => fake()->word(),
             'character' => fake()->word(),
             'state' => fake()->randomElement($state),

@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->string('race');
             $table->string('sex');
             $table->string('fur');
-            $table->integer('age');
+            $table->string('age');
             $table->string('vaccinations');
             $table->string('character');
             $table->string('state');
