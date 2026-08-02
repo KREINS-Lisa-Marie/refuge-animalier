@@ -1,33 +1,9 @@
-@php
-
-    $animal_state_options =[
-       [
-        'name' => __('admin/animals.adopted'),
-    'value' =>'adopted',
-    ],
-               [
-        'name' => __('admin/animals.processing_adoption'),
-    'value' =>'processing_adoption',
-    ],
-               [
-        'name' => __('admin/animals.in_treatment'),
-    'value' =>'in_treatment',
-    ],
-                   [
-        'name' => __('admin/animals.adoptable'),
-    'value' =>'adoptable',
-    ],
-];
-
-@endphp
-
-
 <main class="main-container" id="content">
     <x-page-bar>
         {{__('admin/animals.create_an_animal')}}
     </x-page-bar>
 
-    <form wire:submit.prevent="store" class="profile-form volunteers-edit" enctype="multipart/form-data">
+    <form wire:submit.prevent="store" class="admin-form volunteers-edit" enctype="multipart/form-data">
         @csrf
         <fieldset class="profile-information max-w-admin-web  edit-inputs ">
             <legend class="fw-700 admin-dashboard-title">
@@ -42,17 +18,20 @@
                                    wire="animal_name">
                         {{__('admin/animals.animal_name')}}*
                     </x-fields.text>
-                    <x-fields.text id="species" name="species" value="" placeholder="Ex: Doe" wire="species">
-                        {{__('admin/animals.species')}}*
+                    <x-select select_name="species" :options="$species_options" wire="species" label="{{__('admin/animals.species')}}*">
+                    </x-select>
+                    <x-fields.text id="race" name="race" value="" placeholder="Ex: Dalmatien" wire="race">
+                        {{__('admin/animals.race')}}*
                     </x-fields.text>
                     <x-select select_name="sex" :options="$gender" wire="sex" label="{{__('admin/animals.sex')}}*">
                     </x-select>
-                    <x-fields.text id="fur" name="fur" value="" placeholder="{{__('admin/animals.fur_placeholder')}}" wire="fur">
-                        {{__('admin/animals.fur')}}
-                    </x-fields.text>
+
                 </div>
 
                 <div class="d-flex flex-dir flex-gap-24 col-inputs">
+                    <x-fields.text id="fur" name="fur" value="" placeholder="{{__('admin/animals.fur_placeholder')}}" wire="fur">
+                        {{__('admin/animals.fur')}}
+                    </x-fields.text>
                     <div class="text-field">
                         <label for="age" class="field__label">
                             {{__('admin/animals.birthday')}}*
@@ -69,18 +48,15 @@
                     <x-fields.text id="description" name="description" value="" placeholder="Ex: Bénévole" wire="description">
                         {{__('admin/animals.description')}}
                     </x-fields.text>
+                </div>
+                <div class="d-flex flex-dir flex-gap-24 col-inputs">
                     <x-fields.text id="character" name="character" value="" placeholder="{{__('admin/animals.character_placeholder')}}" wire="character">
                         {{__('admin/animals.personality')}}
                     </x-fields.text>
-                </div>
-                {{--            <x-fields.text id="state" name="state" value="" placeholder="Ex: Bénévole" wire="state">
-                                {{__('admin/animals.state')}}
-                            </x-fields.text>--}}
-                <div class="d-flex flex-dir flex-gap-24 col-inputs">
                     <x-select select_name="state" label="{{__('admin/animals.state')}}" wire="state"
                               :options="$animal_state_options">
                     </x-select>
-                    <x-fields.file name_id="volunteer-img" wire="volunteer-img" name="volunteer-img">
+                    <x-fields.file name_id="show_image" wire="show_image" name="show_image">
                         {{__('admin/animals.animal_image')}}
                     </x-fields.file>
                 </div>
@@ -91,16 +67,43 @@
             <legend class="fw-700 admin-dashboard-title m-b-16">
                 {{__('admin/animals.gallery')}}
             </legend>
-            <x-fields.file name_id="volunteer-img" wire="volunteer-img" name="volunteer-img">
+            <x-fields.multifile name_id="new_gallery_images" wire="new_gallery_images" name="new_gallery_images">
                 {{__('admin/animals.animal_image')}}
-            </x-fields.file>
+            </x-fields.multifile>
+            @if(!empty($gallery_images))
+                <div class="gallery-preview">
+                    @foreach($gallery_images as $index=>$image)
+                        <div>
+                            <img src="{{ $image->temporaryUrl() }}" alt="Gallery image" width="100" height="100">       {{--temporaryUrl parce que sinon ça ne marche pas parce que l'image n'est pas encore enregistré --}}
+                            <button type="button" wire:click="removeFromGallery({{$index}})" class="remove-img-btn" title="Delete image">
+                                X
+                            </button>
+                        </div>
+                    @endforeach
+                </div>
+            @else
+                <p>{{__('admin/animals.no_images_chosen')}}</p>
+            @endif
         </fieldset>
+        <fieldset class="profile-information max-w-admin-web edit-inputs edit-textarea-big request-edit-comment">
+            <x-fields.textarea wire="internal_notes" id="internal_notes" name="internal_notes" placeholder="{{__('admin/animals.internal_notes')}}" >
+                {{__('admin/animals.internal_notes')}}
+            </x-fields.textarea>
+            <x-fields.textarea wire="modification_request" id="modification_request" name="modification_request" placeholder="{{__('admin/animals.modification_request')}}" >
+                {{__('admin/animals.modification_request')}}
+            </x-fields.textarea>
+                <x-select select_name="published_animal" :options="$published_animal_options" wire="published_animal" label="{{__('admin/animals.published_animal')}}*">
+                </x-select>
+        </fieldset>
+        <div class=" max-w-admin-web volunteer-buttons top-row">
 
 
         <div class=" max-w-admin-web volunteer-buttons top-row profile-information">
+
             <x-admin.form-button>
                 {{__('admin/animals.save')}}
             </x-admin.form-button>
+        </div>
         </div>
     </form>
 
