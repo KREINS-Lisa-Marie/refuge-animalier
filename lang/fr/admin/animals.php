@@ -44,4 +44,21 @@ return [
     'got_to_create_animal' => "Aller sur la page 'Créer un animal'",
     'got_to_animal_page' => "Aller vers la page de l’animal",
 
+    'hamster' => "Hamster",
+    'cat' => "Chat",
+    'dog' => "Chien",
+    'bunny' => "Lapin",
+    'birthday' => "Date de naissance",
+    'race' => "Race",
+
+    'internal_notes' => "Note interne",
+    'modification_request' => "Demande de modification",
+    'published_animal' => "Publication",
+    'published' => "Publié",
+    'not_published' => "Pas publié",
+
+    'no_modification_request' => "Pas de demandes de modifications pour le moment",
+    'no_notes' => "Pas de notes pour le moment",
+    'no_images_chosen' => "Aucune image choisie",
+    'no_image_available' => "Pas d’image disponible",
 ];
