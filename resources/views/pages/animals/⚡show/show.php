@@ -7,17 +7,28 @@ use Livewire\Component;
 new #[Layout('layouts.app')] class extends Component
 
 {
-    public int $animal_id;
+    public Animal $animal;
 
     public function mount(Animal $animal): void
     {
-        $this->animal_id = $animal->id;
+        $this->animal = $animal;
     }
 
     public function destroy()
     {
-        $animal = Animal::findOrFail($this->animal_id);
-        $animal->delete();
+        $animal = Animal::findOrFail($this->animal->id);
+        $this->animal->delete();
         return redirect(route('pages::animals.index', ['locale' => app()->getLocale()]));
+    }
+
+    public function render()
+    {
+        $birthday = $this->animal->age;
+        $today = now();
+
+        $age = $today->diff($birthday);
+        $age = $age->y;
+
+        return view('pages.animals.⚡show.show', ['animal'=> $this->animal, 'age'=>$age])->title(__('general.animals_show'));
     }
 };
