@@ -21,6 +21,9 @@ return new class extends Migration {
             $table->text('description');
             $table->string('show_image')->nullable();
             $table->string('gallery_images')->nullable();
+            $table->string('internal_notes')->nullable();
+            $table->string('modification_request')->nullable();
+            $table->string('published_animal');
             $table->timestamps();
             $table->softDeletes();
         });
