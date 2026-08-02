@@ -1,13 +1,9 @@
-@php
-    $animal = \App\Models\Animal::findOrFail($animal_id);
-@endphp
-
 <main class="main-container" id="content">
     <x-page-bar>
         {{ $animal->animal_name }}
     </x-page-bar>
     <div class="max-w-admin-web return-admin">
-        <x-public.return-button></x-public.return-button>
+        <x-public.return-button class=""></x-public.return-button>
     </div>
 
 
@@ -101,7 +97,13 @@
                     {{__('admin/animals.animal_image')}}
                 </x-definition-term>
                 <x-definition>
-                    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('admin/animals.animal_image')}}" class="border-r-small profile-img">
+                    @if($animal->show_image)
+                        <img src="{!! asset('storage/images/animals/variants/200x200/'.basename($animal->show_image)) !!}" alt="{{__('admin/animals.animal_image')}}"
+                             class="border-r-small profile-img">
+                    @else
+                        <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}"
+                             class="border-r-small profile-img">
+                    @endif
                 </x-definition>
             </div>
         </dl>
@@ -114,26 +116,55 @@
         </h2>
 
         <div class="animals-gallery ">
-            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('admin/animals.animal_image')}}" class="border-r-small profile-img">
-            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
-            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
-            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
-            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
-            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
-            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
-            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
-            <img src="{!! asset('assets/img/frenchie.png') !!}" alt="Image de profile" class="border-r-small profile-img">
-
+            @if(!empty($animal->gallery_images))
+                @foreach($animal->gallery_images as $image )
+                    <img src="{{ \Illuminate\Support\Facades\Storage::url($image) }}" alt="Image de {{$animal->animal_name}}" class="border-r-small profile-img">
+                @endforeach
+            @else
+                <p>
+                    {{__('admin/animals.no_image_available')}}
+                </p>
+            @endif
         </div>
     </section>
+    <section class="section-w-return max-w-admin-web">
+        <h2 aria-level="2" class="fw-700 admin-dashboard-title">
+            {{__('admin/volunteers.general_information')}}
+        </h2>
+        <dl class="animal-information-list volunteer-info">
+            <div>
+                <x-definition-term>
+                    {{__('admin/animals.internal_notes')}}
+                </x-definition-term>
+                <x-definition>
+                    {{ $animal->internal_notes? $animal->internal_notes :  __('admin/animals.no_notes')}}
+                </x-definition>
+            </div>
 
-    <div class=" max-w-admin-web volunteer-buttons m-lr-24">
+            <div>
+                <x-definition-term>
+                    {{__('admin/animals.modification_request')}}
+                </x-definition-term>
+                <x-definition>
+                    {{ $animal->modification_request ? $animal->modification_request :  __('admin/animals.no_modification_request') }}
+                </x-definition>
+            </div>
+            <div>
+                <x-definition-term>
+                    {{__('admin/animals.published_animal')}}
+                </x-definition-term>
+                <x-definition>
+                    {{ $animal->published_animal == 1 ? __('admin/animals.published') : __('admin/animals.not_published')}}
+                </x-definition>
+            </div>
+        </dl>
+    </section>
+
+            <div class=" max-w-admin-web volunteer-buttons m-lr-24">
         <div class="top-row">
-            <x-admin.admin-button href="{{route('pages::animals.edit', ['locale' => __('general.currentLocale'),  'animal'=> $animal])}}"
-                                  title="{{__('admin/animals.modify_animal')}}" class="">
+            <x-admin.admin-button href="{{route('pages::animals.edit', ['locale' => app()->getLocale(),  'animal'=> $animal])}}" title="{{__('admin/animals.modify_animal')}}" class="">
                 {{__('admin/animals.modify_animal')}}
             </x-admin.admin-button>
-
             <form wire:submit="destroy" method="post">
                 @csrf
                 <x-admin.form-button title="{{__('admin/animals.delete_animal')}}" class="delete_background delete-button">

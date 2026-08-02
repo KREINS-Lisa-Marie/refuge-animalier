@@ -12,6 +12,10 @@ class Animal extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $casts = [
+        'gallery_images' => 'array', //fait la conversion de json en array php sinon ça bug et inversément
+    ];
+
     protected $fillable = [
         'animal_name',
         'species',
@@ -25,6 +29,10 @@ class Animal extends Model
         'description',
         'show_image',
         'gallery_images',
+        'internal_notes',
+        'modification_request',
+        'published_animal',
+
     ];
 
 /*

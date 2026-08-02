@@ -1,4 +1,5 @@
 @php
+
     $age_options = [
         [
             'name' => 'un',
@@ -52,7 +53,6 @@
         'value' =>'A adopter',
         ],
 ]
-
 @endphp
 
 
@@ -81,9 +81,6 @@
                     {{__('admin/animals.filter')}}
                 </x-button>
             </form>
-{{--            <div>
-                <x-select select_name="filtering" label="Trier" :options="$filter_options" wire="filtering"/>
-            </div>--}}
         </div>
     </div>
     <table class="table max-w-admin-web m-b-32">
@@ -108,13 +105,25 @@
         @forelse($this->searchedAnimals as $animal)
             <tr class="table-row position-relative">
                 <x-admin.table.table-td class="table-img">
-                    <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="image du chien" class="border-r-big">
+                    @if($animal->show_image)
+                        <img src="{!! asset('storage/images/animals/variants/100x100/'.basename($animal->show_image)) !!}" alt="{{__('admin/animals.animal_image')}}"
+                             class="border-r-big animal-img">
+                    @else
+                        <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="100" height="100"
+                             class="border-r-big animal-img">
+                    @endif
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-name fw-medium">
                     <span class="show-web">{{__('admin/animals.animal_name_title')}}</span>{!! $animal->animal_name !!}
                 </x-admin.table.table-td>
-                <x-admin.table.table-td class="table-state">
-                    <span class="show-web">{{__('admin/animals.state_title')}}</span>{!! $animal->state == 'adopted'? __('admin/animals.adopted') : (($animal->state == 'adoptable' ? __('admin/animals.adoptable') : ($animal->state == 'in_treatment' ? __('admin/animals.in_treatment') : __('admin/animals.processing_adoption') ))) !!}
+                <x-admin.table.table-td class="table-state go_front">
+                    <span class="show-web">{{__('admin/animals.state_title')}}</span>
+                    <select name="state" id="state" wire:change="updateState({{ $animal->id }}, $event.target.value)">
+                        <option value="adopted" @selected($animal->state === 'adopted')>{{__('admin/animals.adopted') }}</option>
+                        <option value="adoptable" @selected($animal->state === 'adoptable')>{{__('admin/animals.adoptable') }}</option>
+                        <option value="in_treatment" @selected($animal->state === 'in_treatment')>{{__('admin/animals.in_treatment')}}</option>
+                        <option value="processing_adoption" @selected($animal->state === 'processing_adoption')>{{__('admin/animals.processing_adoption')}}</option>
+                    </select>
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
                     <span class="show-web">{{__('admin/animals.species_title')}}</span>{!! $animal->species !!}
@@ -144,3 +153,7 @@
         {{ $this->searchedAnimals->links() }}
     </div>
 </main>
+
+{{--
+@selected -> https://laravel.com/docs/13.x/blade#additional-attributes
+--}}

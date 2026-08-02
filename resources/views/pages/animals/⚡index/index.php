@@ -30,6 +30,13 @@ new #[Layout('layouts.app')] class extends Component
         $this->sortField = $field;
     }
 
+    public function updateState( $animal, $state)
+    {
+        Animal::findOrFail($animal)->update([
+            'state'=>$state,
+        ]);
+    }
+
     public function mount(): void
     {
         $this->animals = Animal::get();
@@ -50,7 +57,54 @@ new #[Layout('layouts.app')] class extends Component
 
     public function render()
     {
-        return view('pages.animals.⚡index.index')->title(__('general.animals'));
+        $animal_state_options =[
+            [
+                'name' => __('admin/animals.adopted'),
+                'value' =>'adopted',
+            ],
+            [
+                'name' => __('admin/animals.processing_adoption'),
+                'value' =>'processing_adoption',
+            ],
+            [
+                'name' => __('admin/animals.in_treatment'),
+                'value' =>'in_treatment',
+            ],
+            [
+                'name' => __('admin/animals.adoptable'),
+                'value' =>'adoptable',
+            ],
+        ];
+        $gender = [
+            [
+                'name' => __('admin/animals.male'),
+                'value' =>'male',
+            ],
+            [
+                'name' => __('admin/animals.female'),
+                'value' =>'female',
+            ],
+        ];
+        $species_options = [
+            [
+                'name' => __('admin/animals.dog'),
+                'value' =>'dog',
+            ],
+            [
+                'name' => __('admin/animals.cat'),
+                'value' =>'cat',
+            ],
+            [
+                'name' => __('admin/animals.hamster'),
+                'value' =>'hamster',
+            ],
+            [
+                'name' => __('admin/animals.bunny'),
+                'value' =>'bunny',
+            ],
+        ];
+
+        return view('pages.animals.⚡index.index', ['gender' => $gender, 'animal_state_options'=>$animal_state_options, 'species_options'=>$species_options] )->title(__('general.animals'));
     }
 
 };
