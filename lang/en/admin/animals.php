@@ -43,4 +43,23 @@ return [
     'state_placeholder' => 'Ex: Adopted',
     'got_to_create_animal' => "Go to the 'Create an Animal' page",
     'got_to_animal_page' => 'Go to the Animal page',
+
+    'hamster' => 'Hamster',
+    'cat' => 'Cat',
+    'dog' => 'Dog',
+    'bunny' => 'Rabbit',
+    'birthday' => 'Date of Birth',
+    'race' => "Race",
+
+    'internal_notes' => "Internal notes",
+    'modification_request' => "Modification request",
+    'published_animal' => "Publication",
+    'published' => "Published",
+    'not_published' => "Not published",
+
+
+    'no_modification_request' => "No modification requests at the moment",
+    'no_notes' => "No notes at the moment",
+    'no_images_chosen' => "No images chosen",
+    'no_image_available' => "No image available",
 ];
