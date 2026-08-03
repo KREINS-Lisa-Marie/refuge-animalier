@@ -13,7 +13,7 @@
     <meta name="author" content="Lisa-Marie Kreins">
     <meta name="description" content="La page du réfuge 'Les pattes heureuses'">
     <title>{{ $title ?? 'Page Title' }}</title>
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/public/share.js'])
 </head>
 <body class="body-style">
 @if( !str_starts_with($currentRoute, 'auth.'))
