@@ -7,6 +7,7 @@ return [
     'mandatory_fields' => '* Champs obligatoires',
     'first_name_mandatory' => 'Prénom*',
     'lastname_mandatory' => 'Nom*',
+    'phone_mandatory' => 'Numéro téléphone*',
     'email_mandatory' => 'Adresse Email*',
     'concerning' => 'Concernant*',
     'general_info' => 'Informations générales',
@@ -23,5 +24,6 @@ Je voudrais bien m’informer à propros du bénévolat.
 
 Bonne journée,
 John Doe',
+    'form_sent' => 'Message envoyé',
 
 ];

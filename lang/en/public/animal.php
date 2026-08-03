@@ -23,4 +23,9 @@ return [
     'in_treatment' => 'In Treatment',
     'processing_adoption' => 'Pending Adoption',
     'adoptable' => 'Adoptable',
+    'share' => 'Share',
+    'schedule_meeting' => 'Meet me',
+
+    'form_sent' => 'Message sent',
+    'reserved' => 'Reserved',
 ];

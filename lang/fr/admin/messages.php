@@ -26,4 +26,7 @@ return [
     'read'=> 'Lu',
     'not_read_yet'=> 'Pas encore lu',
     'no_message_found'=> 'Pas de message trouvé',
+    'information'=> 'Information',
+    'volunteer'=> 'Bénévolat',
+    'adoption-request'=> 'Demande d’adoption',
 ];

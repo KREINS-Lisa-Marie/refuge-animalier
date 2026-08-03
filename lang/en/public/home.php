@@ -17,4 +17,8 @@ return [
     'image_of_dog'=>'Dog image',
     'years'=>'year(s)',
     'go_to_animal_page'=>'Go to the Animal page',
+    'go_to_animals_page'=>'Go to the Animals page',
+
+    'go_to_infomaniak'=>'Go to the Infomaniak page',
+    'discover_our_animals'=>'Discover our animals',
 ];

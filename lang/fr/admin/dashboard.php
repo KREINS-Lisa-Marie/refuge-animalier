@@ -31,5 +31,9 @@ return [
 
     'animal_date_arrival' => 'Date d’accueil : ',
     'go_to_animal_page' => 'Aller vers la page de l’animal',
+    'animals_data' => 'Données de nos animaux',
+    'from' => 'Du',
+    'to' => 'au',
+    'shelter_statistics' => 'Statistiques du refuge',
 
 ];

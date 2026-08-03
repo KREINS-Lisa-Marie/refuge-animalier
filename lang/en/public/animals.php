@@ -44,4 +44,6 @@ return [
     'age' => 'Age',
     'gender' => 'Sex',
     'species' => 'Species',
+
+    'similar_animals' => 'Maybe you also like',
 ];
