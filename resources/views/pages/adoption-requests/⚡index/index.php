@@ -22,6 +22,11 @@ new #[Layout('layouts.app')] class extends Component
     protected $queryString =['sortField', 'sortDirection'];
 
 
+    public function mount(): void
+    {
+        $this->authorize('viewAny', Request::class);        //sinon ça doit à chaque sort vérifier authorization        //tous les users peuvent voir tous les demandes
+    }
+
     public function sortBy($field)
     {
         if ($this->sortField === $field){
@@ -36,10 +41,11 @@ new #[Layout('layouts.app')] class extends Component
     public function requestAccept():void
     {
         if ( $this->openRequest ){
-
+            $this->authorize('update', $this->openRequest);     //only admin
             $this->openRequest->update([
                 'state'=>'adopted'
             ]);
+            $this->dispatch('request-updated');     // pour que le compteur dans la sidebar s'actualise
             $this->closeModal();
         }
     }
@@ -47,11 +53,23 @@ new #[Layout('layouts.app')] class extends Component
     public function requestDeny():void
     {
         if ( $this->openRequest ){
-
+            $this->authorize('update', $this->openRequest);     //only admin
             $this->openRequest->update([
                 'state'=>'refused'
             ]);
+            $this->dispatch('request-updated');     // pour que le compteur dans la sidebar s'actualise
             $this->closeModal();
+        }
+    }
+
+    public function updateState($state)
+    {
+        if ( $this->openRequest ){  //quand c'est ouvert je peux changer state
+            $this->authorize('update', $this->openRequest);     //only admin
+            $this->openRequest->update([
+                'state'=>$state,
+            ]);
+            $this->dispatch('request-updated');     // pour que le compteur dans la sidebar s'actualise
         }
     }
 
@@ -59,6 +77,8 @@ new #[Layout('layouts.app')] class extends Component
     public function openModal( int $request_id):void
     {
         $this->openRequest = Request::findOrFail($request_id );
+
+        $this->authorize('view', $this->openRequest);   // ajouter car sinon policy ne marche pas
         $this->showModal = true;
     }
 
@@ -88,5 +108,12 @@ new #[Layout('layouts.app')] class extends Component
     public function render()
     {
         return view('pages.adoption-requests.⚡index.index')->title(__('general.adoption-requests'));
+    }
+
+    public function destroy()
+    {
+        $this->authorize('delete', $this->openRequest);   // ajouter car sinon policy ne marche pas //seulement admin
+        $this->openRequest->delete();
+        return redirect(route('pages::adoption-requests.index', ['locale' => app()->getLocale()]));
     }
 };
