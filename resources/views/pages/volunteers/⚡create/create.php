@@ -6,18 +6,21 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Intervention\Image\Laravel\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 new class extends Component
 {
     use PasswordValidationRules;
-
+    use WithFileUploads;
 
     public string $first_name = '';
     public string $last_name = '';
     public string $email= '' ;
     public string $phone ='';
-    public string $profile_image= '';
-    public bool $is_admin = false;
+    public $profile_image= null ;
+    public bool $is_admin;
     public string $password = '';
     public string $password_confirmation = '';
     public string $monday = '';
@@ -28,14 +31,23 @@ new class extends Component
     public string $saturday = '';
     public string $sunday = '';
 
+
+    public function mount(): void
+    {
+        $this->authorize('create', User::class);
+
+    }
+
     public function store(): void
     {
+        $this->authorize('create', User::class);
+
         $validated_data= $this->validate([
             'first_name'=>'required|string|max:255',
             'last_name'=>'string|required|max:255',
             'email'=>['required','string','email','max:255',Rule::unique('users')],
             'phone'=>'required|string',
-            'profile_image'=>'nullable|string',
+            'profile_image'=>'image|nullable|mimes:jpg,jpeg,png,webp',
             'is_admin'=>'required|boolean',
             'password'=>$this->updatePasswordRules(),
             'monday'=>'string|nullable',
@@ -48,12 +60,40 @@ new class extends Component
         ]);
 
 
+        if ($this->profile_image){
+            $image_path = $this->profile_image->store(config('userimage.originals_path'), 'public');
+            $filename = basename($image_path); // = juste le nom de l'image sans les dossiers etc
+            $image = Image::decode(          //marche pas avec read
+                Storage::disk('public')->get($image_path)
+            );
+            $sizes = config('userimage.sizes');
+            $extension = config('userimage.jpg_image_type');
+            $compression = config('userimage.jpg_compression');
+
+            foreach ($sizes as $size){
+                $variant = clone $image;
+
+                $variant->scale($size['width']);
+                $variant_path = sprintf(
+                    config('userimage.variants_path_pattern'),
+                    $size['width'],
+                    $size['height']
+                );
+                \Storage::disk('public')->put($variant_path.'/'.$filename,
+                    $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
+            }
+        }
+        else{
+            $image_path = null;
+        }
+
+
         $user = User::create([
             'first_name'=>$validated_data['first_name'],
             'last_name'=>$validated_data['last_name'],
             'email'=>$validated_data['email'],
             'phone'=>$validated_data['phone'],
-            'profile_image'=>$validated_data['profile_image'],
+            'profile_image'=>$image_path,
             'is_admin'=>$validated_data['is_admin'],
             'password'=>Hash::make($validated_data['password']),
         ]);
