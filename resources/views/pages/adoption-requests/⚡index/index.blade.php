@@ -167,9 +167,36 @@
                 <x-definition-term>
                     {{__('admin/messages.state')}}
                 </x-definition-term>
-                <x-definition>
-                    {!! $openRequest->state == 'adopted' ? __('admin/adoption-requests.adopted'):($openRequest->state == 'refused'  ? __('admin/adoption-requests.refused'): ($openRequest->state == 'in_treatment' ? __('admin/adoption-requests.in_treatment') :  __('admin/adoption-requests.not_treated_yet')) ) !!}
-                </x-definition>
+
+                    @can('update', $openRequest)
+                    <x-definition>
+                    <select name="state" id="state" wire:change="updateState($event.target.value)">
+                        <option value="adopted" @selected($openRequest->state === 'adopted')>{{__('admin/adoption-requests.adopted')}}</option>
+                        <option value="refused" @selected($openRequest->state === 'refused')>{{__('admin/adoption-requests.refused')}}</option>
+                        <option value="in_treatment" @selected($openRequest->state === 'in_treatment')>{{__('admin/adoption-requests.in_treatment')}}</option>
+                        <option value="not_treated_yet" @selected($openRequest->state === 'not_treated_yet')>{{__('admin/adoption-requests.not_treated_yet')}}</option>
+{{--
+
+
+                        <x-select-option option_value="adopted" option_name="{{__('admin/adoption-requests.adopted')}}">
+                        </x-select-option>
+                        <option value="refused" selected="{{$openRequest->state}} === 'adopted'">{{__('admin/adoption-requests.refused')}}</option>
+                        <x-select-option option_value="refused" option_name="{{__('admin/adoption-requests.refused')}}">
+                            {{__('admin/adoption-requests.refused')}}
+                        </x-select-option>
+                        <x-select-option option_value="in_treatment" option_name="{{__('admin/adoption-requests.in_treatment')}}">
+                        </x-select-option>
+                        <x-select-option option_value="not_treated_yet" option_name="{{__('admin/adoption-requests.not_treated_yet')}}">
+                        </x-select-option>--}}
+                    </select>
+                    </x-definition>
+                    @endcan
+                        @can('viewLimited', $openRequest)
+                            <x-definition>
+                                {!! $openRequest->state == 'adopted' ? __('admin/adoption-requests.adopted'):($openRequest->state == 'refused'  ? __('admin/adoption-requests.refused'): ($openRequest->state == 'in_treatment' ? __('admin/adoption-requests.in_treatment') :  __('admin/adoption-requests.not_treated_yet')) ) !!}
+                            </x-definition>
+                        @endcan
+
             </div>
 
 
@@ -193,11 +220,12 @@
 
         </dl>
         <div class="modal-buttons">
-            <button wire:click="requestAccept" class="modal-button fw-medium background-refuse ">
-                {{__('admin/adoption-requests.accept_request')}}
-            </button>
-            <button wire:click="requestDeny" class="modal-button fw-medium background-validation">
+            @can('update', $openRequest)
+            <button wire:click="requestDeny" class="modal-button fw-medium background-refuse ">
                 {{__('admin/adoption-requests.deny_request')}}
+            </button>
+            <button wire:click="requestAccept" class="modal-button fw-medium background-validation">
+                {{__('admin/adoption-requests.accept_request')}}
             </button>
             <form wire:submit="destroy" method="post">
                 @csrf
@@ -206,6 +234,7 @@
                 </x-admin.modals.message.submit-button>
 
             </form>
+            @endcan
             <a href="{{route('pages::adoption-requests.edit',  ['locale' => app()->getLocale(),  'adoption_request' => $request->id])}}" class="modal-button fw-medium background-light" title="{{__('admin/adoption-requests.go_to_modify_request_page')}}">
                 {{__('admin/adoption-requests.modify_request')}}
             </a>

@@ -19,8 +19,15 @@ new class extends Component
     public string $comment = '';
     public string $date = '';
 
+    public function mount(): void
+    {
+        $this->authorize('create', Request::class);        //tous les users peuvent voir tous les demandes
+    }
+
     public function save(): void
     {
+        $this->authorize('create', Request::class);      //tous les users peuvent créer des demandes
+
         $validated_data = $this->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'string|required|max:255',
@@ -45,7 +52,6 @@ new class extends Component
             'message' => $validated_data['message'],
             'state' => $validated_data['state'],
             'comment' => $validated_data['comment'],
-            'date' => Carbon::now(),
         ]);
 
 
