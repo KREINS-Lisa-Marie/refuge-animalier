@@ -5,24 +5,31 @@
         'petage',
         'petrace',
         'petsex',
+        'petimg',
         'animal',
 ]
 )
 
-<div class="card">
-    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('public/home.image_of_dog')}}" class="border-r-small m-b-24 card-img">
+<div class="card" itemscope itemtype="https://schema.org/Thing">
+{{--    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('public/home.image_of_dog')}}" class="border-r-small m-b-24 card-img">--}}
+    @if($petimg)
+        <img src="{{ \Illuminate\Support\Facades\Storage::url($petimg) }}" alt="{Image de {{$petimg}}" class="border-r-small m-b-24 card-img" width="288" height="288" itemprop="image">
+    @else
+        <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" class="border-r-small m-b-24 card-img" height="334" width="334" itemprop="image">
+    @endif
+
     <div>
         <div class="d-flex flex-r flex-j-c-space-between flex-a-i-center pb-24">
-            <p class="card-petname fw-700 d-block">
+            <p class="card-petname fw-700 d-block" itemprop="name">
                 {{$petname}}
             </p>
             <p class="d-block border-1-dark p-lr-24-tb-8 border-r-big background-light">
-                {{$petstatus == 'adoptable'? __('public/animal.adoptable') : ($petstatus == 'in_treatment'?__('public/animal.in_treatment') : __('public/animal.processing_adoption') )}}
+                {{$petstatus == 'adoptable'? __('public/animal.adoptable') : ($petstatus == 'in_treatment'?__('public/animal.in_treatment') : __('public/animal.reserved') )}}
             </p>
         </div>
         <div class="infos p-b-32">
             <p  class="p-b-16">
-                {{$petage}} {{__('public/home.years')}}
+                {{abs(floor(now()->diffInYears($petage)))}} {{__('public/home.years')}}
 
             </p>
             <p  class="p-b-16">
@@ -30,7 +37,7 @@
 
             </p>
             <p>
-                {{$petsex}}
+                {{$petsex =='male'? __('public/animals.male') : __('public/animals.female')  }}
             </p>
         </div>
         <p class="d-flex flex-r flex-a-i-center flex-j-c-end fw-700 link_discover">
@@ -40,6 +47,6 @@
             </svg>
         </p>
     </div>
-    <a href="{{route('public.animal',  ['locale' => __('general.currentLocale'),  'animal' => $animal->id])}}" title="{{__('components/cards.go_to_animal_page')}}" class="card-link">
+    <a href="{{route('public.animal',  ['locale' => app()->getLocale(),  'animal' => $animal->id])}}" title="{{__('components/cards.go_to_animal_page')}}" class="card-link">
     </a>
 </div>
