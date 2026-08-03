@@ -36,7 +36,7 @@ class ContactController extends Controller
         ]);
 
         $successMessage = __('public/contact.form_sent');
-        
+
         return redirect(route('public.contact', ['locale' => $locale]) . '#request')->with(
             'successMessage', $successMessage);
     }
