@@ -5,51 +5,51 @@
 )
 <x-public.app :title="$title">
 
-    <div class="max-w-web margin-l-r-auto">
-        <a href="{{route('public.animals', ['locale' => __('general.currentLocale')])}}" class="return-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
-                <path
-                    d="M21.6445 8.58464L0.999944 8.58463M0.999944 8.58463L11.3222 16.168M0.999944 8.58463L11.3222 1.0013"
-                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            {{__('public/animal.return')}}
-        </a>
-    </div>
-    <section class="p-l-r-24 m-t-110 m-b-60-150">
+<x-public.return-button class="max-w-web margin-l-r-auto"></x-public.return-button>
+    <section class="p-l-r-24 m-t-110 m-b-60-150" itemscope itemtype="https://schema.org/Thing">
         <div class="animal-description-img d-flex flex-cr flex-wrap max-w-web margin-l-r-auto">
             <div>
-                <h2 class="page-title fw-700 color-dark">
-                    {!! $animal->animal_name !!}
-                </h2>
-                <p class="interl-text animal-description">
+                <div class="name-share">
+                    <h2 class="page-title fw-700 color-dark" itemprop="name">
+                        {!! $animal->animal_name !!}
+                    </h2>
+                    <x-public.share-button class=""></x-public.share-button>
+                </div>
+                <p class="interl-text animal-description" itemprop="description">
                     {!! $animal->description !!}
-                    {{--Ce magnifique Border Collie est un chien à la fois doux, affectueux et plein d’énergie&nbsp;!
-                    Toujours partant pour jouer ou partir en balade, il aura besoin d’une famille active qui saura lui
-                    offrir de longues promenades et des moments de stimulation mentale. Très sociable et patient avec
-                    les enfants,
-                    il fera un excellent compagnon pour une famille dynamique. En revanche, il ne conviendra pas
-                    vraiment à
-                    des personnes âgées. Il se retrouve aujourd’hui au refuge suite à la séparation de ses anciens
-                    propriétaires, et cherche désormais un nouveau foyer aimant où il pourra s’épanouir.--}}
                 </p>
             </div>
-            <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="Image du chien"
-                 class="animal-img border-r-small border-xl" width="327" height="327">
+            {{--<img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="Image du chien"
+                 class="animal-img border-r-small border-xl" width="327" height="327">--}}
+            @if($animal->show_image)
+                <img src="{!! asset('storage/images/animals/variants/400x400/'.basename($animal->show_image)) !!}" alt="{{__('admin/animals.animal_image')}}" class="animal-img border-r-small border-xl" width="400" height="400" itemprop="image">
+            @else
+                <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="400" height="400" class="animal-img border-r-small border-xl" itemprop="image">
+            @endif
+
+
         </div>
         <div class="animal-section max-w-web margin-l-r-auto ">
             <dl class="fs-texte dl:last-child max-h-384 d-flex flex-c flex-wrap">
                 <x-definition-term>
-                    {{__('public/animal.race')}}
+                    {{__('public/animals.species')}}
                 </x-definition-term>
                 <x-definition>
                     {!! $animal->species !!}
                 </x-definition>
 
                 <x-definition-term>
+                    {{__('public/animal.race')}}
+                </x-definition-term>
+                <x-definition>
+                    {!! $animal->race !!}
+                </x-definition>
+
+                <x-definition-term>
                     {{__('public/animal.sex')}}
                 </x-definition-term>
                 <x-definition>
-                    {!! $animal->sex !!}
+                    {!! $animal->sex =='male'? __('public/animals.male') : __('public/animals.female')  !!}
                 </x-definition>
 
                 <x-definition-term>
@@ -62,7 +62,11 @@
                 <x-definition-term>
                     {{__('public/animal.age')}}
                 </x-definition-term>
-                <x-definition>{!! $animal->age !!} An(s)
+                <x-definition>
+                    {{abs(floor(now()->diffInYears($animal->age))) >= 1 ? abs(floor(now()->diffInYears($animal->age))) :  '<1 An(s)'  }}
+
+
+
                 </x-definition>
 
                 <x-definition-term>
@@ -80,10 +84,17 @@
                 </x-definition>
 
             </dl>
-            <p class="animal-state fw-700 p-16-32 background-light d-i-block border-r-big m-b-32">
-                {{--{{__('public/animal.to_adopt')}}--}}
-                {!! $animal->state !!}
-            </p>
+            <div class="animal-buttons d-flex flex-r flex-gap-24 flex-wrap">
+                <p class="animal-state fw-700 p-16-32 background-light d-i-block border-r-big m-b-32">
+                    {{--{{__('public/animal.to_adopt')}}--}}
+                    {{ $animal->state == 'processing_adoption'? __('admin/animals.processing_adoption') : ($animal->state == 'adopted'? __('admin/animals.adopted'): ($animal->state == 'in_treatment'? __('admin/animals.in_treatment') : __('admin/animals.adoptable') ))}}
+                </p>
+                @if($animal->state == 'adoptable')
+                <a href="#request" class="public-button fs-button border-r-big m-b-32">
+                    {{__('public/animal.schedule_meeting')}}
+                </a>
+                @endif
+            </div>
         </div>
         {{--        <a href="{{route('public.contact')}}" title="Aller vers la page Contact">
                     Demander de rencontrer Balou
@@ -91,33 +102,45 @@
     </section>
     <section class="background-light p-l-r-24 p-b-60-150">
         <h2 class="page-title fw-700 max-w-web margin-l-r-auto color-dark">
-            {{__('public/animal.galery_of')}}{!! $animal->animal_name !!}
+            {{__('public/animal.galery_of')}}<span itemprop="name">{!! $animal->animal_name !!}</span>
         </h2>
         <ul class="m-t-32 d-flex flex-r flex-gap-32 flex-wrap max-w-web margin-l-r-auto">
-            <li class="flex-gap-32 ">
+    {{--        <li class="flex-gap-32 ">
                 <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('public/animal.animal_image')}}"
-                     class="border-r-small border-xl" width="300" height="300">
+                     class="border-r-small border-xl" width="300" height="300" >
             </li>
             <li class="flex-gap-32">
                 <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('public/animal.animal_image')}}"
-                     class="border-r-small border-xl" width="300" height="300">
+                     class="border-r-small border-xl" width="300" height="300" >
             </li>
             <li class="flex-gap-32">
                 <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('public/animal.animal_image')}}"
-                     class="border-r-small border-xl" width="300" height="300">
-            </li>
+                     class="border-r-small border-xl" width="300" height="300" >
+            </li>--}}
+
+            @if(!empty($animal->gallery_images))
+                @foreach($animal->gallery_images as $image )
+                    <li class="flex-gap-32">
+                        <img src="{{ \Illuminate\Support\Facades\Storage::url($image) }}" alt="Image de {{$animal->animal_name}}" class="border-xl public-animals-circles" width="300" height="300">
+                    </li>
+                @endforeach
+            @else
+                <p>
+                    {{__('admin/animals.no_image_available')}}
+                </p>
+            @endif
         </ul>
     </section>
     @if($animal->state == 'adoptable')
-    <section>
+    <section id="request">
         <h2 class="page-title fw-700 max-w-web margin-l-r-auto color-dark">
             {{__('public/animal.want_to_adopt')}}{{$animal->animal_name}}?
         </h2>
-        <form action="" method="POST" class="form  web-margin-l-r-auto background-light border-r-small m-lr-24 m-b-60-150 public-form">
-
-            <h2 class=" fw-700 p-b-32 t-a-center color-dark form-title">
+        <form action="{{route('public.animal.store', ['locale'=>app()->getLocale(), 'animal'=>$animal])}}" method="POST" class="form  web-margin-l-r-auto background-light border-r-small m-lr-24 m-b-60-150 public-form">
+        @csrf
+            <h3 class=" fw-700 p-b-32 t-a-center color-dark form-title">
                 {{__('public/animal.adoption_form')}}
-            </h2>
+            </h3>
             <p class="italic m-b-32 interl-text">
                 {{__('public/animal.fill_out_form')}}
             </p>
@@ -131,29 +154,28 @@
                 <div class="d-flex flex-gap-24  flex-wrap">
                     <div class="web-flex flex-gap-24 flex-wrap">
 
-                        <x-fields.text name="firstname" id="firstname" value="" placeholder="John" wire="">
-
+                        <x-fields.text name="first_name" id="first_name" value="" placeholder="John" wire="">
                             {{__('public/contact.first_name_mandatory')}}
                         </x-fields.text>
 
-                        <x-fields.text name="lastname" id="lastname" value="" placeholder="Doe" wire="">
-
+                        <x-fields.text name="last_name" id="last_name" value="" placeholder="Doe" wire="">
                             {{__('public/contact.lastname_mandatory')}}
                         </x-fields.text>
+
+                        <x-fields.phone name="phone" id="phone" value="" placeholder="0393908237" wire="">
+                            {{__('public/contact.phone_mandatory')}}
+                        </x-fields.phone>
 
                         <x-fields.email value="" wire="">
                             {{__('public/contact.email_mandatory')}}
                         </x-fields.email>
 
 
-                        <div class="field  sro">
-                            <label for="subject" class="field__label" aria-required="true" aria-hidden="true">
+                        <div class="field sro">
+                            <label for="animal_name" class="field__label" aria-required="true" aria-hidden="true">
                                 {{__('public/contact.concerning')}}
                             </label>
-                            <input wire:model.blur="{{$animal->id}}" type="text" name="animal_name" id="animal_name"
-                                   value="{{$animal->animal_name}}" class="field__input sro"
-                                   placeholder="{{$animal->animal_name}}" aria-required="true" aria-hidden="true"
-                                   disabled>
+                            <input type="text" name="animal_name" id="animal_name" value="{{$animal->animal_name}}" class="field__input sro"  placeholder="{{$animal->animal_name}}" aria-required="true" aria-hidden="true" readonly disabled>
                             @error("animal_name")
                             {{$message}}
                             @enderror
@@ -170,6 +192,11 @@
             <button type="submit"
                     class="btn contact-form-btn background-dark color-white dark-button-background min-w-130 border-r-big margin-l-r-auto m-t-32 d-block p-16-32">{{__('public/contact.send')}}
             </button>
+            @if(session('successMessage'))
+                <p class="success">
+                    {{ session('successMessage') }}
+                </p>
+            @endif
         </form>
     </section>
     @endif
