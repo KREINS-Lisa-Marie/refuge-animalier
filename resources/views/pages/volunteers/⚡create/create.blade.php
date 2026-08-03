@@ -18,7 +18,7 @@
     <form wire:submit.prevent="store" class="profile-form volunteers-edit" enctype="multipart/form-data">
         @csrf
 
-        <fieldset class="profile-information edit-inputs max-w-admin-web">
+        <fieldset class="profile-information max-w-admin-web">
             <legend class="fw-700 admin-dashboard-title">
                 {{__('admin/volunteers.general_information')}}
             </legend>
@@ -36,9 +36,9 @@
                     <x-fields.email id="email" name="email" value="" placeholder="Ex: doe@doe.com" wire="email">
                         {{__('admin/volunteers.email')}}
                     </x-fields.email>
-                    <x-fields.text id="phone" name="phone" value="" placeholder="Ex: 038438293" wire="phone">
+                    <x-fields.phone id="phone" name="phone" value="" placeholder="Ex: 038438293" wire="phone">
                         {{__('admin/volunteers.phone_number')}}
-                    </x-fields.text>
+                    </x-fields.phone>
                 </div>
                 <div class="col">
                     <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options" wire="is_admin"/>
@@ -84,7 +84,6 @@
                 </x-fields.availability-input>
             </div>
         </fieldset>
-
 
         <div class=" max-w-admin-web volunteer-buttons top-row">
             <x-admin.form-button>
