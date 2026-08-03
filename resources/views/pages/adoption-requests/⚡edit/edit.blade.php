@@ -36,7 +36,7 @@
         {{__('admin/adoption-requests.modify_a_request')}}
     </x-page-bar>
 
-    <form wire:submit="save" class="profile-form volunteers-edit">
+    <form wire:submit="save" class="admin-form volunteers-edit">
         @csrf
         <fieldset class="profile-information max-w-admin-web  edit-inputs ">
             <legend class="fw-700 admin-dashboard-title">
@@ -45,7 +45,7 @@
             <p class="obligations m-b-32 ">
                 {{__('admin/general.mandatory_field')}}
             </p>
-            <div class="profile-information">
+            <div class="">
                 <div class="d-flex flex-r flex-wrap edit-inputs flex-gap-24">
                     <div class="d-flex flex-dir flex-gap-24 col-inputs">
                 <x-fields.text id="last_name" name="last_name" placeholder="Ex: John" wire="last_name"
@@ -84,13 +84,13 @@
                     </div>
             </div>
         </fieldset>
-        <fieldset class="profile-information max-w-admin-web edit-inputs  request-edit-comment">
+        <fieldset class="profile-information max-w-admin-web edit-inputs edit-textarea-big request-edit-comment">
             <x-fields.textarea wire="comment" id="comment" name="comment" placeholder="{{__('admin/adoption-requests.placeholder_comment')}}" >
                 {{__('admin/adoption-requests.adoption_comment')}}
             </x-fields.textarea>
         </fieldset>
 
-        <div class=" max-w-admin-web volunteer-buttons top-row">
+        <div class=" max-w-admin-web volunteer-buttons top-row profile-information">
             <x-admin.form-button>
                 {{__('admin/animals.save')}}
             </x-admin.form-button>
