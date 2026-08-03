@@ -11,7 +11,7 @@
         <div class="animal-filters text-white border-radius-16 admin-primary-button bold max-w-web margin-l-r-auto m-b-80">
             <input type="checkbox" id="lang-switch"
                    class="animal-filters--input sro">
-            <label class="animal-filters--label background-public border-r-medium p-16" for="lang-switch" itemprop="name">
+            <label class="animal-filters--label background-public border-r-medium p-16" for="lang-switch">
                 {{__('public/animals.search_and_filters')}}
             </label>
             <div class="text__container">
@@ -70,10 +70,10 @@
             </a>
         </div>
 
-        <ul class="d-flex flex-gap-24 flex-wrap max-w-web pet-group margin-l-r-auto">
+        <ul class="d-flex flex-gap-24 flex-wrap max-w-web pet-group margin-l-r-auto" itemscope itemtype="https://schema.org/ItemList">
             @forelse($animals as $animal)
-                <li>
-                    <x-cards :petname="$animal->animal_name" :petstatus="$animal->state" :petage="$animal->age" :petrace="$animal->race" :petsex="$animal->sex" :animal="$animal"/>
+                <li itemprop="itemListElement">
+                    <x-cards :petname="$animal->animal_name" :petstatus="$animal->state" :petage="$animal->age" :petrace="$animal->race" :petsex="$animal->sex" :animal="$animal" :petimg="$animal->show_image"/>
                 </li>
             @empty
                 <li>
@@ -86,6 +86,25 @@
         <div class="pagination-public max-w-admin-web">
             {{ $animals->links() }}
         </div>
+    </section>
+    <section class=" p-b-150">
+        <h3 class="page-title fw-700 p-b-32 t-a-center color-dark p-l-r-24">
+            {{__('public/animals.similar_animals')}}
+        </h3>
+
+        <ul class="d-flex flex-gap-24 flex-wrap max-w-web pet-group margin-l-r-auto" itemscope itemtype="https://schema.org/ItemList">
+            @forelse($similar_animals as $similar_animal)
+                <li itemprop="itemListElement">
+                    <x-cards :petname="$similar_animal->animal_name" :petstatus="$similar_animal->state" :petage="$similar_animal->age" :petrace="$similar_animal->race" :petsex="$similar_animal->sex" :animal="$similar_animal" :petimg="$similar_animal->show_image"/>
+                </li>
+            @empty
+                @foreach($random_animals as $random_animal)
+                    <li itemprop="itemListElement">
+                        <x-cards :petname="$random_animal->animal_name" :petstatus="$random_animal->state" :petage="$random_animal->age" :petrace="$random_animal->race" :petsex="$random_animal->sex" :animal="$random_animal" :petimg="$random_animal->show_image"/>
+                    </li>
+                    @endforeach
+            @endforelse
+        </ul>
     </section>
 
 
