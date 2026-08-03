@@ -38,7 +38,7 @@ new  #[Layout('layouts.app')] class extends Component
 
     public function mount(): void
     {
-        $this->volunteers = User::get();
+        $this->authorize('viewAny', User::class);        //sinon ça doit à chaque sort vérifier authorization        //tous les users peuvent voir tous les users
     }
 
 
