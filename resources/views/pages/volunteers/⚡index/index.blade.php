@@ -1,37 +1,18 @@
-@php
-    $filter_options =[
-           [
-            'name' => 'ABC',
-        'value' =>'ABC',
-        ],
-                   [
-            'name' => 'ZYX',
-        'value' =>'ZYX',
-        ],
-                   [
-            'name' => 'latest',
-        'value' =>'plus récents',
-        ],
-    ]
-@endphp
-
+@can('viewAny', \App\Models\User::class)
 <main class="main-container" id="content">
     <x-page-bar>
         {{__('admin/volunteers.volunteers')}}
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
+            @can('viewLimited', \App\Models\User::class)
             <x-admin.admin-button href="{{route('pages::volunteers.create', ['locale' => app()->getLocale()])}}"
                                   title="{{__('admin/volunteers.go_to_create_volunteer')}}" class="">
                 {{__('admin/volunteers.create_a_volunteer')}}
             </x-admin.admin-button>
+            @endcan
             <x-admin.search/>
         </div>
-{{--        <div class="bottom-row bottom-row-volunteer">
-            <div>
-                <x-select select_name="filtering" label="Trier" :options="$filter_options" wire="filtering"/>
-            </div>
-        </div>--}}
     </div>
     <table class="table max-w-admin-web m-b-32">
         <thead>
@@ -52,10 +33,16 @@
         </thead>
         <tbody>
 
-        @forelse($this->searchedUsers() as $volunteer)
+        @forelse($this->searchedUsers as $volunteer)
             <tr class="table-row position-relative">
                 <x-admin.table.table-td class="table-img">
-                    <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('admin/volunteers.volunteer_img')}}" class="border-r-big">
+                    @if($volunteer->profile_image)
+                        <img src="{!! asset('storage/images/users/variants/100x100/'.basename($volunteer->profile_image)) !!}" alt="{{__('admin/volunteers.volunteer_img')}}"
+                             class="border-r-big animal-img">
+                    @else
+                        <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="100" height="100"
+                             class="border-r-big animal-img">
+                    @endif
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-name fw-medium">
                     <span class="show-web">{{__('admin/volunteers.name_title')}}</span>{!! $volunteer->last_name !!} {!! $volunteer->first_name !!}
@@ -89,6 +76,6 @@
         {{ $this->searchedUsers->links() }}
     </div>
 </main>
-
+@endcan
 
 

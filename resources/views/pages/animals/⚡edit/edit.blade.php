@@ -5,6 +5,7 @@
 
     <form wire:submit.prevent="save" class="admin-form volunteers-edit" enctype="multipart/form-data">
         @csrf
+        @can('updateLimited', $animal)
     <fieldset class="profile-information max-w-admin-web  edit-inputs ">
         <legend class="fw-700 admin-dashboard-title">
             {{__('admin/volunteers.general_information')}}
@@ -113,6 +114,7 @@
             <p>{{__('admin/animals.no_images_chosen')}}</p>
         @endif
     </fieldset>
+    @endcan
         <fieldset class="profile-information max-w-admin-web edit-inputs edit-textarea-big request-edit-comment">
             <x-fields.textarea wire="internal_notes" id="internal_notes" name="internal_notes" placeholder="{{__('admin/animals.internal_notes')}}" >
                 {{__('admin/animals.internal_notes')}}
@@ -122,8 +124,10 @@
             </x-fields.textarea>
         </fieldset>
         <div class=" max-w-admin-web volunteer-buttons top-row">
+            @can('update', $animal)
             <x-select select_name="published_animal" :options="$published_animal_options" wire="published_animal" label="{{__('admin/animals.published_animal')}}*">
             </x-select>
+            @endcan
             <x-admin.form-button>
                 {{__('admin/animals.save')}}
             </x-admin.form-button>
@@ -131,6 +135,7 @@
     </form>
 
 </main>
+
 {{--
 
 isPreviewable()  ->  TemporaryUploadedFile (namespace Livewire\Features\SupportFileUploads)

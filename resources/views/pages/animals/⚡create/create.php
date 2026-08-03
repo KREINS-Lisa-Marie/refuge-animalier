@@ -27,7 +27,10 @@ new #[Layout('layouts.app')] class extends Component
     public $gallery_images_paths = [];
 
 
-
+    public function mount()
+    {
+        $this->authorize('viewAny', \App\Models\Animal::class);
+    }
 
     public function render()        //à chaque fois que qqch sur la page change
     {
@@ -114,6 +117,7 @@ new #[Layout('layouts.app')] class extends Component
 
     public function store(): void
     {
+        $this->authorize('create', \App\Models\Animal::class);
 
         $gender = [
             [

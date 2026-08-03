@@ -92,8 +92,10 @@
             <x-fields.textarea wire="modification_request" id="modification_request" name="modification_request" placeholder="{{__('admin/animals.modification_request')}}" >
                 {{__('admin/animals.modification_request')}}
             </x-fields.textarea>
+            @can('createLimited', \App\Models\Animal::class)
                 <x-select select_name="published_animal" :options="$published_animal_options" wire="published_animal" label="{{__('admin/animals.published_animal')}}*">
                 </x-select>
+            @endcan
         </fieldset>
         <div class=" max-w-admin-web volunteer-buttons top-row">
 

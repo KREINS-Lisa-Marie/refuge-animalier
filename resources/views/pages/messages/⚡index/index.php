@@ -21,6 +21,11 @@ new class extends Component
     protected $queryString =['sortField', 'sortDirection'];
 
 
+    public function mount(): void
+    {
+        $this->authorize('viewAny', Message::class);        //sinon ça doit à chaque sort vérifier authorization        //tous les users peuvent voir tous les messages
+    }
+
     public function sortBy($field)
     {
         if ($this->sortField === $field){
@@ -53,6 +58,9 @@ new class extends Component
     public function openModal( int $messageId):void
     {
         $this->openMessage = Message::findOrFail($messageId );
+
+        $this->authorize('view', $this->openMessage);   // ajouter car sinon policy ne marche pas
+
         $this->isopenModal = true;
     }
 
@@ -68,9 +76,11 @@ new class extends Component
     {
         if ( $this->openMessage ){
 
+            $this->authorize('update', $this->openMessage);     //only admin
             $this->openMessage->update([
                 'state'=>'read'
             ]);
+            $this->dispatch('message-updated');     // pour que le compteur dans la sidebar s'actualise
             $this->closeModal();
         }
     }
@@ -78,7 +88,10 @@ new class extends Component
     public function destroy():void
     {
         if ($this->openMessage) {
+            $this->authorize('delete', $this->openMessage);   // ajouter car sinon policy ne marche pas //seulement admin
+
             $this->openMessage->delete();
+            $this->dispatch('message-updated');     // pour que le compteur dans la sidebar s'actualise
             $this->closeModal();
         }
     }
@@ -88,3 +101,5 @@ new class extends Component
         return view('pages.messages.⚡index.index')->title(__('general.messages'));
     }
 };
+
+// https://laravel.com/docs/13.x/authorization

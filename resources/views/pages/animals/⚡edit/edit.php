@@ -33,6 +33,8 @@ new class extends Component
 
     public function mount(Animal $animal): void
     {
+        $this->authorize('view', $animal);
+
         $this->animal = $animal;
         $this->animal_name = $animal->animal_name;
         $this->species = $animal->species;
@@ -81,6 +83,9 @@ new class extends Component
 
     public function save(): void
     {
+        $this->authorize('update', $this->animal);
+
+
         $validation_rules=    [
             'animal_name'=>'required|string|max:255',
             'species'=>'required|string',

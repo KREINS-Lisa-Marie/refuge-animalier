@@ -1,28 +1,12 @@
-{{--
-@php
-    $role_options = [
-        [
-            'name' => 'Admin',
-        'value' =>'admin',
-        ],
-        [
-            'name' => 'Bénévole',
-        'value' =>'volunteer',
-        ],
-]
-
-@endphp
---}}
-
 <main class="main-container" id="content">
     <x-page-bar>
         {!! $volunteer->first_name !!}  {!! $volunteer->last_name !!}
     </x-page-bar>
     <div class="max-w-admin-web return-admin">
-        <x-public.return-button></x-public.return-button>
+        <x-public.return-button class=""></x-public.return-button>
     </div>
 
-    <section class="section-w-return max-w-admin-web">
+    <section class="section-w-return max-w-admin-web profile-information max-w-admin-web volunteer-times">
         <h2 aria-level="2" class="fw-700 admin-dashboard-title">
             {{__('admin/volunteers.general_information')}}
         </h2>
@@ -81,7 +65,13 @@
                     {{__('admin/volunteers.profile_image')}}
                 </x-definition-term>
                 <x-definition>
-                    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('admin/volunteers.profile_image')}}" class="border-r-small profile-img">
+                    @if($volunteer->profile_image)
+                        <img src="{!! asset('storage/images/users/variants/200x200/'.basename($volunteer->profile_image)) !!}" alt="{{__('admin/volunteers.profile_image')}}"
+                             class="border-r-small profile-img">
+                    @else
+                        <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/volunteers.profile_image')}}"
+                             class="border-r-small profile-img">
+                    @endif
                 </x-definition>
             </div>
         </dl>
@@ -92,11 +82,11 @@
             <h2 aria-level="2" class="fw-700 admin-dashboard-title availabilities">
                 {{__('admin/volunteers.availability_of')}}{!! $volunteer->first_name !!}
             </h2>
-                <x-fields.availability-timetable availabilities="{{$availabilities}}">
+                <x-fields.availability-timetable :availabilities="$availabilities">
                 </x-fields.availability-timetable>
         </section>
 
-
+@can('viewLimited', $volunteer)
         <div class=" max-w-admin-web volunteer-buttons">
             <div class="top-row">
                 <x-admin.admin-button href="{{route('pages::volunteers.edit', ['locale' => app()->getLocale(), 'volunteer' => $volunteer])}}"
@@ -113,5 +103,5 @@
                 </form>
             </div>
         </div>
-
+    @endcan
 </main>

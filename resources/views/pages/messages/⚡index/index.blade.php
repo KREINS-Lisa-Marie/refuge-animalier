@@ -1,25 +1,7 @@
-{{--@php
-
-    $filter_options =[
-       [
-        'name' => 'ABC',
-    'value' =>'ABC',
-    ],
-               [
-        'name' => 'ZYX',
-    'value' =>'ZYX',
-    ],
-               [
-        'name' => 'latest',
-    'value' =>'plus récents',
-    ],
-]
-
-@endphp--}}
 @props([
     'message'
 ])
-
+@can('viewAny', \App\Models\Message::class)
 <main class="main-container messages-page" id="content">
     <x-page-bar>
         {{__('admin/messages.messages')}}
@@ -57,13 +39,13 @@
         </thead>
         <tbody>
 
-        @forelse($this->searchedMessages() as $message)
+        @forelse($this->searchedMessages as $message)
             <tr class="table-row table-row-flex position-relative" >
                 <x-admin.table.table-td class="{{ $message->state === 'not_read_yet' ? 'fw-700' : '' }}">
                     <span class="show-web">{{__('admin/messages.name_title')}}</span>{!! $message->last_name !!} {!! $message->first_name !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="">
-                    <span class="show-web">{{__('admin/messages.subject_title')}}</span>{!! $message->subject !!}
+                    <span class="show-web">{{__('admin/messages.subject_title')}}</span>{!! $message->subject == 'information'? __('admin/messages.information'): ($message->subject == 'volunteer'?__('admin/messages.volunteer'): __('admin/messages.adoption-request')) !!}
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="">
                     <span class="show-web">{{__('admin/messages.date_title')}}</span>{!! $message->created_at->format('d.m.Y') !!}
@@ -162,6 +144,7 @@
                     </x-definition>
                 </div>
             </dl>
+            @can('update', $openMessage)
             <div class="modal-buttons">
                 <button wire:click="messageIsRead" class="modal-button fw-medium background-validation">
                     {{__('admin/messages.message_seen')}}
@@ -169,18 +152,20 @@
                 <a class="modal-button fw-medium answer-button" href="mailto:{!! $openMessage->email !!}">
                     {{__('admin/messages.answer')}}
                 </a>
+                @can('delete', $openMessage)
                 <form wire:submit="destroy" method="post">
                     @csrf
                     <x-admin.modals.message.submit-button title="{{__('admin/messages.delete_message')}}" class="modal-button">
                         {{__('admin/messages.delete_message')}}
                     </x-admin.modals.message.submit-button>
-
                 </form>
+                @endcan
             </div>
+            @endcan
         </section>
     @endif
-
     <div class="pagination-admin max-w-admin-web m-b-80">
         {{ $this->searchedMessages->links() }}
     </div>
 </main>
+@endcan

@@ -20,6 +20,7 @@ new #[Layout('layouts.app')] class extends Component
 
     public function mount(User $volunteer): void
     {
+        $this->authorize('view', $volunteer);        //sinon ça doit à chaque sort vérifier authorization        //tous les users peuvent voir tous les users
         $this->volunteer = $volunteer;
         $this->availabilities = Availability::where('user_id', $volunteer->id)->first();
     }
@@ -27,13 +28,15 @@ new #[Layout('layouts.app')] class extends Component
 
     public function destroy(): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
     {
+        $this->authorize('delete', $this->volunteer);   // ajouter car sinon policy ne marche pas //seulement admin
         $this->volunteer->delete();
 
         return redirect(route('pages::volunteers.index', ['locale' =>  __('general.currentLocale')]));
     }
 
-    public function render()
+    public function render(User $volunteer)
     {
-        return view('pages.volunteers.⚡show.show')->title(__('general.volunteers_detail'));
+        $availabilities = Availability::where('user_id', $volunteer->id)->first();
+        return view('pages.volunteers.⚡show.show', compact('availabilities'))->title(__('general.volunteers_detail'));
     }
 };

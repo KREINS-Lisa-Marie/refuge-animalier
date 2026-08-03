@@ -165,12 +165,14 @@
             <x-admin.admin-button href="{{route('pages::animals.edit', ['locale' => app()->getLocale(),  'animal'=> $animal])}}" title="{{__('admin/animals.modify_animal')}}" class="">
                 {{__('admin/animals.modify_animal')}}
             </x-admin.admin-button>
+            @can('delete', $animal)
             <form wire:submit="destroy" method="post">
                 @csrf
                 <x-admin.form-button title="{{__('admin/animals.delete_animal')}}" class="delete_background delete-button">
                     {{__('admin/animals.delete_animal')}}
                 </x-admin.form-button>
             </form>
+            @endcan
         </div>
     </div>
 </main>
