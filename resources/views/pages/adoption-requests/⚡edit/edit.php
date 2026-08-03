@@ -21,22 +21,27 @@ new class extends Component
     public string $date= '';
     public string $message= '';
 
-    public function mount(Request $request): void
+    public function mount(Request $adoption_request): void
     {
-        $this->request = $request;
-        $this->first_name = $request->first_name ?? '';
-        $this->last_name = $request->last_name  ?? '';
-        $this->email = $request->email ?? '';
-        $this->phone = $request->phone  ?? '';
-        $this->address = $request->address  ?? '';
-        $this->animal_id = $request->animal_id  ?? '';
-        $this->message = $request->message  ?? '';
-        $this->state = $request->state  ?? '';
-        $this->comment = $request->comment  ?? '';
+        $this->authorize('view', $adoption_request);        //tous les users peuvent voir la demande
+
+        $this->request = $adoption_request;
+        $this->first_name = $adoption_request->first_name ?? '';
+        $this->last_name = $adoption_request->last_name  ?? '';
+        $this->email = $adoption_request->email ?? '';
+        $this->phone = $adoption_request->phone  ?? '';
+        $this->address = $adoption_request->address  ?? '';
+        $this->animal_id = $adoption_request->animal_id  ?? '';
+        $this->message = $adoption_request->message  ?? '';
+        $this->state = $adoption_request->state  ?? '';
+        $this->comment = $adoption_request->comment  ?? '';
     }
 
     public function save(): void
     {
+        $this->authorize('update', $this->request);      //tous les users peuvent créer des demandes
+
+
         $validated_data = $this->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'string|required|max:255',
