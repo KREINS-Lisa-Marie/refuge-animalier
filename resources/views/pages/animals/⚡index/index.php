@@ -32,6 +32,7 @@ new #[Layout('layouts.app')] class extends Component
 
     public function updateState( $animal, $state)
     {
+        $this->authorize('update', $animal);
         Animal::findOrFail($animal)->update([
             'state'=>$state,
         ]);
@@ -39,7 +40,7 @@ new #[Layout('layouts.app')] class extends Component
 
     public function mount(): void
     {
-        $this->animals = Animal::get();
+        $this->authorize('viewAny', Animal::class);        //sinon ça doit à chaque sort vérifier authorization        //tous les users peuvent voir tous les animaux
     }
 
 
