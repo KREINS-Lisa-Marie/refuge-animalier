@@ -1,9 +1,9 @@
 <x-public.app title="{{__('general.legals')}}">
-            <h2 class="page-title m-b-60-94 fw-700 t-a-center color-dark p-b-0">
+            <h2 class="page-title fw-700 t-a-center color-dark p-b-0">
                 {{__('public/legals.legal-title')}}
             </h2>
             <p class="legal-info-date">
-
+                {{__('public/legals.last_updated')}} 26.07.2026
             </p>
     <section class="background-light p-t-b-60-150 p-l-r-24 ">
         <h3 class="sro" aria-level="3" role="heading">
@@ -12,46 +12,49 @@
         <div class="max-w-web margin-l-r-auto legals-text">
 
             <div class="identity">
-                <h3 class="identity__title" aria-level="3" role="heading">
+                <h4 class="identity__title" aria-level="3" role="heading">
                     {{__('public/legals.general_info')}}
-                </h3>
-                <p>
-                    Les pattes heureuses<br>
-                    Rue des Bois 4, 4700 Malmedy<br>
-                    lespattesheureuses@info.be
+                </h4>
+                <div itemscope itemtype="https://schema.org/Organization">
+                    <span itemprop="legalName">Les pattes heureuses</span><br>
+                    <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">Rue des Bois 4,</span> <span itemprop="postalCode">4700</span> <span itemprop="addressLocality">Malmedy</span><br>
                 </p>
+                    <p>
+                        <span itemprop="email">lespattesheureuses@info.be</span>
+                    </p>
+                </div>
             </div>
 
             <div class="hosting">
-                <h3 class="hosting__title" aria-level="3" role="heading">
+                <h4 class="hosting__title" aria-level="3" role="heading">
                     {{__('public/legals.hosting')}}
-                </h3>
-                <div class="hosting_text">
+                </h4>
+                <div class="hosting_text" itemscope itemtype="https://schema.org/Organization">
                     <p>
-                        Infomaniak Network SA
+                        <span itemprop="legalName">Infomaniak Network SA</span>
                         <br>
-                        {{__('public/legals.head_office')}} 1227 Les Acacias (Genève), Suisse
+                        <span itemprop="address">{{__('public/legals.head_office')}} 1227 Les Acacias (Genève), Suisse</span>
                         <br>
                         {{__('public/legals.more_info_please')}}
                     </p>
-                    <a href="https://www.infomaniak.com/" title="                 {{__('public/legals.go_to_infomaniak')}}">Infomaniak</a>
+                    <a href="https://www.infomaniak.com/" title="                 {{__('public/legals.go_to_infomaniak')}}" itemprop="url">Infomaniak</a>
                 </div>
 
             </div>
 
             <div class="intellectual_property">
-                <h3 class="intellectual_property__title" aria-level="3" role="heading">
+                <h4 class="intellectual_property__title" aria-level="3" role="heading">
                     {{__('public/legals.intellectual_property')}}
-                </h3>
+                </h4>
                 <p>
                     {{__('public/legals.intellectual_property_text')}}
                 </p>
             </div>
 
             <div class="privacy_extern_links">
-                <h3 class="privacy_extern_links__title" aria-level="3" role="heading">
+                <h4 class="privacy_extern_links__title" aria-level="3" role="heading">
                     {{__('public/legals.external_links')}}
-                </h3>
+                </h4>
                 <p>
                     {{__('public/legals.external_links_text')}}
 
@@ -59,9 +62,9 @@
             </div>
 
             <div class="personal_data">
-                <h3 class="personal_data__title" aria-level="3" role="heading">
+                <h4 class="personal_data__title" aria-level="3" role="heading">
                     {{__('public/legals.personal_data')}}
-                </h3>
+                </h4>
                 <p>
                     {{__('public/legals.personal_data_text')}}
                 </p>
