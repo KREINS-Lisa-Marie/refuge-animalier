@@ -11,7 +11,7 @@
     @vite(['resources/css/app.css'])
 </head>
 <body class="body-style background-admin">
-<x-admin.sidebar></x-admin.sidebar>
+<livewire:components::sidebar />
 
 
     {{ $slot }}
