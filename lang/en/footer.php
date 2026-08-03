@@ -5,7 +5,7 @@ return [
     'adress' => 'Address:',
     'adress-name' => 'Rue des Bois 4, 4700 Malmedy',
     'phone_number' => 'Phone:',
-    'responsible' => 'Manager: Elise Lambot',
+    'responsible' => 'Manager: ',
     'shelter_name' => 'LES PATTES HEUREUSES',
     'footer' => 'Footer',
     'contact_us' => 'Contact us',

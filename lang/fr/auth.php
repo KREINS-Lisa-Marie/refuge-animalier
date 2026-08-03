@@ -12,10 +12,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
-    'failed' => 'L’email et le mot de passe ne correspondent pas.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'Ces identifiants ne correspondent pas à nos enregistrements.',
+    'password' => 'Le mot de passe fourni est incorrect.',
+    'throttle' => 'Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes.',
     'forgotten_password' => 'Mot de passe oublié',
     'reset_password'=>'Réinitialiser mot de passe',
 

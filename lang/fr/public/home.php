@@ -18,7 +18,9 @@ return [
     'image_of_dog'=>'Image du chien',
     'years'=>'An(s)',
     'go_to_animal_page'=>'Aller vers la page de l’animal',
+    'go_to_animals_page'=>'Aller vers la page des animaux',
 
     'go_to_infomaniak'=>'Aller voir la page d’Infomaniak',
+    'discover_our_animals'=>'Découvrez nos animaux',
 
     ];

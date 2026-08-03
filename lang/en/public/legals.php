@@ -13,4 +13,5 @@ return [
     'external_links_text' => 'This website may contain links to external websites provided for informational purposes only. The publisher has no control over the content of these websites and accepts no responsibility for their accuracy, legality, or reliability. The publisher cannot be held liable for any direct or indirect damages resulting from the use of third-party websites.',
     'personal_data' => 'Personal Data',
     'personal_data_text' => 'We collect personal data only when you voluntarily provide it, for example by filling out a contact form. The information collected is used exclusively to respond to your request and is not shared with third parties without your prior consent. In accordance with the General Data Protection Regulation (GDPR), you have the right to access, correct, and delete your personal data.',
+    'last_updated' => 'Last updated on',
 ];

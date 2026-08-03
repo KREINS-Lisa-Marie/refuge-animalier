@@ -25,4 +25,10 @@ John Doe",
     'in_treatment' => 'En traitement',
     'processing_adoption' => 'En attente d’adoption',
     'adoptable' => 'Adoptable',
+    'share' => 'Partager',
+    'schedule_meeting' => 'Me rencontrer',
+
+    'form_sent' => 'Message envoyé',
+    'reserved' => 'Réservé',
+
 ];
