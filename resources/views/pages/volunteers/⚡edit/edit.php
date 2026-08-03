@@ -4,9 +4,13 @@ use App\Models\Availability;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
+use Livewire\WithFileUploads;
+use Intervention\Image\Laravel\Facades\Image;
 
 new class extends Component
 {
+    use WithFileUploads;
+
     public User $volunteer;
     public ?Availability $availabilities;
 
@@ -14,7 +18,7 @@ new class extends Component
     public string $last_name ;
     public string $email ;
     public string $phone ;
-    public string $profile_image ;
+    public $profile_image = null ;
     public string $is_admin;
     public string $password;
     public string $password_confirmation ;
@@ -28,13 +32,15 @@ new class extends Component
 
     public function mount(User $volunteer): void
     {
+        $this->authorize('update', $volunteer);
+
         $this->volunteer = $volunteer;
         $this->availabilities = Availability::where('user_id', $volunteer->id)->first();
         $this->first_name = $volunteer->first_name;
         $this->last_name = $volunteer->last_name;
         $this->email = $volunteer->email;
         $this->phone = $volunteer->phone ?? '';
-        $this->profile_image = $volunteer->profile_image;
+        //$this->profile_image = $volunteer->profile_image?? null;
         $this->is_admin = $volunteer->is_admin ? '1' : '0';
         $this->monday = $this->availabilities->monday ?? '';
         $this->tuesday = $this->availabilities->tuesday ?? '';
@@ -47,13 +53,14 @@ new class extends Component
 
     public function save(): void
     {
+        $this->authorize('update', $this->volunteer);
+
         $validated_data = $this->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'string|required|max:255',
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($this->volunteer->id)],
             'phone' => 'required|string',
-            'profile_image' => 'nullable|string',
-            'is_admin' => 'required|boolean:',
+            'profile_image' => 'image|nullable|mimes:jpg,jpeg,png,webp',
+            'is_admin' => 'required|boolean',
             'monday' => 'string|nullable',
             'tuesday' => 'string|nullable',
             'wednesday' => 'string|nullable',
@@ -63,14 +70,41 @@ new class extends Component
             'sunday' => 'string|nullable',
         ]);
 
+        if ($this->profile_image){
+            $image_path = $this->profile_image->store(config('userimage.originals_path'), 'public');
+            $filename = basename($image_path);        // = juste le nom de l'image sans les dossiers etc
+            $image = Image::decode(         //marche pas avec read
+                Storage::disk('public')->get($image_path)
+            );
+            $sizes = config('userimage.sizes');
+            $extension = config('userimage.jpg_image_type');
+            $compression = config('userimage.jpg_compression');
+
+            foreach ($sizes as $size){
+                $variant = clone $image;
+
+                $variant->scale($size['width']);
+                $variant_path = sprintf(
+                    config('userimage.variants_path_pattern'),
+                    $size['width'],
+                    $size['height']
+                );
+                \Storage::disk('public')->put($variant_path.'/'.$filename,
+                    $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
+            }
+        }
+        else{
+            $image_path = null;
+        }
+
 
 
          $this->volunteer->update([
             'first_name' => $validated_data['first_name'],
             'last_name' => $validated_data['last_name'],
-            'email' => $validated_data['email'],
+            'email' => $this->volunteer->email,
             'phone' => $validated_data['phone'],
-            'profile_image' => $validated_data['profile_image'],
+            'profile_image' =>  $image_path,
              'is_admin' => $validated_data['is_admin'] === '1'      //si = 1 alors = true sinon false
         ]);
 
