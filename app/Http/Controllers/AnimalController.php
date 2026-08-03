@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\AnimalState;
 use App\Models\Animal;
+use Illuminate\Http\Request;
 
 class AnimalController extends Controller
 {
@@ -133,6 +134,7 @@ class AnimalController extends Controller
         ];
 
         $filter_animals = Animal::where('state', '!=', 'adopted')
+            ->where('published_animal', true)
             ->whereAny(['animal_name', 'species', 'race', 'sex', 'fur', 'character'], 'like', '%' . $search . '%');
 
 
@@ -147,12 +149,64 @@ class AnimalController extends Controller
         }
 
         $animals= $filter_animals->orderBy('animal_name', 'asc')
-            ->paginate(4);
+            ->paginate(6)->onEachSide(0);
 
-        return view('public.animals', ['animals' => $animals, 'species_options' => $species_options, 'sex_options' => $sex_options, 'age_options' => $age_options, 'title' => __('general.our_animals')]);
+
+        $similar_animals = [];
+        $similar = Animal::where('state', '!=', 'adopted')
+            ->where('published_animal', true)
+            ->whereNotIn('id', $animals->pluck('id'));      //pas les mêmes id que animaux déjà affichés
+
+        if ($species){
+            $similar->where('species', $species);
+        }
+   /*         if ($age){            //enlevé sinon trouve pas bcp de résultats
+                $similar->where('age', $age);
+            }*/
+        if ($sex){
+            $similar->where('sex', $sex);
+        }
+        $similar_animals = $similar->inRandomOrder()->limit(3)->get();
+        $random_animals = Animal::where('published_animal', true)->inRandomOrder()->limit(3)->get();
+
+        return view('public.animals', ['animals' => $animals, 'species_options' => $species_options, 'sex_options' => $sex_options, 'age_options' => $age_options, 'title' => __('general.our_animals'), 'similar_animals'=>$similar_animals, 'random_animals'=>$random_animals]);
     }
+
+
     public function show(  String $locale, Animal $animal)
     {
-        return view('public.animal', ['animal' => $animal, 'title' => __('general.animal_details')]);
+        return view('public.animal', [
+            'animal' => $animal,
+            'title' => __('general.animal_details'),
+            'successMessage' => '',
+        ]);
+    }
+
+    public function store(Request $request, String $locale, Animal $animal)
+    {
+        $request->validate([
+            'first_name'=>'required|string|max:255',
+            'last_name'=>'string|required|max:255',
+            'phone'=>'string|required',
+            'email'=>'email|required',
+            'message'=>'string|required',
+        ]);
+
+        \App\Models\Request::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'message' => $request->message,
+            'state' => 'not_treated_yet',
+            'animal_id' => $animal->id,
+        ]);
+
+
+        $this->successMessage = __('public/animal.form_sent');
+
+        return redirect(route('public.animal', ['locale' => $locale, 'animal' => $animal]) . '#request')->with(
+                'successMessage', __('public/animal.form_sent'),
+                );
     }
 }
