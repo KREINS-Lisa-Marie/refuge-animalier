@@ -31,4 +31,8 @@ return [
 
     'animal_date_arrival' => 'Date of Arrival: ',
     'go_to_animal_page' => 'Go to the Animal page',
+    'animals_data' => 'Our animal data',
+    'from' => 'From',
+    'to' => 'to',
+    'shelter_statistics' => 'Shelter statistics',
 ];

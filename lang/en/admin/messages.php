@@ -26,4 +26,8 @@ return [
     'read'=> 'Read',
     'not_read_yet'=> 'Not read yet',
     'no_message_found'=> 'No message found',
+
+    'information' => 'Information',
+    'volunteer' => 'Volunteer',
+    'adoption-request' => 'Adoption Request',
 ];

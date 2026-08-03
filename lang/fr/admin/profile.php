@@ -23,4 +23,6 @@ return [
     'delete_account' => 'Supprimer mon compte',
     'open_mails' => 'Ouvrir les emails',
 
+    'current_image'=>'Image actuelle.',
+    'changeable_image'=>'Changeable en sélectionnant une autre image',
 ];
