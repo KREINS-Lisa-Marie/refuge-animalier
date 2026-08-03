@@ -1,36 +1,42 @@
 <?php
 
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/{locale}', [HomepageController::class, 'index'])->name('public.homepage');
+Route::get('/{locale}', [HomepageController::class, 'index'])->name('public.homepage')->middleware('guest');
 
+Route::get('/', function () {
+    return redirect()->route('auth.login', ['locale' => app()->getLocale()]);
+})->middleware('guest');
 
-Route::get('/{locale}/contact', function () {
-    return view('public.contact');
-})->name('public.contact');
+Route::get('/{locale}/contact',  [ContactController::class, 'index'])->name('public.contact')->middleware('guest');
+
+Route::post('/{locale}/contact',  [ContactController::class, 'store'])->name('public.contact.store')->middleware('guest');
 
 Route::get('/{locale}/legals', function () {
     return view('public.legals');
-})->name('public.legals');
+})->name('public.legals')->middleware('guest');
 
 Route::get('/{locale}/animals',   [AnimalController::class, 'index']
-)->name('public.animals');
+)->name('public.animals')->middleware('guest');
 
-Route::get('/{locale}/animal/{animal}', [AnimalController::class, 'show'])->name('public.animal');
+Route::get('/{locale}/animal/{animal}', [AnimalController::class, 'show'])->name('public.animal')->middleware('guest');
+
+Route::post('/{locale}/animal/{animal}', [AnimalController::class, 'store'])->name('public.animal.store')->middleware('guest');
 
 Route::get('/{locale}/login', function () {
     return view('auth.login');
-})->name('auth.login');
+})->name('auth.login')->middleware('guest');
 
 Route::get('/{locale}/forgot-password', function () {
     return view('auth.forgot-password');
-})->name('auth.forgot-password');
+})->name('auth.forgot-password')->middleware('guest');
 
 Route::get('/{locale}/reset-password', function () {
     return view('auth.reset-password');
-})->name('auth.reset-password');
+})->name('auth.reset-password')->middleware('guest');
 
 
 
