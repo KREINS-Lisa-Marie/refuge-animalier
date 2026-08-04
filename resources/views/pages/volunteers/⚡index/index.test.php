@@ -6,7 +6,7 @@ use Livewire\Livewire;
 uses(RefreshDatabase::class);
 
 beforeEach(function(){
-    $this-> user = User::factory()-> create();
+    $this-> user = User::factory()-> create(['is_admin' => '1']);
     \Pest\Laravel\actingAs($this-> user);});
 
 
