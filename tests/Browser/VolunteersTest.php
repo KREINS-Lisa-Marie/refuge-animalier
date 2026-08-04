@@ -114,7 +114,7 @@ it('can click on the delete button, delete the volunteer and go back to the inde
 });
 
 
-it('can create a volunteer and redirect to the show page', function () {
+it('can create a volunteer and redirect to the index page', function () {
 
     $user = User::factory()->create(['is_admin'=>'1']);
     $locale = app()->getLocale();
