@@ -57,7 +57,7 @@
                     {{__('admin/profile.password')}}
                 </x-definition-term>
                 <x-definition>
-                    {{__('admin/profile.change_my_password')}}
+                    <a href="{{route('pages::profile.edit', ['locale' => __('general.currentLocale'),  $user->id,])}}" title=" {{__('admin/profile.change_my_password')}}" class="">{{__('admin/profile.change_my_password')}}</a>
                 </x-definition>
             </div>
 
@@ -66,7 +66,13 @@
                     {{__('admin/profile.image')}}
                 </x-definition-term>
                 <x-definition>
-                    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('admin/profile.image')}}" class="border-r-small">
+                    @if($user->profile_image)
+                        <img src="{!! asset('storage/images/users/variants/300x300/'.basename($user->profile_image)) !!}" alt="{{__('admin/volunteers.profile_image')}}"
+                             class="border-r-small profile-img">
+                    @else
+                        <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/volunteers.profile_image')}}"
+                             class="border-r-small profile-img">
+                    @endif
                 </x-definition>
             </div>
         </dl>
