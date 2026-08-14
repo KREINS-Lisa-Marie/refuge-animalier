@@ -21,7 +21,7 @@ new #[Layout('layouts.app')] class extends Component
         $user->delete();
         $this->locale=  __('general.currentLocale');
 
-        return redirect(route("/$locale/login"));
+        return redirect(route("/$this->locale/login"));
     }
 
     public function render()
