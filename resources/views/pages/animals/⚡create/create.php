@@ -212,7 +212,7 @@ new #[Layout('layouts.app')] class extends Component
             }
 
 
-        \App\Models\Animal::create([
+        $animal = \App\Models\Animal::create([
             'animal_name' => $this->animal_name,
             'species' => $this->species,
             'race' => $this->race,
@@ -230,6 +230,11 @@ new #[Layout('layouts.app')] class extends Component
             'modification_request'=>$this->modification_request,
             'published_animal'=>$this->published_animal?? false,
         ]);
+
+        $admin = \App\Models\User::where('is_admin', '1')->first();
+
+        \Mail::to($admin->email)->queue(new  \App\Mail\AnimalCreatedMail($animal));
+
 
         $this->redirect(route('pages::animals.index', ['locale' => app()->getLocale()]));
     }
