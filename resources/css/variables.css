@@ -7,6 +7,7 @@
     /* admin */
     --background-admin: #f5f5f5;
     --validation: #d4dd87;
+    --yellow: #fff198;
 
     /* public */
     --background-basic: #ebe9e4;
@@ -20,10 +21,12 @@
     --dark-green-accent-color: #51594c;
     --sort-active: #c9ade6;
 
+    --refuse: #ffb039;
     --delete: #c71515;
     --delete-hover: #990c0c;
 
     --placeholder: #a9a7a7;
+    --remove-btn: #272727;
 }
 
 
@@ -31,6 +34,7 @@
 
 :root{
     --general-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.10);
+    --medium-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.30);
     --general-shadow-hover: 0 0 10px 1px rgba(0, 0, 0, 0.5);
     --web-admin-navbar-shadow: 4px 0 17px 0 rgba(0, 0, 0, 0.15);
     --public-navbar-shadow: 0 35px 40px 1px rgba(0, 0, 0, 0.05);
@@ -124,6 +128,11 @@
 
     --dashboard-column-width: 363px;
 
+    --card-height: 618px;
+    --field-width: 491px;
+
+    --animal-images-size: 300px;
+
     /*--interligne-texte: 38.91999816894531;*/
 }
 
@@ -184,6 +193,7 @@
 
 /*      Font-weight     */
 :root {
+    --medium:500;
     --semi-bold:600;
     --bold:700;
 }

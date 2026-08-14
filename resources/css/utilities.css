@@ -161,6 +161,9 @@ dd:last-of-type{
 .p-b-60{
     padding-bottom: var(--padding-60);
 }
+.p-b-150{
+    padding-bottom: var(--padding-150);
+}
 
 /*    left     */
 
@@ -292,6 +295,9 @@ input::placeholder{
 
 .border-r-small{
     border-radius: var(--small-border);
+}
+.border-r-medium{
+    border-radius: var(--medium-border);
 }
 .border-r-big{
     border-radius: var(--big-border);
@@ -546,6 +552,10 @@ option:last-of-type{
     gap: var(--checkbox-gap);
 }
 
+.flex-gap-56{
+    gap: var(--padding-56);
+}
+
 .remember_me{
     margin-top: var(--checkbox-margin);
     margin-bottom: var(--checkbox-margin);
@@ -585,4 +595,8 @@ option:last-of-type{
 
 .z-index-10{
     z-index: 10;
+}
+
+.j-c-center{
+    justify-content: center;
 }

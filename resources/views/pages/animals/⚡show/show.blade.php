@@ -7,11 +7,11 @@
     </div>
 
 
-    <section class="section-w-return max-w-admin-web">
+    <section class="section-w-return max-w-admin-web profile-information">
         <h2 aria-level="2" class="fw-700 admin-dashboard-title">
             {{__('admin/volunteers.general_information')}}
         </h2>
-        <dl class="animal-information-list volunteer-info">
+        <dl class="animal-information-list volunteer-info ">
             <div>
                 <x-definition-term>
                     {{__('admin/animals.animal_name')}}
@@ -27,6 +27,15 @@
                 </x-definition-term>
                 <x-definition>
                     {{ $animal->species  == 'dog'? __('admin/animals.dog') : ($animal->species  == 'cat'? __('admin/animals.cat') : ($animal->species  == 'bunny'? __('admin/animals.bunny') : __('admin/animals.hamster'))) }}
+                </x-definition>
+            </div>
+
+            <div>
+                <x-definition-term>
+                    {{__('admin/animals.race')}}
+                </x-definition-term>
+                <x-definition>
+                    {{ $animal->race }}
                 </x-definition>
             </div>
 
@@ -110,7 +119,7 @@
 
     </section>
 
-    <section class=" max-w-admin-web volunteer-times">
+    <section class=" max-w-admin-web volunteer-times profile-information">
         <h2 aria-level="2" class="fw-700 admin-dashboard-title availabilities m-l-r-24">
             {{__('admin/animals.gallery')}}
         </h2>
@@ -127,7 +136,7 @@
             @endif
         </div>
     </section>
-    <section class="section-w-return max-w-admin-web">
+    <section class="section-w-return max-w-admin-web profile-information">
         <h2 aria-level="2" class="fw-700 admin-dashboard-title">
             {{__('admin/volunteers.general_information')}}
         </h2>

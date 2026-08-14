@@ -82,7 +82,7 @@
                     @endforeach
                 </div>
             @else
-                <p>{{__('admin/animals.no_images_chosen')}}</p>
+                <p class="m-t-16">{{__('admin/animals.no_images_chosen')}}</p>
             @endif
         </fieldset>
         <fieldset class="profile-information max-w-admin-web edit-inputs edit-textarea-big request-edit-comment">
