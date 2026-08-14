@@ -11,10 +11,13 @@ new #[Layout('layouts.app')] class extends Component
     use \Livewire\WithPagination;
 
     public $requests;
-    public bool $showModal = false;
+    public bool $showModal = false;     //Request modal
+    public bool $showEmailModal = false;    //Confirmation modal
     public $openRequest = null;
 
     public string $term = '';
+
+    public $lastChanged = null;
 
     //tri
     public $sortField = 'last_name';
@@ -62,16 +65,46 @@ new #[Layout('layouts.app')] class extends Component
         }
     }
 
-    public function updateState($state)
+    public function updateState($state)     //dans la modale
     {
         if ( $this->openRequest ){  //quand c'est ouvert je peux changer state
             $this->authorize('update', $this->openRequest);     //only admin
-            $this->openRequest->update([
+            $oldState = $this->openRequest->state;
+
+            if ($state === 'in_treatment' && $oldState != 'in_treatment'){
+                    $this->showEmailModal = true;       // ça ouvre la confirmation modal
+                    return;     //si je ne le fais pas alors il change statut avant que j'ai choisi dans ma modale
+            }
+            $this->openRequest->update([        //autres states
                 'state'=>$state,
             ]);
             $this->dispatch('request-updated');     // pour que le compteur dans la sidebar s'actualise
         }
     }
+
+    public function confirmSendingEmail()
+    {
+        if ($this->openRequest){
+            \Mail::to($this->openRequest->email)->queue(new  \App\Mail\AdoptionRequestProcessingMail($this->openRequest));
+            $this->openRequest->update([
+                'state'=>'in_treatment',
+            ]);
+
+            $this->dispatch('request-updated');
+        }
+            $this->showEmailModal = false;      //ferme modale
+            $this->lastChanged = now();// ça fait une refresh parec que si je ne le fais pas alors le statut reste sur en traitement même si c'est pas enregistré.
+    }
+
+    public function denySendingEmail()
+    {
+        $this->openRequest = $this->openRequest->fresh();
+        $this->showEmailModal = false;      //ferme modale
+        $this->lastChanged = now(); // ça fait une refresh parec que si je ne le fais pas alors le statut reste sur en traitement même si c'est pas enregistré.
+    }
+    /*
+     https://laravel.com/docs/13.x/eloquent#refreshing-models
+    */
 
 
     public function openModal( int $request_id):void
