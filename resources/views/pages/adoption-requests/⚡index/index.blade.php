@@ -121,7 +121,7 @@
                     {{__('admin/adoption-requests.adoption_request_for')}}
                 </x-definition-term>
                 <x-definition>
-                    @php($animal = \App\Models\Animal::where('id', $request->animal_id)->first())
+                    @php($animal = \App\Models\Animal::where('id', $openRequest->animal_id)->first())
                     {!! $animal->animal_name !!}
                 </x-definition>
                 <x-definition-term>
@@ -170,7 +170,7 @@
 
                     @can('update', $openRequest)
                     <x-definition>
-                    <select name="state" id="state" wire:change="updateState($event.target.value)">
+                    <select name="state" id="state" wire:change="updateState($event.target.value)" wire:key="state-select-{{ $openRequest->id }}-{{ $lastChanged }}">
                         <option value="adopted" @selected($openRequest->state === 'adopted')>{{__('admin/adoption-requests.adopted')}}</option>
                         <option value="refused" @selected($openRequest->state === 'refused')>{{__('admin/adoption-requests.refused')}}</option>
                         <option value="in_treatment" @selected($openRequest->state === 'in_treatment')>{{__('admin/adoption-requests.in_treatment')}}</option>
@@ -235,10 +235,25 @@
 
             </form>
             @endcan
-            <a href="{{route('pages::adoption-requests.edit',  ['locale' => app()->getLocale(),  'adoption_request' => $request->id])}}" class="modal-button fw-medium background-light" title="{{__('admin/adoption-requests.go_to_modify_request_page')}}">
+            <a href="{{route('pages::adoption-requests.edit',  ['locale' => app()->getLocale(),  'adoption_request' => $openRequest->id])}}" class="modal-button fw-medium background-light" title="{{__('admin/adoption-requests.go_to_modify_request_page')}}">
                 {{__('admin/adoption-requests.modify_request')}}
             </a>
         </div>
+            @if($showEmailModal)
+                <div class="bg-opacity">
+                <div class="confirmation-modal border-r-big d-flex flex-c j-c-center flex-gap-56">
+                    <p>Voulez-vous envoyer un email à {{$openRequest->first_name}} {{$openRequest->last_name}} pour lui prévenir qu'on est en train de traiter sa demande d’adoption?</p>
+                    <div class="d-flex flex-r flex-j-c-space-between j-c-center flex-gap-32 flex-wrap">
+                        <x-admin.modals.adoption-request.btn wire="confirmSendingEmail" class="confirm modal-button fw-medium color-white regular-shadow">
+                            {{__('admin/adoption-requests.confirm_sending_mail')}}
+                        </x-admin.modals.adoption-request.btn>
+                        <x-admin.modals.adoption-request.btn wire="denySendingEmail" class="deny modal-button fw-medium color-white regular-shadow">
+                            {{__('admin/adoption-requests.deny_sending_mail')}}
+                        </x-admin.modals.adoption-request.btn>
+                    </div>
+                </div>
+                </div>
+            @endif
         @endif
 
     </section>

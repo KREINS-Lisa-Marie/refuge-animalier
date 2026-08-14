@@ -209,6 +209,13 @@ new class extends Component
             'published_animal'=>$validated_data['published_animal'] ?? false,
         ]);
 
+        $admin = \App\Models\User::where('is_admin', '1')->first();
+
+        \Mail::to($admin->email)->queue(new  \App\Mail\AnimalUpdatedMail($this->animal));
+
+
+
+
         $this->redirect(route('pages::animals.show', ['locale' => app()->getLocale(), 'animal' => $this->animal])
     );
     }

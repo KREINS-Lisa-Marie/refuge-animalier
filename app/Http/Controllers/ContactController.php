@@ -26,7 +26,7 @@ class ContactController extends Controller
             'email'=>'email|required',
         ]);
 
-        Message::create([
+        $message = Message::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'subject' => $request->subject,
@@ -34,6 +34,11 @@ class ContactController extends Controller
             'state' => 'not_read_yet',
             'email' => $request->email,
         ]);
+
+
+        $admin = \App\Models\User::where('is_admin', '1')->first();
+
+        \Mail::to($admin->email)->queue(new  \App\Mail\MessageSentMail($message));
 
         $successMessage = __('public/contact.form_sent');
 

@@ -20,7 +20,7 @@ new class extends Component
     public string $email= '' ;
     public string $phone ='';
     public $profile_image= null ;
-    public bool $is_admin;
+    public string $is_admin;
     public string $password = '';
     public string $password_confirmation = '';
     public string $monday = '';
@@ -110,7 +110,10 @@ new class extends Component
             'sunday'=>$validated_data['sunday']??'',
         ]);
 
+        \Mail::to($user->email)->queue(new  \App\Mail\UserCreatedMail($user, $this->password));
+
         $this->redirect(route('pages::volunteers.index', ['locale' => app()->getLocale()]));
+
     }
 
     public function render()

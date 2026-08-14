@@ -192,7 +192,7 @@ class AnimalController extends Controller
             'message'=>'string|required',
         ]);
 
-        \App\Models\Request::create([
+        $adoptionRequest = \App\Models\Request::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'phone' => $request->phone,
@@ -201,6 +201,12 @@ class AnimalController extends Controller
             'state' => 'not_treated_yet',
             'animal_id' => $animal->id,
         ]);
+
+
+        $admin = \App\Models\User::where('is_admin', '1')->first();
+
+        \Mail::to($admin->email)->queue(new  \App\Mail\AdoptionRequestCreatedMail($adoptionRequest));
+
 
 
         $this->successMessage = __('public/animal.form_sent');
