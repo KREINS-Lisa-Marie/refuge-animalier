@@ -64,11 +64,12 @@ class DatabaseSeeder extends Seeder
         $messages = Message::factory()->count(10)->create();
 
         $animal = Animal::factory()->create();
+        $adoptables = Animal::factory(10)->create(['state' => 'adoptable']);
 
         //j'ai fait for i parce que sinon ça garde le même id pour tous
         for ($i = 0; $i<10; $i++){
             Request::factory()->create([
-                'animal_id'=>$animals->random()->id,
+                'animal_id'=>$adoptables->random()->id,
             ]);
         }
     }
