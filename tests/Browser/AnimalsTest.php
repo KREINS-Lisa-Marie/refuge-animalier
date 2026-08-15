@@ -110,7 +110,7 @@ it('can create an animal and redirect to the index page', function () {
         ->select('state', 'adoptable')
         ->fill('description', '')
         ->select('published_animal', '1')
-        ->wait(0.3)
+        ->wait(1)
         ->click('Enregistrer')
         ->assertSee('Les animaux');
 
