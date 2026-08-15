@@ -96,6 +96,25 @@ it('can click on one of the 5 last animals link on the dashboard and go to the a
 
 
 
+it('shows the number of volunteers on the dashboard ', function () {
+
+    $user = User::factory()->create(['is_admin'=>'1']);
+
+    $volunteers = User::factory(4)->create(['is_admin'=>'0']);
+    $admins = User::factory(4)->create(['is_admin'=>'1']);
+
+    $locale = app()->getLocale();
+    actingAs($user);
+
+    $route = route('pages::dashboard.index',['locale' => $locale]);
+
+    visit($route)
+        ->assertSeeIn(
+            '.dashboard-card:has-text("Bénévoles dans l’équipe") .big-number',
+            (string) $volunteers->count()         //string car sinon compare int avec string
+        );
+});
+
 it('shows the number of new adoption requests on the dashboard ', function () {
 
     $user = User::factory()->create(['is_admin'=>'1']);
@@ -112,7 +131,7 @@ it('shows the number of new adoption requests on the dashboard ', function () {
     $route = route('pages::dashboard.index',['locale' => $locale]);
 
     visit($route)
-        ->assertSeeIn('.dashboard-card:has-text("Demandes d’adoption non traités") .big-number',
+        ->assertSeeIn('.dashboard-card:has-text("Tâches non terminés") .big-number',
             (string) $adoption_requests->count()         //string car sinon compare int avec string
         );
 });
@@ -162,10 +181,6 @@ it('shows the number of animals in shelter on the dashboard ', function () {
             (string) $not_adopted->count()         //string car sinon compare int avec string
         );
 });
-
-
-
-/*      DAS EINE MUSS NOCH GEMACHT WERDEN       */
 
 it('shows the number of animals welcomed in shelter this year on the dashboard ', function () {
 
