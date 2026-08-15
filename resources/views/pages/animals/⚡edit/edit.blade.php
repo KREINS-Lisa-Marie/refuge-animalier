@@ -1,11 +1,12 @@
 <main class="main-container" id="content">
+    @can('update', $animal)
     <x-page-bar>
         Modifier {{ $animal_name }}
     </x-page-bar>
 
     <form wire:submit.prevent="save" class="admin-form volunteers-edit" enctype="multipart/form-data">
         @csrf
-        @can('update', $animal)
+
     <fieldset class="profile-information max-w-admin-web  edit-inputs ">
         <legend class="fw-700 admin-dashboard-title">
             {{__('admin/volunteers.general_information')}}
@@ -13,7 +14,9 @@
         <p class="obligations m-b-32 ">
             {{__('admin/general.mandatory_field')}}
         </p>
+
         <div class="d-flex flex-r flex-wrap edit-inputs flex-gap-24">
+            @can('updateLimited', $animal)
             <div class="d-flex flex-dir flex-gap-24 col-inputs">
                 <x-fields.text id="animal_name" name="animal_name" placeholder="Ex: John" wire="animal_name">
                     {{__('admin/animals.animal_name')}}*
@@ -53,21 +56,23 @@
                 </x-fields.text>
 
             </div>
+            @endcan
             <div class="d-flex flex-dir flex-gap-24 col-inputs">
+                @can('updateLimited', $animal)
                 <x-fields.text id="character" name="character"
                                placeholder="{{__('admin/animals.second_character_placeholder')}}"
                                wire="character">
                     {{__('admin/animals.personality')}}
                 </x-fields.text>
                 @endcan
-
                 <x-select select_name="state" label="{{__('admin/animals.state')}}" wire="state"
                           :options="$animal_state_options">
                 </x-select>
-                @can('update', $animal)
+                @can('updateLimited', $animal)
                 <x-fields.file name_id="show_image" wire="show_image" name="show_image">
                     {{__('admin/animals.animal_image')}}
                 </x-fields.file>
+                @endcan
             </div>
         </div>
     </fieldset>
@@ -117,8 +122,6 @@
             <p class="m-t-16">{{__('admin/animals.no_images_chosen')}}</p>
         @endif
     </fieldset>
-    @endcan
-        @can('updateLimited', $animal)
         <fieldset class="profile-information max-w-admin-web edit-inputs edit-textarea-big request-edit-comment">
             <x-fields.textarea wire="internal_notes" id="internal_notes" name="internal_notes" placeholder="{{__('admin/animals.internal_notes')}}" >
                 {{__('admin/animals.internal_notes')}}
@@ -127,9 +130,9 @@
                 {{__('admin/animals.modification_request')}}
             </x-fields.textarea>
         </fieldset>
-        @endcan
+
         <div class=" max-w-admin-web volunteer-buttons top-row profile-information">
-            @can('update', $animal)
+            @can('updateLimited', $animal)
             <x-select select_name="published_animal" :options="$published_animal_options" wire="published_animal" label="{{__('admin/animals.published_animal')}}*">
             </x-select>
             @endcan
@@ -138,7 +141,7 @@
             </x-admin.form-button>
         </div>
     </form>
-
+    @endcan
 </main>
 
 {{--

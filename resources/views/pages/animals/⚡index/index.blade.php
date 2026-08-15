@@ -57,15 +57,17 @@
 
 
 <main class="main-container mb-80" id="content">
+    @can('viewAny', \App\Models\Animal::class)
     <x-page-bar>
         {{__('admin/animals.animals')}}
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
-            <x-admin.admin-button href="{{route('pages::animals.create', ['locale' => __('general.currentLocale')])}}"
-                                  title="{{__('admin/animals.got_to_create_animal')}}" class="">
+            @can('create', \App\Models\Animal::class)
+            <x-admin.admin-button href="{{route('pages::animals.create', ['locale' => __('general.currentLocale')])}}" title="{{__('admin/animals.got_to_create_animal')}}" class="">
                 {{__('admin/animals.create_an_animal')}}
             </x-admin.admin-button>
+            @endcan
             <x-admin.search/>
         </div>
         <div class="bottom-row">
@@ -118,12 +120,14 @@
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-state go_front">
                     <span class="show-web">{{__('admin/animals.state_title')}}</span>
+                    @can('update', $animal)
                     <select name="state" id="state" wire:change="updateState({{ $animal->id }}, $event.target.value)">
                         <option value="adopted" @selected($animal->state === 'adopted')>{{__('admin/animals.adopted') }}</option>
                         <option value="adoptable" @selected($animal->state === 'adoptable')>{{__('admin/animals.adoptable') }}</option>
                         <option value="in_treatment" @selected($animal->state === 'in_treatment')>{{__('admin/animals.in_treatment')}}</option>
                         <option value="processing_adoption" @selected($animal->state === 'processing_adoption')>{{__('admin/animals.processing_adoption')}}</option>
                     </select>
+                        @endcan
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
                     <span class="show-web">{{__('admin/animals.species_title')}}</span>{!! $animal->species !!}
@@ -152,6 +156,7 @@
     <div class="pagination-admin max-w-admin-web">
         {{ $this->searchedAnimals->links() }}
     </div>
+        @endcan
 </main>
 
 {{--

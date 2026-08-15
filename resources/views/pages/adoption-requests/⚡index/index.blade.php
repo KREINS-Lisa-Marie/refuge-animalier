@@ -17,8 +17,8 @@
 
 @endphp--}}
 
-
 <main class="main-container" id="content">
+    @can('viewAny', \App\Models\Request::class)
     <x-page-bar>
         {{__('admin/adoption-requests.adoption_requests')}}
     </x-page-bar>
@@ -257,5 +257,5 @@
         @endif
 
     </section>
-
+    @endcan
 </main>

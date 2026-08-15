@@ -1,3 +1,4 @@
+@can('view', $volunteer)
 <main class="main-container" id="content">
     <x-page-bar>
         {!! $volunteer->first_name !!}  {!! $volunteer->last_name !!}
@@ -105,3 +106,4 @@
         </div>
     @endcan
 </main>
+@endcan

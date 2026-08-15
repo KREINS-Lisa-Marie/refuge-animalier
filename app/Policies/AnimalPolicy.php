@@ -41,11 +41,11 @@ class AnimalPolicy
      */
     public function update(User $user, Animal $animal): bool
     {
-        return $user->is_admin;
+        return true;
     }
     public function updateLimited(User $user, Animal $animal): bool
     {
-        return $user != 'is_admin';
+        return $user->is_admin;
     }
 
     /**

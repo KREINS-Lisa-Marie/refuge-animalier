@@ -15,6 +15,11 @@ class UserPolicy
         return true;        //vooir tous les users
     }
 
+    public function viewAnyLimited(User $user): bool
+    {
+        return true;        //vooir tous les users
+    }
+
     /**
      * Determine whether the user can view the model.
      */
@@ -22,7 +27,7 @@ class UserPolicy
     {
         return true;    //vooir un user
     }
-    public function viewLimited(User $user): bool
+    public function viewLimited(User $user, User $model): bool
     {
         return $user->is_admin;
     }
@@ -56,7 +61,7 @@ class UserPolicy
      */
     public function restore(User $user, User $model): bool
     {
-        return $user->is_admin;
+        return false;
     }
 
     /**

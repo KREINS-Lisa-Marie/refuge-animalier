@@ -1,4 +1,5 @@
 <main class="main-container" id="content">
+    @can('view', $animal)
     <x-page-bar>
         {{ $animal->animal_name }}
     </x-page-bar>
@@ -184,4 +185,5 @@
             @endcan
         </div>
     </div>
+        @endcan
 </main>

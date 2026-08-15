@@ -10,6 +10,7 @@
         ],
 ]
 @endphp
+@can('create', \App\Models\User::class)
 <main class="main-container admin" id="content">
     <x-page-bar>
         {{__('admin/volunteers.create_a_volunteer')}}
@@ -93,3 +94,4 @@
     </form>
 
 </main>
+@endcan
