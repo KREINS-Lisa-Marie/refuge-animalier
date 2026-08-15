@@ -11,6 +11,7 @@
 ]
 
 @endphp
+@can('update', $volunteer)
 <main class="main-container" id="content">
     <x-page-bar>
 {{__('admin/volunteers.modify')}} {!! $volunteer->first_name !!} {!! $volunteer->last_name !!}
@@ -90,3 +91,4 @@
     </form>
 
 </main>
+@endcan

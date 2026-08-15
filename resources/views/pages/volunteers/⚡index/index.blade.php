@@ -5,7 +5,7 @@
     </x-page-bar>
     <div class="admin-filters-buttons max-w-admin-web">
         <div class="top-row">
-            @can('viewLimited', \App\Models\User::class)
+            @can('viewAnyLimited', \App\Models\User::class)
             <x-admin.admin-button href="{{route('pages::volunteers.create', ['locale' => app()->getLocale()])}}"
                                   title="{{__('admin/volunteers.go_to_create_volunteer')}}" class="">
                 {{__('admin/volunteers.create_a_volunteer')}}
