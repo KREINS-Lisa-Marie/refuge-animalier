@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Policies\DashboardPolicy;
 use Illuminate\Support\ServiceProvider;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        \Gate::define('view-dashboard', [DashboardPolicy::class, 'viewAny']);
+        \Gate::define('view-dashboard-limited', [DashboardPolicy::class, 'viewAnyLimited']);
     }
 }
