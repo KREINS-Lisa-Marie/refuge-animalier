@@ -30,12 +30,16 @@ new #[Layout('layouts.app')] class extends Component
         $this->sortField = $field;
     }
 
-    public function updateState( $animal, $state)
+    public function updateState( $animalId, $state)
     {
+        $animal = Animal::findOrFail($animalId);
         $this->authorize('update', $animal);
-        Animal::findOrFail($animal)->update([
+        $animal->update([
             'state'=>$state,
         ]);
+
+        $admin = \App\Models\User::where('is_admin', '1')->first();
+        \Mail::to($admin->email)->queue(new  \App\Mail\AnimalUpdatedMail($animal));
     }
 
     public function mount(): void
@@ -53,7 +57,7 @@ new #[Layout('layouts.app')] class extends Component
                 ->orWhere('species', 'like', '%' . $this->term . '%')
                 ->orWhere('state', 'like', '%' . $this->term . '%')
                 ->orderBy($this->sortField, $this->sortDirection)
-                ->paginate(10);
+                ->paginate(10)->onEachSide(0);
     }
 
     public function render()

@@ -35,5 +35,7 @@ return [
     'from' => 'Du',
     'to' => 'au',
     'shelter_statistics' => 'Statistiques du refuge',
+    'task_alert' => 'Tâches non terminés',
+    'volunteers_in_team' => 'Bénévoles dans l’équipe',
 
 ];

@@ -35,4 +35,6 @@ return [
     'from' => 'From',
     'to' => 'to',
     'shelter_statistics' => 'Shelter statistics',
+    'task_alert' => 'Non completed tasks',
+    'volunteers_in_team' => 'Volunteers in team',
 ];
