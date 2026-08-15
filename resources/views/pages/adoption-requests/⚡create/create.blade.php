@@ -31,6 +31,7 @@
 @endphp
 
 <main class="main-container admin" id="content">
+    @can('create', \App\Models\Request::class)
     <x-page-bar>
         {{__('admin/adoption-requests.new_adoption_request')}}
     </x-page-bar>
@@ -90,5 +91,5 @@
             </x-admin.form-button>
         </div>
     </form>
-
+    @endcan
 </main>

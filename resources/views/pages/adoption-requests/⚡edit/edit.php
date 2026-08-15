@@ -23,7 +23,7 @@ new class extends Component
 
     public function mount(Request $adoption_request): void
     {
-        $this->authorize('view', $adoption_request);        //tous les users peuvent voir la demande
+        $this->authorize('update', $adoption_request);        //tous les users peuvent voir la demande
 
         $this->request = $adoption_request;
         $this->first_name = $adoption_request->first_name ?? '';
@@ -67,7 +67,8 @@ new class extends Component
             'comment' => $this->request->comment,
         ]);
 
-        $this->redirect(route('pages::adoption-requests.index', ['locale' => app()->getLocale(), 'request'=>$this->request]));
+        $this->redirect(route('pages::adoption-requests.index', ['locale' => app()->getLocale()]), navigate: false);        // car je veux reload
+        // https://livewire.laravel.com/docs/4.x/navigate#redirects
     }
 
     public function render()

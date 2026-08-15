@@ -32,6 +32,7 @@
 @endphp
 
 <main class="main-container" id="content">
+    @can('update', $request)
     <x-page-bar>
         {{__('admin/adoption-requests.modify_a_request')}}
     </x-page-bar>
@@ -96,5 +97,5 @@
             </x-admin.form-button>
         </div>
     </form>
-
+    @endcan
 </main>
