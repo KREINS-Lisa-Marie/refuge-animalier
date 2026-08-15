@@ -1,4 +1,5 @@
 <main class="main-container" id="content">
+    @can('create', \App\Models\Animal::class)
     <x-page-bar>
         {{__('admin/animals.create_an_animal')}}
     </x-page-bar>
@@ -92,10 +93,12 @@
             <x-fields.textarea wire="modification_request" id="modification_request" name="modification_request" placeholder="{{__('admin/animals.modification_request')}}" >
                 {{__('admin/animals.modification_request')}}
             </x-fields.textarea>
+            @endcan
             @can('createLimited', \App\Models\Animal::class)
                 <x-select select_name="published_animal" :options="$published_animal_options" wire="published_animal" label="{{__('admin/animals.published_animal')}}*">
                 </x-select>
             @endcan
+            @can('create', \App\Models\Animal::class)
         </fieldset>
         <div class=" max-w-admin-web volunteer-buttons top-row">
 
@@ -108,5 +111,5 @@
         </div>
         </div>
     </form>
-
+@endcan
 </main>

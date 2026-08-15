@@ -33,7 +33,9 @@ new class extends Component
 
     public function mount(Animal $animal): void
     {
-        $this->authorize('view', $animal);
+        $this->authorize('update', $animal);
+        //$this->authorize('updateLimited', $this->animal);
+
 
         $this->animal = $animal;
         $this->animal_name = $animal->animal_name;
@@ -84,6 +86,7 @@ new class extends Component
     public function save(): void
     {
         $this->authorize('update', $this->animal);
+       // $this->authorize('updateLimited', $this->animal);
 
 
         $validation_rules=    [

@@ -29,7 +29,8 @@ new #[Layout('layouts.app')] class extends Component
 
     public function mount()
     {
-        $this->authorize('viewAny', \App\Models\Animal::class);
+        $this->authorize('create', \App\Models\Animal::class);
+        $this->published_animal = '0';      // je dois le faire pour présélectionner pour les volunteers qui ne peuvent pas séléctionner ça
     }
 
     public function render()        //à chaque fois que qqch sur la page change
