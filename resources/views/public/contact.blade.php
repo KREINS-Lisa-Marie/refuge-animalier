@@ -50,7 +50,7 @@
                         <option value="volunteer">
                             {{__('public/contact.volunteer')}}
                         </option>
-                        <option value="adoption_request">
+                        <option value="request">
                             {{__('public/contact.adoption_request')}}
                         </option>
                     </select>

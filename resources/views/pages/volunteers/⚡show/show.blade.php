@@ -88,7 +88,7 @@
         </section>
 
 @can('viewLimited', $volunteer)
-        <div class=" max-w-admin-web volunteer-buttons">
+        <div class="profile-information max-w-admin-web volunteer-buttons">
             <div class="top-row">
                 <x-admin.admin-button href="{{route('pages::volunteers.edit', ['locale' => app()->getLocale(), 'volunteer' => $volunteer])}}"
                                       title="{{__('admin/volunteers.modify_info')}}" class="">
