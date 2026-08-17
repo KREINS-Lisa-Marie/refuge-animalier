@@ -36,7 +36,7 @@ new class extends Component
             'phone' => 'required|string|max:255',
             'address' => 'max:255|string',
             'message' => 'string|max:255',
-            'state' => 'string|max:255',
+            'state' => 'required|string|max:255',
             'comment' => 'string|max:255',
 
         ]);
