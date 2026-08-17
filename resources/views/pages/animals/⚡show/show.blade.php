@@ -27,7 +27,7 @@
                     {{__('admin/animals.species')}}
                 </x-definition-term>
                 <x-definition>
-                    {{ $animal->species  == 'dog'? __('admin/animals.dog') : ($animal->species  == 'cat'? __('admin/animals.cat') : ($animal->species  == 'bunny'? __('admin/animals.bunny') : __('admin/animals.hamster'))) }}
+                    {{ $animal->species  == 'dog'? __('admin/animals.dog') : ($animal->species  == 'cat'? __('admin/animals.cat') : ($animal->species  == 'rabbit'? __('admin/animals.bunny') : __('admin/animals.hamster'))) }}
                 </x-definition>
             </div>
 
