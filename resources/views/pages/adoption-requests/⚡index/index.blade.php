@@ -17,7 +17,7 @@
 
 @endphp--}}
 
-<main class="main-container" id="content">
+<main class="main-container adoption-request" id="content">
     @can('viewAny', \App\Models\Request::class)
     <x-page-bar>
         {{__('admin/adoption-requests.adoption_requests')}}
@@ -61,9 +61,9 @@
                 <x-admin.table.table-td class=" fw-medium">
                     <span class="show-web">{{__('admin/adoption-requests.date_title')}}</span>{!! $request->created_at->format('d.m.Y') !!}
                 </x-admin.table.table-td>
-                @php($animal = \App\Models\Animal::where('id', $request->animal_id)->first())
+                {{--@php($animal = \App\Models\Animal::where('id', $request->animal_id)->first())--}}
                 <x-admin.table.table-td class="">
-                    <span class="show-web">{{__('admin/adoption-requests.animal_title')}}</span>{!! $animal->animal_name !!}
+                    <span class="show-web">{{__('admin/adoption-requests.animal_title')}}</span>{!! $request->animal_name !!}
                 </x-admin.table.table-td>
 
                 <x-admin.table.table-td class="">
