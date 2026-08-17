@@ -38,7 +38,7 @@ class AnimalController extends Controller
             ],
             [
                 'name' => __('public/animals.bunny'),
-                'value' =>'bunny',
+                'value' =>'rabbit',
             ],
             [
                 'name' => __('public/animals.hamster'),
@@ -49,7 +49,7 @@ class AnimalController extends Controller
         $age_options = [
             [
                 'name' => __('public/animals.under_one'),
-                'value' =>'<1',
+                'value' =>'under_1',
             ],
             [
                 'name' => __('public/animals.one_years'),
@@ -137,10 +137,34 @@ class AnimalController extends Controller
             ->where('published_animal', true)
             ->whereAny(['animal_name', 'species', 'race', 'sex', 'fur', 'character'], 'like', '%' . $search . '%');
 
+/*        $birthday = $age;
+        $today = now();
 
-        if ($age){
-            $filter_animals->where('age', 'like', '%'.$age.'%');
+        $age = $today->diff($birthday);
+        $age = $age->y;*/
+
+        /*$ageInYears = abs(floor(now()->diffInYears($age)));*/
+/*    if ($age ==='<1'){
+            $filter_animals->where('age', '>=', now()->subYears(1));
+        }else{
+            $filter_animals->whereBetween('age', 'like', '%'.$age.'%');
         }
+*/
+        if ($age){
+            if ($age ==='under_1'){
+                $filter_animals->where('age', '>', now()->subYears(1));
+            }else{
+             /*   $start= now()->subYears($age + 1 )->addDay();
+                $end= now()->subYears($age);*/
+                $filter_animals->where('age', '<=', now()->subYears($age))
+                    ->where('age', '>', now()->subYears($age + 1));
+            }
+        }
+
+
+       /* if ($age){
+            $filter_animals->where('age', 'like', '%'.$age.'%');
+        }*/
         if ($sex){
             $filter_animals->where('sex', $sex);
         }

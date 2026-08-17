@@ -38,11 +38,11 @@
 
     <form wire:submit="save" class="admin-form volunteers-edit ">
         @csrf
-        <fieldset class="max-w-admin-web  edit-inputs requests-fields m-t-80">
-            <legend class="fw-700 admin-dashboard-title">
+        <fieldset class=" max-w-admin-web  edit-inputs requests-fields m-t-80">
+            <legend class="profile-information fw-700 admin-dashboard-title">
                 {{__('admin/animals.general_information')}}
             </legend>
-            <p class="obligations m-b-32 ">
+            <p class="profile-information obligations m-b-32 ">
                 {{__('admin/general.mandatory_field')}}
             </p>
             <div class="profile-information request-form-fields d-flex flex-r flex-wrap edit-inputs flex-gap-24">
@@ -67,7 +67,7 @@
                     </x-fields.phone>
                     <x-select select_name="animal_id" label="{{__('admin/adoption-requests.animal_name')}}"
                               :options="$animal_options" wire="animal_id"/>
-                    <x-select select_name="state" label="{{__('admin/adoption-requests.state')}}" :options="$state_options" wire="state"/>
+                    <x-select select_name="state" label="{{__('admin/adoption-requests.state')}}*" :options="$state_options" wire="state"/>
                 </div>
                 <div class="d-flex flex-dir flex-gap-24 col-inputs">
                     <x-fields.textarea wire="message" id="message" name="message"
@@ -85,7 +85,7 @@
             </x-fields.textarea>
         </fieldset>
 
-        <div class=" max-w-admin-web volunteer-buttons top-row">
+        <div class="profile-information max-w-admin-web volunteer-buttons top-row">
             <x-admin.form-button>
                 {{__('admin/animals.save')}}
             </x-admin.form-button>

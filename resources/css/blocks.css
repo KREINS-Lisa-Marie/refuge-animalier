@@ -116,6 +116,8 @@ Variationen durch Modifier (--)
 /*      card        */
 
 .card{
+    min-height: var(--card-height);
+    max-width: var(--web-card-width);
     background-color: var(--background-basic);
     border-radius: var(--medium-border);
     padding: var(--padding-24);
@@ -124,6 +126,7 @@ Variationen durch Modifier (--)
         font-weight: 500;
     }
     img{
+        object-fit: cover;
         box-shadow: var(--general-shadow);
     }
     box-shadow: var(--general-shadow);
@@ -136,6 +139,11 @@ Variationen durch Modifier (--)
 @media (max-width: 999px) {
     .card {
         max-width: var(--phone-card-width);
+        img {
+            width: 288px;
+            height: 288px;
+            object-fit: cover;
+        }
     }
 }
 
@@ -146,6 +154,7 @@ Variationen durch Modifier (--)
         object-fit: cover;
     }
     .card{
+        max-width: var(--web-card-width);
         min-width: auto;
     }
     .card-petname{
@@ -522,8 +531,6 @@ vertical-align: center;
     .more-info-section{
         align-items: center;
         flex-direction: row;
-        padding-left: 0;
-        padding-right: 0;
 
         h2{
             font-size: 48px;
@@ -994,6 +1001,13 @@ box-shadow: var(--web-admin-navbar-shadow);
     .dashboard-card, .dashboard-animal-card {
         min-width: 100%;
     }
+    .dashboard .dashboard-button, .dashboard .dashboard-statictics-card{
+        min-width: 100%;
+    }
+
+    .volunteer-buttons button{
+        width: 100%;
+    }
 }
 
 @media (max-width: 1199px) {
@@ -1264,6 +1278,12 @@ td img{
         }
     .admin-search{
         min-width: 100%;
+    }
+    .profile-index{
+        .top-row form button{
+            min-width: 100%;
+            margin-top: 0;
+        }
     }
 }
 @media (min-width: 600px){
@@ -1555,6 +1575,7 @@ input:checked + .slider:before {
 .animal-img{
     aspect-ratio: 1/1;
     overflow: hidden;
+    object-fit: cover;
 }
 
 
@@ -1715,7 +1736,11 @@ input:checked + .slider:before {
         max-width: 100vw;
         top: 10%;
         .modal-information, .modal-buttons{
+            dt{
+                margin-bottom: var(--margin-8);
+            }
             display: flex;
+            gap: var(--flex-gap-24);
             flex-wrap: wrap;
             flex-direction: column;
             button, a, .modal-button{
@@ -1729,13 +1754,43 @@ input:checked + .slider:before {
             width: 100%;
             text-align: center;
         }
+        h3{
+            font-size: var(--phone-admin-form-title);
+        }
+
+    }
+    .adoption-request{
+        .table .table-row{
+            row-gap: 0;
+        }
     }
 }
 
 @media (min-width: 749px) and (max-width: 1199px) {
     .message-modal{
         max-width: 100vw;
-        top: 10%;
+        position: absolute;
+        min-width: 750px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .modal-information {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "name subject"
+                        "email date"
+                        "state state"
+                        "message message";
+            gap: var(--flex-gap-32);
+        }
+        .grid-state{
+            grid-area: state;
+        }
+    }
+    .adoption-request{
+        .table .table-row{
+            row-gap: 0;
+        }
     }
 }
 @media (min-width: 1200px) {
@@ -1814,9 +1869,7 @@ input:checked + .slider:before {
         justify-content: space-between;
         margin-bottom: var(--margin-56);
     }
-    h3{
-        font-size: var(--titre-inter-admin);
-    }
+
     .modal-button, form.modal-button {
         margin-top: var(--margin-80);
         padding: var(--padding-24) var(--padding-32);
@@ -2148,7 +2201,7 @@ li:has(.error-no-animal){
 @media (min-width: 1200px) {
     .card{
         min-height: var(--card-height);
-        max-height: var(--card-height);
+        /*max-height: var(--card-height);*/
     }
 }
 .animal-filters .select{
@@ -2343,6 +2396,23 @@ li:has(.error-no-animal){
     margin-left: var(--padding-48);
 }
 
+@media (max-width: 1199px) {
+    .table, .admin-filters-buttons {
+        margin-left: var(--padding-24);
+        .table-row{
+            row-gap: var(--margin-16);
+        }
+    }
+    {
+        margin-left: 0;
+    }
+    .messages-page{
+        .table-row{
+            row-gap: 0;
+        }
+    }
+}
+
 
 .profile-pw-form{
     max-width: var(--field-width);
@@ -2496,6 +2566,11 @@ li:has(.error-no-animal){
 @media (max-width: 999px) {
     .volunteers-fields input{
         margin-bottom: 0;
+    }
+    .profile-index{
+        .profile-form input{
+            margin-bottom: 0;
+        }
     }
 }
 

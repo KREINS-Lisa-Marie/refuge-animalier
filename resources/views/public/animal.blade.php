@@ -132,7 +132,7 @@
         </ul>
     </section>
     @if($animal->state == 'adoptable')
-    <section id="request">
+    <section id="request" class="p-l-r-24">
         <h2 class="page-title fw-700 max-w-web margin-l-r-auto color-dark">
             {{__('public/animal.want_to_adopt')}}{{$animal->animal_name}}?
         </h2>

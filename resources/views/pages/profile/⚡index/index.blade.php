@@ -1,4 +1,4 @@
-<main class="main-container" id="content">
+<main class="main-container profile-index" id="content">
     <x-page-bar>
         {{__('admin/profile.profile')}}
     </x-page-bar>
@@ -78,10 +78,6 @@
         </dl>
 
         <div>
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
            <x-admin.language-switch/>
         </div>
 

@@ -277,7 +277,7 @@ new class extends Component
             ],
             [
                 'name' => __('admin/animals.bunny'),
-                'value' =>'bunny',
+                'value' =>'rabbit',
             ],
         ];
 

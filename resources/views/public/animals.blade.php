@@ -84,10 +84,10 @@
             @endforelse
         </ul>
         <div class="pagination-public max-w-admin-web">
-            {{ $animals->links() }}
+            {{ $animals->withQueryString()->links() }}
         </div>
     </section>
-    <section class=" p-b-150">
+    <section class="p-l-r-24 p-b-150">
         <h3 class="page-title fw-700 p-b-32 t-a-center color-dark p-l-r-24">
             {{__('public/animals.similar_animals')}}
         </h3>
@@ -109,3 +109,5 @@
 
 
 </x-public.app>
+{{--https://laravel.com/docs/13.x/pagination#appending-query-string-values
+Parce que sinon reprend pas résultats sur la prochaine page--}}

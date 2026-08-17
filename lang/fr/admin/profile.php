@@ -25,4 +25,5 @@ return [
 
     'current_image'=>'Image actuelle.',
     'changeable_image'=>'Changeable en sélectionnant une autre image',
+    'change_my_data'=>'Modifier mes données',
 ];

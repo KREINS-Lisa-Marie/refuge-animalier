@@ -70,7 +70,7 @@
             @endcan
             <x-admin.search/>
         </div>
-        <div class="bottom-row">
+        {{--<div class="bottom-row">
             <form method="GET" action="{{ route('pages::animals.index', ['locale' => __('general.currentLocale')]) }}"
                   class="filter-form">
                 <div class="field-label">
@@ -83,7 +83,7 @@
                     {{__('admin/animals.filter')}}
                 </x-button>
             </form>
-        </div>
+        </div>--}}
     </div>
     <table class="table max-w-admin-web m-b-32">
         <thead>
@@ -130,7 +130,8 @@
                         @endcan
                 </x-admin.table.table-td>
                 <x-admin.table.table-td class="table-species">
-                    <span class="show-web">{{__('admin/animals.species_title')}}</span>{!! $animal->species !!}
+                    <span class="show-web">{{__('admin/animals.species_title')}}</span>
+                    {{ $animal->species  == 'dog'? __('admin/animals.dog') : ($animal->species  == 'cat'? __('admin/animals.cat') : ($animal->species  == 'rabbit'? __('admin/animals.bunny') : __('admin/animals.hamster'))) }}
                     <a href="{{route('pages::animals.show',  ['locale' => app()->getLocale(),  'animal' => $animal->id])}}" title="{{__('admin/animals.got_to_animal_page')}}" class="card-link">
                     </a>
                 </x-admin.table.table-td>
