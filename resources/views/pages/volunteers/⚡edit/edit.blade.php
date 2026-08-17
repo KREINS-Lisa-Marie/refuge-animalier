@@ -27,27 +27,38 @@
         <p class="obligations m-b-32 ">
             {{__('admin/general.mandatory_field')}}
         </p>
-        <div class="d-flex flex-r flex-wrap edit-inputs flex-gap-24">
+        <div class="d-flex flex-r flex-wrap edit-inputs flex-gap-24 ">
             <div class="d-flex flex-dir flex-gap-24 col-inputs">
-            <x-fields.text id="first_name" name="first_name" value="{!! $volunteer->first_name !!}"
-                           placeholder="Ex: John" wire="first_name">
+            <x-fields.text id="first_name" name="first_name" value="{!! $volunteer->first_name !!}" placeholder="Ex: John" wire="first_name">
                 {{__('admin/volunteers.firstname')}}*
             </x-fields.text>
-            <x-fields.text id="last_name" name="last_name" value="{!! $volunteer->last_name !!}" placeholder="Ex: Doe"
-                           wire="last_name">
+            <x-fields.text id="last_name" name="last_name" value="{!! $volunteer->last_name !!}" placeholder="Ex: Doe" wire="last_name">
                 {{__('admin/volunteers.lastname')}}*
             </x-fields.text>
-            <x-fields.phone id="phone" name="phone" value="{!! $volunteer->phone !!}" placeholder="Ex: 038438293"
-                           wire="phone">
+            <x-fields.phone id="phone" name="phone" value="{!! $volunteer->phone !!}" placeholder="Ex: 038438293" wire="phone">
                 {{__('admin/volunteers.phone_number')}}*
             </x-fields.phone>
-        </div>
+                <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}*" :options="$role_options"
+                          wire="is_admin"/>
+            </div>
             <div class="d-flex flex-dir flex-gap-24 col-inputs">
-            <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options"
-                      wire="is_admin"/>
-            <x-fields.file name_id="profile_image" wire="profile_image" name="profile_image">
+
+   {{--         <x-fields.file name_id="profile_image" wire="profile_image" name="profile_image">
                 {{__('admin/volunteers.profile_image')}}
-            </x-fields.file>
+            </x-fields.file>--}}
+                <div>
+                    @if($volunteer->profile_image)
+                        <div class="profile-edit-img m-b-16">
+                            <img src="{!! asset('storage/images/users/variants/300x300/'.basename($volunteer->profile_image)) !!}" alt="{{__('admin/volunteers.profile_image')}}"
+                                 class="border-r-small profile-img">
+                            <p class="fw-medium">{{__('admin/profile.current_image')}}</p>
+                            <p class="fw-medium">{{__('admin/profile.changeable_image')}}</p>
+                        </div>
+                    @endif
+                    <x-fields.file name_id="profile_image" wire="profile_image" name="profile_image">
+                        {{__('admin/profile.image')}}
+                    </x-fields.file>
+                </div>
         </div>
         </div>
     </fieldset>
@@ -83,7 +94,7 @@
     </fieldset>
 
 
-<div class=" max-w-admin-web volunteer-buttons top-row">
+<div class="profile-information max-w-admin-web volunteer-buttons top-row">
     <x-admin.form-button>
         {{__('admin/volunteers.save')}}
     </x-admin.form-button>

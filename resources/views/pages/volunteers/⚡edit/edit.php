@@ -30,6 +30,8 @@ new class extends Component
     public string $saturday;
     public string $sunday;
 
+    public $image_path = [];
+
     public function mount(User $volunteer): void
     {
         $this->authorize('update', $volunteer);
@@ -41,6 +43,7 @@ new class extends Component
         $this->email = $volunteer->email;
         $this->phone = $volunteer->phone ?? '';
         //$this->profile_image = $volunteer->profile_image?? null;
+        $this->profile_image = $volunteer->profile_image?? null;
         $this->is_admin = $volunteer->is_admin ? '1' : '0';
         $this->monday = $this->availabilities->monday ?? '';
         $this->tuesday = $this->availabilities->tuesday ?? '';
@@ -55,11 +58,11 @@ new class extends Component
     {
         $this->authorize('update', $this->volunteer);
 
-        $validated_data = $this->validate([
+        $validation_rules=    [
             'first_name' => 'required|string|max:255',
             'last_name' => 'string|required|max:255',
             'phone' => 'required|string',
-            'profile_image' => 'image|nullable|mimes:jpg,jpeg,png,webp',
+            /*'profile_image' => 'image|nullable|mimes:jpg,jpeg,png,webp',*/
             'is_admin' => 'required|boolean',
             'monday' => 'string|nullable',
             'tuesday' => 'string|nullable',
@@ -68,9 +71,17 @@ new class extends Component
             'friday' => 'string|nullable',
             'saturday' => 'string|nullable',
             'sunday' => 'string|nullable',
-        ]);
+        ];
 
-        if ($this->profile_image){
+        if (!is_string($this->profile_image)){
+            $validation_rules['profile_image'] =  'image|nullable|mimes:jpg,jpeg,png,webp';
+        }
+        $validated_data = $this->validate($validation_rules);
+
+
+
+
+        if ($this->profile_image && !is_string($this->profile_image)){
             $image_path = $this->profile_image->store(config('userimage.originals_path'), 'public');
             $filename = basename($image_path);        // = juste le nom de l'image sans les dossiers etc
             $image = Image::decode(         //marche pas avec read
@@ -93,7 +104,10 @@ new class extends Component
                     $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
             }
         }
-        else{
+        elseif (is_string($this->profile_image)){      //si c'est une image déjà uploadé et sauvé avant
+            $image_path = $this->profile_image;
+        }
+        else{       //si c'est null ou vide
             $image_path = null;
         }
 
