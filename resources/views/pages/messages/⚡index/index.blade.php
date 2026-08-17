@@ -1,6 +1,6 @@
-@props([
+{{--@props([
     'message'
-])
+])--}}
 @can('viewAny', \App\Models\Message::class)
 <main class="main-container messages-page" id="content">
     <x-page-bar>
