@@ -25,7 +25,7 @@ class RequestPolicy
     }
     public function viewLimited(User $user, Request $request): bool
     {
-        return $user != 'is_admin';
+        return !$user= 'is_admin';
     }
 
     /**
