@@ -25,4 +25,5 @@ return [
 
     'current_image'=>'Changeable by selecting a new image',
     'changeable_image'=>'Changeable by selecting a new image',
+    'change_my_data'=>'Change my data',
 ];
