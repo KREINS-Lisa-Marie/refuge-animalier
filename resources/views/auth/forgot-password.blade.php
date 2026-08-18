@@ -1,5 +1,7 @@
- <x-public.app>
-
+ <x-public.app title="Les pattes heureuses — {{__('auth.forgotten_password')}}">
+     <h1 class="sro" role="heading" aria-level="1">
+         Les pattes heureuses
+     </h1>
     <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="{{__('auth.bg_img')}}"
          class="absolut left-top-0 z-index-neg2 backgr-img">
 
