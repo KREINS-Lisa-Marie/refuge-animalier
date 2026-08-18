@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Lisa-Marie Kreins">
     <meta name="description" content="La page du réfuge 'Les pattes heureuses'">
-    <title>{{ __('emails/user-created.welcome') }}</title>
+    <title>Bienvenue dans l’équipe</title>
     <style>
         body{
             font-family: Montserrat, Avenir,  Helvetica, Arial, sans-serif;
@@ -91,7 +91,7 @@
 <main>
     <section>
         <h2 class="fw-700 admin-dashboard-title">
-            {{ __('emails/user-created.welcome_in_team') }}
+            Bienvenue dans l’équipe du réfuge LES PATTES HEUREUSES
         </h2>
         <p>Vous trouverez ci-dessous les identifiants pour vous connecter à l'interface bénévole du réfuge.</p>
         <dl>
@@ -111,12 +111,12 @@
 
         <p>Il est vivement conseillé de changer votre mot de passe le plus vite possible pour des raisons de sécurité.</p>
         <p>
-            Vous pouvez changer votre mot de passe quand vous êtes connectés à l'interface bénévole dans la partie <a href="{{route('pages::profile.edit', ['locale' => app()->getLocale(),  'profile'=>$user->id,])}}" title=" {{__('admin/profile.change_my_password')}}" class="">'Profil->Changer mon mot de passe'</a> où vous pouvez utiliser le formulaire pour changer le mot de passe ou en utilisant l'interface <a href="{{route('auth.forgot-password', ['locale' => app()->getLocale()])}}" title=" {{__('auth.forgotten_password')}}" class="">'Mot de passe oublié'</a> avant de vous connecter.
+            Vous pouvez changer votre mot de passe quand vous êtes connectés à l'interface bénévole dans la partie <a href="{{route('pages::profile.edit', ['locale' => app()->getLocale(),  'profile'=>$user->id,])}}" title="Changer mon mot de passe" class="">'Profil->Changer mon mot de passe'</a> où vous pouvez utiliser le formulaire pour changer le mot de passe ou en utilisant l'interface <a href="{{route('auth.forgot-password', ['locale' => app()->getLocale()])}}" title="Mot de passe oublié" class="">'Mot de passe oublié'</a> avant de vous connecter.
         </p>
-        <p>Pour vous connecter à l'interface, veuillez simplement entrer vos identifiants dans le <a href="{{route('auth.login', ['locale' => app()->getLocale()])}}" title=" {{__('auth.login')}}" class="">formulaire de connexion</a> qui vous redirigera instannément à l'interface d'administration de bénévoles.
+        <p>Pour vous connecter à l'interface, veuillez simplement entrer vos identifiants dans le <a href="{{route('auth.login', ['locale' => app()->getLocale()])}}" title="Se connecter" class="">formulaire de connexion</a> qui vous redirigera instannément à l'interface d'administration de bénévoles.
         </p>
 
-        <a href="{{route('auth.login', ['locale' => app()->getLocale()])}}" title=" {{__('auth/login')}}" class="btn">Connectez-vous maintenant</a>
+        <a href="{{route('auth.login', ['locale' => app()->getLocale()])}}" title="Se connecter" class="btn">Connectez-vous maintenant</a>
 
         <p>
             Je me réjouis d'une collaboration porteuse,

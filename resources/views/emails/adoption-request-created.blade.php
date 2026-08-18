@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Lisa-Marie Kreins">
     <meta name="description" content="La page du réfuge 'Les pattes heureuses'">
-    <title>{{ __('emails/user-created.welcome') }}</title>
+    <title>Nouvelle demande d’adoption</title>
     <style>
         body{
             font-family: Montserrat, Avenir,  Helvetica, Arial, sans-serif;
@@ -94,7 +94,7 @@
 <main>
     <section>
         <h2 class="fw-700 admin-dashboard-title">
-            {{ __('emails/adoption-request-created.adoption_request_created') }}
+            Nouvelle demande d’adoption
         </h2>
         <div class="message-content">
             <p>Bonjour {{$adoptionRequest->first_name}} {{$adoptionRequest->last_name}},</p>

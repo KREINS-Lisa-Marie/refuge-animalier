@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Lisa-Marie Kreins">
     <meta name="description" content="La page du réfuge 'Les pattes heureuses'">
-    <title>{{ __('emails/animal-created.new_animal_created') }}</title>
+    <title>Animal modifié</title>
     <style>
         body{
             font-family: Montserrat, Avenir,  Helvetica, Arial, sans-serif;
@@ -83,7 +83,6 @@
 <main>
     <section>
         <h2 class="fw-700 admin-dashboard-title">
-            {{--{{ __('emails/user-created.welcome_in_team') }}--}}
             Un animal a été modifié
         </h2>
         <dl>
@@ -107,7 +106,7 @@
             </dd>
         </dl>
 
-        <p>Pour accéder à la fiche de l’animal cliquez <a href="{{route('pages::animals.show',  ['locale' => app()->getLocale(),  'animal' => $animal->id])}}" title="{{__('emails/animal-created.show_animal')}}" class="animal-link">ici</a></p>
+        <p>Pour accéder à la fiche de l’animal cliquez <a href="{{route('pages::animals.show',  ['locale' => app()->getLocale(),  'animal' => $animal->id])}}" title="Voir l’animal" class="animal-link">ici</a></p>
 
     </section>
 </main>

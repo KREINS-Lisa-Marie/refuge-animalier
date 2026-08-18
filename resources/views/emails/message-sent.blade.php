@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Lisa-Marie Kreins">
     <meta name="description" content="La page du réfuge 'Les pattes heureuses'">
-    <title>{{ __('emails/user-created.welcome') }}</title>
+    <title>Message envoyé</title>
     <style>
         body{
             font-family: Montserrat, Avenir,  Helvetica, Arial, sans-serif;
@@ -88,7 +88,7 @@
 <main>
     <section>
         <h2 class="fw-700 admin-dashboard-title">
-            {{ __('emails/message-sent.message-sent') }}
+            Message envoyé
         </h2>
         <div class="message-content">
             <p>Bonjour {{$messageSent->first_name}} {{$messageSent->last_name}},</p>
