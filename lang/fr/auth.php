@@ -28,6 +28,7 @@ return [
     'connect'=>'Se connecter',
     'forgot_pw'=>'Mot de passe oublié?',
     'remember_me'=>'Se souvenir de moi',
+    'login'=>'Se connecter'
 
 
 ];
