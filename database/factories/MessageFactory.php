@@ -15,11 +15,12 @@ class MessageFactory extends Factory
     {
 
         $state = [MessageState::Read->value, MessageState::NotReadYet->value];
+        $subject = ['information', 'volunteer', 'request'];
 
         return [
             'first_name' => fake()->firstName(),
             'last_name' => fake()->word(),
-            'subject' => fake()->word(),
+            'subject' => fake()->randomElement($subject),
             'message' => fake()->word(),
             'email' => fake()->unique()->safeEmail(),
             'state' => fake()->randomElement($state),
