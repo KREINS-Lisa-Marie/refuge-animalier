@@ -154,10 +154,10 @@ new #[Layout('layouts.app')] class extends Component
         $compression = config('animalimage.jpg_compression');
 
         if ($this->show_image){
-            $show_image_path = $this->show_image->store(config('animalimage.originals_path'), 'public');
+            $show_image_path = $this->show_image->store(config('animalimage.originals_path'), 's3');
             $filename = basename($show_image_path); // = juste le nom de l'image sans les dossiers etc
             $image = Image::decode(          //marche pas avec read
-                Storage::disk('public')->get($show_image_path)
+                Storage::disk('s3')->get($show_image_path)
             );
 
             $extension = config('animalimage.jpg_image_type');
@@ -170,7 +170,7 @@ new #[Layout('layouts.app')] class extends Component
                     $size['width'],
                     $size['height']
                 );
-                \Storage::disk('public')->put($variant_path.'/'.$filename,
+                \Storage::disk('s3')->put($variant_path.'/'.$filename,
                     $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
             }
         }
@@ -185,10 +185,10 @@ new #[Layout('layouts.app')] class extends Component
 
         if ($this->gallery_images) {
             foreach ($this->gallery_images as $gallery_image) {
-                $gallery_image_path = $gallery_image->store(config('animalimage.originals_path'), 'public');
+                $gallery_image_path = $gallery_image->store(config('animalimage.originals_path'), 's3');
                 $filename = basename($gallery_image_path); // = juste le nom de l'image sans les dossiers etc
                 $image = Image::decode(          //marche pas avec read
-                    Storage::disk('public')->get($gallery_image_path)
+                    Storage::disk('s3')->get($gallery_image_path)
                 );
 
                 $extension = config('animalimage.jpg_image_type');
@@ -202,7 +202,7 @@ new #[Layout('layouts.app')] class extends Component
                         $size['width'],
                         $size['height']
                     );
-                    \Storage::disk('public')->put($variant_path . '/' . $filename,
+                    \Storage::disk('s3')->put($variant_path . '/' . $filename,
                         $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
                 }
                 $gallery_images_paths[] = $gallery_image_path;   // ajouter chaque image au array
