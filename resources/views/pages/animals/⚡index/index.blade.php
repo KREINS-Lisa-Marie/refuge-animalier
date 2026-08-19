@@ -70,20 +70,6 @@
             @endcan
             <x-admin.search/>
         </div>
-        {{--<div class="bottom-row">
-            <form method="GET" action="{{ route('pages::animals.index', ['locale' => __('general.currentLocale')]) }}"
-                  class="filter-form">
-                <div class="field-label">
-                    <x-select select_name="age" label="Age" :options="$age_options" wire="age"/>
-                </div>
-                <div class="field-label">
-                    <x-select select_name="sex-animals" label="Sexe" :options="$sex_options" wire="sex"/>
-                </div>
-                <x-button>
-                    {{__('admin/animals.filter')}}
-                </x-button>
-            </form>
-        </div>--}}
     </div>
     <table class="table max-w-admin-web m-b-32">
         <thead>

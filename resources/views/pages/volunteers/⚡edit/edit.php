@@ -122,7 +122,6 @@ new class extends Component
              'is_admin' => $validated_data['is_admin'] === '1'      //si = 1 alors = true sinon false
         ]);
 
-        //dd($validated_data['is_admin']);
 
         Availability::updateOrCreate(
             ['user_id' => $this->volunteer->id],

@@ -51,12 +51,11 @@
                           d="M14.5833 6.25C14.5833 4.5924 15.2418 3.00269 16.4139 1.83058C17.586 0.65848 19.1757 0 20.8333 0H37.5C39.1576 0 40.7473 0.65848 41.9194 1.83058C43.0915 3.00269 43.75 4.5924 43.75 6.25H52.0833C53.7409 6.25 55.3307 6.90848 56.5028 8.08058C57.6749 9.25268 58.3333 10.8424 58.3333 12.5V77.0833C58.3333 78.7409 57.6749 80.3306 56.5028 81.5027C55.3307 82.6749 53.7409 83.3333 52.0833 83.3333H6.25C4.5924 83.3333 3.00268 82.6749 1.83058 81.5027C0.65848 80.3306 0 78.7409 0 77.0833V12.5C0 10.8424 0.65848 9.25268 1.83058 8.08058C3.00268 6.90848 4.5924 6.25 6.25 6.25H14.5833ZM37.5 16.6667C39.1576 16.6667 40.7473 16.0082 41.9194 14.8361C43.0915 13.664 43.75 12.0743 43.75 10.4167H52.0833C52.6359 10.4167 53.1658 10.6362 53.5565 11.0269C53.9472 11.4176 54.1667 11.9475 54.1667 12.5V77.0833C54.1667 77.6359 53.9472 78.1658 53.5565 78.5565C53.1658 78.9472 52.6359 79.1667 52.0833 79.1667H6.25C5.69747 79.1667 5.16756 78.9472 4.77686 78.5565C4.38616 78.1658 4.16667 77.6359 4.16667 77.0833V12.5C4.16667 11.9475 4.38616 11.4176 4.77686 11.0269C5.16756 10.6362 5.69747 10.4167 6.25 10.4167H14.5833C14.5833 12.0743 15.2418 13.664 16.4139 14.8361C17.586 16.0082 19.1757 16.6667 20.8333 16.6667H37.5ZM20.8333 4.16667C20.2808 4.16667 19.7509 4.38616 19.3602 4.77686C18.9695 5.16756 18.75 5.69747 18.75 6.25V10.4167C18.75 10.9692 18.9695 11.4991 19.3602 11.8898C19.7509 12.2805 20.2808 12.5 20.8333 12.5H37.5C38.0525 12.5 38.5824 12.2805 38.9731 11.8898C39.3638 11.4991 39.5833 10.9692 39.5833 10.4167V6.25C39.5833 5.69747 39.3638 5.16756 38.9731 4.77686C38.5824 4.38616 38.0525 4.16667 37.5 4.16667H20.8333Z"
                           fill="#51594C"/>
                 </svg>
-                <x-admin.dashboard.dashboard-card-information card_title="{{__('admin/dashboard.volunteers_in_team')}}{{--{{__('admin/dashboard.adoption_requests_not_treated')}}--}}">
+                <x-admin.dashboard.dashboard-card-information card_title="{{__('admin/dashboard.volunteers_in_team')}}
                     {!! $volunteersInTeam !!}
                 </x-admin.dashboard.dashboard-card-information>
                 <a href="{{route('pages::volunteers.index', ['locale' => app()->getLocale()])}}" class="card-link">
                     <span class="sro">
-                    {{--{{__('admin/dashboard.adoption_requests_not_treated')}}--}}
                         {{__('admin/dashboard.volunteers_in_team')}}
                     </span>
                 </a>
@@ -84,9 +83,6 @@
                             d="M72.6799 58.9609C70.4689 55.1562 67.1838 44.4258 67.1838 30.4688C67.1838 22.3879 63.9737 14.6381 58.2597 8.92409C52.5457 3.21009 44.7958 0 36.715 0C28.6342 0 20.8844 3.21009 15.1704 8.92409C9.45638 14.6381 6.24628 22.3879 6.24628 30.4688C6.24628 44.4297 2.95722 55.1562 0.746283 58.9609C0.261185 59.7916 0.00378038 60.7356 4.13239e-05 61.6975C-0.00369773 62.6594 0.246362 63.6053 0.724987 64.4398C1.20361 65.2742 1.89387 65.9676 2.7261 66.45C3.55833 66.9325 4.50308 67.1868 5.46503 67.1875H22.0588C22.628 70.6619 24.4138 73.8209 27.097 76.1003C29.7803 78.3798 33.1865 79.6312 36.7072 79.6312C40.228 79.6312 43.6341 78.3798 46.3174 76.1003C49.0007 73.8209 50.7864 70.6619 51.3557 67.1875H67.965C68.9263 67.1855 69.8701 66.9301 70.7012 66.4471C71.5324 65.9641 72.2215 65.2706 72.6992 64.4364C73.1769 63.6022 73.4263 62.6568 73.4222 61.6955C73.4181 60.7343 73.1607 59.791 72.676 58.9609H72.6799ZM36.715 75C34.4295 74.9993 32.211 74.2277 30.4183 72.81C28.6257 71.3923 27.3636 69.4113 26.8361 67.1875H46.5939C46.0665 69.4113 44.8044 71.3923 43.0117 72.81C41.219 74.2277 39.0006 74.9993 36.715 75ZM68.633 62.1094C68.5687 62.229 68.4727 62.3287 68.3556 62.3976C68.2385 62.4665 68.1048 62.5019 67.9689 62.5H5.46503C5.3292 62.5019 5.19544 62.4665 5.07835 62.3976C4.96125 62.3287 4.86531 62.229 4.80097 62.1094C4.7324 61.9906 4.6963 61.8559 4.6963 61.7188C4.6963 61.5816 4.7324 61.4469 4.80097 61.3281C7.758 56.25 10.9338 44.4102 10.9338 30.4688C10.9338 23.6311 13.65 17.0736 18.4849 12.2387C23.3199 7.40373 29.8774 4.6875 36.715 4.6875C43.5526 4.6875 50.1102 7.40373 54.9451 12.2387C59.7801 17.0736 62.4963 23.6311 62.4963 30.4688C62.4963 44.4062 65.676 56.2305 68.633 61.3281C68.7016 61.4469 68.7377 61.5816 68.7377 61.7188C68.7377 61.8559 68.7016 61.9906 68.633 62.1094Z"
                             fill="#51594C"/>
                 </svg>
-                {{--<x-admin.dashboard.dashboard-card-information card_title="{{__('admin/dashboard.task_alert')}}">
-                    {!! $notifications !!}
-                </x-admin.dashboard.dashboard-card-information>--}}
                 <x-admin.dashboard.dashboard-card-information card_title="{{__('admin/dashboard.task_alert')}}">
                     {!! $taskAlert !!}
                 </x-admin.dashboard.dashboard-card-information>
@@ -137,20 +133,6 @@
         </div>
     </section>
 
-{{--    <section class="m-lr-24 recent-animals max-w-admin-web">
-        <h2 class="fw-700 admin-dashboard-title">
-            {{__('admin/dashboard.recent_animals')}}
-        </h2>
-        <div class="dashboard-animal-cards">
-            @foreach($five_latest_animals as $latest_animal)
-                <x-admin.dashboard.dashboard-animal-cards animal_name="{!! $latest_animal->animal_name !!}" animal_card_age="{!! $latest_animal->age !!}" animal_card_date="{!! $latest_animal->created_at->format('d.m.Y') !!}"
-                                                          animal_card_img_alt="Image de Balou" animal_card_img_h_w="44"
-                                                          animal_card_img_src="{!! asset('assets/img/border-collie.jpg') !!}" :animal_id="$latest_animal->id"/>
-
-
-            @endforeach
-        </div>
-    </section>--}}
 
     <section class="recent-animals max-w-admin-web m-lr-24">
         <h2 class="fw-700 admin-dashboard-title">
@@ -266,10 +248,6 @@
             </tbody>
         </table>
 
-        {{--<a href="#" title="Exporter en PDF"
-           class="dashboard-button dark-button-background color-white d-block export regular-shadow">
-            {{__('admin/dashboard.export_pdf')}}
-        </a>--}}
         <button wire:click="exportStatsPdf" class="dashboard-button dark-button-background color-white d-block export regular-shadow">
             {{__('admin/dashboard.export_pdf')}}
         </button>

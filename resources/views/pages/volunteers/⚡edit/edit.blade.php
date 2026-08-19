@@ -43,9 +43,6 @@
             </div>
             <div class="d-flex flex-dir flex-gap-24 col-inputs">
 
-   {{--         <x-fields.file name_id="profile_image" wire="profile_image" name="profile_image">
-                {{__('admin/volunteers.profile_image')}}
-            </x-fields.file>--}}
                 <div>
                     @if($volunteer->profile_image)
                         <div class="profile-edit-img m-b-16">

@@ -137,25 +137,11 @@ class AnimalController extends Controller
             ->where('published_animal', true)
             ->whereAny(['animal_name', 'species', 'race', 'sex', 'fur', 'character'], 'like', '%' . $search . '%');
 
-/*        $birthday = $age;
-        $today = now();
 
-        $age = $today->diff($birthday);
-        $age = $age->y;*/
-
-        /*$ageInYears = abs(floor(now()->diffInYears($age)));*/
-/*    if ($age ==='<1'){
-            $filter_animals->where('age', '>=', now()->subYears(1));
-        }else{
-            $filter_animals->whereBetween('age', 'like', '%'.$age.'%');
-        }
-*/
         if ($age){
             if ($age ==='under_1'){
                 $filter_animals->where('age', '>', now()->subYears(1));
             }else{
-             /*   $start= now()->subYears($age + 1 )->addDay();
-                $end= now()->subYears($age);*/
                 $filter_animals->where('age', '<=', now()->subYears($age))
                     ->where('age', '>', now()->subYears($age + 1));
             }
