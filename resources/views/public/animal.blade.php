@@ -96,27 +96,12 @@
                 @endif
             </div>
         </div>
-        {{--        <a href="{{route('public.contact')}}" title="Aller vers la page Contact">
-                    Demander de rencontrer Balou
-                </a>--}}
     </section>
     <section class="background-light p-l-r-24 p-b-60-150">
         <h2 class="page-title fw-700 max-w-web margin-l-r-auto color-dark">
             {{__('public/animal.galery_of')}}<span itemprop="name">{!! $animal->animal_name !!}</span>
         </h2>
         <ul class="m-t-32 d-flex flex-r flex-gap-32 flex-wrap max-w-web margin-l-r-auto">
-    {{--        <li class="flex-gap-32 ">
-                <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('public/animal.animal_image')}}"
-                     class="border-r-small border-xl" width="300" height="300" >
-            </li>
-            <li class="flex-gap-32">
-                <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('public/animal.animal_image')}}"
-                     class="border-r-small border-xl" width="300" height="300" >
-            </li>
-            <li class="flex-gap-32">
-                <img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="{{__('public/animal.animal_image')}}"
-                     class="border-r-small border-xl" width="300" height="300" >
-            </li>--}}
 
             @if(!empty($animal->gallery_images))
                 @foreach($animal->gallery_images as $image )
@@ -189,8 +174,7 @@
 
                 </div>
             </fieldset>
-            <button type="submit"
-                    class="btn contact-form-btn background-dark color-white dark-button-background min-w-130 border-r-big margin-l-r-auto m-t-32 d-block p-16-32">{{__('public/contact.send')}}
+            <button type="submit" class="btn contact-form-btn background-dark color-white dark-button-background min-w-130 border-r-big margin-l-r-auto m-t-32 d-block p-16-32">{{__('public/contact.send')}}
             </button>
             @if(session('successMessage'))
                 <p class="success">

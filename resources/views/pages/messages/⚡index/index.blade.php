@@ -1,6 +1,3 @@
-{{--@props([
-    'message'
-])--}}
 @can('viewAny', \App\Models\Message::class)
 <main class="main-container messages-page" id="content">
     <x-page-bar>
@@ -14,11 +11,6 @@
             </x-admin.admin-button>
             <x-admin.search/>
         </div>
-{{--        <div class="bottom-row bottom-row-volunteer">
-            <div>
-                <x-select select_name="filtering" label="Trier" :options="$filter_options" wire="filtering"/>
-            </div>
-        </div>--}}
     </div>
     <table class="table max-w-admin-web m-b-32">
         <thead>

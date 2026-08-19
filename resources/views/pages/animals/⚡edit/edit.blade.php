@@ -1,7 +1,7 @@
 <main class="main-container" id="content">
     @can('update', $animal)
     <x-page-bar>
-        Modifier {{ $animal_name }}
+        {{__('admin/volunteers.modify')}} {{ $animal_name }}
     </x-page-bar>
 
     <form wire:submit.prevent="save" class="admin-form volunteers-edit" enctype="multipart/form-data">
