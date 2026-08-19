@@ -13,7 +13,7 @@
                hreflang="{{app()->getLocale()}}"
                class="languages__link nav__link__header small-logo"
                title="{{__('admin/sidebar.logo')}}"
-               aria-label="{{__('admin/sidebar.go_to_homepage')}}">
+               aria-label="LES PATTES HEUREUSES — {{__('admin/sidebar.go_to_homepage')}}">
                 <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.71 34" height="34" width="110.44">
                     <defs>
                         <style>
