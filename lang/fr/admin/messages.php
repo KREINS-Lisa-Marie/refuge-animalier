@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'messages' => 'Messages',
+    'message' => 'Message',
+    'send_email' => 'Ecrire un email',
+    'name' => 'Nom complet',
+    'name_title' => 'Nom complet : ',
+    'email' => 'Email',
+    'email_title' => 'Email : ',
+    'date' => 'Date',
+    'date_title' => 'Date : ',
+    'animal' => 'Animal',
+    'animal_title' => 'Animal : ',
+    'subject' => 'Sujet ',
+    'subject_title' => 'Sujet : ',
+    'state' => 'Statut',
+    'see_message' => 'Voir le message',
+    'open_message'=>'Ouvrir le message',
+    'contact_message'=>'Message de contact',
+    'close'=>'Fermer',
+    'message_seen'=>'Message vu',
+    'answer'=>'Répondre',
+    'delete_message'=>'Supprimer le message',
+
+    'read'=> 'Lu',
+    'not_read_yet'=> 'Pas encore lu',
+    'no_message_found'=> 'Pas de message trouvé',
+    'information'=> 'Information',
+    'volunteer'=> 'Bénévolat',
+    'adoption-request'=> 'Demande d’adoption',
+];

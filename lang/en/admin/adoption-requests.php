@@ -1,0 +1,46 @@
+<?php
+
+return [
+    'adoption_requests' => 'Adoption requests',
+    'create_a_request' => 'Create a request',
+    'name' => 'Full name',
+    'name_title' => 'Full name: ',
+    'date' => 'Date',
+    'date_title' => 'Date: ',
+    'animal' => 'Animal',
+    'animal_title' => 'Animal: ',
+    'state' => 'Status',
+    'state_title' => 'Status: ',
+
+    'phone' => 'Phone',
+    'adress' => 'Address',
+    'adoptant_first_name' => 'First name',
+    'adoptant_last_name' => 'Last name',
+    'animal_name' => 'Animal name',
+    'request_date' => 'Request date',
+    'adoption_message' => 'Adoption request message',
+    'modify_a_request' => 'Edit a request',
+    'adoption_comment' => 'Comment',
+    'new_adoption_request' => 'New adoption request',
+    'email' => 'Email address',
+
+    'adopted' => 'Adopted',
+    'in_treatment' => 'In Treatment',
+    'refused' => 'Refused',
+    'not_treated_yet' => 'Not treated yet',
+    'no_request_found' => 'No request found',
+
+    'adoption_request' => 'Adoption request',
+    'adoption_request_for' => 'Adoption request for',
+    'comment' => 'Our observations',
+    'deny_request' => 'Reject the adoption',
+    'accept_request' => 'Accept the adoption',
+    'delete_adoption_request' => 'Delete the request',
+    'modify_request' => 'Modify the request',
+    'go_to_modify_request_page' => 'Go to the Modify Request page',
+
+    'placeholder_message' => 'Hello, I would like to meet Jimmy.',
+    'placeholder_comment' => 'Camille seems serious. The meeting went well.',
+    'go_to_create_request' => "Go to the 'Create a Request' page",
+    'delete_request' => 'Delete the Request',
+];

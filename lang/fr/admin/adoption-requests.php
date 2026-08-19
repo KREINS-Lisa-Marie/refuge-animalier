@@ -1,0 +1,46 @@
+<?php
+
+return [
+    'adoption_requests' => 'Demandes d’adoption',
+    'create_a_request' => 'Créer une demande',
+    'name' => 'Nom complet',
+    'name_title' => 'Nom complet : ',
+    'date' => 'Date',
+    'date_title' => 'Date : ',
+    'animal' => 'Animal',
+    'animal_title' => 'Animal : ',
+    'state' => 'Statut',
+    'state_title' => 'Statut : ',
+
+    'phone' => 'Téléphone',
+    'adress' => 'Adresse',
+    'adoptant_first_name' => 'Prénom',
+    'adoptant_last_name' => 'Nom',
+    'animal_name' => 'Nom de l’animal',
+    'request_date' => 'Date de la demande',
+    'adoption_message' => 'Message de la demande',
+    'modify_a_request' => 'Modifier une demande',
+    'adoption_comment' => 'Commentaire',
+    'new_adoption_request' => 'Nouvelle demande d’adoption',
+    'email' => 'Addresse email',
+
+    'adopted' => 'Adopté',
+    'in_treatment' => 'En traitement',
+    'refused' => 'Refusé',
+    'not_treated_yet' => 'Pas encore traité',
+    'no_request_found' => 'Pas de demande trouvée',
+
+    'adoption_request' => 'Demande d’adoption',
+    'adoption_request_for' => 'Demande d’adoption pour',
+    'comment' => 'Nos observations',
+    'deny_request' => 'Refuser l’adoption',
+    'accept_request' => 'Accepter l’adoption',
+    'delete_adoption_request' => 'Supprimer la demande',
+    'modify_request' => 'Modifier la demande',
+    'go_to_modify_request_page' => 'Aller vers la page Modifier la demande',
+
+    'placeholder_message' => 'Bonjour, Je voudrais bien rencontrer Jimmy.',
+    'placeholder_comment' => 'Camille semble sérieux. La rencontre s’est bien passée.',
+    'go_to_create_request' => "Aller sur la page 'Créer une demande'",
+    'delete_request' => "Supprimer la demande",
+];

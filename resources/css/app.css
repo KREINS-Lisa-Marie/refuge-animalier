@@ -1,4 +1,10 @@
 @import 'tailwindcss';
+@import "./reset.css";
+@import "./composition.css";
+@import "./utilities.css";
+@import "./blocks.css";
+@import "./exceptions.css";
+@import "./variables.css";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
