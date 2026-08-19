@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{locale}', [HomepageController::class, 'index'])->name('public.homepage')->middleware('guest');
 
 Route::get('/', function () {
-    return redirect()->route('auth.login', ['locale' => app()->getLocale()]);
+    return redirect()->route('public.homepage', ['locale' => app()->getLocale()]);
 })->middleware('guest');
 
 Route::get('/{locale}/contact',  [ContactController::class, 'index'])->name('public.contact')->middleware('guest');
@@ -29,6 +29,12 @@ Route::post('/{locale}/animal/{animal}', [AnimalController::class, 'store'])->na
 Route::get('/{locale}/login', function () {
     return view('auth.login');
 })->name('auth.login')->middleware('guest');
+
+
+
+Route::get('/login', function () {
+    return redirect()->route('auth.login', ['locale' => app()->getLocale()]);
+})->middleware('guest');
 
 Route::get('/{locale}/forgot-password', function () {
     return view('auth.forgot-password');

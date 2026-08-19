@@ -23,36 +23,38 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        if (!User::where('email', 'lisa-marie.kreins@student.hepl.be')->exists()) {
+            $user = User::create([
+                'first_name' => 'TestFirstName',
+                'last_name' => 'TestLastName',
+                'email' => 'lisa-marie.kreins@student.hepl.be',
+                'phone' => '0123456789',
+                'is_admin' => true,
+                'password' => Hash::make(config('admin.password')),
+            ]);
+        }
 
-        $user = User::factory()->create([
-            'first_name' => 'TestFirstName',
-            'last_name' => 'TestLastName',
-            'email' => 'test@test.com',
-            'phone' => '0123456789',
-            'is_admin' => true,
-            'profile_image' => 'felfjzsofezns.jpg',
-            'password' => Hash::make('test'),
-        ]);
+        if (!User::where('email', 'elise@lambot.com')->exists()) {
+            $elise = User::create([
+                'first_name' => 'Elise',
+                'last_name' => 'Lambot',
+                'email' => 'elise@lambot.com',
+                'phone' => '0123456789',
+                'is_admin' => true,
+                'password' => Hash::make(config('admin.password')),
+            ]);
+        }
 
-        $elise = User::factory()->create([
-            'first_name' => 'Elise',
-            'last_name' => 'Lambot',
-            'email' => 'elise@lambot.com',
-            'phone' => '0123456789',
-            'is_admin' => true,
-            'profile_image' => 'imageelise.jpg',
-            'password' => Hash::make('test'),
-        ]);
-        $thomas = User::factory()->create([
-            'first_name' => 'Thomas',
-            'last_name' => 'Fortin',
-            'email' => 'thomas@fortin.com',
-            'phone' => '0123456789',
-            'is_admin' => false,
-            'profile_image' => 'imagethomas.jpg',
-            'password' => Hash::make('test'),
-        ]);
-
+        if (!User::where('email', 'thomas@fortin.com')->exists()) {
+            $thomas = User::create([
+                'first_name' => 'Thomas',
+                'last_name' => 'Fortin',
+                'email' => 'thomas@fortin.com',
+                'phone' => '0123456789',
+                'is_admin' => false,
+                'password' => Hash::make(config('admin.volunteer_password')),
+            ]);
+        }
 
         Availability::factory()->for($user)->create();
 

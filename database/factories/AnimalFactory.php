@@ -17,11 +17,12 @@ class AnimalFactory extends Factory
 
         $sex = [Sex::Male->value, Sex::Female->value];
         $state = [AnimalState::Adoptable->value, AnimalState::Adopted->value, AnimalState::ProcessingAdoption->value, AnimalState::InTreatment->value];
-$gallery = fake()->boolean(50) ? ['images/animals/originals/default.jpeg'] : [];
+        $gallery = fake()->boolean(50) ? ['images/animals/originals/default.jpeg'] : [];
+        $species = ['dog', 'cat','rabbit', 'hamster'];
 
         return [
             'animal_name' => fake()->firstName(),
-            'species' => fake()->word(),
+            'species' => fake()->randomElement($species),
             'race' => fake()->word(),
             'sex' => fake()->randomElement($sex),
             'fur' => fake()->word(),
@@ -30,11 +31,11 @@ $gallery = fake()->boolean(50) ? ['images/animals/originals/default.jpeg'] : [];
             'character' => fake()->word(),
             'state' => fake()->randomElement($state),
             'description' => fake()->text(),
-            'show_image' => fake()->boolean(50) ? null : 'images/animals/originals/default.jpeg',
+            'show_image' => fake()->boolean(50) ? null : 'assets/img/default.jpg',
             'gallery_images' => $gallery,
             'internal_notes' => fake()->text(),
             'modification_request' => fake()->text(),
-            'published_animal'=> fake()->boolean(),
+            'published_animal'=> fake()->boolean(50) ? '1': '0',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
