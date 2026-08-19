@@ -30,7 +30,7 @@
             <div>
             @if($user->profile_image)
                 <div class="profile-edit-img m-b-16">
-                    <img src="{!! asset('storage/images/users/variants/300x300/'.basename($user->profile_image)) !!}" alt="{{__('admin/volunteers.profile_image')}}"
+                    <img src="{{Storage::disk('s3')->url('images/users/variants/300x300/'.basename($user->profile_image))}}" alt="{{__('admin/volunteers.profile_image')}}"
                          class="border-r-small profile-img">
                     <p class="fw-medium">{{__('admin/profile.current_image')}}</p>
                     <p class="fw-medium">{{__('admin/profile.changeable_image')}}</p>

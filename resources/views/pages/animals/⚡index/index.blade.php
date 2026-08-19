@@ -94,7 +94,7 @@
             <tr class="table-row position-relative">
                 <x-admin.table.table-td class="table-img">
                     @if($animal->show_image)
-                        <img src="{!! asset('storage/images/animals/variants/100x100/'.basename($animal->show_image)) !!}" alt="{{__('admin/animals.animal_image')}}"
+                        <img src="{{Storage::disk('s3')->url('images/animals/variants/100x100/'.basename($animal->show_image))}}" alt="{{__('admin/animals.animal_image')}}"
                              class="border-r-big animal-img">
                     @else
                         <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="100" height="100"

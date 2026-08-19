@@ -100,7 +100,7 @@
                 @foreach($gallery_images as $index=>$image)
                     <div>
                         @if(is_string($image))
-                            <img src="{{ asset('storage/' . $image) }}" alt="Gallery image" width="100" height="100">
+                            <img src="{{ Storage::disk('s3')->url($image) }}" alt="Gallery image" width="100" height="100">
                         @else
                             @if($image->isPreviewable())
                                 <img src="{{ $image->temporaryUrl() }}" alt="Gallery image" width="100" height="100">
