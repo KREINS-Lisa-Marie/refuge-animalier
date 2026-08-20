@@ -9,7 +9,7 @@
                 {{__('public/home.page_description')}}
             </p>
         </div>
-        <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="{{__('public/home.image_of_dogs')}}" width="948" height="911" class="front-image" itemprop="image">
+        <img src="{!! asset('assets/content/dogs.jpg') !!}" alt="{{__('public/home.image_of_dogs')}}" width="948" height="911" class="front-image" itemprop="image">
     </section>
     <section
         class="section background-dark p-l-r-24 p-t-b-60-150 flex-cr d-flex wrap-reverse flex-gap-32 title-text-img">
@@ -21,7 +21,7 @@
                 {{__('public/home.where_every_paw_counts_text')}}
             </p>
         </div>
-        <img src="{!! asset('assets/img/patte.jpg') !!}" alt="{{('public/home.image_of_dogpaw')}}" width="328" height="328"
+        <img src="{!! asset('assets/content/patte.jpg') !!}" alt="{{('public/home.image_of_dogpaw')}}" width="328" height="328"
              class="border-r-small">
     </section>
     <section class="p-t-b-60-150 background-light p-l-r-24 fs-texte home-adoption-section">
@@ -54,7 +54,7 @@
                 {{__('public/home.contact_us')}}
             </a>
         </div>
-        <img src="{!! asset('assets/img/dogs.jpg') !!}" alt="{{__('public/home.image_of_dogs')}}" width="948" height="911"
+        <img src="{!! asset('assets/content/dogs.jpg') !!}" alt="{{__('public/home.image_of_dogs')}}" width="948" height="911"
              class="m-l-auto d-block border-r-small">
     </section>
 </x-public.app>

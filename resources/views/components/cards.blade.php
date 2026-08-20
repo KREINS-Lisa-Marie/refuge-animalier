@@ -13,7 +13,7 @@
 <div class="card" itemscope itemtype="https://schema.org/Thing">
 {{--    <img src="{!! asset('assets/img/frenchie.png') !!}" alt="{{__('public/home.image_of_dog')}}" class="border-r-small m-b-24 card-img">--}}
     @if($petimg)
-        <img src="{{ \Illuminate\Support\Facades\Storage::url($petimg) }}" alt="Image de {{$petimg}}" class="border-r-small m-b-24 card-img" width="288" height="288" itemprop="image">
+        <img src="{{Storage::disk('s3')->url('images/animals/variants/288x288/'.basename($petimg))}}" alt="Image de {{$petimg}}" class="border-r-small m-b-24 card-img" width="288" height="288" itemprop="image">
     @else
         <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" class="border-r-small m-b-24 card-img" height="288" width="288" itemprop="image">
     @endif

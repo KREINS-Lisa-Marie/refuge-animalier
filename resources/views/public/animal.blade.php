@@ -22,9 +22,9 @@
             {{--<img src="{!! asset('assets/img/border-collie.jpg') !!}" alt="Image du chien"
                  class="animal-img border-r-small border-xl" width="327" height="327">--}}
             @if($animal->show_image)
-                <img src="{!! asset('storage/images/animals/variants/400x400/'.basename($animal->show_image)) !!}" alt="{{__('admin/animals.animal_image')}}" class="animal-img border-r-small border-xl" width="400" height="400" itemprop="image">
+                <img src="{{Storage::disk('s3')->url('images/animals/variants/400x400/'.basename($animal->show_image))}}" alt="{{__('admin/animals.animal_image')}}" class="animal-img border-r-small border-xl" width="400" height="400" itemprop="image">
             @else
-                <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="400" height="400" class="animal-img border-r-small border-xl" itemprop="image">
+                <img src="{!! asset('assets/content/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="400" height="400" class="animal-img border-r-small border-xl" itemprop="image">
             @endif
 
 
@@ -106,7 +106,7 @@
             @if(!empty($animal->gallery_images))
                 @foreach($animal->gallery_images as $image )
                     <li class="flex-gap-32">
-                        <img src="{{ \Illuminate\Support\Facades\Storage::url($image) }}" alt="Image de {{$animal->animal_name}}" class="border-xl public-animals-circles" width="300" height="300">
+                        <img src="{{Storage::disk('s3')->url('images/animals/variants/300x300/'.basename($image))}}" alt="Image de {{$animal->animal_name}}" class="border-xl public-animals-circles" width="300" height="300">
                     </li>
                 @endforeach
             @else
