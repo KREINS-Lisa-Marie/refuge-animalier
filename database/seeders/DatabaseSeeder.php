@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
                 'is_admin' => true,
                 'password' => Hash::make(config('admin.password')),
             ]);
+        }else{
+            $user = User::where('email', 'lisa-marie.kreins@student.hepl.be')->first();
         }
 
         if (!User::where('email', 'elise@lambot.com')->exists()) {
@@ -43,6 +45,8 @@ class DatabaseSeeder extends Seeder
                 'is_admin' => true,
                 'password' => Hash::make(config('admin.password')),
             ]);
+        }else{
+            $elise = User::where('email', 'elise@lambot.com')->first();
         }
 
         if (!User::where('email', 'thomas@fortin.com')->exists()) {
@@ -54,6 +58,8 @@ class DatabaseSeeder extends Seeder
                 'is_admin' => false,
                 'password' => Hash::make(config('admin.volunteer_password')),
             ]);
+        }else{
+            $thomas = User::where('email', 'thomas@fortin.com')->first();
         }
 
         if ($user && !Availability::where('user_id', $user->id)->exists()) {
