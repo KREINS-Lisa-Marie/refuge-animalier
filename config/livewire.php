@@ -125,7 +125,8 @@ return [
     */
 
     'temporary_file_upload' => [
-        'disk' => null,        // Example: 'local', 's3'              | Default: 'default'
+        'disk' => 'local',        // Example: 'local', 's3'              | Default: 'default'
+        //S3 temporary file upload driver only supports single file uploads. -> donc je dois mettre local, permanent est stocké dans s3 a cause de FILESYSTEM_DISK=s3 dans .env
         'rules' => null,       // Example: ['file', 'mimes:png,jpg']  | Default: ['required', 'file', 'max:12288'] (12MB)
         'directory' => null,   // Example: 'tmp'                      | Default: 'livewire-tmp'
         'middleware' => null,  // Example: 'throttle:5,1'             | Default: 'throttle:60,1'
