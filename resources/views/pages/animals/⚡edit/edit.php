@@ -86,6 +86,7 @@ new class extends Component
         $this->authorize('update', $this->animal);
        // $this->authorize('updateLimited', $this->animal);
 
+        dd($this->show_image, $this->gallery_images);
 
         $validation_rules=    [
             'animal_name'=>'required|string|max:255',
