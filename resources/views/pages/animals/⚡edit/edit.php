@@ -125,7 +125,25 @@ new class extends Component
         if ($this->show_image && !is_string($this->show_image)){        //si c'est un nouveau upload
             $show_image_path = $this->show_image->store(config('animalimage.originals_path'), 's3');
 
-            \App\Jobs\ProcessAnimalImage::dispatch($show_image_path);
+            $filename = basename($show_image_path);        // = juste le nom de l'image sans les dossiers etc
+            $image = Image::decode(         //marche pas avec read
+                Storage::disk('s3')->get($show_image_path)
+            );
+
+            $extension = config('animalimage.jpg_image_type');
+
+            foreach ($sizes as $size){
+                $variant = clone $image;
+
+                $variant->scale($size['width']);
+                $variant_path = sprintf(
+                    config('animalimage.variants_path_pattern'),
+                    $size['width'],
+                    $size['height']
+                );
+                \Storage::disk('s3')->put($variant_path.'/'.$filename,
+                    $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
+            }
 
         }
         elseif (is_string($this->show_image)){      //si c'est une image déjà uploadé et sauvé avant
