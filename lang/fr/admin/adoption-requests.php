@@ -43,4 +43,6 @@ return [
     'placeholder_comment' => 'Camille semble sérieux. La rencontre s’est bien passée.',
     'go_to_create_request' => "Aller sur la page 'Créer une demande'",
     'delete_request' => "Supprimer la demande",
+    'deny_sending_mail' => "Ne pas envoyer un mail",
+    'confirm_sending_mail' => "Envoyer un mail",
 ];
