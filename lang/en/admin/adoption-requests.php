@@ -43,4 +43,6 @@ return [
     'placeholder_comment' => 'Camille seems serious. The meeting went well.',
     'go_to_create_request' => "Go to the 'Create a Request' page",
     'delete_request' => 'Delete the Request',
+    'deny_sending_mail' => "Don't send an email",
+    'confirm_sending_mail' => "Send an email",
 ];
