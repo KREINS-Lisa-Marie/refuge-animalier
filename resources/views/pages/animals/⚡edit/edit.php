@@ -73,6 +73,8 @@ new class extends Component
 
     public function updatedNewGalleryImages()
     {
+        dd($this->new_gallery_images);
+
         if (is_array($this->new_gallery_images)){
             foreach ($this->new_gallery_images as $image) {
                 $this->gallery_images[] = $image;
