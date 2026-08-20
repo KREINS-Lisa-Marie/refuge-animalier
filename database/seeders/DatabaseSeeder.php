@@ -56,7 +56,46 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        Availability::factory()->for($user)->create();
+        if ($user && !Availability::where('user_id', $user->id)->exists()) {
+            Availability::create([
+                'user_id' => $user->id,
+                'monday' => '10-12',
+                'tuesday' => '12-17',
+                'wednesday' => '10-13',
+                'thursday' => '/',
+                'friday' => '/',
+                'saturday' => '/',
+                'sunday' => '15-19',
+            ]);
+        }
+
+        if ($elise && !Availability::where('user_id', $elise->id)->exists()) {
+            Availability::create([
+                'user_id' => $elise->id,
+                'monday' => '8-12',
+                'tuesday' => '12-17',
+                'wednesday' => '10-13',
+                'thursday' => '/',
+                'friday' => '/',
+                'saturday' => '7-13',
+                'sunday' => '10-13',
+            ]);
+        }
+
+        if ($thomas && !Availability::where('user_id', $thomas->id)->exists()) {
+            Availability::create([
+                'user_id' => $thomas->id,
+                'monday' => '8-12',
+                'tuesday' => '12-17',
+                'wednesday' => '10-13',
+                'thursday' => '15-19',
+                'friday' => '10-19',
+                'saturday' => '10-19',
+                'sunday' => '/',
+            ]);
+        }
+
+        /*Availability::factory()->for($user)->create();
 
         User::factory(5)
             ->hasAvailability()
@@ -73,6 +112,6 @@ class DatabaseSeeder extends Seeder
             Request::factory()->create([
                 'animal_id'=>$adoptables->random()->id,
             ]);
-        }
+        }*/
     }
 }
