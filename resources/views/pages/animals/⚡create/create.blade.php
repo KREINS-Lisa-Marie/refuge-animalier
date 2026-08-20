@@ -22,7 +22,7 @@
                     <x-select select_name="species" :options="$species_options" wire="species" label="{{__('admin/animals.species')}}*">
                     </x-select>
                     <x-fields.text id="race" name="race" value="" placeholder="Ex: Dalmatien" wire="race">
-                        {{__('admin/animals.race')}}*
+                        {{__('admin/animals.race')}}
                     </x-fields.text>
                     <x-select select_name="sex" :options="$gender" wire="sex" label="{{__('admin/animals.sex')}}*">
                     </x-select>
@@ -54,7 +54,7 @@
                     <x-fields.text id="character" name="character" value="" placeholder="{{__('admin/animals.character_placeholder')}}" wire="character">
                         {{__('admin/animals.personality')}}
                     </x-fields.text>
-                    <x-select select_name="state" label="{{__('admin/animals.state')}}" wire="state"
+                    <x-select select_name="state" label="{{__('admin/animals.state')}}*" wire="state"
                               :options="$animal_state_options">
                     </x-select>
                     <x-fields.file name_id="show_image" wire="show_image" name="show_image">
