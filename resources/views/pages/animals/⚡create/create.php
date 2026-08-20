@@ -150,29 +150,10 @@ new #[Layout('layouts.app')] class extends Component
             'gallery_images.*'=>'image|nullable|mimes:jpg,jpeg,png,webp',
         ]);
 
-        $sizes = config('animalimage.sizes');
-        $compression = config('animalimage.jpg_compression');
 
         if ($this->show_image){
             $show_image_path = $this->show_image->store(config('animalimage.originals_path'), 's3');
-            $filename = basename($show_image_path); // = juste le nom de l'image sans les dossiers etc
-            $image = Image::decode(          //marche pas avec read
-                Storage::disk('s3')->get($show_image_path)
-            );
-
-            $extension = config('animalimage.jpg_image_type');
-
-            foreach ($sizes as $size){
-                $variant = clone $image;
-                $variant->scale($size['width']);
-                $variant_path = sprintf(
-                    config('animalimage.variants_path_pattern'),
-                    $size['width'],
-                    $size['height']
-                );
-                \Storage::disk('s3')->put($variant_path.'/'.$filename,
-                    $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
-            }
+            \App\Jobs\ProcessAnimalImage::dispatch($show_image_path);
         }
         else{
             $show_image_path = null;
@@ -186,25 +167,9 @@ new #[Layout('layouts.app')] class extends Component
         if ($this->gallery_images) {
             foreach ($this->gallery_images as $gallery_image) {
                 $gallery_image_path = $gallery_image->store(config('animalimage.originals_path'), 's3');
-                $filename = basename($gallery_image_path); // = juste le nom de l'image sans les dossiers etc
-                $image = Image::decode(          //marche pas avec read
-                    Storage::disk('s3')->get($gallery_image_path)
-                );
+                \App\Jobs\ProcessAnimalImage::dispatch($gallery_image);
+                /* J'utilise un job car pour la gallerie l'upload peut durer longtemps et bloquer ou bugger la page. Comme ça l'utilisateur peut continuer comme normal*/
 
-                $extension = config('animalimage.jpg_image_type');
-
-
-                foreach ($sizes as $size) {
-                    $variant = clone $image;
-                    $variant->scale($size['width']);
-                    $variant_path = sprintf(
-                        config('animalimage.variants_path_pattern'),
-                        $size['width'],
-                        $size['height']
-                    );
-                    \Storage::disk('s3')->put($variant_path . '/' . $filename,
-                        $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
-                }
                 $gallery_images_paths[] = $gallery_image_path;   // ajouter chaque image au array
             }
         }
@@ -240,3 +205,9 @@ new #[Layout('layouts.app')] class extends Component
         $this->redirect(route('pages::animals.index', ['locale' => app()->getLocale()]));
     }
 };
+
+/*
+ * https://laravel.com/framework/docs/13.x/queues#creating-jobs
+ * https://laravel.com/framework/docs/13.x/queues#dispatching-jobs
+ *
+ * */
