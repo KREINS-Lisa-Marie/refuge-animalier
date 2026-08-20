@@ -111,7 +111,7 @@
                         <img src="{{Storage::disk('s3')->url('images/animals/variants/200x200/'.basename($animal->show_image))}}" alt="{{__('admin/animals.animal_image')}}"
                              class="border-r-small profile-img">
                     @else
-                        <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}"
+                        <img src="{!! asset('assets/content/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}"
                              class="border-r-small profile-img">
                     @endif
                 </x-definition>

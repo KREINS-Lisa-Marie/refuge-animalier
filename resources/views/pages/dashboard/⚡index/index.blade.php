@@ -176,7 +176,7 @@
                             <img src="{!! asset('storage/images/animals/variants/100x100/'.basename($animal->show_image)) !!}" alt="{{__('admin/animals.animal_image')}}"
                                  class="border-r-big animal-img">
                         @else
-                            <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="100" height="100"
+                            <img src="{!! asset('assets/content/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="100" height="100"
                                  class="border-r-big animal-img">
                         @endif
                         {{--<img src="{{$animal->img}}" alt="{{__('admin/dashboard.animal_image')}}" height="44" width="44" class="dashboard_animal_card_img">--}}

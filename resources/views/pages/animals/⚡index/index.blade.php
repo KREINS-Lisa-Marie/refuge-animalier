@@ -97,7 +97,7 @@
                         <img src="{{Storage::disk('s3')->url('images/animals/variants/100x100/'.basename($animal->show_image))}}" alt="{{__('admin/animals.animal_image')}}"
                              class="border-r-big animal-img">
                     @else
-                        <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="100" height="100"
+                        <img src="{!! asset('assets/content/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="100" height="100"
                              class="border-r-big animal-img">
                     @endif
                 </x-admin.table.table-td>

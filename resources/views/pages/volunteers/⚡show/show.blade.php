@@ -70,7 +70,7 @@
                         <img src="{{Storage::disk('s3')->url('images/users/variants/200x200/'.basename($volunteer->profile_image))}}" alt="{{__('admin/volunteers.profile_image')}}"
                              class="border-r-small profile-img">
                     @else
-                        <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/volunteers.profile_image')}}"
+                        <img src="{!! asset('assets/content/default.jpg') !!}" alt="{{__('admin/volunteers.profile_image')}}"
                              class="border-r-small profile-img">
                     @endif
                 </x-definition>
