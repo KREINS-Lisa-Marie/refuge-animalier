@@ -69,17 +69,15 @@ new class extends Component
         $this->gallery_images = array_values($this->gallery_images);        //faut renumérer par ce que sinon ça bug
     }
 
-    public $new_gallery_images =[];
+    public $new_gallery_image =null;
 
     public function updatedNewGalleryImages()
     {
-        if (is_array($this->new_gallery_images)){
-            foreach ($this->new_gallery_images as $image) {
-                $this->gallery_images[] = $image;
-            }   // ajouter les nouvelles images au array
-        }
-        $this->new_gallery_images = [];
-        //vider array après
+        if ($this->new_gallery_image){
+            $this->gallery_images[] = $this->new_gallery_image;
+        }   // ajouter les nouvelles images au array
+        $this->new_gallery_image =null;
+        //vider après
     }
 
 
