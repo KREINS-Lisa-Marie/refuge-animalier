@@ -118,6 +118,8 @@ new #[Layout('layouts.app')] class extends Component
 
     public function store(): void
     {
+        //dd($this->show_image);
+
         $this->authorize('create', \App\Models\Animal::class);
 
         $gender = [
@@ -152,7 +154,8 @@ new #[Layout('layouts.app')] class extends Component
 
 
         if ($this->show_image){
-            $show_image_path = $this->show_image->store(config('animalimage.originals_path'), 's3');
+           $show_image_path = $this->show_image->store(config('animalimage.originals_path'), 's3');
+//            $show_image_path = $this->show_image->store(config('animalimage.originals_path'), 'public');
 
             $sizes = config('animalimage.sizes');
             $compression = config('animalimage.jpg_compression');
@@ -161,6 +164,7 @@ new #[Layout('layouts.app')] class extends Component
             $filename = basename($show_image_path); // = juste le nom de l'image sans les dossiers etc
             $image = Image::decode(          //marche pas avec read
                 Storage::disk('s3')->get($show_image_path)
+//                Storage::disk('public')->get($show_image_path)
             );
 
             $extension = config('animalimage.jpg_image_type');
@@ -174,6 +178,7 @@ new #[Layout('layouts.app')] class extends Component
                     $size['height']
                 );
                 \Storage::disk('s3')->put($variant_path.'/'.$filename,
+//                \Storage::disk('public')->put($variant_path.'/'.$filename,
                     $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
             }
 
@@ -182,7 +187,7 @@ new #[Layout('layouts.app')] class extends Component
         else{
             $show_image_path = null;
         }
-
+        //dd($show_image_path);
 
         //gallerie
 
@@ -191,8 +196,34 @@ new #[Layout('layouts.app')] class extends Component
         if ($this->gallery_images) {
             foreach ($this->gallery_images as $gallery_image) {
                 $gallery_image_path = $gallery_image->store(config('animalimage.originals_path'), 's3');
-                \App\Jobs\ProcessAnimalImage::dispatch($gallery_image);
+                //\App\Jobs\ProcessAnimalImage::dispatch($gallery_image);
                 /* J'utilise un job car pour la gallerie l'upload peut durer longtemps et bloquer ou bugger la page. Comme ça l'utilisateur peut continuer comme normal*/
+
+                $sizes = config('animalimage.sizes');
+                $compression = config('animalimage.jpg_compression');
+
+
+                $filename = basename($gallery_image_path); // = juste le nom de l'image sans les dossiers etc
+                $image = Image::decode(          //marche pas avec read
+                //Storage::disk('s3')->get($this->image_path)
+                    Storage::disk('s3')->get($gallery_image_path)
+                );
+
+                $extension = config('animalimage.jpg_image_type');
+
+                foreach ($sizes as $size){
+                    $variant = clone $image;
+                    $variant->scale($size['width']);
+                    $variant_path = sprintf(
+                        config('animalimage.variants_path_pattern'),
+                        $size['width'],
+                        $size['height']
+                    );
+                    //\Storage::disk('s3')->put($variant_path.'/'.$filename,
+                    \Storage::disk('s3')->put($variant_path . '/' . $filename,
+                        $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
+                }
+
 
                 $gallery_images_paths[] = $gallery_image_path;   // ajouter chaque image au array
             }
