@@ -4,7 +4,7 @@
     </label>
     <input type="hidden" name="MAX_FILE_SIZE" value="3000000000"/>
     <input type="file" wire:model.live="{{$wire}}" id="{{$name}}" name="{{$name}}"
-           class="file-input background-white border-r-big" >
+           class="file-input background-white border-r-big" multiple >
     @error($name)
     <p class="error">
         {{$message}}

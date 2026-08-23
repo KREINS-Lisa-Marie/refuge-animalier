@@ -102,15 +102,14 @@ new #[Layout('layouts.app')] class extends Component
         $this->gallery_images = array_values($this->gallery_images);        //faut renumérer par ce que sinon ça bug
     }
 
-    public $newGalleryImage = null;
+    public $new_gallery_image = null;
 
     public function updatedNewGalleryImage()
     {
-        //dd($this->newGalleryImage);
-        if ($this->newGalleryImage) {
-            $this->gallery_images[] = $this->newGalleryImage;
-            $this->newGalleryImage = null;
-        //vider array après
+        dd($this->new_gallery_image);
+        if ($this->new_gallery_image) {
+            $this->gallery_images[] = $this->new_gallery_image;
+            $this->new_gallery_image = null;
         }
     }
 
