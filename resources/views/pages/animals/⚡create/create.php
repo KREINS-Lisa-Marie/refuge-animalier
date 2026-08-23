@@ -106,6 +106,7 @@ new #[Layout('layouts.app')] class extends Component
 
     public function updatedNewGalleryImage()
     {
+        dd($this->new_gallery_image);
         if ($this->new_gallery_image) {
             $this->gallery_images[] = $this->new_gallery_image;
             $this->new_gallery_image = null;
