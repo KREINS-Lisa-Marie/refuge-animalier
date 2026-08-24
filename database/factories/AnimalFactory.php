@@ -17,7 +17,6 @@ class AnimalFactory extends Factory
 
         $sex = [Sex::Male->value, Sex::Female->value];
         $state = [AnimalState::Adoptable->value, AnimalState::Adopted->value, AnimalState::ProcessingAdoption->value, AnimalState::InTreatment->value];
-        $gallery = fake()->boolean(50) ? ['images/animals/originals/default.jpeg'] : [];
         $species = ['dog', 'cat','rabbit', 'hamster'];
 
         return [
@@ -31,8 +30,8 @@ class AnimalFactory extends Factory
             'character' => fake()->word(),
             'state' => fake()->randomElement($state),
             'description' => fake()->text(),
-            'show_image' => fake()->boolean(50) ? null : 'assets/img/default.jpg',
-            'gallery_images' => $gallery,
+            'show_image' => null,
+            'gallery_images' => null,
             'internal_notes' => fake()->text(),
             'modification_request' => fake()->text(),
             'published_animal'=> fake()->boolean(50) ? '1': '0',

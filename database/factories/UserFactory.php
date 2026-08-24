@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'phone'=> fake()->e164PhoneNumber(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
-            'profile_image' => fake()->imageUrl(),
+            'profile_image' => null,
             'is_admin' => fake()->boolean(50) ? '1': '0',
         ];
     }
