@@ -96,6 +96,7 @@
                     @if($animal->show_image)
                         <img src="{{Storage::disk('s3')->url('images/animals/variants/100x100/'.basename($animal->show_image))}}" alt="{{__('admin/animals.animal_image')}}"
                              class="border-r-big animal-img">
+{{--                        <img src="{!! asset('storage/images/animals/variants/100x100/'.basename($animal->show_image)) !!}" alt="{{__('admin/animals.animal_image')}}"  class="border-r-big animal-img">--}}
                     @else
                         <img src="{!! asset('assets/content/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" width="100" height="100"
                              class="border-r-big animal-img">
@@ -107,7 +108,7 @@
                 <x-admin.table.table-td class="table-state go_front">
                     <span class="show-web">{{__('admin/animals.state_title')}}</span>
                     @can('update', $animal)
-                    <select name="state" id="state" wire:change="updateState({{ $animal->id }}, $event.target.value)">
+                    <select name="state" id="state-{{ $animal->id }}" wire:change="updateState({{ $animal->id }}, $event.target.value)">
                         <option value="adopted" @selected($animal->state === 'adopted')>{{__('admin/animals.adopted') }}</option>
                         <option value="adoptable" @selected($animal->state === 'adoptable')>{{__('admin/animals.adoptable') }}</option>
                         <option value="in_treatment" @selected($animal->state === 'in_treatment')>{{__('admin/animals.in_treatment')}}</option>

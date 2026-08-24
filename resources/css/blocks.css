@@ -2511,7 +2511,7 @@ li:has(.error-no-animal){
 
 .go_front{
     z-index: 100;
-    select#state{
+    select[name="state"]{
         background-color: var(--yellow);
         color: var(--black);
         padding: var(--margin-8);
