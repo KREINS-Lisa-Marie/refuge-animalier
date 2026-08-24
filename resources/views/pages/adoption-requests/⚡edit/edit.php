@@ -49,6 +49,7 @@ new class extends Component
             'animal_id' => 'required|string',
             'phone' => 'required|string|max:255',
             'address' => 'max:255|string',
+            'message' => 'string',
             'state' => 'string|max:255',
             'comment' => 'string|max:255',
 
@@ -64,7 +65,7 @@ new class extends Component
             'address' => $validated_data['address'],
             'message' => $this->request->message,
             'state' => $validated_data['state'],
-            'comment' => $this->request->comment,
+            'comment' => $validated_data['comment'],
         ]);
 
         $this->redirect(route('pages::adoption-requests.index', ['locale' => app()->getLocale()]), navigate: false);        // car je veux reload
