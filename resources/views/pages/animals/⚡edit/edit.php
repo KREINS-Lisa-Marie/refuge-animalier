@@ -110,12 +110,12 @@ new class extends Component
         ];
 
         if (!is_string($this->show_image)){
-            $validation_rules['show_image'] =  'image|nullable|mimes:jpg,jpeg,png,webp';
+            $validation_rules['show_image'] =  'image|nullable|mimes:jpg,jpeg,png,webp|max:2048';
         }
 
         foreach ($this->gallery_images as $index => $img){
         if (!is_string($img)){
-            $validation_rules["gallery_images.$index"] =  'image|nullable|mimes:jpg,jpeg,png,webp';
+            $validation_rules["gallery_images.$index"] =  'image|nullable|mimes:jpg,jpeg,png,webp|max:2048';
         }
         }
 
