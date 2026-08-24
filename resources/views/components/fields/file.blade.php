@@ -5,7 +5,7 @@
     <input type="hidden" name="MAX_FILE_SIZE" value="3000000000"/>
     <input type="file" wire:model.blur="{{$wire}}" id="{{$name}}" name="{{$name}}"
            class="file-input background-white border-r-big">
-    @error("{{$name}}")
+    @error($name)
     <p class="error">
         {{$message}}
     </p>
