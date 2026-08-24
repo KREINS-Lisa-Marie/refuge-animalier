@@ -110,9 +110,11 @@
                     </li>
                 @endforeach
             @else
-                <p>
+                <li>
+                    <p>
                     {{__('admin/animals.no_image_available')}}
-                </p>
+                    </p>
+                </li>
             @endif
         </ul>
     </section>
