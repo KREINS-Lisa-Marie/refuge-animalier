@@ -143,12 +143,12 @@ new #[Layout('layouts.app')] class extends Component
             'character'=>'string|nullable',
             'state'=>'string|required',
             'description'=>'string|nullable',
-            'show_image'=>'image|nullable|mimes:jpg,jpeg,png,webp',
+            'show_image'=>'image|nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'internal_notes'=>'string|nullable',
             'modification_request'=>'string|nullable',
             'published_animal'=>'required|boolean',
             'gallery_images'=>'array|nullable|max:3',
-            'gallery_images.*'=>'image|nullable|mimes:jpg,jpeg,png,webp',
+            'gallery_images.*'=>'image|nullable|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
 
@@ -263,5 +263,5 @@ new #[Layout('layouts.app')] class extends Component
 /*
  * https://laravel.com/framework/docs/13.x/queues#creating-jobs
  * https://laravel.com/framework/docs/13.x/queues#dispatching-jobs
- *
+ * https://laravel.com/cloud/docs/environments#php-memory-limit
  * */
