@@ -63,7 +63,7 @@
                     {{__('public/animal.age')}}
                 </x-definition-term>
                 <x-definition>
-                    {{abs(floor(now()->diffInYears($animal->age))) >= 1 ? abs(floor(now()->diffInYears($animal->age))) :  '<1 An(s)'  }}
+                    {{\Carbon\Carbon::parse($animal->age)->age >= 1 ? (\Carbon\Carbon::parse($animal->age)->age).' '.__('public/home.years') :  '<1 An(s)'  }}
 
 
 
@@ -187,3 +187,5 @@
     </section>
     @endif
 </x-public.app>
+{{--https://stackoverflow.com/questions/35524482/calculate-age-from-date-stored-in-database-in-y-m-d-using-laravel-5-2
+//--}}
