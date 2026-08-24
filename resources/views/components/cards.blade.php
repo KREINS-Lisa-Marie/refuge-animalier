@@ -15,7 +15,7 @@
     @if($petimg)
         <img src="{{Storage::disk('s3')->url('images/animals/variants/334x334/'.basename($petimg))}}" alt="Image de {{$petimg}}" class="border-r-small m-b-24 card-img" width="288" height="288" itemprop="image">
     @else
-        <img src="{!! asset('assets/img/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" class="border-r-small m-b-24 card-img" height="288" width="288" itemprop="image">
+        <img src="{!! asset('assets/content/default.jpg') !!}" alt="{{__('admin/animals.animal_image')}}" class="border-r-small m-b-24 card-img" height="288" width="288" itemprop="image">
     @endif
 
     <div>
