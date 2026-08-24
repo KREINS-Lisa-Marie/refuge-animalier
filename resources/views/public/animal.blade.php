@@ -106,7 +106,7 @@
             @if(!empty($animal->gallery_images))
                 @foreach($animal->gallery_images as $image )
                     <li class="flex-gap-32">
-                        <img src="{{Storage::disk('s3')->url('images/animals/variants/300x300/'.basename($image))}}" alt="Image de {{$animal->animal_name}}" class="border-xl public-animals-circles" width="300" height="300">
+                        <img src="{{Storage::disk('s3')->url('images/animals/variants/334x334/'.basename($image))}}" alt="Image de {{$animal->animal_name}}" class="border-xl public-animals-circles" width="334" height="334">
                     </li>
                 @endforeach
             @else
