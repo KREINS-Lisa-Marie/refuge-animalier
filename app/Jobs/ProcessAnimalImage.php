@@ -14,7 +14,7 @@ class ProcessAnimalImage implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct( public string $image_path)
+    public function __construct( public string $gallery_image_path)
     {
 
     }
@@ -25,27 +25,30 @@ class ProcessAnimalImage implements ShouldQueue
     public function handle(): void
     {
 
-        $sizes = config('animalimage.sizes');
-        $compression = config('animalimage.jpg_compression');
+
+                $sizes = config('animalimage.sizes');
+                $compression = config('animalimage.jpg_compression');
 
 
-        $filename = basename($this->image_path); // = juste le nom de l'image sans les dossiers etc
-        $image = Image::decode(          //marche pas avec read
-            Storage::disk('s3')->get($this->image_path)
-        );
+                $filename = basename($this->gallery_image_path); // = juste le nom de l'image sans les dossiers etc
+                $image = Image::decode(          //marche pas avec read
+                //Storage::disk('s3')->get($this->image_path)
+                    Storage::disk('s3')->get($this->gallery_image_path)
+                );
 
-        $extension = config('animalimage.jpg_image_type');
+                $extension = config('animalimage.jpg_image_type');
 
-        foreach ($sizes as $size){
-            $variant = clone $image;
-            $variant->scale($size['width']);
-            $variant_path = sprintf(
-                config('animalimage.variants_path_pattern'),
-                $size['width'],
-                $size['height']
-            );
-            \Storage::disk('s3')->put($variant_path.'/'.$filename,
-                $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
-        }
+                foreach ($sizes as $size){
+                    $variant = clone $image;
+                    $variant->scale($size['width']);
+                    $variant_path = sprintf(
+                        config('animalimage.variants_path_pattern'),
+                        $size['width'],
+                        $size['height']
+                    );
+                    //\Storage::disk('s3')->put($variant_path.'/'.$filename,
+                    \Storage::disk('s3')->put($variant_path . '/' . $filename,
+                        $variant->encodeUsingFormat(\Intervention\Image\Format::JPEG, quality: $compression));
+                }
     }
 }
