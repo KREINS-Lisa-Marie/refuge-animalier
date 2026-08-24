@@ -29,25 +29,25 @@
             <div class="volunteers-fields">
                 <div class="col">
                     <x-fields.text id="first_name" name="first_name" value="" placeholder="Ex: John" wire="first_name">
-                        {{__('admin/volunteers.firstname')}}
+                        {{__('admin/volunteers.firstname')}}*
                     </x-fields.text>
                     <x-fields.text id="last_name" name="last_name" value="" placeholder="Ex: Doe" wire="last_name">
-                        {{__('admin/volunteers.lastname')}}
+                        {{__('admin/volunteers.lastname')}}*
                     </x-fields.text>
                     <x-fields.email id="email" name="email" value="" placeholder="Ex: doe@doe.com" wire="email">
-                        {{__('admin/volunteers.email')}}
+                        {{__('admin/volunteers.email')}}*
                     </x-fields.email>
                     <x-fields.phone id="phone" name="phone" value="" placeholder="Ex: 038438293" wire="phone">
-                        {{__('admin/volunteers.phone_number')}}
+                        {{__('admin/volunteers.phone_number')}}*
                     </x-fields.phone>
                 </div>
                 <div class="col">
-                    <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}" :options="$role_options" wire="is_admin"/>
+                    <x-select select_name="is_admin" label="{{__('admin/volunteers.role')}}*" :options="$role_options" wire="is_admin"/>
                     <x-fields.password wire="password">
-                        {{__('admin/volunteers.password')}}
+                        {{__('admin/volunteers.password')}}*
                     </x-fields.password>
                     <x-fields.password-confirmation wire="password_confirmation">
-                        {{__('admin/volunteers.password')}}
+                        {{__('admin/profile.password_confirmation')}}*
                     </x-fields.password-confirmation>
                     <x-fields.file name_id="profile_image" wire="profile_image" name="profile_image">
                         {{__('admin/volunteers.profile_image')}}
