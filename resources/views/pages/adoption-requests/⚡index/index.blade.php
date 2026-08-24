@@ -115,8 +115,8 @@
         </div>
 
         @if($openRequest && $showModal )
-        <dl class="modal-information">
-            <div class="grid-name">
+        <div class="modal-information">
+            <dl class="grid-name">
                 <x-definition-term>
                     {{__('admin/adoption-requests.adoption_request_for')}}
                 </x-definition-term>
@@ -130,9 +130,9 @@
                 <x-definition>
                     {!! $openRequest->last_name !!} {!! $openRequest->first_name !!}
                 </x-definition>
-            </div>
+            </dl>
 
-            <div class="grid-subject">
+            <dl class="grid-subject">
                 <x-definition-term>
                     {{__('admin/messages.date')}}
                 </x-definition-term>
@@ -145,9 +145,9 @@
                 <x-definition>
                     {!! $openRequest->address !!}
                 </x-definition>
-            </div>
+            </dl>
 
-            <div class="grid-email">
+            <dl class="grid-email">
                 <x-definition-term>
                     {{__('admin/messages.email')}}
                 </x-definition-term>
@@ -197,28 +197,28 @@
                             </x-definition>
                         @endcan
 
-            </div>
+            </dl>
 
 
-            <div class="grid-date">
+            <dl class="grid-date">
                 <x-definition-term class="grid-message">
                     {{__('admin/messages.message')}}
                 </x-definition-term>
                 <x-definition>
                     {!! $openRequest->message !!}
                 </x-definition>
-            </div>
+            </dl>
 
-            <div class="grid-state request-comment">
+            <dl class="grid-state request-comment">
                 <x-definition-term>
                     {{__('admin/adoption-requests.comment')}}
                 </x-definition-term>
                 <x-definition>
                     {!! $openRequest->comment !!}
                 </x-definition>
-            </div>
+            </dl>
 
-        </dl>
+        </div>
         <div class="modal-buttons">
             @can('update', $openRequest)
             <button wire:click="requestDeny" class="modal-button fw-medium background-refuse ">
